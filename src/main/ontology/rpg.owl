@@ -1,0 +1,381 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY skos "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY core "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rpg "http://data.travellerrpg.com/ontology/rpg#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://data.travellerrpg.com/ontology/rpg#"
+     xml:base="http://data.travellerrpg.com/ontology/rpg"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:core="http://www.w3.org/2004/02/skos/core#"
+     xmlns:skos="http://xmlns.com/foaf/0.1/"
+     xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#">
+    <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/rpg">
+        <core:scopeNote xml:lang="en">RPGs represent imaginary situations.
+
+Data available on the semantic web represent a wide variety of resources, from the wholely imaginary to the completely real.
+
+This ontology imports SKOS for knowledge descriptions and FOAF for player information. Otherwise, it keeps the real world at a distance, so that difficulties with software confusing a cyberpunk description of London and the real London are kept to a minimum.</core:scopeNote>
+        <rdfs:comment xml:lang="en">The RPG ontology contains abstract descriptions of common RPG concepts, such as Characters, Skills, NPCs etc. A specigic RPG will specialise these concepts to fit the RPG.
+</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://www.travellerrpg.com/CotI/Discuss/showthread.php?t=30041"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+        <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <terms:creator rdf:resource="https://github.com/charvolant"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#hasAttribute -->
+
+    <owl:ObjectProperty rdf:about="&rpg;hasAttribute">
+        <rdfs:label xml:lang="en">has attribute</rdfs:label>
+        <rdfs:comment xml:lang="en">Gives the attributes that describe an actor</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Actor"/>
+        <rdfs:range rdf:resource="&rpg;Attribute"/>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#hasFaculty -->
+
+    <owl:ObjectProperty rdf:about="&rpg;hasFaculty">
+        <rdfs:comment xml:lang="en">Indicates that an actor has a specific faculty available</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Actor"/>
+        <rdfs:range rdf:resource="&rpg;FacultyLevel"/>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#hasFeature -->
+
+    <owl:ObjectProperty rdf:about="&rpg;hasFeature">
+        <rdfs:label xml:lang="en">has feature</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that a character possesses a certain feature.</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Actor"/>
+        <rdfs:range rdf:resource="&rpg;Feature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#hasSense -->
+
+    <owl:ObjectProperty rdf:about="&rpg;hasSense">
+        <rdfs:label xml:lang="en">has sense</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that an actor has a specific sense available</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Actor"/>
+        <rdfs:range rdf:resource="&rpg;SenseLevel"/>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#hasSkill -->
+
+    <owl:ObjectProperty rdf:about="&rpg;hasSkill">
+        <rdfs:label xml:lang="en">has skill</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that an actor has a level of a specific skill</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Actor"/>
+        <rdfs:range rdf:resource="&rpg;SkillLevel"/>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#isPortrayedBy -->
+
+    <owl:ObjectProperty rdf:about="&rpg;isPortrayedBy">
+        <rdfs:comment xml:lang="en">Indicates that a character is portrayed by a specific participant.</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Character"/>
+        <rdfs:range rdf:resource="&rpg;Participant"/>
+        <owl:inverseOf rdf:resource="&rpg;portrays"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#portrays -->
+
+    <owl:ObjectProperty rdf:about="&rpg;portrays">
+        <rdfs:label xml:lang="en">Portrays</rdfs:label>
+        <rdfs:comment xml:lang="en">A participant portrays a character, speaking for the characters actions and controling the character&apos;s decsiions.</rdfs:comment>
+        <rdfs:range rdf:resource="&rpg;Character"/>
+        <rdfs:domain rdf:resource="&rpg;Participant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#template -->
+
+    <owl:ObjectProperty rdf:about="&rpg;template">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">template</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that the subject uses the object as a template.</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;GameEntity"/>
+        <rdfs:range rdf:resource="&rpg;GameEntity"/>
+        <rdfs:range rdf:resource="&rpg;Template"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Actor -->
+
+    <owl:Class rdf:about="&rpg;Actor">
+        <rdfs:label xml:lang="en">Actor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;GameEntity"/>
+        <rdfs:comment xml:lang="en">Something that can be interacted with within the game. 
+
+Actors can be modelled within the game to various degrees of fidelity. For example, a player character may be more detailed than an animal that the character encounters.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Attribute -->
+
+    <owl:Class rdf:about="&rpg;Attribute">
+        <rdfs:label xml:lang="en">Attribute</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
+        <rdfs:comment xml:lang="en">A descriptive attribute of a character.</rdfs:comment>
+        <core:scopeNote xml:lang="en">Attributes are generally fixed things about a character or things which change very slowly. 
+
+Attributes are generally central to the game system and are descibed via subclassing for a specific RPG, rather than by referencing individuals.</core:scopeNote>
+        <core:example xml:lang="en">Examples are strength, size, education, as well as sex, hair colour, etc.</core:example>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Character -->
+
+    <owl:Class rdf:about="&rpg;Character">
+        <rdfs:label xml:lang="en">Character</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Actor"/>
+        <rdfs:comment xml:lang="en">An RPG representation of a person or similar within-game creature capable of making its own decsions. </rdfs:comment>
+        <core:scopeNote xml:lang="en">Characters are usually modelled as something that could be controlled by a player, even if the character is not.</core:scopeNote>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Extra -->
+
+    <owl:Class rdf:about="&rpg;Extra">
+        <rdfs:label xml:lang="en">Extra</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Actor"/>
+        <rdfs:comment xml:lang="en">A game actor modelled to a low level of detail.</rdfs:comment>
+        <core:example xml:lang="en">A wandering monster, a background soldier or a bureaucrat.</core:example>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Faculty -->
+
+    <owl:Class rdf:about="&rpg;Faculty">
+        <rdfs:label xml:lang="en">Faculty</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:comment xml:lang="en">A type of inherent ability or power.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#FacultyLevel -->
+
+    <owl:Class rdf:about="&rpg;FacultyLevel">
+        <rdfs:label xml:lang="en">Faculty Level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
+        <rdfs:comment xml:lang="en">The level of power for an inherent ability or power.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Feature -->
+
+    <owl:Class rdf:about="&rpg;Feature">
+        <rdfs:label xml:lang="en">Feature</rdfs:label>
+        <rdfs:comment xml:lang="en">Something that describes a character: a characteristic, a skill, an ability, etc.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#GameEntity -->
+
+    <owl:Class rdf:about="&rpg;GameEntity">
+        <rdfs:label xml:lang="en">Game Entity</rdfs:label>
+        <rdfs:comment xml:lang="en">Something that exists with the role playing game.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#GameMaster -->
+
+    <owl:Class rdf:about="&rpg;GameMaster">
+        <rdfs:label xml:lang="en">Game Master</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Participant"/>
+        <rdfs:comment xml:lang="en">The participant responsible for creating and managing the situation that forms the role playing game.
+
+The game master has, in theory if not in practice, complete knowledge of the game world. The game master is also generally responsible for refereeing decsicions within the game.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Item -->
+
+    <owl:Class rdf:about="&rpg;Item">
+        <rdfs:label xml:lang="en">Item</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;GameEntity"/>
+        <rdfs:comment xml:lang="en">An object within the game that can be used or owned by an actor.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#NonPlayerCharacter -->
+
+    <owl:Class rdf:about="&rpg;NonPlayerCharacter">
+        <rdfs:label>Non-Player Character</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;isPortrayedBy"/>
+                <owl:allValuesFrom rdf:resource="&rpg;GameMaster"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <core:prefLabel>NPC</core:prefLabel>
+        <rdfs:comment xml:lang="en">A character controlled by a game master or some other agent, such as a software program.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Participant -->
+
+    <owl:Class rdf:about="&rpg;Participant">
+        <rdfs:label xml:lang="en">Participant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&skos;Agent"/>
+        <rdfs:comment xml:lang="en">A participant in a role playing game.
+
+Participants are usually a singular Person. However, groups are also possible.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Player -->
+
+    <owl:Class rdf:about="&rpg;Player">
+        <rdfs:label xml:lang="en">Player</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Participant"/>
+        <rdfs:comment xml:lang="en">A player in a role playing game &quot;plays&quot; a one or more characters within the game.
+
+The player has partial knowledge of the game situation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#PlayerCharacter -->
+
+    <owl:Class rdf:about="&rpg;PlayerCharacter">
+        <rdfs:label xml:lang="en">Player Character</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Character"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;isPortrayedBy"/>
+                <owl:allValuesFrom rdf:resource="&rpg;Player"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A character directly controlled by a player.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Sense -->
+
+    <owl:Class rdf:about="&rpg;Sense">
+        <rdfs:label xml:lang="en">Sense</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:comment xml:lang="en">The ability to sense a specific form of phenomenon.</rdfs:comment>
+        <core:example xml:lang="en">Visible light, sound, infravision (infrared light), magic.</core:example>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#SenseLevel -->
+
+    <owl:Class rdf:about="&rpg;SenseLevel">
+        <rdfs:label xml:lang="en">Sense Level</rdfs:label>
+        <rdfs:label xml:lang="en">The ability to sense something at a particular level.
+
+The mehanics of how sense work form part of a specific RPGs mechanics.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Skill -->
+
+    <owl:Class rdf:about="&rpg;Skill">
+        <rdfs:label xml:lang="en">Skill</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:comment xml:lang="en">A type of skill. Skills are learned abilities that can be improved by a character exercising the skill or undergoing training.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#SkillLevel -->
+
+    <owl:Class rdf:about="&rpg;SkillLevel">
+        <rdfs:label xml:lang="en">Skill Level</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
+        <rdfs:comment xml:lang="en">A level of ability in a specific skill.
+
+The way that skill levels are represented are specific to a game system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Template -->
+
+    <owl:Class rdf:about="&rpg;Template">
+        <rdfs:label xml:lang="en">Tempate</rdfs:label>
+        <rdfs:comment xml:lang="en">Something that is a template represents an abstract class-like description of a game item. A template can be used to describe a generic instance of an item. Individual items can inherit from the template and override speicifc elements.
+</rdfs:comment>
+        <core:scopeNote xml:lang="en">Templates can inherit from other templates. The rules on how inheritance is managed are game-specific.</core:scopeNote>
+        <core:scopeNote xml:lang="en">The template class is usually added to other entities to indicate that the entity is for use as a template.</core:scopeNote>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
