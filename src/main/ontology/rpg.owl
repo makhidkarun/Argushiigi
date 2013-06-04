@@ -55,8 +55,8 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     <owl:ObjectProperty rdf:about="&rpg;hasAttribute">
         <rdfs:label xml:lang="en">has attribute</rdfs:label>
         <rdfs:comment xml:lang="en">Gives the attributes that describe an actor</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;Actor"/>
         <rdfs:range rdf:resource="&rpg;Attribute"/>
+        <rdfs:domain rdf:resource="&rpg;GameEntity"/>
         <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
     </owl:ObjectProperty>
     
@@ -66,8 +66,8 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
 
     <owl:ObjectProperty rdf:about="&rpg;hasFaculty">
         <rdfs:comment xml:lang="en">Indicates that an actor has a specific faculty available</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;Actor"/>
         <rdfs:range rdf:resource="&rpg;FacultyLevel"/>
+        <rdfs:domain rdf:resource="&rpg;GameEntity"/>
         <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
     </owl:ObjectProperty>
     
@@ -78,8 +78,19 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     <owl:ObjectProperty rdf:about="&rpg;hasFeature">
         <rdfs:label xml:lang="en">has feature</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that a character possesses a certain feature.</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;Actor"/>
         <rdfs:range rdf:resource="&rpg;Feature"/>
+        <rdfs:domain rdf:resource="&rpg;GameEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#hasMass -->
+
+    <owl:ObjectProperty rdf:about="&rpg;hasMass">
+        <rdfs:label xml:lang="en">mass</rdfs:label>
+        <rdfs:comment xml:lang="en">Gives the basic mass of a game item.</rdfs:comment>
+        <rdfs:range rdf:resource="&rpg;Mass"/>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
     </owl:ObjectProperty>
     
 
@@ -89,7 +100,7 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     <owl:ObjectProperty rdf:about="&rpg;hasSense">
         <rdfs:label xml:lang="en">has sense</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that an actor has a specific sense available</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;Actor"/>
+        <rdfs:domain rdf:resource="&rpg;GameEntity"/>
         <rdfs:range rdf:resource="&rpg;SenseLevel"/>
         <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
     </owl:ObjectProperty>
@@ -101,9 +112,32 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     <owl:ObjectProperty rdf:about="&rpg;hasSkill">
         <rdfs:label xml:lang="en">has skill</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that an actor has a level of a specific skill</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;Actor"/>
+        <rdfs:domain rdf:resource="&rpg;GameEntity"/>
         <rdfs:range rdf:resource="&rpg;SkillLevel"/>
         <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#isInSetting -->
+
+    <owl:ObjectProperty rdf:about="&rpg;isInSetting">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label xml:lang="en">is in setting</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that a setting takes place in the context of a larger setting.</rdfs:comment>
+        <rdfs:range rdf:resource="&rpg;Setting"/>
+        <rdfs:domain rdf:resource="&rpg;Setting"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#isInState -->
+
+    <owl:ObjectProperty rdf:about="&rpg;isInState">
+        <rdfs:label xml:lang="en">is in state</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that a game item is currently in a particular state</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;GameEntity"/>
+        <rdfs:range rdf:resource="&rpg;State"/>
     </owl:ObjectProperty>
     
 
@@ -111,6 +145,7 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     <!-- http://data.travellerrpg.com/ontology/rpg#isPortrayedBy -->
 
     <owl:ObjectProperty rdf:about="&rpg;isPortrayedBy">
+        <rdfs:label xml:lang="en">is portrayed by</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that a character is portrayed by a specific participant.</rdfs:comment>
         <rdfs:domain rdf:resource="&rpg;Character"/>
         <rdfs:range rdf:resource="&rpg;Participant"/>
@@ -122,7 +157,7 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     <!-- http://data.travellerrpg.com/ontology/rpg#portrays -->
 
     <owl:ObjectProperty rdf:about="&rpg;portrays">
-        <rdfs:label xml:lang="en">Portrays</rdfs:label>
+        <rdfs:label xml:lang="en">portrays</rdfs:label>
         <rdfs:comment xml:lang="en">A participant portrays a character, speaking for the characters actions and controling the character&apos;s decsiions.</rdfs:comment>
         <rdfs:range rdf:resource="&rpg;Character"/>
         <rdfs:domain rdf:resource="&rpg;Participant"/>
@@ -166,16 +201,36 @@ Actors can be modelled within the game to various degrees of fidelity. For examp
     
 
 
+    <!-- http://data.travellerrpg.com/ontology/rpg#Adventure -->
+
+    <owl:Class rdf:about="&rpg;Adventure">
+        <rdfs:label xml:lang="en">Adventure</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Setting"/>
+        <rdfs:comment xml:lang="en">A story-level setting for a game, usually with a clear beginning, middle and end.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://data.travellerrpg.com/ontology/rpg#Attribute -->
 
     <owl:Class rdf:about="&rpg;Attribute">
         <rdfs:label xml:lang="en">Attribute</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
-        <rdfs:comment xml:lang="en">A descriptive attribute of a character.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A descriptive attribute of a character or item.</rdfs:comment>
         <core:scopeNote xml:lang="en">Attributes are generally fixed things about a character or things which change very slowly. 
 
 Attributes are generally central to the game system and are descibed via subclassing for a specific RPG, rather than by referencing individuals.</core:scopeNote>
         <core:example xml:lang="en">Examples are strength, size, education, as well as sex, hair colour, etc.</core:example>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Campaign -->
+
+    <owl:Class rdf:about="&rpg;Campaign">
+        <rdfs:label xml:lang="en">Campaign</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Setting"/>
+        <rdfs:comment xml:lang="en">A series of events and adventures featuring a continuing set of chracters and settings.</rdfs:comment>
     </owl:Class>
     
 
@@ -226,7 +281,7 @@ Attributes are generally central to the game system and are descibed via subclas
 
     <owl:Class rdf:about="&rpg;Feature">
         <rdfs:label xml:lang="en">Feature</rdfs:label>
-        <rdfs:comment xml:lang="en">Something that describes a character: a characteristic, a skill, an ability, etc.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Something that describes a character or an item: a characteristic, a skill, an ability, etc.</rdfs:comment>
     </owl:Class>
     
 
@@ -258,6 +313,31 @@ The game master has, in theory if not in practice, complete knowledge of the gam
         <rdfs:label xml:lang="en">Item</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rpg;GameEntity"/>
         <rdfs:comment xml:lang="en">An object within the game that can be used or owned by an actor.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Mass -->
+
+    <owl:Class rdf:about="&rpg;Mass">
+        <rdfs:label xml:lang="en">Mass</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">The basic mass of an item or character.
+
+Generally, this means the most convienient defintiion for role-playing purposes. A character&apos;s mass is their mass in ordingary clothing, without additional items such as armour. A weapon&apos;s mass is generally its mass with a full load of ammunition.
+
+Depending on setting, mass and weight may be two different things. eg. in Zero-G an item has no weight but still has mass. For purely single-world games, the terms are interchanable.</rdfs:comment>
+        <core:altLabel xml:lang="en">Weight</core:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Milieau -->
+
+    <owl:Class rdf:about="&rpg;Milieau">
+        <rdfs:label xml:lang="en">Milieau</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Setting"/>
+        <rdfs:comment xml:lang="en">The large-scale setting of a campaign or an adventure. An outline of the world or universe that the game takes place in.</rdfs:comment>
     </owl:Class>
     
 
@@ -319,6 +399,20 @@ The player has partial knowledge of the game situation.</rdfs:comment>
     
 
 
+    <!-- http://data.travellerrpg.com/ontology/rpg#Rules -->
+
+    <owl:Class rdf:about="&rpg;Rules">
+        <rdfs:label>Rules</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&core;ConceptScheme"/>
+        <rdfs:subClassOf rdf:resource="&skos;Document"/>
+        <rdfs:comment xml:lang="en">A specific set of RPG rules.
+
+Rules can be used to define which sets of rules are compatible with characters, settings, etc.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&rpg;SourceBook"/>
+    </owl:Class>
+    
+
+
     <!-- http://data.travellerrpg.com/ontology/rpg#Sense -->
 
     <owl:Class rdf:about="&rpg;Sense">
@@ -334,10 +428,19 @@ The player has partial knowledge of the game situation.</rdfs:comment>
 
     <owl:Class rdf:about="&rpg;SenseLevel">
         <rdfs:label xml:lang="en">Sense Level</rdfs:label>
-        <rdfs:label xml:lang="en">The ability to sense something at a particular level.
-
-The mehanics of how sense work form part of a specific RPGs mechanics.</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
+        <rdfs:comment xml:lang="en">The ability to sense something at a particular level.
+
+The mehanics of how sense work form part of a specific RPGs mechanics.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Setting -->
+
+    <owl:Class rdf:about="&rpg;Setting">
+        <rdfs:label xml:lang="en">Setting</rdfs:label>
+        <rdfs:comment xml:lang="en">A setting is the stage that an RPG is played on. Settings range in scale from entire universes to the bar in which an adventure takes place. A setting may refer to a location, a time period, a social mileau or any combination.</rdfs:comment>
     </owl:Class>
     
 
@@ -360,6 +463,30 @@ The mehanics of how sense work form part of a specific RPGs mechanics.</rdfs:lab
         <rdfs:comment xml:lang="en">A level of ability in a specific skill.
 
 The way that skill levels are represented are specific to a game system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#SourceBook -->
+
+    <owl:Class rdf:about="&rpg;SourceBook">
+        <rdfs:label xml:lang="en">Source Book</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&skos;Document"/>
+        <rdfs:comment xml:lang="en">Additional information about a setting.
+
+Conceptually, rules define the mechanics of a game and a source book defines the environment to which the rules apply. In practice, an RPG usually consists of a combined set of rules and setting.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&rpg;Rules"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#State -->
+
+    <owl:Class rdf:about="&rpg;State">
+        <rdfs:label xml:lang="en">State</rdfs:label>
+        <rdfs:comment xml:lang="en">A changable status for something in a game.</rdfs:comment>
+        <core:example xml:lang="en">Examples are things like health statistics, unconciosness, asleep for characters and oiut of ammunition for a gun.</core:example>
+        <core:scopeNote xml:lang="en">States are generally strongly connected to the mechanics of an RPG and are generally directly modelled for a specific game.</core:scopeNote>
     </owl:Class>
     
 
