@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rpg "http://data.travellerrpg.com/ontology/rpg/" >
+    <!ENTITY rpg2 "http://data.travellerrpg.com/ontology/rpg#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="urn:x-argushiiri:rpg:test1#"
+     xml:base="urn:x-argushiiri:rpg:test1"
+     xmlns:rpg2="http://data.travellerrpg.com/ontology/rpg#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:rpg="http://data.travellerrpg.com/ontology/rpg/">
+    <owl:Ontology rdf:about="urn:x-argushiiri:rpg:test1">
+        <rdfs:comment xml:lang="en">Test cases for the Argushiiri RPG ontology</rdfs:comment>
+        <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/rpg"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:character1 -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:character1">
+        <rdf:type rdf:resource="&rpg2;Character"/>
+        <rdfs:label xml:lang="en">character 1</rdfs:label>
+        <rpg2:isPortrayedBy rdf:resource="urn:x-argushiiri:rpg:test1:player1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:character2 -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:character2">
+        <rdf:type rdf:resource="&rpg2;Character"/>
+        <rdfs:label xml:lang="en">character 2</rdfs:label>
+        <rpg2:isPortrayedBy rdf:resource="urn:x-argushiiri:rpg:test1:gm1"/>
+        <rpg2:hasSkill rdf:resource="urn:x-argushiiri:rpg:test1:pl10"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:credit -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:credit">
+        <rdf:type rdf:resource="&rpg2;Currency"/>
+        <rdfs:label xml:lang="en">Cr</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:gm1 -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:gm1">
+        <rdf:type rdf:resource="&rpg2;GameMaster"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:label xml:lang="en">game master 1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:mass1 -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:mass1">
+        <rdf:type rdf:resource="&rpg2;Mass"/>
+        <rdfs:label xml:lang="en">mass1</rdfs:label>
+        <rpg2:value rdf:datatype="&xsd;decimal">1.5</rpg2:value>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:mcrcr -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:mcrcr">
+        <rdf:type rdf:resource="&rpg2;ExchangeRate"/>
+        <rdfs:label xml:lang="en">MCr Cr exchage rate</rdfs:label>
+        <rpg2:conversionRatio rdf:datatype="&xsd;decimal">1000000</rpg2:conversionRatio>
+        <rpg2:fixedConversion rdf:datatype="&xsd;boolean">true</rpg2:fixedConversion>
+        <rpg2:toUnit rdf:resource="urn:x-argushiiri:rpg:test1:credit"/>
+        <rpg2:fromUnit rdf:resource="urn:x-argushiiri:rpg:test1:megacredit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:megacredit -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:megacredit">
+        <rdf:type rdf:resource="&rpg2;Currency"/>
+        <rdfs:label xml:lang="en">MCr</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:picklocks -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:picklocks">
+        <rdf:type rdf:resource="&rpg2;Skill"/>
+        <rdfs:label>pick locks</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:pl10 -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:pl10">
+        <rdf:type rdf:resource="&rpg2;SkillLevel"/>
+        <rdfs:label>pl10</rdfs:label>
+        <rpg2:atLevel rdf:datatype="&xsd;integer">10</rpg2:atLevel>
+        <rpg2:inSkillType rdf:resource="urn:x-argushiiri:rpg:test1:picklocks"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:player1 -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:player1">
+        <rdf:type rdf:resource="&rpg2;Player"/>
+        <rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+        <rdfs:label xml:lang="en">player 1</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:price1 -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:price1">
+        <rdf:type rdf:resource="&rpg2;Price"/>
+        <rdfs:label xml:lang="en">price1</rdfs:label>
+        <rpg2:value rdf:datatype="&xsd;integer">100</rpg2:value>
+        <rpg2:unit rdf:resource="urn:x-argushiiri:rpg:test1:credit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- urn:x-argushiiri:rpg:test1:weapon1 -->
+
+    <owl:NamedIndividual rdf:about="urn:x-argushiiri:rpg:test1:weapon1">
+        <rdf:type rdf:resource="&rpg2;Weapon"/>
+        <rdfs:label xml:lang="en">weapon 1</rdfs:label>
+        <rpg2:hasMass rdf:resource="urn:x-argushiiri:rpg:test1:mass1"/>
+        <rpg2:hasPrice rdf:resource="urn:x-argushiiri:rpg:test1:price1"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
