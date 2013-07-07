@@ -24,6 +24,7 @@
      xmlns:skos="http://xmlns.com/foaf/0.1/"
      xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#">
     <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/rpg">
+        <rdfs:label xml:lang="en">Generic Role Playing Game Ontology</rdfs:label>
         <core:scopeNote xml:lang="en">RPGs represent imaginary situations.
 
 Data available on the semantic web represent a wide variety of resources, from the wholely imaginary to the completely real.
@@ -47,30 +48,6 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/rpg:inFeatureType -->
-
-    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/rpg:inFeatureType">
-        <rdfs:label xml:lang="en">in feature type</rdfs:label>
-        <rdfs:comment xml:lang="en">Indicates that a feature is associated with a particular type of feature concept.</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;Feature"/>
-        <rdfs:range rdf:resource="&core;Concept"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/rpg#atFeatureLevel -->
-
-    <owl:ObjectProperty rdf:about="&rpg;atFeatureLevel">
-        <rdfs:label xml:lang="en">at level</rdfs:label>
-        <rdfs:comment xml:lang="en">Gives the level of a feature.
-
-The concept of a &apos;level&apos; is specific to a specific set of RPG rules and is specified further by sub-ontologies. Some features do not have a level associated with them.</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;Feature"/>
-        <rdfs:seeAlso rdf:resource="&rpg;atLevel"/>
-    </owl:ObjectProperty>
     
 
 
@@ -101,7 +78,7 @@ The concept of a &apos;level&apos; is specific to a specific set of RPG rules an
     <owl:ObjectProperty rdf:about="&rpg;hasFaculty">
         <rdfs:label xml:lang="en">has faculty</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that an actor has a specific faculty available</rdfs:comment>
-        <rdfs:range rdf:resource="&rpg;FacultyLevel"/>
+        <rdfs:range rdf:resource="&rpg;Faculty"/>
         <rdfs:domain rdf:resource="&rpg;GameEntity"/>
         <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
     </owl:ObjectProperty>
@@ -149,7 +126,7 @@ If left further unspecified, this generallty means the common, in-game price.</r
         <rdfs:label xml:lang="en">has sense</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that an actor has a specific sense available</rdfs:comment>
         <rdfs:domain rdf:resource="&rpg;GameEntity"/>
-        <rdfs:range rdf:resource="&rpg;SenseLevel"/>
+        <rdfs:range rdf:resource="&rpg;Sense"/>
         <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
     </owl:ObjectProperty>
     
@@ -172,7 +149,7 @@ If left further unspecified, this generallty means the common, in-game price.</r
         <rdfs:label xml:lang="en">has skill</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that an actor has a level of a specific skill</rdfs:comment>
         <rdfs:domain rdf:resource="&rpg;GameEntity"/>
-        <rdfs:range rdf:resource="&rpg;SkillLevel"/>
+        <rdfs:range rdf:resource="&rpg;Skill"/>
         <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
     </owl:ObjectProperty>
     
@@ -183,7 +160,18 @@ If left further unspecified, this generallty means the common, in-game price.</r
     <owl:ObjectProperty rdf:about="&rpg;inFacultyType">
         <rdfs:label xml:lang="en">in faculty</rdfs:label>
         <rdfs:comment xml:lang="en">Gives the type of faculty that a faculty level refers to.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg:inFeatureType"/>
+        <rdfs:subPropertyOf rdf:resource="&rpg;inFeatureType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#inFeatureType -->
+
+    <owl:ObjectProperty rdf:about="&rpg;inFeatureType">
+        <rdfs:label xml:lang="en">in feature type</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that a feature is associated with a particular type of feature concept.</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Feature"/>
+        <rdfs:range rdf:resource="&core;Concept"/>
     </owl:ObjectProperty>
     
 
@@ -193,9 +181,9 @@ If left further unspecified, this generallty means the common, in-game price.</r
     <owl:ObjectProperty rdf:about="&rpg;inSenseType">
         <rdfs:label xml:lang="en">in sense</rdfs:label>
         <rdfs:comment xml:lang="en">Gives the speciifc sense that a sense level gives the capability level of.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg:inFeatureType"/>
-        <rdfs:range rdf:resource="&rpg;Sense"/>
-        <rdfs:domain rdf:resource="&rpg;SenseLevel"/>
+        <rdfs:domain rdf:resource="&rpg;Sense"/>
+        <rdfs:range rdf:resource="&rpg;SenseType"/>
+        <rdfs:subPropertyOf rdf:resource="&rpg;inFeatureType"/>
     </owl:ObjectProperty>
     
 
@@ -205,9 +193,9 @@ If left further unspecified, this generallty means the common, in-game price.</r
     <owl:ObjectProperty rdf:about="&rpg;inSkillType">
         <rdfs:label xml:lang="en">in skill</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that a skill level is in a specific skill.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg:inFeatureType"/>
-        <rdfs:range rdf:resource="&rpg;Skill"/>
-        <rdfs:domain rdf:resource="&rpg;SkillLevel"/>
+        <rdfs:domain rdf:resource="&rpg;Skill"/>
+        <rdfs:range rdf:resource="&rpg;SkillType"/>
+        <rdfs:subPropertyOf rdf:resource="&rpg;inFeatureType"/>
     </owl:ObjectProperty>
     
 
@@ -243,6 +231,27 @@ If left further unspecified, this generallty means the common, in-game price.</r
         <rdfs:domain rdf:resource="&rpg;Character"/>
         <rdfs:range rdf:resource="&rpg;Participant"/>
         <owl:inverseOf rdf:resource="&rpg;portrays"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#level -->
+
+    <owl:ObjectProperty rdf:about="&rpg;level">
+        <rdfs:label xml:lang="en">level</rdfs:label>
+        <rdfs:comment xml:lang="en">Gives the level of a feature or temporary state.
+
+The concept of a &apos;level&apos; is specific to a specific set of RPG rules and is specified further by sub-ontologies. Some features do not have a level associated with them.</rdfs:comment>
+        <core:note xml:lang="en">Use a level when it refers to a distinct category of abilities or state. If a simple numeric value is needed, use value.</core:note>
+        <rdfs:seeAlso rdf:resource="&rpg;value"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rpg;Feature"/>
+                    <rdf:Description rdf:about="&rpg;State"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -286,8 +295,15 @@ If left further unspecified, this generallty means the common, in-game price.</r
     <owl:ObjectProperty rdf:about="&rpg;unit">
         <rdfs:label xml:lang="en">unit</rdfs:label>
         <rdfs:comment xml:lang="en">The unit a quanity is expressed in.</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;Attribute"/>
         <rdfs:range rdf:resource="&rpg;Unit"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rpg;Attribute"/>
+                    <rdf:Description rdf:about="&rpg;State"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -300,16 +316,6 @@ If left further unspecified, this generallty means the common, in-game price.</r
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/rpg#atLevel -->
-
-    <owl:DatatypeProperty rdf:about="&rpg;atLevel">
-        <rdfs:label xml:lang="en">at level</rdfs:label>
-        <rdfs:comment xml:lang="en">Gives the simple level of a skill, where a level is just a numeric value.</rdfs:comment>
-        <rdfs:seeAlso rdf:resource="&rpg;atFeatureLevel"/>
-    </owl:DatatypeProperty>
     
 
 
@@ -340,9 +346,19 @@ If left further unspecified, this generallty means the common, in-game price.</r
 
     <owl:DatatypeProperty rdf:about="&rpg;value">
         <rdfs:label xml:lang="en">value</rdfs:label>
-        <rdfs:comment xml:lang="en">The value of a quanity.</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">The value of a feature or state.
+
+Some features or states do not have a value associated with them, in which case the value is not needed.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="&rpg;level"/>
         <rdfs:range rdf:resource="&xsd;decimal"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&rpg;Feature"/>
+                    <rdf:Description rdf:about="&rpg;State"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -432,6 +448,13 @@ Attributes are generally central to the game system and are descibed via subclas
         <rdfs:subClassOf rdf:resource="&rpg;SettingState"/>
         <rdfs:subClassOf>
             <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
+                <owl:onClass rdf:resource="&rpg;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
                 <owl:onProperty rdf:resource="&rpg;toUnit"/>
                 <owl:onClass rdf:resource="&rpg;Unit"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -442,13 +465,6 @@ Attributes are generally central to the game system and are descibed via subclas
                 <owl:onProperty rdf:resource="&rpg;conversionRatio"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;decimal"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
-                <owl:onClass rdf:resource="&rpg;Unit"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -481,14 +497,14 @@ Attributes are generally central to the game system and are descibed via subclas
         <rdfs:subClassOf rdf:resource="&rpg;Conversion"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&rpg;toUnit"/>
+                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
                 <owl:onClass rdf:resource="&rpg;Currency"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
+                <owl:onProperty rdf:resource="&rpg;toUnit"/>
                 <owl:onClass rdf:resource="&rpg;Currency"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
@@ -513,24 +529,24 @@ Attributes are generally central to the game system and are descibed via subclas
 
     <owl:Class rdf:about="&rpg;Faculty">
         <rdfs:label xml:lang="en">Faculty</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&core;Concept"/>
-        <rdfs:comment xml:lang="en">A type of inherent ability or power.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/rpg#FacultyLevel -->
-
-    <owl:Class rdf:about="&rpg;FacultyLevel">
-        <rdfs:label xml:lang="en">Faculty Level</rdfs:label>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&rpg;inFacultyType"/>
-                <owl:someValuesFrom rdf:resource="&rpg;Faculty"/>
+                <owl:someValuesFrom rdf:resource="&rpg;FacultyType"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
         <rdfs:comment xml:lang="en">The level of power for an inherent ability or power.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#FacultyType -->
+
+    <owl:Class rdf:about="&rpg;FacultyType">
+        <rdfs:label xml:lang="en">Faculty Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:comment xml:lang="en">A type of inherent ability or power.</rdfs:comment>
     </owl:Class>
     
 
@@ -720,27 +736,27 @@ Rules can be used to define which sets of rules are compatible with characters, 
 
     <owl:Class rdf:about="&rpg;Sense">
         <rdfs:label xml:lang="en">Sense</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&core;Concept"/>
-        <rdfs:comment xml:lang="en">The ability to sense a specific form of phenomenon.</rdfs:comment>
-        <core:example xml:lang="en">Visible light, sound, infravision (infrared light), magic.</core:example>
-    </owl:Class>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/rpg#SenseLevel -->
-
-    <owl:Class rdf:about="&rpg;SenseLevel">
-        <rdfs:label xml:lang="en">Sense Level</rdfs:label>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&rpg;inSenseType"/>
-                <owl:someValuesFrom rdf:resource="&rpg;Sense"/>
+                <owl:someValuesFrom rdf:resource="&rpg;SenseType"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
         <rdfs:comment xml:lang="en">The ability to sense something at a particular level.
 
 The mehanics of how sense work form part of a specific RPGs mechanics.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#SenseType -->
+
+    <owl:Class rdf:about="&rpg;SenseType">
+        <rdfs:label xml:lang="en">Sense Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:comment xml:lang="en">The ability to sense a specific form of phenomenon.</rdfs:comment>
+        <core:example xml:lang="en">Visible light, sound, infravision (infrared light), magic.</core:example>
     </owl:Class>
     
 
@@ -768,20 +784,10 @@ The mehanics of how sense work form part of a specific RPGs mechanics.</rdfs:com
 
     <owl:Class rdf:about="&rpg;Skill">
         <rdfs:label xml:lang="en">Skill</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&core;Concept"/>
-        <rdfs:comment xml:lang="en">A type of skill. Skills are learned abilities that can be improved by a character exercising the skill or undergoing training.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/rpg#SkillLevel -->
-
-    <owl:Class rdf:about="&rpg;SkillLevel">
-        <rdfs:label xml:lang="en">Skill Level</rdfs:label>
         <owl:equivalentClass>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="&rpg;inSkillType"/>
-                <owl:someValuesFrom rdf:resource="&rpg;Skill"/>
+                <owl:someValuesFrom rdf:resource="&rpg;SkillType"/>
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
@@ -792,10 +798,21 @@ The way that skill levels are represented are specific to a game system.</rdfs:c
     
 
 
+    <!-- http://data.travellerrpg.com/ontology/rpg#SkillType -->
+
+    <owl:Class rdf:about="&rpg;SkillType">
+        <rdfs:label xml:lang="en">Skill Type</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:comment xml:lang="en">A type of skill. Skills are learned abilities that can be improved by a character exercising the skill or undergoing training.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://data.travellerrpg.com/ontology/rpg#SourceBook -->
 
     <owl:Class rdf:about="&rpg;SourceBook">
         <rdfs:label xml:lang="en">Source Book</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&core;ConceptScheme"/>
         <rdfs:subClassOf rdf:resource="&skos;Document"/>
         <rdfs:comment xml:lang="en">Additional information about a setting.
 

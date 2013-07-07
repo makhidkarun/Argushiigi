@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Entered Import Resolution" name="http://data.travellerrpg.com/ontology/argushiigi" uri="file:/home/pal155/git/makhidkarun/Argushiigi/src/main/ontology/argushiigi.owl"/>
     <group id="Folder Repository, directory=file:/home/pal155/git/makhidkarun/Argushiigi/src/main/ontology/, recursive=false, Auto-Update=true, version=2" prefer="public" xml:base="file:/home/pal155/git/makhidkarun/Argushiigi/src/main/ontology/">
-        <uri id="Automatically generated entry, Timestamp=1371172814718" name="http://data.travellerrpg.com/ontology/rpg" uri="rpg.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1371172814718" name="http://data.travellerrpg.com/ontology/t5" uri="t5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1372664104925" name="http://data.travellerrpg.com/ontology/argushiigi-rpg" uri="argushiigi-rpg.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1372664104925" name="http://data.travellerrpg.com/ontology/argushiigi.owl" uri="argushiigi.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1372664104925" name="http://data.travellerrpg.com/ontology/rpg" uri="rpg.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1372664104925" name="http://data.travellerrpg.com/ontology/t5" uri="t5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1372664104925" name="http://www.w3.org/2004/02/skos/core" uri="skos.owl"/>
     </group>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1371172814796" name="urn:x-argushiiri:rpg:test1" uri="rpg-test.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1372664104965" name="http://data.travellerrpg.com/ontology/argushiigi/test" uri="argushiigi-test.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1372664104965" name="http://data.travellerrpg.com/ontology/rpg/test1" uri="rpg-test.rdf"/>
     </group>
 </catalog>

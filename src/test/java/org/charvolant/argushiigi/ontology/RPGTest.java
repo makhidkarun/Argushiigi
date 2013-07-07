@@ -7,9 +7,7 @@
  */
 package org.charvolant.argushiigi.ontology;
 
-import java.io.StringWriter;
 import java.math.BigDecimal;
-import java.util.Iterator;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,17 +18,11 @@ import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
-import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
 import com.hp.hpl.jena.reasoner.Reasoner;
 import com.hp.hpl.jena.reasoner.ReasonerRegistry;
-import com.hp.hpl.jena.reasoner.ValidityReport;
-import com.hp.hpl.jena.reasoner.rulesys.OWLFBRuleReasoner;
-import com.hp.hpl.jena.util.PrintUtil;
 import com.hp.hpl.jena.vocabulary.RDF;
-import com.hp.hpl.jena.vocabulary.ReasonerVocabulary;
 
 /**
  * Test cases for the RPG ontology
@@ -38,7 +30,7 @@ import com.hp.hpl.jena.vocabulary.ReasonerVocabulary;
  * @author Doug Palmer <doug@charvolant.org>
  *
  */
-public class RPGTest {
+public class RPGTest extends JenaTest {
   private Model ontology;
   private Model data;
   private InfModel inference;
@@ -62,47 +54,6 @@ public class RPGTest {
     this.inference = ModelFactory.createInfModel(reasoner, this.ontology, this.data);
   }
 
-  /**
-   * Print all statements about a resource.
-   * 
-   * @param m The model
-   * @param s The subject
-   * @param p The property (verb)
-   * @param o The object
-   */
-  public void printStatements(Model m, Resource s, Property p, Resource o) {
-    for (StmtIterator i = m.listStatements(s,p,o); i.hasNext(); ) {
-      Statement stmt = i.nextStatement();
-      System.out.println(" - " + PrintUtil.print(stmt));
-    }
-  }
-  
-  public void printTypeData(Model m, Resource s) {
-    for (StmtIterator i = m.listStatements(s, RDF.type, (Resource) null); i.hasNext(); ) {
-      Statement stmt = i.nextStatement();
-      System.out.println(" + " + PrintUtil.print(stmt));
-      this.printStatements(m, stmt.getResource(), null, null);
-    }
-  }
-
-  /**
-   * Test a model for validity.
-   * 
-   * @param validity The validity report
-   */
-  public void validityTest(ValidityReport validity) {
-    if (!validity.isValid()) {
-      StringWriter sw = new StringWriter();
-
-      sw.append("Model invalid: ");
-      for (Iterator<ValidityReport.Report> i = validity.getReports(); i.hasNext(); ) {
-        ValidityReport.Report report = i.next();
-        sw.append(report.toString());
-      }
-      Assert.fail(sw.toString());
-    }
-  }
-
   @Test
   public void testOntology1() {
     OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_RULES_INF, this.ontology);
@@ -117,8 +68,8 @@ public class RPGTest {
 
   @Test
   public void testCharacter1() {
-    Resource c1 = this.inference.createResource("urn:x-argushiiri:rpg:test1:character1");
-    Resource p1 = this.inference.createResource("urn:x-argushiiri:rpg:test1:player1");
+    Resource c1 = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/character1");
+    Resource p1 = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/player1");
 
     Assert.assertTrue(c1.hasProperty(RDF.type, RPG.Character));
     Assert.assertTrue(c1.hasProperty(RDF.type, RPG.GameEntity));
@@ -129,8 +80,8 @@ public class RPGTest {
 
   @Test
   public void testCharacter2() {
-    Resource c1 = this.inference.createResource("urn:x-argushiiri:rpg:test1:character2");
-    Resource p1 = this.inference.createResource("urn:x-argushiiri:rpg:test1:gm1");
+    Resource c1 = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/character2");
+    Resource p1 = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/gm1");
 
     Assert.assertTrue(c1.hasProperty(RDF.type, RPG.Character));
     Assert.assertTrue(c1.hasProperty(RDF.type, RPG.GameEntity));
@@ -141,23 +92,23 @@ public class RPGTest {
 
   @Test
   public void testSkill1() {
-    Resource c1 = this.inference.createResource("urn:x-argushiiri:rpg:test1:character2");
-    Resource s1 = this.inference.createResource("urn:x-argushiiri:rpg:test1:pl10");
-    Resource p1 = this.inference.createResource("urn:x-argushiiri:rpg:test1:picklocks");
+    Resource c1 = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/character2");
+    Resource s1 = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/pl10");
+    Resource p1 = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/picklocks");
     StmtIterator si;
     
     si = c1.listProperties(RPG.hasFeature);
     Assert.assertTrue(si.hasNext());
     Assert.assertEquals(s1, si.next().getResource());
     Assert.assertTrue(s1.hasProperty(RPG.inSkillType, p1));
-    Assert.assertTrue(s1.hasLiteral(RPG.atLevel, 10));
+    Assert.assertTrue(s1.hasLiteral(RPG.value, 10));
     Assert.assertFalse(si.hasNext());
   }
 
   @Test
   public void testWeapon1() {
-    Resource w1 = this.inference.createResource("urn:x-argushiiri:rpg:test1:weapon1");
-    Resource cr = this.inference.createResource("urn:x-argushiiri:rpg:test1:credit");
+    Resource w1 = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/weapon1");
+    Resource cr = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/credit");
     Resource p1, m1;
 
     Assert.assertTrue(w1.hasProperty(RDF.type, RPG.Weapon));
@@ -173,7 +124,7 @@ public class RPGTest {
 
   @Test
   public void testExchangeRate1() {
-    Resource ex1 = this.inference.createResource("urn:x-argushiiri:rpg:test1:mcrcr");
+    Resource ex1 = this.inference.createResource("http://data.travellerrpg.com/ontology/rpg/test1/mcrcr");
 
     Assert.assertTrue(ex1.hasProperty(RDF.type, RPG.ExchangeRate));
     Assert.assertTrue(ex1.hasProperty(RDF.type, RPG.Conversion));
