@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="User Edited Redirect" name="http://creativecommons.org/ns" uri="cc.rdf"/>
     <uri id="User Entered Import Resolution" name="http://data.travellerrpg.com/ontology/argushiigi" uri="argushiigi.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1373160598408" name="http://data.travellerrpg.com/ontology/argushiigi-gsf" uri="argushiigi-gsf.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1373160598408" name="http://data.travellerrpg.com/ontology/argushiigi-rpg" uri="argushiigi-rpg.rdf"/>
-        <uri id="Automatically generated entry, Timestamp=1373160598408" name="http://data.travellerrpg.com/ontology/argushiigi.owl" uri="argushiigi.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1373160598408" name="http://data.travellerrpg.com/ontology/gsf" uri="gsf.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1373160598408" name="http://data.travellerrpg.com/ontology/rpg" uri="rpg.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1373160598408" name="http://data.travellerrpg.com/ontology/t5" uri="t5.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1373160598408" name="http://www.w3.org/2004/02/skos/core" uri="skos.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1373929876672" name="http://data.travellerrpg.com/ontology/argushiigi-gsf" uri="argushiigi-gsf.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1373929876672" name="http://data.travellerrpg.com/ontology/argushiigi-rpg" uri="argushiigi-rpg.rdf"/>
+        <uri id="Automatically generated entry, Timestamp=1373929876672" name="http://data.travellerrpg.com/ontology/argushiigi.owl" uri="argushiigi.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1373929876672" name="http://data.travellerrpg.com/ontology/gsf" uri="gsf.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1373929876672" name="http://data.travellerrpg.com/ontology/rpg" uri="rpg.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1373929876672" name="http://data.travellerrpg.com/ontology/t5" uri="t5.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1373929876672" name="http://www.w3.org/2004/02/skos/core" uri="skos.owl"/>
     </group>
 </catalog>

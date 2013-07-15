@@ -1,0 +1,245 @@
+@t5red: #ce0000;
+
+.text-stack {
+  font-family: "Helvetica", "Open Sans", "Callibri", "Verdana", "Arial", "sans-serif";
+}
+
+.heading-stack {
+  font-family: "Optima", "Marcellus", "Palatino", "serif";
+}
+
+body {
+	.text-stack;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #808080;
+}
+
+#header {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 70px;
+  
+  #left-header {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 70px;
+    height: 70px;
+    
+    a {
+     .image-replace(50px, "logo2.png");
+    }
+  }
+  
+  #centre-header {
+    position: absolute;
+    left: 70px;
+    top: 0px;
+    right: 70px;
+    height: 70px;
+    
+    #title {
+      margin-left: 2em;
+      margin-right: 2em;
+      .heading-stack;
+      font-size: xx-large;
+      color: @t5red;
+    }
+  }
+  
+  #right-header {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  border-bottom: solid thin @t5red;
+  margin-bottom: 1ex;
+}
+
+#footer {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 70px;
+  border-top: solid thin @t5red;
+  margin-top: 1ex;
+
+  #left-footer {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  #centre-footer {
+    position: absolute;
+    left: 70px;
+    top: 0px;
+    right: 70px;
+    height: 70px;
+    
+    #copyright {
+      display: inline-block;
+      margin-top: 1ex;
+      margin-left: auto;
+      margin-right: auto;
+      .heading-stack;
+      font-size: small;
+    }
+  }
+  
+  #right-footer {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 70px;
+    height: 70px;
+  }
+}
+
+#content {
+  margin-left: 1em;
+  margin-right: 1em;
+  background: #ffffff url(watermark.png) no-repeat right top;
+}
+
+#about {
+  width: 30em;
+  margin: 1ex 1ex 1ex 5em;
+  padding: 1ex;
+  background-color: #e0e0e020;
+  border: thin solid @t5red;
+}
+
+.resource-table {
+  width: 72em;
+}
+
+.resource-name {
+  width: 15em;
+}
+
+.resource-class {
+  width: 15em;
+}
+
+.resource-uri {
+  width: 40em;
+}
+
+.title {
+  .heading-stack;
+  font-size: x-large;
+  width: 100%;
+  border-bottom: thin solid #808080;
+  margin-bottom: 1ex;
+}
+
+.category {
+  margin-top: 1ex;
+  margin-left: 1em;
+  margin-right: 1ex;
+  border-top: thin solid #808080;
+}
+
+.label {
+  .heading-stack;
+  font-size: larger;
+  text-weight: bold;
+}
+
+.format-link {
+  display: block;
+  font-size: small;
+}
+
+tr.template {
+  color: #606060;
+}
+
+.key {
+  padding-left: 1ex;
+  padding-right: 1ex;
+  width: 15em;
+}
+
+.value {
+  padding-left: 1ex;
+  padding-right: 1ex;
+}
+
+
+#category-attributes {
+}
+
+#category-characteristics {
+}
+
+#category-description {
+}
+
+#category-metadata {
+  background-image: inherit;
+  background-color: #c0c0c0;
+}
+
+#category-structure {
+  background-image: inherit;
+  background-color: #d0d0d0;
+}
+
+#category-top {
+  border-top: none;
+  
+  >.label {
+    display: none;
+  }
+  
+  div:nth-child(2).category {
+    border: none;
+  }
+}
+
+
+/** Image replacement */
+/** Uses Oxygen Icons http://www.oxygen-icons.org/ under Creative Commons 3.0 Licence http://creativecommons.org/licenses/by-sa/3.0/ */
+.image-replace2(@width, @height, @padh, @padv, @img) {
+    display: table-cell;
+        width: @width + @padh + @padh;
+        max-width: @width + @padh + @padh;
+        min-width: @width + @padh + @padh;
+        height: @height + @padv + @padv;
+        max-height: @height + @padv + @padv;
+        min-height: @height + @padv + @padv;
+        background: url(@img) no-repeat center center;
+        padding: @padv @padh;
+
+
+    span {
+      display: table-cell;
+          width: @width;
+          max-width: @width;
+          min-width: @width;
+          height: @height;
+          max-height: @height;
+          min-height: @height;
+          visibility: hidden;
+          overflow: hidden;
+        }
+}
+
+.image-replace(@size, @img) {
+  .image-replace2(@size, @size, 2px, 2px, @img);
+}

@@ -1,0 +1,359 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY argushiigi "http://data.travellerrpg.com/ontology/argushiigi#" >
+]>
+
+
+<rdf:RDF xmlns="http://data.travellerrpg.com/ontology/argushiigi-gsf#"
+     xml:base="http://data.travellerrpg.com/ontology/argushiigi-gsf"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:argushiigi="http://data.travellerrpg.com/ontology/argushiigi#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf">
+        <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/argushiigi"/>
+        <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/gsf"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-format -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-format">
+        <rdf:type rdf:resource="&argushiigi;Format"/>
+        <argushiigi:usesLabelPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-label-pattern"/>
+        <argushiigi:usesValuePattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long1"/>
+        <argushiigi:usesValuePattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-short"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-label-pattern -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-label-pattern">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:javaFormat>{1}</argushiigi:javaFormat>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long1 -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long1">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">10</argushiigi:displayPriority>
+        <argushiigi:javaFormat>{0,number,integer}</argushiigi:javaFormat>
+        <argushiigi:nextPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long2"/>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/gsf#characteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long2 -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long2">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:literal> [</argushiigi:literal>
+        <argushiigi:nextPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long3 -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long3">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:nextPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long4"/>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/gsf#generator"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long4 -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-long4">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:literal>]</argushiigi:literal>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-short -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-value-pattern-short">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">20</argushiigi:displayPriority>
+        <argushiigi:javaFormat>{0,number,integer}</argushiigi:javaFormat>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/gsf#characteristic"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-format -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-format">
+        <rdf:type rdf:resource="&argushiigi;Format"/>
+        <argushiigi:usesPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-pattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-pattern -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-pattern">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:nextPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-pattern2"/>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#unit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-pattern2 -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-pattern2">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:literal> </argushiigi:literal>
+        <argushiigi:nextPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-pattern3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-pattern3 -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-pattern3">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:javaFormat>{0,number,###,###,###,###0.00}</argushiigi:javaFormat>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#value"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/feature-label-pattern -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/feature-label-pattern">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#inFeatureType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/feature-value-pattern1 -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/feature-value-pattern1">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">10</argushiigi:displayPriority>
+        <argushiigi:javaFormat>{0,number,00}</argushiigi:javaFormat>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#value"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/mass-format -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/mass-format">
+        <rdf:type rdf:resource="&argushiigi;Format"/>
+        <argushiigi:usesPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/mass-pattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/mass-pattern -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/mass-pattern">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:javaFormat>{0,number,###,##0.0}</argushiigi:javaFormat>
+        <argushiigi:nextPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/mass-pattern2"/>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#value"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/mass-pattern2 -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/mass-pattern2">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#unit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/state-label-pattern -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/state-label-pattern">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:javaFormat>{1}</argushiigi:javaFormat>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi-gsf/state-value-pattern-short -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi-gsf/state-value-pattern-short">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:javaFormat>{0,number,00}</argushiigi:javaFormat>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#value"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/feature-format -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi/feature-format">
+        <rdf:type rdf:resource="&argushiigi;Format"/>
+        <argushiigi:usesLabelPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/feature-label-pattern"/>
+        <argushiigi:usesValuePattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/feature-value-pattern1"/>
+        <argushiigi:usesValuePattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi/feature-value-pattern2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/feature-value-pattern2 -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/argushiigi/feature-value-pattern2">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">20</argushiigi:displayPriority>
+        <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#level"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/gsf#characteristic -->
+
+    <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/gsf#characteristic">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/ontology/argushiigi/attributes"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/gsf#generator -->
+
+    <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/gsf#generator">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/ontology/argushiigi/attributes"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#inFeatureType -->
+
+    <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/rpg#inFeatureType">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#level -->
+
+    <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/rpg#level">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#state-format -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/rpg#state-format">
+        <rdf:type rdf:resource="&argushiigi;Format"/>
+        <argushiigi:usesLabelPattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/state-label-pattern"/>
+        <argushiigi:usesValuePattern rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/state-value-pattern-short"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#unit -->
+
+    <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/rpg#unit">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#value -->
+
+    <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/rpg#value">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+    </owl:Thing>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasAttribute">
+        <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-format"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Price">
+        <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/currency-format"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Mass">
+        <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/mass-format"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasPrice">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">10</argushiigi:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/gsf#hasDurability">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">100</argushiigi:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/gsf#hasStrength">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">30</argushiigi:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasState">
+        <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/rpg#state-format"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasFeature">
+        <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/argushiigi/feature-format"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/gsf#hasDexterity">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">50</argushiigi:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isInState">
+        <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/rpg#state-format"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasMass">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">20</argushiigi:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/gsf#hasIntelligence">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">70</argushiigi:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/gsf#hasAgility">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">60</argushiigi:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/gsf#hasStamina">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">40</argushiigi:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/gsf#hasDamage">
+        <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/rpg#state-format"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/gsf#GSFAttribute">
+        <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-gsf/characteristic-format"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

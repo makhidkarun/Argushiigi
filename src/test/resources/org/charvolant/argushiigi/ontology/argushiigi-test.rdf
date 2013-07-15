@@ -1,0 +1,451 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY argushiigi "http://data.travellerrpg.com/ontology/argushiigi#" >
+    <!ENTITY test1 "http://data.travellerrpg.com/ontology/argushiigi/test1/" >
+    <!ENTITY test12 "http://data.travellerrpg.com/ontology/argushiigi/test1#" >
+]>
+
+
+<rdf:RDF xmlns="http://data.travellerrpg.com/ontology/argushiigi/test#"
+     xml:base="http://data.travellerrpg.com/ontology/argushiigi/test"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:test1="http://data.travellerrpg.com/ontology/argushiigi/test1/"
+     xmlns:test12="http://data.travellerrpg.com/ontology/argushiigi/test1#"
+     xmlns:argushiigi="http://data.travellerrpg.com/ontology/argushiigi#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+    <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/argushiigi/test1">
+        <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/argushiigi"/>
+        <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <rdf:Description rdf:about="&rdfs;label">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">100</argushiigi:displayPriority>
+        <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/ontology/argushiigi/name"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#prefLabel -->
+
+    <rdf:Description rdf:about="&skos;prefLabel">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">20</argushiigi:displayPriority>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/p1 -->
+
+    <owl:ObjectProperty rdf:about="&test1;p1">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">100</argushiigi:displayPriority>
+        <argushiigi:displayCategory rdf:resource="&test1;c1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/p2 -->
+
+    <owl:ObjectProperty rdf:about="&test1;p2">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">20</argushiigi:displayPriority>
+        <argushiigi:displayCategory rdf:resource="&test1;c2"/>
+        <rdfs:subPropertyOf rdf:resource="&test1;p1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/p3 -->
+
+    <owl:ObjectProperty rdf:about="&test1;p3">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">40</argushiigi:displayPriority>
+        <argushiigi:displayCategory rdf:resource="&test1;c3"/>
+        <rdfs:subPropertyOf rdf:resource="&test1;p1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/p4 -->
+
+    <owl:ObjectProperty rdf:about="&test1;p4">
+        <rdfs:subPropertyOf rdf:resource="&test1;p1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/p5 -->
+
+    <owl:ObjectProperty rdf:about="&test1;p5">
+        <rdfs:subPropertyOf rdf:resource="&test1;p2"/>
+        <rdfs:subPropertyOf rdf:resource="&test1;p3"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/p6 -->
+
+    <owl:ObjectProperty rdf:about="&test1;p6">
+        <skos:prefLabel>Property 6</skos:prefLabel>
+        <rdfs:subPropertyOf rdf:resource="&test1;p3"/>
+        <rdfs:subPropertyOf rdf:resource="&test1;p4"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/p7 -->
+
+    <owl:ObjectProperty rdf:about="&test1;p7">
+        <rdfs:subPropertyOf rdf:resource="&test1;p4"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1#d1 -->
+
+    <owl:DatatypeProperty rdf:about="&test12;d1">
+        <rdfs:label>d1</rdfs:label>
+        <argushiigi:displayCategory rdf:resource="&test1;c1"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/d2 -->
+
+    <owl:DatatypeProperty rdf:about="&test1;d2">
+        <rdfs:label>data2</rdfs:label>
+        <argushiigi:usesFormat rdf:resource="&test1;format3"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/C1 -->
+
+    <owl:Class rdf:about="&test1;C1">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">100</argushiigi:displayPriority>
+        <argushiigi:displayCategory rdf:resource="&test1;c1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/C2 -->
+
+    <owl:Class rdf:about="&test1;C2">
+        <rdfs:subClassOf rdf:resource="&test1;C1"/>
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">20</argushiigi:displayPriority>
+        <argushiigi:displayCategory rdf:resource="&test1;c2"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/C3 -->
+
+    <owl:Class rdf:about="&test1;C3">
+        <rdfs:subClassOf rdf:resource="&test1;C1"/>
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">40</argushiigi:displayPriority>
+        <argushiigi:displayCategory rdf:resource="&test1;c3"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/C4 -->
+
+    <owl:Class rdf:about="&test1;C4">
+        <rdfs:subClassOf rdf:resource="&test1;C1"/>
+        <argushiigi:usesFormat rdf:resource="&test1;format1"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/C5 -->
+
+    <owl:Class rdf:about="&test1;C5">
+        <rdfs:subClassOf rdf:resource="&test1;C2"/>
+        <rdfs:subClassOf rdf:resource="&test1;C4"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/C6 -->
+
+    <owl:Class rdf:about="&test1;C6">
+        <rdfs:subClassOf rdf:resource="&test1;C4"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1#d1 -->
+
+    <rdf:Description rdf:about="&test12;d1">
+        <rdfs:label>d1</rdfs:label>
+        <argushiigi:displayCategory rdf:resource="&test1;c1"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/c1 -->
+
+    <owl:NamedIndividual rdf:about="&test1;c1">
+        <rdf:type rdf:resource="&argushiigi;DisplayCategory"/>
+        <rdfs:label>Cat1</rdfs:label>
+        <rdfs:label xml:lang="en">Category 1</rdfs:label>
+        <rdfs:label xml:lang="fr">Categorie 1</rdfs:label>
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">20</argushiigi:displayPriority>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/ontology/argushiigi/top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/c2 -->
+
+    <owl:NamedIndividual rdf:about="&test1;c2">
+        <rdf:type rdf:resource="&argushiigi;DisplayCategory"/>
+        <rdfs:label>Cat 2</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Category 2</rdfs:label>
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">40</argushiigi:displayPriority>
+        <argushiigi:parentCategory rdf:resource="&test1;c1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/c3 -->
+
+    <owl:NamedIndividual rdf:about="&test1;c3">
+        <rdf:type rdf:resource="&argushiigi;DisplayCategory"/>
+        <rdfs:label xml:lang="de">Cat 3</rdfs:label>
+        <rdfs:label xml:lang="en-gb">Category 3</rdfs:label>
+        <skos:prefLabel xml:lang="de">Cat-3</skos:prefLabel>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/ontology/argushiigi/top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/c4-1 -->
+
+    <owl:NamedIndividual rdf:about="&test1;c4-1">
+        <rdf:type rdf:resource="&test1;C4"/>
+        <test12:d1 rdf:datatype="&xsd;double">20.5</test12:d1>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/format1 -->
+
+    <owl:NamedIndividual rdf:about="&test1;format1">
+        <rdf:type rdf:resource="&argushiigi;Format"/>
+        <argushiigi:usesPattern rdf:resource="&test1;pattern1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/format2 -->
+
+    <owl:NamedIndividual rdf:about="&test1;format2">
+        <rdf:type rdf:resource="&argushiigi;Format"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/format3 -->
+
+    <owl:NamedIndividual rdf:about="&test1;format3">
+        <rdf:type rdf:resource="&argushiigi;Format"/>
+        <argushiigi:usesLabelPattern rdf:resource="&test1;pattern3"/>
+        <argushiigi:usesValuePattern rdf:resource="&test1;pattern4"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/p1 -->
+
+    <owl:Thing rdf:about="&test1;p1">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">100</argushiigi:displayPriority>
+        <argushiigi:displayCategory rdf:resource="&test1;c1"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/p7 -->
+
+    <owl:Thing rdf:about="&test1;p7">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <argushiigi:usesFormat rdf:resource="&test1;format3"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/pattern1 -->
+
+    <owl:NamedIndividual rdf:about="&test1;pattern1">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:javaFormat rdf:datatype="&xsd;string">{0,number,0000.0}</argushiigi:javaFormat>
+        <argushiigi:fromProperty rdf:resource="&test12;d1"/>
+        <argushiigi:nextPattern rdf:resource="&test1;pattern2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/pattern2 -->
+
+    <owl:NamedIndividual rdf:about="&test1;pattern2">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:literal rdf:datatype="&xsd;dateTime">2013-04-23T10:30:50Z</argushiigi:literal>
+        <argushiigi:javaFormat rdf:datatype="&xsd;string">{0,date,short}</argushiigi:javaFormat>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/pattern3 -->
+
+    <owl:NamedIndividual rdf:about="&test1;pattern3">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:javaFormat>{0} {1}</argushiigi:javaFormat>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/pattern4 -->
+
+    <owl:NamedIndividual rdf:about="&test1;pattern4">
+        <rdf:type rdf:resource="&argushiigi;Pattern"/>
+        <argushiigi:fromProperty rdf:resource="&test1;p1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/thing1 -->
+
+    <owl:Thing rdf:about="&test1;thing1">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <argushiigi:displayCategory rdf:resource="&test1;c1"/>
+        <test1:p1 rdf:resource="&test1;thing1"/>
+        <test1:p2 rdf:resource="&test1;thing2"/>
+        <test1:p3 rdf:resource="&test1;thing3"/>
+        <test1:p4 rdf:resource="&test1;thing4"/>
+        <test1:p5 rdf:resource="&test1;thing5"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/thing2 -->
+
+    <owl:Thing rdf:about="&test1;thing2">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <argushiigi:displayCategory rdf:resource="&test1;c2"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/thing3 -->
+
+    <owl:Thing rdf:about="&test1;thing3">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <argushiigi:displayCategory rdf:resource="&test1;c3"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/thing4 -->
+
+    <owl:Thing rdf:about="&test1;thing4">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <argushiigi:displayCategory rdf:resource="&test1;c1"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/test1/thing5 -->
+
+    <owl:Thing rdf:about="&test1;thing5">
+        <rdf:type rdf:resource="&owl;NamedIndividual"/>
+        <argushiigi:displayCategory rdf:resource="&test1;c2"/>
+    </owl:Thing>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&skos;altLabel">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">40</argushiigi:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="&skos;hiddenLabel">
+        <argushiigi:displayPriority rdf:datatype="&xsd;integer">120</argushiigi:displayPriority>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

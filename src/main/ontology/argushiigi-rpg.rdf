@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY argushiigi3 "http://data.travellerrpg.com/ontology/argushiigi/" >
+    <!ENTITY argushiigi2 "http://data.travellerrpg.com/ontology/argushiigi#" >
+    <!ENTITY argushiigi "http://data.travellerrpg.com/ontology/argushiigi.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://data.travellerrpg.com/ontology/argushiigi-rpg#"
+     xml:base="http://data.travellerrpg.com/ontology/argushiigi-rpg"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:argushiigi2="http://data.travellerrpg.com/ontology/argushiigi#"
+     xmlns:argushiigi3="http://data.travellerrpg.com/ontology/argushiigi/"
+     xmlns:argushiigi="http://data.travellerrpg.com/ontology/argushiigi.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/argushiigi-rpg">
+        <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/argushiigi.owl"/>
+        <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/rpg"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi.owl#displayCategory -->
+
+    <owl:AnnotationProperty rdf:about="&argushiigi;displayCategory"/>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#comment -->
+
+    <rdf:Description rdf:about="&rdfs;comment">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">30</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#label -->
+
+    <rdf:Description rdf:about="&rdfs;label">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">50</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;name"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/attributes -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;attributes">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Attributes</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">10</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">The category that holds information about player attributes.</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;characteristics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/characteristics -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;characteristics">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Characteristics</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">40</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Information about the defined characteristics of game entity</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/description -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;description">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">20</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">The description category</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/documents -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;documents">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Documents</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">50</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Information about additional information in a document, such as rules or a source book.</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/faculties -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;faculties">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Faculties</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">30</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Information about a characters faculties.</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;characteristics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/metadata -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;metadata">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Metadata</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">100</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Metadata about who, what and when.</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/player -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;player">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Player</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">60</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">The category of information to do with a player</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/senses -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;senses">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Senses</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">40</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Information about a characters senses</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;characteristics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/setting -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;setting">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Setting</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">70</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Information about the setting of a game entity</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/skills -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;skills">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Skills</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">20</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Information about a character&apos;s skills</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;characteristics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/state -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;state">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">State</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">50</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Information about a current state</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;characteristics"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/structure -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;structure">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Structure</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">90</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Information about the type and nature of the entity</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://purl.org/dc/terms/title">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">10</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/membershipClass">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://xmlns.com/wot/0.1/assurance">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;metadata"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/creator">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;metadata"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdf;type">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">10</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;structure"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#semanticRelation">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasSense">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;senses"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;subPropertyOf">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">30</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;structure"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">40</argushiigi2:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;priorVersion">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasState">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;state"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">90</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;differentFrom">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">80</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;structure"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;metadata"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasFaculty">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;faculties"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;imports">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">100</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;versionInfo">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;metadata"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">20</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;domain">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">40</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;structure"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inFeatureType">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;characteristics"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;sameAs">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">70</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;structure"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;Class">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;metadata"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://xmlns.com/wot/0.1/src_assurance">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;metadata"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;backwardCompatibleWith">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;documents"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inFacultyType">
+        <argushiigi:displayCategory rdf:resource="&argushiigi3;faculties"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inSenseType">
+        <argushiigi:displayCategory rdf:resource="&argushiigi3;senses"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/contributor">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;metadata"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;equivalentClass">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">60</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;structure"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasAttribute">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;attributes"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">30</argushiigi2:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#template">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">40</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#altLabel">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">60</argushiigi2:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasSetting">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;setting"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;incompatibleWith">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;documents"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inSkillType">
+        <argushiigi:displayCategory rdf:resource="&argushiigi3;skills"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;isDefinedBy">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;documents"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isInState">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;state"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;range">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">50</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;structure"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/terms/description">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">10</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#member">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">20</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;name"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasSkill">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;skills"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&owl;deprecated">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;metadata"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;seeAlso">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;documents"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasFeature">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;characteristics"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isInSetting">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;setting"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#portrays">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;player"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isPortrayedBy">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;player"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;metadata"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hiddenLabel">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">100</argushiigi2:displayPriority>
+    </rdf:Description>
+    <rdf:Description rdf:about="&rdfs;subClassOf">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">20</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;structure"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#note">
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">50</argushiigi2:displayPriority>
+        <argushiigi2:displayCategory rdf:resource="&argushiigi3;description"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

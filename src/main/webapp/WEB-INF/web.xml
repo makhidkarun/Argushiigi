@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+  <display-name>Argushiigi</display-name>
+
+  <servlet>
+    <servlet-name>RestletServlet</servlet-name>
+    <servlet-class>
+      org.restlet.ext.servlet.ServerServlet
+    </servlet-class>
+    <init-param>
+      <param-name>org.restlet.application</param-name>
+      <param-value>org.charvolant.argushiigi.server.ServerApplication</param-value>
+    </init-param>
+  </servlet>
+
+  <!-- Catch all requests -->
+  <servlet-mapping>
+    <servlet-name>RestletServlet</servlet-name>
+    <url-pattern>/data/*</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -3,10 +3,11 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY terms "http://purl.org/dc/terms/" >
-    <!ENTITY skos "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY cc "http://creativecommons.org/ns#" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY core "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rpg "http://data.travellerrpg.com/ontology/rpg#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
@@ -16,27 +17,52 @@
 <rdf:RDF xmlns="http://data.travellerrpg.com/ontology/rpg#"
      xml:base="http://data.travellerrpg.com/ontology/rpg"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:core="http://www.w3.org/2004/02/skos/core#"
-     xmlns:skos="http://xmlns.com/foaf/0.1/"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:cc="http://creativecommons.org/ns#"
      xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#">
     <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/rpg">
         <rdfs:label xml:lang="en">Generic Role Playing Game Ontology</rdfs:label>
-        <core:scopeNote xml:lang="en">RPGs represent imaginary situations.
+        <skos:scopeNote xml:lang="en">RPGs represent imaginary situations.
 
 Data available on the semantic web represent a wide variety of resources, from the wholely imaginary to the completely real.
 
-This ontology imports SKOS for knowledge descriptions and FOAF for player information. Otherwise, it keeps the real world at a distance, so that difficulties with software confusing a cyberpunk description of London and the real London are kept to a minimum.</core:scopeNote>
+This ontology imports SKOS for knowledge descriptions and FOAF for player information. Otherwise, it keeps the real world at a distance, so that difficulties with software confusing a cyberpunk description of London and the real London are kept to a minimum.</skos:scopeNote>
         <rdfs:comment xml:lang="en">The RPG ontology contains abstract descriptions of common RPG concepts, such as Characters, Skills, NPCs etc. A specigic RPG will specialise these concepts to fit the RPG.
 </rdfs:comment>
+        <terms:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
         <rdfs:seeAlso rdf:resource="http://www.travellerrpg.com/CotI/Discuss/showthread.php?t=30041"/>
         <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
         <owl:imports rdf:resource="http://xmlns.com/foaf/0.1/"/>
         <terms:creator rdf:resource="https://github.com/charvolant"/>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="&terms;license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/rights -->
+
+    <owl:AnnotationProperty rdf:about="&terms;rights"/>
     
 
 
@@ -135,10 +161,11 @@ If left further unspecified, this generallty means the common, in-game price.</r
     <!-- http://data.travellerrpg.com/ontology/rpg#hasSetting -->
 
     <owl:ObjectProperty rdf:about="&rpg;hasSetting">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
         <rdfs:label xml:lang="en">has setting</rdfs:label>
-        <rdfs:comment xml:lang="en">Indiicates that a state applies to a particular setting.</rdfs:comment>
+        <rdfs:comment xml:lang="en">Indiicates that a gane entity, state or template applies to or comes from a particular setting.</rdfs:comment>
+        <skos:scopeNote xml:lang="en">Settings themselves may have parent settings.</skos:scopeNote>
         <rdfs:range rdf:resource="&rpg;Setting"/>
-        <rdfs:domain rdf:resource="&rpg;SettingState"/>
     </owl:ObjectProperty>
     
 
@@ -151,6 +178,17 @@ If left further unspecified, this generallty means the common, in-game price.</r
         <rdfs:domain rdf:resource="&rpg;GameEntity"/>
         <rdfs:range rdf:resource="&rpg;Skill"/>
         <rdfs:subPropertyOf rdf:resource="&rpg;hasFeature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#hasState -->
+
+    <owl:ObjectProperty rdf:about="&rpg;hasState">
+        <rdfs:label xml:lang="en">is in state</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that a game item is currently in a particular state</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;GameEntity"/>
+        <rdfs:range rdf:resource="&rpg;State"/>
     </owl:ObjectProperty>
     
 
@@ -171,7 +209,7 @@ If left further unspecified, this generallty means the common, in-game price.</r
         <rdfs:label xml:lang="en">in feature type</rdfs:label>
         <rdfs:comment xml:lang="en">Indicates that a feature is associated with a particular type of feature concept.</rdfs:comment>
         <rdfs:domain rdf:resource="&rpg;Feature"/>
-        <rdfs:range rdf:resource="&core;Concept"/>
+        <rdfs:range rdf:resource="&skos;Concept"/>
     </owl:ObjectProperty>
     
 
@@ -200,29 +238,6 @@ If left further unspecified, this generallty means the common, in-game price.</r
     
 
 
-    <!-- http://data.travellerrpg.com/ontology/rpg#isInSetting -->
-
-    <owl:ObjectProperty rdf:about="&rpg;isInSetting">
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
-        <rdfs:label xml:lang="en">is in setting</rdfs:label>
-        <rdfs:comment xml:lang="en">Indicates that a setting takes place in the context of a larger setting.</rdfs:comment>
-        <rdfs:range rdf:resource="&rpg;Setting"/>
-        <rdfs:domain rdf:resource="&rpg;Setting"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/rpg#isInState -->
-
-    <owl:ObjectProperty rdf:about="&rpg;isInState">
-        <rdfs:label xml:lang="en">is in state</rdfs:label>
-        <rdfs:comment xml:lang="en">Indicates that a game item is currently in a particular state</rdfs:comment>
-        <rdfs:domain rdf:resource="&rpg;GameEntity"/>
-        <rdfs:range rdf:resource="&rpg;State"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://data.travellerrpg.com/ontology/rpg#isPortrayedBy -->
 
     <owl:ObjectProperty rdf:about="&rpg;isPortrayedBy">
@@ -242,7 +257,7 @@ If left further unspecified, this generallty means the common, in-game price.</r
         <rdfs:comment xml:lang="en">Gives the level of a feature or temporary state.
 
 The concept of a &apos;level&apos; is specific to a specific set of RPG rules and is specified further by sub-ontologies. Some features do not have a level associated with them.</rdfs:comment>
-        <core:note xml:lang="en">Use a level when it refers to a distinct category of abilities or state. If a simple numeric value is needed, use value.</core:note>
+        <skos:note xml:lang="en">Use a level when it refers to a distinct category of abilities or state. If a simple numeric value is needed, use value.</skos:note>
         <rdfs:seeAlso rdf:resource="&rpg;value"/>
         <rdfs:domain>
             <owl:Class>
@@ -304,6 +319,22 @@ The concept of a &apos;level&apos; is specific to a specific set of RPG rules an
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:ObjectProperty rdf:about="&terms;license">
+        <rdfs:range rdf:resource="&terms;LicenseDocument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/rights -->
+
+    <owl:ObjectProperty rdf:about="&terms;rights">
+        <rdfs:range rdf:resource="&terms;RightsStatement"/>
     </owl:ObjectProperty>
     
 
@@ -412,10 +443,10 @@ Actors can be modelled within the game to various degrees of fidelity. For examp
         <rdfs:label xml:lang="en">Attribute</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rpg;Feature"/>
         <rdfs:comment xml:lang="en">A descriptive attribute of a character or item.</rdfs:comment>
-        <core:scopeNote xml:lang="en">Attributes are generally fixed things about a character or things which change very slowly. 
+        <skos:scopeNote xml:lang="en">Attributes are generally fixed things about a character or things which change very slowly. 
 
-Attributes are generally central to the game system and are descibed via subclassing for a specific RPG, rather than by referencing individuals.</core:scopeNote>
-        <core:example xml:lang="en">Examples are strength, size, education, as well as sex, hair colour, etc.</core:example>
+Attributes are generally central to the game system and are descibed via subclassing for a specific RPG, rather than by referencing individuals.</skos:scopeNote>
+        <skos:example xml:lang="en">Examples are strength, size, education, as well as sex, hair colour, etc.</skos:example>
     </owl:Class>
     
 
@@ -436,7 +467,7 @@ Attributes are generally central to the game system and are descibed via subclas
         <rdfs:label xml:lang="en">Character</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rpg;Actor"/>
         <rdfs:comment xml:lang="en">An RPG representation of a person or similar within-game creature capable of making its own decsions. </rdfs:comment>
-        <core:scopeNote xml:lang="en">Characters are usually modelled as something that could be controlled by a player, even if the character is not.</core:scopeNote>
+        <skos:scopeNote xml:lang="en">Characters are usually modelled as something that could be controlled by a player, even if the character is not.</skos:scopeNote>
     </owl:Class>
     
 
@@ -448,14 +479,14 @@ Attributes are generally central to the game system and are descibed via subclas
         <rdfs:subClassOf rdf:resource="&rpg;SettingState"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
+                <owl:onProperty rdf:resource="&rpg;toUnit"/>
                 <owl:onClass rdf:resource="&rpg;Unit"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&rpg;toUnit"/>
+                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
                 <owl:onClass rdf:resource="&rpg;Unit"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
@@ -475,7 +506,7 @@ Attributes are generally central to the game system and are descibed via subclas
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A conversion between two units.</rdfs:comment>
-        <core:scopeNote xml:lang="en">Generally, conversions are fixed and apply to the highest level setting. However, some conversions such as exchange rates may vary from setting to setting.</core:scopeNote>
+        <skos:scopeNote xml:lang="en">Generally, conversions are fixed and apply to the highest level setting. However, some conversions such as exchange rates may vary from setting to setting.</skos:scopeNote>
     </owl:Class>
     
 
@@ -520,7 +551,7 @@ Attributes are generally central to the game system and are descibed via subclas
         <rdfs:label xml:lang="en">Extra</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rpg;Actor"/>
         <rdfs:comment xml:lang="en">A game actor modelled to a low level of detail.</rdfs:comment>
-        <core:example xml:lang="en">A wandering monster, a background soldier or a bureaucrat.</core:example>
+        <skos:example xml:lang="en">A wandering monster, a background soldier or a bureaucrat.</skos:example>
     </owl:Class>
     
 
@@ -545,7 +576,7 @@ Attributes are generally central to the game system and are descibed via subclas
 
     <owl:Class rdf:about="&rpg;FacultyType">
         <rdfs:label xml:lang="en">Faculty Type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:comment xml:lang="en">A type of inherent ability or power.</rdfs:comment>
     </owl:Class>
     
@@ -613,7 +644,7 @@ The game master has, in theory if not in practice, complete knowledge of the gam
 Generally, this means the most convienient defintiion for role-playing purposes. A character&apos;s mass is their mass in ordingary clothing, without additional items such as armour. A weapon&apos;s mass is generally its mass with a full load of ammunition.
 
 Depending on setting, mass and weight may be two different things. eg. in Zero-G an item has no weight but still has mass. For purely single-world games, the terms are interchanable.</rdfs:comment>
-        <core:altLabel xml:lang="en">Weight</core:altLabel>
+        <skos:altLabel xml:lang="en">Weight</skos:altLabel>
     </owl:Class>
     
 
@@ -649,7 +680,7 @@ Depending on setting, mass and weight may be two different things. eg. in Zero-G
             </owl:Restriction>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&rpg;Character"/>
-        <core:prefLabel>NPC</core:prefLabel>
+        <skos:prefLabel>NPC</skos:prefLabel>
         <rdfs:comment xml:lang="en">A character controlled by a game master or some other agent, such as a software program.</rdfs:comment>
     </owl:Class>
     
@@ -659,7 +690,7 @@ Depending on setting, mass and weight may be two different things. eg. in Zero-G
 
     <owl:Class rdf:about="&rpg;Participant">
         <rdfs:label xml:lang="en">Participant</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&skos;Agent"/>
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
         <rdfs:comment xml:lang="en">A participant in a role playing game.
 
 Participants are usually a singular Person. However, groups are also possible.</rdfs:comment>
@@ -713,7 +744,7 @@ The player has partial knowledge of the game situation.</rdfs:comment>
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
         <rdfs:comment xml:lang="en">The price of a game object, in game currency.</rdfs:comment>
-        <core:scopeNote xml:lang="en">While usually applied to non-characters, there is no reason why a character cannot have a price as well.</core:scopeNote>
+        <skos:scopeNote xml:lang="en">While usually applied to non-characters, there is no reason why a character cannot have a price as well.</skos:scopeNote>
     </owl:Class>
     
 
@@ -722,8 +753,8 @@ The player has partial knowledge of the game situation.</rdfs:comment>
 
     <owl:Class rdf:about="&rpg;Rules">
         <rdfs:label>Rules</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&core;ConceptScheme"/>
-        <rdfs:subClassOf rdf:resource="&skos;Document"/>
+        <rdfs:subClassOf rdf:resource="&skos;ConceptScheme"/>
+        <rdfs:subClassOf rdf:resource="&foaf;Document"/>
         <rdfs:comment xml:lang="en">A specific set of RPG rules.
 
 Rules can be used to define which sets of rules are compatible with characters, settings, etc.</rdfs:comment>
@@ -754,9 +785,9 @@ The mehanics of how sense work form part of a specific RPGs mechanics.</rdfs:com
 
     <owl:Class rdf:about="&rpg;SenseType">
         <rdfs:label xml:lang="en">Sense Type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:comment xml:lang="en">The ability to sense a specific form of phenomenon.</rdfs:comment>
-        <core:example xml:lang="en">Visible light, sound, infravision (infrared light), magic.</core:example>
+        <skos:example xml:lang="en">Visible light, sound, infravision (infrared light), magic.</skos:example>
     </owl:Class>
     
 
@@ -802,7 +833,7 @@ The way that skill levels are represented are specific to a game system.</rdfs:c
 
     <owl:Class rdf:about="&rpg;SkillType">
         <rdfs:label xml:lang="en">Skill Type</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:comment xml:lang="en">A type of skill. Skills are learned abilities that can be improved by a character exercising the skill or undergoing training.</rdfs:comment>
     </owl:Class>
     
@@ -812,8 +843,8 @@ The way that skill levels are represented are specific to a game system.</rdfs:c
 
     <owl:Class rdf:about="&rpg;SourceBook">
         <rdfs:label xml:lang="en">Source Book</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&core;ConceptScheme"/>
-        <rdfs:subClassOf rdf:resource="&skos;Document"/>
+        <rdfs:subClassOf rdf:resource="&skos;ConceptScheme"/>
+        <rdfs:subClassOf rdf:resource="&foaf;Document"/>
         <rdfs:comment xml:lang="en">Additional information about a setting.
 
 Conceptually, rules define the mechanics of a game and a source book defines the environment to which the rules apply. In practice, an RPG usually consists of a combined set of rules and setting.</rdfs:comment>
@@ -827,8 +858,8 @@ Conceptually, rules define the mechanics of a game and a source book defines the
     <owl:Class rdf:about="&rpg;State">
         <rdfs:label xml:lang="en">State</rdfs:label>
         <rdfs:comment xml:lang="en">A changable status for something in a game.</rdfs:comment>
-        <core:example xml:lang="en">Examples are things like health statistics, unconciosness, asleep for characters and oiut of ammunition for a gun.</core:example>
-        <core:scopeNote xml:lang="en">States are generally strongly connected to the mechanics of an RPG and are generally directly modelled for a specific game.</core:scopeNote>
+        <skos:example xml:lang="en">Examples are things like health statistics, unconciosness, asleep for characters and oiut of ammunition for a gun.</skos:example>
+        <skos:scopeNote xml:lang="en">States are generally strongly connected to the mechanics of an RPG and are generally directly modelled for a specific game.</skos:scopeNote>
     </owl:Class>
     
 
@@ -839,8 +870,8 @@ Conceptually, rules define the mechanics of a game and a source book defines the
         <rdfs:label xml:lang="en">Tempate</rdfs:label>
         <rdfs:comment xml:lang="en">Something that is a template represents an abstract class-like description of a game item. A template can be used to describe a generic instance of an item. Individual items can inherit from the template and override speicifc elements.
 </rdfs:comment>
-        <core:scopeNote xml:lang="en">Templates can inherit from other templates. The rules on how inheritance is managed are game-specific.</core:scopeNote>
-        <core:scopeNote xml:lang="en">The template class is usually added to other entities to indicate that the entity is for use as a template.</core:scopeNote>
+        <skos:scopeNote xml:lang="en">Templates can inherit from other templates. The rules on how inheritance is managed are game-specific.</skos:scopeNote>
+        <skos:scopeNote xml:lang="en">The template class is usually added to other entities to indicate that the entity is for use as a template.</skos:scopeNote>
     </owl:Class>
     
 
@@ -849,10 +880,10 @@ Conceptually, rules define the mechanics of a game and a source book defines the
 
     <owl:Class rdf:about="&rpg;Unit">
         <rdfs:label xml:lang="en">Unit</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&core;Concept"/>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
         <rdfs:comment xml:lang="en">A unit of measure</rdfs:comment>
-        <core:editorialNote xml:lang="en">Resist the tempation to produce a fully fledged system of units and measures. That way lies madness.</core:editorialNote>
-        <core:scopeNote xml:lang="en">This heirarchy is a small unit model designed for use within RPGs. Specific types of units are modelled as subclasses.</core:scopeNote>
+        <skos:editorialNote xml:lang="en">Resist the tempation to produce a fully fledged system of units and measures. That way lies madness.</skos:editorialNote>
+        <skos:scopeNote xml:lang="en">This heirarchy is a small unit model designed for use within RPGs. Specific types of units are modelled as subclasses.</skos:scopeNote>
     </owl:Class>
     
 
@@ -873,10 +904,66 @@ Conceptually, rules define the mechanics of a game and a source book defines the
         <rdfs:label xml:lang="en">Weapon</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rpg;Item"/>
         <rdfs:comment xml:lang="en">A single-person weapon.</rdfs:comment>
-        <core:scopeNote xml:lang="en">Within a role-playing game, weapons generally refer to personal weapons such as swords, guns, etc. rather than a crew-operated weapon, such as an artillery piece. 
+        <skos:scopeNote xml:lang="en">Within a role-playing game, weapons generally refer to personal weapons such as swords, guns, etc. rather than a crew-operated weapon, such as an artillery piece. 
 
-Something like a machine gun or a sniper&apos;s rifle is often formally regarded as a crew-operated weapon. However, from a role-playing perspective it makes sense to treat these things as personal weapons.</core:scopeNote>
+Something like a machine gun or a sniper&apos;s rifle is often formally regarded as a crew-operated weapon. However, from a role-playing perspective it makes sense to treat these things as personal weapons.</skos:scopeNote>
     </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/LicenseDocument -->
+
+    <owl:Class rdf:about="&terms;LicenseDocument">
+        <rdfs:subClassOf rdf:resource="&terms;RightsStatement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/dc/terms/RightsStatement -->
+
+    <owl:Class rdf:about="&terms;RightsStatement"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://creativecommons.org/licenses/by/3.0/ -->
+
+    <owl:NamedIndividual rdf:about="http://creativecommons.org/licenses/by/3.0/">
+        <rdf:type rdf:resource="&terms;LicenseDocument"/>
+        <rdfs:label xml:lang="en">Creative Commons Attribution 3.0 (Unported)</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://i.creativecommons.org/l/by/3.0/88x31.png"/>
+    </owl:NamedIndividual>   
+
+    <!-- http://opensource.org/licenses/MIT -->
+
+    <owl:NamedIndividual rdf:about="http://opensource.org/licenses/MIT">
+        <rdf:type rdf:resource="&terms;LicenseDocument"/>
+        <rdfs:label xml:lang="en">The MIT License</rdfs:label>
+    </owl:NamedIndividual>
+
+    <!-- http://www.opengamingfoundation.org/ogl.html -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengamingfoundation.org/ogl.html">
+        <rdf:type rdf:resource="&terms;LicenseDocument"/>
+        <rdfs:label xml:lang="en">Open Game License v1.0 Simplified</rdfs:label>
+    </owl:NamedIndividual>
+
+    <!-- http://www.opencontent.org/openpub/ -->
+
+    <owl:NamedIndividual rdf:about="http://www.opencontent.org/openpub/">
+        <rdf:type rdf:resource="&terms;LicenseDocument"/>
+        <rdfs:label xml:lang="en">Open Publication License v1.0</rdfs:label>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
 
