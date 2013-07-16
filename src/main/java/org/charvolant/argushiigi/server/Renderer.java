@@ -70,7 +70,7 @@ abstract public class Renderer implements CategoryVisitor {
    * @return A singleton with the appropriate language 
    */
   public List<Language> getLanguages() {
-    return Collections.singletonList(new Language(this.locale.toLanguageTag()));
+    return Collections.singletonList(new Language(this.locale.getLanguage()));
   }
   
   /**

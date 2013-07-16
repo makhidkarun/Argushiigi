@@ -106,7 +106,7 @@ public class XmlRenderer extends Renderer implements HrefBuilder {
     this.current.setAttributeNS(this.NS, "ag:name", this.sorter.getName(this.resource, this.locale));
     this.current.setAttributeNS(this.NS, "ag:uri", ref.toString());
     this.current.setAttributeNS(this.NS, "ag:href", this.asHref(ref));
-    this.current.setAttributeNS(this.NS, "ag:base", this.application.getSourceRef().toString());
+    this.current.setAttributeNS(this.NS, "ag:base", this.application.getApparentRef().toString());
   }
 
 
@@ -190,7 +190,7 @@ public class XmlRenderer extends Renderer implements HrefBuilder {
     if (!this.application.getRootRef().isParent(ref))
       return ref.toString();
     if (ref.hasFragment()) {
-      Reference local = new Reference(this.application.getSourceRef());
+      Reference local = new Reference(this.application.getApparentRef());
       
       local.addQueryParameter(RendererResource.PARAM_URI, ref.encode(ref.toString(), true));
       return local.toString();

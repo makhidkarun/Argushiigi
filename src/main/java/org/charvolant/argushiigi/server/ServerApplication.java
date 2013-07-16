@@ -51,6 +51,8 @@ public class ServerApplication extends Application {
   private Reference root;
   /** The source URI for things to serve */
   private Reference source;
+  /** The apparent source URI for things to serve */
+  private Reference apparent;
   /** The schema ontology */
   private Model ontology;
   /** The schema display information */
@@ -72,6 +74,7 @@ public class ServerApplication extends Application {
   public ServerApplication(Reference root, Reference source) {
     this.root = root;
     this.source = source;
+    this.apparent = source;
     this.build();
   }
 
@@ -84,6 +87,7 @@ public class ServerApplication extends Application {
     super(context);
     this.root = new Reference("http://data.travellerrpg.com/");
     this.source = new Reference("http://localhost:8080/argushiigi/data/");
+    this.apparent = new Reference("http://www.charvolant.org/argushiigi/data/");
     this.build();
   }
   
@@ -105,6 +109,15 @@ public class ServerApplication extends Application {
    */
   public Reference getSourceRef() {
     return this.source;
+  }
+
+  /**
+   * Get the apparent source reference, the URI where things appear to actually come from.
+   *
+   * @return the source
+   */
+  public Reference getApparentRef() {
+    return this.apparent;
   }
 
   /**
@@ -263,7 +276,7 @@ public class ServerApplication extends Application {
    * @return The translated reference
    */
   public Reference getLocalRef(Reference external) {
-    return new Reference(this.source, external.getRelativeRef(this.root)).getTargetRef();
+    return new Reference(this.apparent, external.getRelativeRef(this.root)).getTargetRef();
   }
 
   /**
