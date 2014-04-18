@@ -78,6 +78,7 @@ abstract public class Renderer implements CategoryVisitor {
    * 
    * @param resource The resource
    * @param top The top category
+   * @param references The list of references (null for none)
    */
   public void render(Resource resource, Category top) {
     this.resource = resource;

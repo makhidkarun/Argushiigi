@@ -197,7 +197,7 @@ public class ServerApplication extends Application {
     this.ontology.read(this.getClass().getResource("../ontology/t5.owl").toExternalForm());
     this.display = ModelFactory.createDefaultModel();
     this.display.read(this.getClass().getResource("../ontology/argushiigi-rpg.rdf").toExternalForm());
-    this.display.read(this.getClass().getResource("../ontology/argushiigi-gsf.rdf").toExternalForm());
+    this.display.read(this.getClass().getResource("../ontology/argushiigi-t5.rdf").toExternalForm());
     reasoner = ReasonerRegistry.getOWLMiniReasoner();
     //this.dataset = TDBFactory.createDataset(dataset);
     this.dataset = ModelFactory.createDefaultModel();

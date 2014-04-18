@@ -616,7 +616,7 @@ public class DisplaySorterTest extends JenaTest {
     Statement s1 = this.inference.createLiteralStatement(t1, d2, 12);
     Text text;
     
-    text = this.sorter.formatStatementValue(s1, Locale.ENGLISH);
+    text = this.sorter.formatStatementValue(s1, Locale.ENGLISH, false);
     Assert.assertNotNull(text);
     Assert.assertEquals("12", text.toString());
   }
@@ -632,10 +632,11 @@ public class DisplaySorterTest extends JenaTest {
     Statement s1 = this.inference.createStatement(t1, p7, t2);
     Text text;
     
-    text = this.sorter.formatStatementValue(s1, Locale.ENGLISH);
+    text = this.sorter.formatStatementValue(s1, Locale.ENGLISH, false);
     Assert.assertNotNull(text);
     Assert.assertEquals("thing2", text.toString());
   }
+  
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
@@ -646,9 +647,24 @@ public class DisplaySorterTest extends JenaTest {
     Statement s1 = this.inference.createStatement(t1, RDFS.seeAlso, coti);
     Text text;
     
-    text = this.sorter.formatStatementValue(s1, Locale.ENGLISH);
+    text = this.sorter.formatStatementValue(s1, Locale.ENGLISH, false);
     Assert.assertNotNull(text);
     Assert.assertEquals("http://www.travellerrpg.com/CotI/Discuss/showthread.php?t=30041", text.toString());
+  }
+  
+  /**
+   * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
+   */
+  @Test
+  public void testFormatStatementValue4() {
+    Resource t1 = this.inference.createResource(this.PREFIX + "thing1");
+    Resource coti = this.inference.createResource("http://www.travellerrpg.com/CotI/Discuss/showthread.php?t=30041");
+    Statement s1 = this.inference.createStatement(t1, RDFS.seeAlso, coti);
+    Text text;
+    
+    text = this.sorter.formatStatementValue(s1, Locale.ENGLISH, true);
+    Assert.assertNotNull(text);
+    Assert.assertEquals("thing1", text.toString());
   }
 
   /**

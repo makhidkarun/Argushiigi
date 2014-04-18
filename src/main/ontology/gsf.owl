@@ -8,6 +8,7 @@
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY t5 "http://data.travellerrpg.com/ontology/t5#" >
     <!ENTITY gsf2 "http://data.travellerrpg.com/ontology/gsf#" >
     <!ENTITY rpg "http://data.travellerrpg.com/ontology/rpg#" >
     <!ENTITY gsf "http://data.travellerrpg.com/ontology/gsf/" >
@@ -23,6 +24,7 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:t5="http://data.travellerrpg.com/ontology/t5#"
      xmlns:gsf="http://data.travellerrpg.com/ontology/gsf/"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:gsf2="http://data.travellerrpg.com/ontology/gsf#"
@@ -30,8 +32,8 @@
     <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/gsf">
         <rdfs:label xml:lang="en">Generic SF Game</rdfs:label>
         <rdfs:comment xml:lang="en">A generic science fiction role playing game ontology to test the Argushiigi concepts.</rdfs:comment>
-        <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/rpg"/>
         <terms:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+        <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/rpg"/>
         <terms:creator rdf:resource="https://github.com/charvolant"/>
     </owl:Ontology>
     
@@ -177,9 +179,9 @@
     
 
 
-    <!-- http://data.travellerrpg.com/ontology/gsf#generator -->
+    <!-- http://data.travellerrpg.com/ontology/t5#generator -->
 
-    <owl:DatatypeProperty rdf:about="&gsf2;generator">
+    <owl:DatatypeProperty rdf:about="&t5;generator">
         <rdfs:label xml:lang="en">Generator</rdfs:label>
         <rdfs:comment xml:lang="en">A description of how to generate something</rdfs:comment>
         <rdfs:domain rdf:resource="&gsf2;GSFAttribute"/>
@@ -295,7 +297,7 @@
 
     <owl:NamedIndividual rdf:about="&gsf2;human-durability-generator">
         <rdf:type rdf:resource="&gsf2;Durability"/>
-        <generator rdf:datatype="&xsd;string">(Str + Sta) / 5</generator>
+        <t5:generator rdf:datatype="&xsd;string">(Str + Sta) / 5</t5:generator>
         <characteristic rdf:datatype="&xsd;integer">20</characteristic>
     </owl:NamedIndividual>
     
@@ -369,7 +371,7 @@
 
     <owl:NamedIndividual rdf:about="&gsf;human-agility-generator">
         <rdf:type rdf:resource="&gsf2;Agility"/>
-        <generator rdf:datatype="&xsd;string">1-100</generator>
+        <t5:generator rdf:datatype="&xsd;string">1-100</t5:generator>
         <characteristic rdf:datatype="&xsd;integer">50</characteristic>
     </owl:NamedIndividual>
     
@@ -379,7 +381,7 @@
 
     <owl:NamedIndividual rdf:about="&gsf;human-dexterity-generator">
         <rdf:type rdf:resource="&gsf2;Dexterity"/>
-        <generator rdf:datatype="&xsd;string">1-100</generator>
+        <t5:generator rdf:datatype="&xsd;string">1-100</t5:generator>
         <characteristic rdf:datatype="&xsd;integer">50</characteristic>
     </owl:NamedIndividual>
     
@@ -389,7 +391,7 @@
 
     <owl:NamedIndividual rdf:about="&gsf;human-intelligence-generator">
         <rdf:type rdf:resource="&gsf2;Intelligence"/>
-        <generator rdf:datatype="&xsd;string">1-100</generator>
+        <t5:generator rdf:datatype="&xsd;string">1-100</t5:generator>
         <characteristic rdf:datatype="&xsd;integer">50</characteristic>
     </owl:NamedIndividual>
     
@@ -420,7 +422,7 @@
 
     <owl:NamedIndividual rdf:about="&gsf;human-stamina-generator">
         <rdf:type rdf:resource="&gsf2;Stamina"/>
-        <generator rdf:datatype="&xsd;string">1-100</generator>
+        <t5:generator rdf:datatype="&xsd;string">1-100</t5:generator>
         <characteristic rdf:datatype="&xsd;integer">50</characteristic>
     </owl:NamedIndividual>
     
@@ -430,7 +432,7 @@
 
     <owl:NamedIndividual rdf:about="&gsf;human-strength-generator">
         <rdf:type rdf:resource="&gsf2;Strength"/>
-        <generator rdf:datatype="&xsd;string">1-100</generator>
+        <t5:generator rdf:datatype="&xsd;string">1-100</t5:generator>
         <characteristic rdf:datatype="&xsd;integer">50</characteristic>
     </owl:NamedIndividual>
     

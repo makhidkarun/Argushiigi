@@ -27,24 +27,37 @@ import com.hp.hpl.jena.rdf.model.Statement;
 public class Category {
   /** The category this represents */
   private Resource category;
+  /** Is this a category that collects references to a resource? */
+  private boolean reference;
   /** Sub-categories */
   private List<Category> subCategories;
   /** Statements that fit in this category */
   private List<Statement> statements;
-  
+
   /**
    * Construct for a category.
    *
-   * @param sorter The sorter
    * @param category The category
+   * @param reference is this a reference category? (false for a direct category)
    */
-  public Category(Resource category) {
+  public Category(Resource category, boolean reference) {
     super();
     this.category = category;
+    this.reference = reference;
     this.subCategories = new ArrayList<Category>();
     this.statements = new ArrayList<Statement>();
   }
-  
+
+  /**
+   * Construct for a direct category.
+   *
+   * @param category The category
+   */
+  public Category(Resource category) {
+    this(category, false);
+  }
+
+
   /**
    * Get the category.
    *
@@ -53,6 +66,20 @@ public class Category {
   public Resource getCategory() {
     return this.category;
   }
+
+
+  /**
+   * Is this a reference category?
+   * <p>
+   * Reference categories collect statements that are references to the main resource,
+   * rather than direct categories that collect statements about the resource.
+   *
+   * @return the reference
+   */
+  public boolean isReference() {
+    return this.reference;
+  }
+
 
   /**
    * Get the sub-categories.
@@ -93,7 +120,7 @@ public class Category {
   public void add(Statement statement, Resource cat) {
     List<Resource> parents;
     Resource bottom = cat;
-    
+
     if (this.category.equals(cat)) {
       this.statements.add(statement);
       return;
@@ -111,7 +138,7 @@ public class Category {
   private void add(Statement statement, int index, List<Resource> parents) {
     Resource parent;
     Category sc;
-    
+
     if (index == -1) {
       this.statements.add(statement);
       return;
@@ -127,7 +154,7 @@ public class Category {
     this.subCategories.add(sc);
     sc.add(statement, index - 1, parents);
   }
-  
+
   /**
    * Sort the categories and statements into an order.
    * 
@@ -138,7 +165,7 @@ public class Category {
     Collections.sort(this.subCategories, new CategoryComparator(rc));
     Collections.sort(this.statements, sc);
   }
-  
+
   /**
    * Visit this category.
    * <p>
@@ -153,13 +180,13 @@ public class Category {
       sub.visit(visitor);
     visitor.visited(this);
   }
-  
+
   /**
    * A comparator for categories, based on the category resource.
    */
   private class CategoryComparator implements Comparator<Category> {
     private Comparator<Resource> rc; 
-    
+
     public CategoryComparator(Comparator<Resource> rc) {
       this.rc = rc;
     }

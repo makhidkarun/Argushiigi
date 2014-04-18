@@ -67,6 +67,54 @@ public class RendererResource extends ServerResource {
   private ServerApplication application;
   /** The display sorter (from the application) */
   private DisplaySorter sorter;
+  
+  
+  /**
+   * Should we ignore this statement?
+   * <p>
+   * Because it is a redundant piece of information from the reasoner, usually.
+   *  
+   * @param statement The statement to check
+   * 
+   * @return True if it should be ignored
+   */
+  private boolean ignore(Statement statement) {
+    Resource subject = statement.getSubject();
+    Property predicate = statement.getPredicate();
+    RDFNode object = statement.getObject();
+    
+    // Ignore self-references
+    if (object.equals(subject))
+      return true;
+    // Ignore A p Resource
+    if (object.equals(RDFS.Resource))
+      return true;
+    // Ignore A p Thing
+    if (object.equals(OWL.Thing))
+      return true;    
+    // Ignore A differentFrom B
+    if (predicate.equals(OWL.differentFrom))
+      return true;
+    // Ignore A sameAs A
+    if (predicate.equals(OWL.sameAs) && object.equals(subject))
+      return true;
+    // Ignore A equivalentClass A
+    if (predicate.equals(OWL.equivalentClass) && object.equals(subject))
+      return true;
+    // Ignore A subPropertyOf A
+    if (predicate.equals(RDFS.subPropertyOf) && object.equals(subject))
+      return true;
+    // Ignore A subClassOf A
+    if (predicate.equals(RDFS.subClassOf) && object.equals(subject))
+      return true;
+    // Ignore A p Resource
+    if (object.equals(RDFS.Resource))
+      return true;
+    // Ignore A p Thing
+    if (object.equals(OWL.Thing))
+      return true;  
+    return false;
+  }
 
   /**
    * Build a filtered list of statements.
@@ -98,38 +146,8 @@ public class RendererResource extends ServerResource {
       Set<Property> sp = seen.get(object);
       boolean found = false;
 
-      // Ignore A p Resource
-      if (object.equals(RDFS.Resource))
-        continue;
-
-      // Ignore A p Thing
-      if (object.equals(OWL.Thing))
-        continue;
-
-      // Ignore A sameAs A
-      if (predicate.equals(OWL.sameAs) && object.equals(resource))
-        continue;
-
-      // Ignore A equivalentClass A
-      if (predicate.equals(OWL.equivalentClass) && object.equals(resource))
-        continue;
-
-      // Ignore A subPropertyOf A
-      if (predicate.equals(RDFS.subPropertyOf) && object.equals(resource))
-        continue;
-
-      // Ignore A subClassOf A
-      if (predicate.equals(RDFS.subClassOf) && object.equals(resource))
-        continue;
-
-      // Ignore A p Resource
-      if (object.equals(RDFS.Resource))
-        continue;
-
-      // Ignore A p Thing
-      if (object.equals(OWL.Thing))
-        continue;
-
+      if (this.ignore(s))
+         continue;
       // Ignore A p B where A q B has been seen and q -> p
       if (sp == null) {
         sp = new HashSet<Property>();
@@ -221,6 +239,25 @@ public class RendererResource extends ServerResource {
       seen.addAll(nseen);
     }
   }
+  
+  /**
+   * Get a list of references to the resource.
+   * 
+   * @param resource The resource
+   * @param model The model to query
+   * 
+   * @return A list of references
+   */
+  private void buildReferences(Category top, Resource resource, Model model) {
+    StmtIterator si = model.listStatements(null, null, resource);
+    Statement statement;
+    
+    while (si.hasNext()) {
+      statement = si.next();
+      if (!this.ignore(statement))
+        top.add(statement, this.sorter.getReference());
+    }
+  }
 
   /**
    * Initialise the resource by collecting the contextual
@@ -241,8 +278,10 @@ public class RendererResource extends ServerResource {
     Reference uri = null;
     Resource resource;
     Category top = new Category(this.sorter.getTop());
+    Category references = new Category(this.sorter.getReference(), true);
     Renderer renderer;
 
+    top.getSubCategories().add(references);
     if (format == null)
       format = this.FORMAT_HTML;
     if (this.getQueryValue(this.PARAM_URI) != null)
@@ -255,6 +294,7 @@ public class RendererResource extends ServerResource {
       resource = this.application.getInference().createResource(uri.toString());
       if (format.equals(this.FORMAT_HTML) || format.equals(this.FORMAT_XML)) {
         this.buildStatements(top, resource, this.application.getInference(), true);
+        this.buildReferences(top, resource, this.application.getInference());
       } else {
         this.buildStatements(top, resource, this.application.getOntology(), false);
         this.buildStatements(top, resource, this.application.getDataset(), false);

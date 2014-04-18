@@ -109,7 +109,35 @@ public class XmlRenderer extends Renderer implements HrefBuilder {
     this.current.setAttributeNS(this.NS, "ag:base", this.application.getApparentRef().toString());
   }
 
-
+  /**
+   * Add an XML statement.
+   * 
+   * @param statement The statement
+   * @param parent The parent element
+   * @param reference Is this a reference to the main resource?
+   * @param direct Is this a direct reference to the main resource?
+   */
+  private void addStatement(Statement statement, Element parent, boolean reference, boolean direct) {
+    Element prop, key, val; 
+    Text keyText, valueText;
+    XmlTextVisitor xv;
+    
+    prop = this.document.createElementNS(this.NS, "ag:property");
+    prop.setAttributeNS(this.NS, "ag:direct", direct ? "true" : "false");
+    parent.appendChild(prop);
+    key = this.document.createElementNS(this.NS, "ag:key");
+    keyText = this.sorter.formatStatementLabel(statement, this.locale);
+    key.setAttributeNS(this.NS, "ag:name", keyText.toString());
+    xv = new XmlTextVisitor(this.document, key, this);
+    keyText.visit(xv);
+    prop.appendChild(key);
+    val = this.document.createElementNS(this.NS, "ag:value");
+    valueText = this.sorter.formatStatementValue(statement, this.locale, reference);
+    val.setAttributeNS(this.NS, "ag:name", valueText.toString());
+    xv = new XmlTextVisitor(this.document, val, this);
+    valueText.visit(xv);
+    prop.appendChild(val);
+  }
 
   /**
    * Perform post-rendering activities.
@@ -150,26 +178,8 @@ public class XmlRenderer extends Renderer implements HrefBuilder {
    */
   @Override
   public void visited(Category category) {
-    Element property, key, value;
-    Text keyText, valueText;
-    XmlTextVisitor xv;
-
-    for (Statement s: category.getStatements()) {
-      property = this.document.createElementNS(this.NS, "ag:property");
-      property.setAttributeNS(this.NS, "ag:direct", s.getSubject().equals(this.resource) ? "true" : "false");
-      this.current.appendChild(property);
-      key = this.document.createElementNS(this.NS, "ag:key");
-      keyText = this.sorter.formatStatementLabel(s, this.locale);
-      key.setAttributeNS(this.NS, "ag:name", keyText.toString());
-      xv = new XmlTextVisitor(this.document, key, this);
-      keyText.visit(xv);
-      property.appendChild(key);
-      value = this.document.createElementNS(this.NS, "ag:value");
-      valueText = this.sorter.formatStatementValue(s, this.locale);
-      value.setAttributeNS(this.NS, "ag:name", valueText.toString());
-      xv = new XmlTextVisitor(this.document, value, this);
-      valueText.visit(xv);
-      property.appendChild(value);
+    for (Statement statement: category.getStatements()) {
+      this.addStatement(statement, this.current, category.isReference(), statement.getSubject().equals(this.resource));
     }
     this.current = (Element) this.current.getParentNode();
   }

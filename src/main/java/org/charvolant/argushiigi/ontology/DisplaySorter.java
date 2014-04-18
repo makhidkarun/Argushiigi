@@ -66,6 +66,8 @@ public class DisplaySorter implements Comparator<Resource> {
   
   /** The URI of the top catch-all category for display */
   public static final String TOP_URI = "http://data.travellerrpg.com/ontology/argushiigi/top";
+  /** The URI of the reference category for display */
+  public static final String REFERENCE_URI = "http://data.travellerrpg.com/ontology/argushiigi/reference";
   /** The URI of the name category for display */
   public static final String NAME_URI = "http://data.travellerrpg.com/ontology/argushiigi/name";
 
@@ -73,6 +75,8 @@ public class DisplaySorter implements Comparator<Resource> {
   private Model model;
   /** The top category */
   private Resource top;
+  /** The reference category */
+  private Resource reference;
   /** The name category */
   private Resource name;
   /** The list of properties to try for a name */
@@ -102,6 +106,7 @@ public class DisplaySorter implements Comparator<Resource> {
     super();
     this.model = model;
     this.top = this.model.createResource(this.TOP_URI);
+    this.reference = this.model.createResource(this.REFERENCE_URI);
     this.name = this.model.createResource(this.NAME_URI);
     this.buildPriorityMap();
     this.buildCategoryMap();
@@ -123,6 +128,16 @@ public class DisplaySorter implements Comparator<Resource> {
   public Resource getTop() {
     return this.top;
   }
+
+  /**
+   * Get the reference category.
+   *
+   * @return the reference category
+   */
+  public Resource getReference() {
+    return this.reference;
+  }
+  
 
   /**
    * Get the categories.
@@ -885,12 +900,13 @@ public class DisplaySorter implements Comparator<Resource> {
    * 
    * @param statement The statement to format
    * @param locale The locale to format in
+   * @param reference Is this a reference (use the subject) or not (use the object)
    * 
    * @return The resulting DOM object, or null for not formatted
    */
-  public Text formatStatementValue(Statement statement, Locale locale) {
+  public Text formatStatementValue(Statement statement, Locale locale, boolean reference) {
     Property predicate = statement.getPredicate();
-    RDFNode object = statement.getObject();
+    RDFNode object = reference ? statement.getSubject() : statement.getObject();
     Resource format = this.format(predicate);
     List<Resource> patterns;
     StmtIterator si;

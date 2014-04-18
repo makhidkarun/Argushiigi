@@ -52,8 +52,7 @@ This ontology provides upper-level concepts for Traveller 5. Detailed informatio
 
     <owl:AnnotationProperty rdf:about="http://data.travellerrpg.com/ontology/t5#geneticProfile">
         <rdfs:label xml:lang="en">genetic profile</rdfs:label>
-        <rdfs:comment xml:lang="en">Associates a race with one of the charactersistics that makes up the race description.</rdfs:comment>
-        <skos:note xml:lang="en">The GP sequence can be built by collecting the genetic profile codes from the various characteristics.</skos:note>
+        <rdfs:comment xml:lang="en">Associates a charatcteristic class with an entity.</rdfs:comment>
         <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/t5#Race"/>
         <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
         <rdfs:range rdf:resource="&rdfs;Class"/>
@@ -88,6 +87,7 @@ This ontology provides upper-level concepts for Traveller 5. Detailed informatio
     <!-- http://data.travellerrpg.com/ontology/t5#characteristicGenerator -->
 
     <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#characteristicGenerator">
+        <rdfs:label xml:lang="en">characteristic generator</rdfs:label>
         <skos:scopeNote xml:lang="en">Intended for template characteristics that have a typical value and a range of possiblities.</skos:scopeNote>
         <rdfs:comment xml:lang="en">The means by which a characteristic is generated.</rdfs:comment>
         <rdfs:domain rdf:resource="&rpg;Attribute"/>
@@ -338,7 +338,7 @@ This ontology provides upper-level concepts for Traveller 5. Detailed informatio
 
     <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasStrength">
         <rdfs:label xml:lang="en">has strength</rdfs:label>
-        <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/t5#Strength"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Strength"/>
         <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC1"/>
     </owl:ObjectProperty>
     

@@ -218,6 +218,18 @@
     
 
 
+    <!-- http://data.travellerrpg.com/ontology/argushiigi/template -->
+
+    <owl:NamedIndividual rdf:about="&argushiigi3;template">
+        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
+        <rdfs:label xml:lang="en">Template</rdfs:label>
+        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">60</argushiigi2:displayPriority>
+        <rdfs:comment xml:lang="en">Information generally associated with a template</rdfs:comment>
+        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
