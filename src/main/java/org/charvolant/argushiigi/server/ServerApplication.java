@@ -194,14 +194,14 @@ public class ServerApplication extends Application {
     this.ontology.read(this.getClass().getResource("../ontology/skos.owl").toExternalForm());
     this.ontology.read(this.getClass().getResource("../ontology/argushiigi.owl").toExternalForm());
     this.ontology.read(this.getClass().getResource("../ontology/rpg.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("../ontology/gsf.owl").toExternalForm());
+    this.ontology.read(this.getClass().getResource("../ontology/t5.owl").toExternalForm());
     this.display = ModelFactory.createDefaultModel();
     this.display.read(this.getClass().getResource("../ontology/argushiigi-rpg.rdf").toExternalForm());
     this.display.read(this.getClass().getResource("../ontology/argushiigi-gsf.rdf").toExternalForm());
     reasoner = ReasonerRegistry.getOWLMiniReasoner();
     //this.dataset = TDBFactory.createDataset(dataset);
     this.dataset = ModelFactory.createDefaultModel();
-    this.dataset.read(this.getClass().getResource("../ontology/gsf-charvolant.ttl").toExternalForm(), "TTL");
+    this.dataset.read(this.getClass().getResource("../ontology/t5-data.rdf").toExternalForm(), "TTL");
     this.inference = ModelFactory.createInfModel(reasoner, this.ontology, this.dataset);
     this.sorter = new DisplaySorter(ModelFactory.createUnion(this.ontology, this.display));
     this.logger.debug("Created data source");

@@ -29,4 +29,13 @@ public interface HrefBuilder {
    * @return The equivalent resolvable reference
    */
   public String asHref(Reference ref);
+  
+  /**
+   * Is this an external link?
+   * 
+   * @param ref The link to test
+   * 
+   * @return True if this link is external to the application
+   */
+  public boolean isExternal(Reference ref);
 }

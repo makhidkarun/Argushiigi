@@ -38,7 +38,7 @@ abstract public class Renderer implements CategoryVisitor {
   protected Locale locale;
   /** The display sorter */
   protected DisplaySorter sorter;
-  /** The appliction */
+  /** The application */
   protected ServerApplication application;
   /** The resource comparator */
   protected Comparator<Resource> resourceComparator;

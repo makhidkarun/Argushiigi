@@ -54,6 +54,16 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     
 
 
+    <!-- http://data.travellerrpg.com/ontology/rpg#referenceMaterial -->
+
+    <owl:AnnotationProperty rdf:about="&rpg;referenceMaterial">
+        <rdfs:label xml:lang="en">reference material</rdfs:label>
+        <rdfs:comment xml:lang="en">A reference to a document or concept that contains additional information.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&rdfs;seeAlso"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://purl.org/dc/terms/license -->
 
     <owl:AnnotationProperty rdf:about="&terms;license"/>
@@ -282,6 +292,27 @@ The concept of a &apos;level&apos; is specific to a specific set of RPG rules an
     
 
 
+    <!-- http://data.travellerrpg.com/ontology/rpg#referenceMaterial -->
+
+    <owl:ObjectProperty rdf:about="&rpg;referenceMaterial">
+        <rdfs:label xml:lang="en">reference material</rdfs:label>
+        <rdfs:comment xml:lang="en">A reference to a document or concept that contains additional information.</rdfs:comment>
+        <rdfs:range rdf:resource="&foaf;Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#settingConcept -->
+
+    <owl:ObjectProperty rdf:about="&rpg;settingConcept">
+        <rdfs:label xml:lang="en">setting concept</rdfs:label>
+        <rdfs:comment xml:lang="en">A concept that helps define the nature of a setting.</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Setting"/>
+        <rdfs:range rdf:resource="&skos;Concept"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://data.travellerrpg.com/ontology/rpg#template -->
 
     <owl:ObjectProperty rdf:about="&rpg;template">
@@ -405,6 +436,16 @@ Some features or states do not have a value associated with them, in which case 
     
 
 
+    <!-- http://data.travellerrpg.com/ontology#DiceConventions -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology#DiceConventions">
+        <rdfs:label xml:lang="en">Dice Conventions</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&skos;ConceptScheme"/>
+        <rdfs:comment xml:lang="en">Conventions for describing how die rolls are represented.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://data.travellerrpg.com/ontology/rpg#Actor -->
 
     <owl:Class rdf:about="&rpg;Actor">
@@ -423,6 +464,29 @@ Actors can be modelled within the game to various degrees of fidelity. For examp
         <rdfs:label xml:lang="en">Adventure</rdfs:label>
         <rdfs:subClassOf rdf:resource="&rpg;Setting"/>
         <rdfs:comment xml:lang="en">A story-level setting for a game, usually with a clear beginning, middle and end.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Amount -->
+
+    <owl:Class rdf:about="&rpg;Amount">
+        <rdfs:label xml:lang="en">Amount</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;value"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="&xsd;decimal"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;unit"/>
+                <owl:onClass rdf:resource="&rpg;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment xml:lang="en">A quantity of something</rdfs:comment>
     </owl:Class>
     
 
@@ -479,23 +543,16 @@ Attributes are generally central to the game system and are descibed via subclas
         <rdfs:subClassOf rdf:resource="&rpg;SettingState"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&rpg;toUnit"/>
-                <owl:onClass rdf:resource="&rpg;Unit"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
-                <owl:onClass rdf:resource="&rpg;Unit"/>
-                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
                 <owl:onProperty rdf:resource="&rpg;conversionRatio"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
                 <owl:onDataRange rdf:resource="&xsd;decimal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;toUnit"/>
+                <owl:onClass rdf:resource="&rpg;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
@@ -505,7 +562,15 @@ Attributes are generally central to the game system and are descibed via subclas
                 <owl:onDataRange rdf:resource="&xsd;boolean"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
+                <owl:onClass rdf:resource="&rpg;Unit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="en">A conversion between two units.</rdfs:comment>
+        <rdfs:comment xml:lang="en">A date according to a system of dates.</rdfs:comment>
         <skos:scopeNote xml:lang="en">Generally, conversions are fixed and apply to the highest level setting. However, some conversions such as exchange rates may vary from setting to setting.</skos:scopeNote>
     </owl:Class>
     
@@ -521,6 +586,52 @@ Attributes are generally central to the game system and are descibed via subclas
     
 
 
+    <!-- http://data.travellerrpg.com/ontology/rpg#Date -->
+
+    <owl:Class rdf:about="&rpg;Date">
+        <rdfs:label xml:lang="en">Date</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;State"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#DateSystem -->
+
+    <owl:Class rdf:about="&rpg;DateSystem">
+        <rdfs:label xml:lang="en">Date System</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&skos;ConceptScheme"/>
+        <rdfs:comment xml:lang="en">A real or fantasy date system.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Duration -->
+
+    <owl:Class rdf:about="&rpg;Duration">
+        <rdfs:label xml:lang="en">Duration</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;unit"/>
+                <owl:onClass rdf:resource="&rpg;TimeUnit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&rpg;Amount"/>
+        <rdfs:comment xml:lang="en">A period of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#EntityState -->
+
+    <owl:Class rdf:about="&rpg;EntityState">
+        <rdfs:label xml:lang="en">Entity State</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;State"/>
+        <rdfs:comment xml:lang="en">A state associated with a game entity.</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://data.travellerrpg.com/ontology/rpg#ExchangeRate -->
 
     <owl:Class rdf:about="&rpg;ExchangeRate">
@@ -528,14 +639,14 @@ Attributes are generally central to the game system and are descibed via subclas
         <rdfs:subClassOf rdf:resource="&rpg;Conversion"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
+                <owl:onProperty rdf:resource="&rpg;toUnit"/>
                 <owl:onClass rdf:resource="&rpg;Currency"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="&rpg;toUnit"/>
+                <owl:onProperty rdf:resource="&rpg;fromUnit"/>
                 <owl:onClass rdf:resource="&rpg;Currency"/>
                 <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
             </owl:Restriction>
@@ -627,18 +738,13 @@ The game master has, in theory if not in practice, complete knowledge of the gam
     <owl:Class rdf:about="&rpg;Mass">
         <rdfs:label xml:lang="en">Mass</rdfs:label>
         <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&rpg;Attribute"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&rpg;unit"/>
-                        <owl:onClass rdf:resource="&rpg;MassUnit"/>
-                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;unit"/>
+                <owl:onClass rdf:resource="&rpg;MassUnit"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:subClassOf rdf:resource="&rpg;Amount"/>
         <rdfs:comment xml:lang="en">The basic mass of an item or character.
 
 Generally, this means the most convienient defintiion for role-playing purposes. A character&apos;s mass is their mass in ordingary clothing, without additional items such as armour. A weapon&apos;s mass is generally its mass with a full load of ammunition.
@@ -731,18 +837,13 @@ The player has partial knowledge of the game situation.</rdfs:comment>
     <owl:Class rdf:about="&rpg;Price">
         <rdfs:label xml:lang="en">Price</rdfs:label>
         <owl:equivalentClass>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&rpg;Attribute"/>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="&rpg;unit"/>
-                        <owl:onClass rdf:resource="&rpg;Currency"/>
-                        <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&rpg;unit"/>
+                <owl:onClass rdf:resource="&rpg;Currency"/>
+                <owl:qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:qualifiedCardinality>
+            </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:subClassOf rdf:resource="&rpg;Amount"/>
         <rdfs:comment xml:lang="en">The price of a game object, in game currency.</rdfs:comment>
         <skos:scopeNote xml:lang="en">While usually applied to non-characters, there is no reason why a character cannot have a price as well.</skos:scopeNote>
     </owl:Class>
@@ -797,6 +898,7 @@ The mehanics of how sense work form part of a specific RPGs mechanics.</rdfs:com
     <owl:Class rdf:about="&rpg;Setting">
         <rdfs:label xml:lang="en">Setting</rdfs:label>
         <rdfs:comment xml:lang="en">A setting is the stage that an RPG is played on. Settings range in scale from entire universes to the bar in which an adventure takes place. A setting may refer to a location, a time period, a social mileau or any combination.</rdfs:comment>
+        <skos:scopeNote xml:lang="en">Settings may also act as collections of concepts that describe the nature of the setting. The settingConcept property allows settings to be associated with the concepts that define them.</skos:scopeNote>
     </owl:Class>
     
 
@@ -876,6 +978,15 @@ Conceptually, rules define the mechanics of a game and a source book defines the
     
 
 
+    <!-- http://data.travellerrpg.com/ontology/rpg#TimeUnit -->
+
+    <owl:Class rdf:about="&rpg;TimeUnit">
+        <rdfs:subClassOf rdf:resource="&rpg;Unit"/>
+        <rdfs:comment xml:lang="en">A unit of time (duration)</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://data.travellerrpg.com/ontology/rpg#Unit -->
 
     <owl:Class rdf:about="&rpg;Unit">
@@ -942,7 +1053,15 @@ Something like a machine gun or a sniper&apos;s rifle is often formally regarded
         <rdf:type rdf:resource="&terms;LicenseDocument"/>
         <rdfs:label xml:lang="en">Creative Commons Attribution 3.0 (Unported)</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://i.creativecommons.org/l/by/3.0/88x31.png"/>
-    </owl:NamedIndividual>   
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/rpg"/>
+    
+
 
     <!-- http://opensource.org/licenses/MIT -->
 
@@ -950,19 +1069,23 @@ Something like a machine gun or a sniper&apos;s rifle is often formally regarded
         <rdf:type rdf:resource="&terms;LicenseDocument"/>
         <rdfs:label xml:lang="en">The MIT License</rdfs:label>
     </owl:NamedIndividual>
+    
 
-    <!-- http://www.opengamingfoundation.org/ogl.html -->
-
-    <owl:NamedIndividual rdf:about="http://www.opengamingfoundation.org/ogl.html">
-        <rdf:type rdf:resource="&terms;LicenseDocument"/>
-        <rdfs:label xml:lang="en">Open Game License v1.0 Simplified</rdfs:label>
-    </owl:NamedIndividual>
 
     <!-- http://www.opencontent.org/openpub/ -->
 
     <owl:NamedIndividual rdf:about="http://www.opencontent.org/openpub/">
         <rdf:type rdf:resource="&terms;LicenseDocument"/>
         <rdfs:label xml:lang="en">Open Publication License v1.0</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.opengamingfoundation.org/ogl.html -->
+
+    <owl:NamedIndividual rdf:about="http://www.opengamingfoundation.org/ogl.html">
+        <rdf:type rdf:resource="&terms;LicenseDocument"/>
+        <rdfs:label xml:lang="en">Open Game License v1.0 Simplified</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
 

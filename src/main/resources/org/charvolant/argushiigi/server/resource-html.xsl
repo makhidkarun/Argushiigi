@@ -92,7 +92,7 @@
 
   <!-- override rule: <link> nodes get special treatment -->
   <xsl:template match="ag:value//ag:link">
-    <a><xsl:attribute name="href"><xsl:value-of select="@ag:href"/></xsl:attribute><xsl:attribute name="title"><xsl:value-of select="@ag:uri"/></xsl:attribute><xsl:apply-templates /></a>
+    <a><xsl:if test="@ag:external"><xsl:attribute name="class">external</xsl:attribute></xsl:if><xsl:attribute name="href"><xsl:value-of select="@ag:href"/></xsl:attribute><xsl:attribute name="title"><xsl:value-of select="@ag:uri"/></xsl:attribute><xsl:apply-templates /></a>
   </xsl:template>
 
   <!-- default rule: ignore any unspecific text node -->

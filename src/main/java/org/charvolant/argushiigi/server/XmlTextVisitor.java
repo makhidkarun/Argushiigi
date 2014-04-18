@@ -69,6 +69,8 @@ public class XmlTextVisitor implements TextVisitor {
     this.element = this.document.createElementNS(XmlRenderer.NS, "ag:link");
     this.element.setAttributeNS(XmlRenderer.NS, "ag:uri", uri.toString());
     this.element.setAttributeNS(XmlRenderer.NS, "ag:href", this.builder.asHref(uri));
+    if (this.builder.isExternal(uri))
+      this.element.setAttributeNS(XmlRenderer.NS, "ag:external", "true");
     text.getText().visit(this);
     old.appendChild(this.element);
     this.element = old;

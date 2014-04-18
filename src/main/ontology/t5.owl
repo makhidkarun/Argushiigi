@@ -2,11 +2,14 @@
 
 
 <!DOCTYPE rdf:RDF [
+    <!ENTITY terms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rpg "http://data.travellerrpg.com/ontology/rpg#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
@@ -15,18 +18,741 @@
      xml:base="http://data.travellerrpg.com/ontology/t5"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#">
     <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/t5">
         <rdfs:comment xml:lang="en">The core Traveller 5 ontology.
 
 This ontology provides upper-level concepts for Traveller 5. Detailed information on specific areas, such as characters or worlds can be found in subsiduary ontologies.</rdfs:comment>
         <rdfs:seeAlso xml:lang="en">http://www.travellerrpg.com/CotI/Discuss/showthread.php?t=30041</rdfs:seeAlso>
         <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/rpg"/>
-        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/ontology/t5/Traveller5Core"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <terms:license rdf:resource="http://wiki.travellerrpg.com/Copyright"/>
     </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#geneticProfile -->
+
+    <owl:AnnotationProperty rdf:about="http://data.travellerrpg.com/ontology/t5#geneticProfile">
+        <rdfs:label xml:lang="en">genetic profile</rdfs:label>
+        <rdfs:comment xml:lang="en">Associates a race with one of the charactersistics that makes up the race description.</rdfs:comment>
+        <skos:note xml:lang="en">The GP sequence can be built by collecting the genetic profile codes from the various characteristics.</skos:note>
+        <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/t5#Race"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rdfs:range rdf:resource="&rdfs;Class"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#geneticProfileLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://data.travellerrpg.com/ontology/t5#geneticProfileLabel">
+        <rdfs:label xml:lang="en">genetic profile label</rdfs:label>
+        <rdfs:comment xml:lang="en">A label used to describe the sequence of characteristics used to desceibe a race.</rdfs:comment>
+        <skos:prefLabel xml:lang="en">GP</skos:prefLabel>
+        <rdfs:seeAlso rdf:resource="&rpg;Attribute"/>
+        <rdfs:seeAlso rdf:resource="http://data.travellerrpg.com/ontology/t5#Race"/>
+        <rdfs:subPropertyOf rdf:resource="&skos;altLabel"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#characteristicGenerator -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#characteristicGenerator">
+        <skos:scopeNote xml:lang="en">Intended for template characteristics that have a typical value and a range of possiblities.</skos:scopeNote>
+        <rdfs:comment xml:lang="en">The means by which a characteristic is generated.</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Attribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasAgility -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasAgility">
+        <rdfs:label xml:lang="en">has agility</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Agility"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC2"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasBurden -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasBurden">
+        <rdfs:comment xml:lang="en">Indicates that an entity is carrying a load modified by quality characteristics.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasState"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Burden"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasC1 -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasC1">
+        <rdfs:label xml:lang="en">has C1</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#C1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasC2 -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasC2">
+        <rdfs:label xml:lang="en">has C2</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasC3 -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasC3">
+        <rdfs:label xml:lang="en">has C3</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#C3"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasC4 -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasC4">
+        <rdfs:label xml:lang="en">has C4</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#C4"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasC5 -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasC5">
+        <rdfs:label xml:lang="en">hasC5</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#C5"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasC6 -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasC6">
+        <rdfs:label xml:lang="en">has C6</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#C6"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasCP -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasCP">
+        <rdfs:label xml:lang="en">has CP</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#CP"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasCS -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasCS">
+        <rdfs:label xml:lang="en">has CS</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#CS"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasCaste -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasCaste">
+        <rdfs:label xml:lang="en">has caste</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Caste"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC6"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasCharisma -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasCharisma">
+        <rdfs:label xml:lang="en">has charisma</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Charisma"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC6"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasDexterity -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasDexterity">
+        <rdfs:label xml:lang="en">has dexterity</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Dexterity"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC2"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasEducation -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasEducation">
+        <rdfs:label xml:lang="en">has education</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Education"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC5"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasEndurance -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasEndurance">
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Endurance"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC3"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasGrace -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasGrace">
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Grace"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC2"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasInstinct -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasInstinct">
+        <rdfs:label xml:lang="en">has instinct</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Instinct"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC5"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasIntelligence -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasIntelligence">
+        <rdfs:label xml:lang="en">has intelligence</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Intelligence"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC4"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasLoad -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasLoad">
+        <rdfs:label xml:lang="en">has load</rdfs:label>
+        <rdfs:comment xml:lang="en">Indicates that the entity is carrying an un-modified load.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasState"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Load"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasPersonalDay -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasPersonalDay">
+        <rdfs:label xml:lang="en">has personal day</rdfs:label>
+        <rdfs:comment xml:lang="en">The duration of the personal day of the character.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&rpg;hasAttribute"/>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#PersonalDay"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasPsionics -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasPsionics">
+        <rdfs:label xml:lang="en">has psionics</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Psionics"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasCP"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasSanity -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasSanity">
+        <rdfs:label xml:lang="en">has sanity</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Sanity"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasCS"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasSocialStanding -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasSocialStanding">
+        <rdfs:label xml:lang="en">has social standing</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#SocialStanding"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC6"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasStamina -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasStamina">
+        <rdfs:label xml:lang="en">has stamina</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Stamina"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC3"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasStrength -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasStrength">
+        <rdfs:label xml:lang="en">has strength</rdfs:label>
+        <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/t5#Strength"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC1"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasTraining -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasTraining">
+        <rdfs:label xml:lang="en">has training</rdfs:label>
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Training"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC5"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#hasVigor -->
+
+    <owl:ObjectProperty rdf:about="http://data.travellerrpg.com/ontology/t5#hasVigor">
+        <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#Vigor"/>
+        <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/t5#hasC3"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#characteristic -->
+
+    <owl:DatatypeProperty rdf:about="http://data.travellerrpg.com/ontology/t5#characteristic">
+        <rdfs:label xml:lang="en">characteristic</rdfs:label>
+        <rdfs:comment xml:lang="en">The value of a characteristic</rdfs:comment>
+        <rdfs:domain rdf:resource="&rpg;Attribute"/>
+        <rdfs:subPropertyOf rdf:resource="&rpg;value"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/rpg#Attribute -->
+
+    <rdf:Description rdf:about="&rpg;Attribute">
+        <skos:prefLabel xml:lang="en">Characteristic</skos:prefLabel>
+    </rdf:Description>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Agility -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Agility">
+        <rdfs:label xml:lang="en">Agility</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C2"/>
+        <geneticProfileLabel xml:lang="en">A</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Agi</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Body coordination</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Burden -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Burden">
+        <rdfs:label xml:lang="en">Burden</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;EntityState"/>
+        <rdfs:subClassOf rdf:resource="&rpg;Mass"/>
+        <rdfs:comment xml:lang="en">The modified load carried by something.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#C1 -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#C1">
+        <rdfs:label xml:lang="en">C1</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">An abstract attribute denoting physical power</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#C2 -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#C2">
+        <rdfs:label xml:lang="en">C2</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">An abstract attribute denoting physical motor control</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#C3 -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#C3">
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">An abstract characteristic reprenting physical robustness.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#C4 -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#C4">
+        <rdfs:label xml:lang="en">C4</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">An abstract characteristic indicating ability to reason.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#C5 -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#C5">
+        <rdfs:label xml:lang="en">C4</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">An abstract abilitty indicating aquired knowledge.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#C6 -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#C6">
+        <rdfs:label xml:lang="en">C6</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">An abstract ability indicating social position or standing.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#CP -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#CP">
+        <rdfs:label xml:lang="en">CP</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">An abstract characteristic describing mental power.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#CS -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#CS">
+        <rdfs:label xml:lang="en">CS</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:comment xml:lang="en">An abstract characteristic describing mental stability.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Caste -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Caste">
+        <rdfs:label xml:lang="en">Caste</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C6"/>
+        <skos:prefLabel xml:lang="en">Cas</skos:prefLabel>
+        <geneticProfileLabel xml:lang="en">K</geneticProfileLabel>
+        <rdfs:comment xml:lang="en">Position in a genetic group heirarchy.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Charisma -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Charisma">
+        <rdfs:label xml:lang="en">Charisma</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C6"/>
+        <geneticProfileLabel xml:lang="en">C</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Cha</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Position within a small group hierarchy.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Dexterity -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Dexterity">
+        <rdfs:label xml:lang="en">Dexterity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C2"/>
+        <geneticProfileLabel xml:lang="en">D</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Dex</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Fine motor control</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Education -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Education">
+        <rdfs:label xml:lang="en">Education</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C5"/>
+        <geneticProfileLabel xml:lang="en">E</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Edu</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Skills and knowledge acquired from formall education</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Endurance -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Endurance">
+        <rdfs:label xml:lang="en">Endurance</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C3"/>
+        <geneticProfileLabel xml:lang="en">E</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">End</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Resistance to fatigue</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Grace -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Grace">
+        <rdfs:label xml:lang="en">Grace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C2"/>
+        <geneticProfileLabel xml:lang="en">G</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Gra</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Whole of body fluidity</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Instinct -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Instinct">
+        <rdfs:label xml:lang="en">Instinct</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C5"/>
+        <geneticProfileLabel xml:lang="en">I</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Ins</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Skills and knowledge acquired from genetic heritage.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Intelligence -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Intelligence">
+        <rdfs:label xml:lang="en">Intelligence</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C4"/>
+        <rdfs:comment xml:lang="en">Ability to think and reason</rdfs:comment>
+        <geneticProfileLabel xml:lang="en">I</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Int</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Load -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Load">
+        <rdfs:label xml:lang="en">Load</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;EntityState"/>
+        <rdfs:subClassOf rdf:resource="&rpg;Mass"/>
+        <rdfs:comment xml:lang="en">The unmodified load carried by something</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#MajorRace -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#MajorRace">
+        <rdfs:label xml:lang="en">Major Race</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#Race"/>
+        <owl:disjointWith rdf:resource="http://data.travellerrpg.com/ontology/t5#MinorRace"/>
+        <rdfs:comment xml:lang="en">Generally defined as a race that developed jump drive technology independently.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rdfs:seeAlso rdf:resource="http://wiki.travellerrpg.com/Major_Race"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#MinorRace -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#MinorRace">
+        <rdfs:label xml:lang="en">Minor Race</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#Race"/>
+        <rdfs:comment xml:lang="en">A race that is not a major race.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rdfs:seeAlso rdf:resource="http://wiki.travellerrpg.com/Minor_Race"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#PersonalDay -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#PersonalDay">
+        <rdfs:label xml:lang="en">Personal Day</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Attribute"/>
+        <rdfs:subClassOf rdf:resource="&rpg;Duration"/>
+        <rdfs:comment xml:lang="en">The duration of the day on the entity&apos;s homeworld</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Psionics -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Psionics">
+        <rdfs:label xml:lang="en">Psionics</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#CP"/>
+        <rdfs:comment xml:lang="en">Extra-sensory mental ability</rdfs:comment>
+        <geneticProfileLabel xml:lang="en">P</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Psi</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Race -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Race">
+        <rdfs:label xml:lang="en">Race</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&rpg;Template"/>
+        <rdfs:subClassOf rdf:resource="&skos;Concept"/>
+        <rdfs:comment xml:lang="en">The spieces of creature to which a sophont belongs.
+
+Races act as templates, giving typical features and capabilities for a member of that race.
+</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rdfs:seeAlso rdf:resource="http://wiki.travellerrpg.com/Races"/>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Sanity -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Sanity">
+        <rdfs:label xml:lang="en">Sanity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#CS"/>
+        <rdfs:comment xml:lang="en">Mental health and stability</rdfs:comment>
+        <geneticProfileLabel xml:lang="en">S</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">San</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#SocialStanding -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#SocialStanding">
+        <rdfs:label xml:lang="en">Social Standing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C6"/>
+        <rdfs:comment xml:lang="en">Position with a large group hierarchy.</rdfs:comment>
+        <geneticProfileLabel xml:lang="en">S</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Soc</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Stamina -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Stamina">
+        <rdfs:label xml:lang="en">Stamina</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C3"/>
+        <rdfs:comment xml:lang="en">Long-term persistence</rdfs:comment>
+        <geneticProfileLabel xml:lang="en">S</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Sta</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Strength -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Strength">
+        <rdfs:label xml:lang="en">Strength</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C1"/>
+        <rdfs:comment xml:lang="en">Physical power</rdfs:comment>
+        <geneticProfileLabel xml:lang="en">S</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Str</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Training -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Training">
+        <rdfs:label xml:lang="en">Training</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C5"/>
+        <rdfs:comment xml:lang="en">Skills acquired from cultural background</rdfs:comment>
+        <geneticProfileLabel xml:lang="en">T</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Tra</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/ontology/t5#Vigor -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#Vigor">
+        <rdfs:label xml:lang="en">Vigor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/t5#C3"/>
+        <rdfs:comment xml:lang="en">Short term resistence to fatigue</rdfs:comment>
+        <geneticProfileLabel xml:lang="en">V</geneticProfileLabel>
+        <skos:prefLabel xml:lang="en">Vig</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://data.travellerrpg.com/organization#DiceConventions -->
+
+    <owl:Class rdf:about="http://data.travellerrpg.com/organization#DiceConventions"/>
     
 
 
@@ -41,13 +767,187 @@ This ontology provides upper-level concepts for Traveller 5. Detailed informatio
     
 
 
-    <!-- http://data.travellerrpg.com/ontology/t5/Traveller5Core -->
+    <!-- http://data.travellerrpg.com/ontology/t5#Flux -->
 
-    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/t5/Traveller5Core">
-        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/rpg#Rules"/>
-        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/rpg#SourceBook"/>
-        <rdfs:label xml:lang="en">Traveller 5</rdfs:label>
-        <dc:title xml:lang="en">Traveller 5 Core Rules</dc:title>
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/t5#Flux">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Flux</rdfs:label>
+        <rdfs:label xml:lang="en">Throw one six-sided die, then throw another and sumbtract the result from the second from the first. This is equivalent to a D-D throw. A light (good) and dark (bad) pair of dice are often used to represent the first and second dice.</rdfs:label>
+        <skos:scopeNote xml:lang="en">Often used to provide minor random variation in quality or performance.</skos:scopeNote>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+        <skos:broaderTransitive rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/D-D"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core">
+        <rdf:type rdf:resource="&rpg;Rules"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions">
+        <rdf:type rdf:resource="http://data.travellerrpg.com/organization#DiceConventions"/>
+        <rdfs:label xml:lang="en">Traveller 5 Dice Conventions</rdfs:label>
+        <rdfs:comment xml:lang="en">The dice conventions associated with Traveller5.
+
+All dice are six-sided.</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">2D</rdfs:label>
+        <rdfs:comment xml:lang="en">Roll two six-sided dice and add the results.</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/nD"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/BadFlux -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/BadFlux">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Bad Flux</rdfs:label>
+        <rdfs:comment xml:lang="en">Roll two dice, subtract the larger from the smaller, giving a negative result from -5 to 0.</rdfs:comment>
+        <skos:broaderTransitive rdf:resource="http://data.travellerrpg.com/ontology/t5#Flux"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/D-D -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/D-D">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">D-D</rdfs:label>
+        <rdfs:comment xml:lang="en">Throw one six-sided die, then throw another and sumbtract the result from the second from the first.</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/DiceModifier -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/DiceModifier">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Dice Modifier</rdfs:label>
+        <rdfs:comment xml:lang="en">A modification to the result of a dice throw.</rdfs:comment>
+        <skos:prefLabel xml:lang="en">DM</skos:prefLabel>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/GoodFlux -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/GoodFlux">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Good Flux</rdfs:label>
+        <rdfs:comment xml:lang="en">Roll two dice, subtract the smaller from the larger, giving a positive result from 0 to 5.</rdfs:comment>
+        <skos:broaderTransitive rdf:resource="http://data.travellerrpg.com/ontology/t5#Flux"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/Modifier -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/Modifier">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Modifier</rdfs:label>
+        <rdfs:comment xml:lang="en">A change to the target number.</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+        <rdfs:seeAlso rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/Target"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/Target -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/Target">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Target</rdfs:label>
+        <rdfs:comment xml:lang="en">The number that needs to be rolled on a number of dice. Either exactly or equal to or less or equal to or greater, depending on what is required.</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/nD -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/nD">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">nD</rdfs:label>
+        <skos:example xml:lang="en">3D = Throw three six sided dice and add the results together.</skos:example>
+        <rdfs:comment xml:lang="en">Throw n 6-sided dice and add the result together.</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/nD+m"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/nD+m -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/nD+m">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">nD+m</rdfs:label>
+        <skos:example xml:lang="en">2D+2 = Throw two 6-sided dice and add 2 to the result.</skos:example>
+        <rdfs:comment xml:lang="en">Throw n 6-sided dice and add m to the result.</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/hour -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/hour">
+        <rdf:type rdf:resource="&rpg;TimeUnit"/>
+        <rdfs:label xml:lang="en">hour</rdfs:label>
+        <rdfs:comment xml:lang="en">The standard hour</rdfs:comment>
+        <skos:prefLabel xml:lang="en">hr</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/hour-second -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/hour-second">
+        <rdf:type rdf:resource="&rpg;Conversion"/>
+        <rdfs:label xml:lang="en">Hour-second conversion</rdfs:label>
+        <rpg:conversionRatio rdf:datatype="&xsd;decimal">3600</rpg:conversionRatio>
+        <rpg:fixedConversion rdf:datatype="&xsd;boolean">true</rpg:fixedConversion>
+        <rpg:fromUnit rdf:resource="http://data.travellerrpg.com/setting/hour"/>
+        <rpg:toUnit rdf:resource="http://data.travellerrpg.com/setting/second"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/second -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/second">
+        <rdf:type rdf:resource="&rpg;TimeUnit"/>
+        <rdfs:label xml:lang="en">second</rdfs:label>
+        <rdfs:comment xml:lang="en">The standard second</rdfs:comment>
+        <skos:prefLabel xml:lang="en">s</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Copyright -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Copyright">
+        <rdf:type rdf:resource="&terms;RightsStatement"/>
+        <rdfs:label>Traveller Copyright</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -60,8 +960,26 @@ This ontology provides upper-level concepts for Traveller 5. Detailed informatio
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#GameMaster">
+    <rdf:Description rdf:about="&rpg;GameMaster">
         <skos:prefLabel xml:lang="en">Referee</skos:prefLabel>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/DiceModifier"/>
+            <rdf:Description rdf:about="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/Modifier"/>
+        </owl:distinctMembers>
     </rdf:Description>
 </rdf:RDF>
 

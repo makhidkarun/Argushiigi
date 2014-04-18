@@ -66,6 +66,7 @@
       </sequence>
       <attribute ref="ag:uri" />
       <attribute ref="ag:href" />
+      <attribute name="external" type="boolean" />
     </complexType>
   </element>
 

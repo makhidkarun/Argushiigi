@@ -1037,6 +1037,7 @@ public class DisplaySorter implements Comparator<Resource> {
       super();
     }
 
+    @SuppressWarnings("synthetic-access")
     @Override
     public int compare(Resource o1, Resource o2) {
       Integer p1 = DisplaySorter.this.classOrder.get(o1);
@@ -1064,6 +1065,7 @@ public class DisplaySorter implements Comparator<Resource> {
       super();
     }
 
+    @SuppressWarnings("synthetic-access")
     @Override
     public int compare(Statement o1, Statement o2) {
       Integer p1 = DisplaySorter.this.propertyOrder.get(o1.getPredicate());

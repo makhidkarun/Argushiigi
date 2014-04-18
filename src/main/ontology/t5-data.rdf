@@ -1,0 +1,758 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rpg "http://data.travellerrpg.com/ontology/rpg#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://data.travellerrpg.com/ontology/t5#"
+     xml:base="http://data.travellerrpg.com/ontology/t5"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/t5-data">
+        <rdfs:comment xml:lang="en">Data associated with the T5 ontology.</rdfs:comment>
+        <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5"/>
+        <rdfs:seeAlso rdf:resource="http://data.travellerrpg.com/ontology/t5"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/publisher -->
+
+    <owl:AnnotationProperty rdf:about="&dc;publisher"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:AnnotationProperty rdf:about="&dc;rights"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="&dcterms;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/givenname -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;givenname"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/surname -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;surname"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://wiki.travellerrpg.com -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com">
+        <rdf:type rdf:resource="&rpg;SourceBook"/>
+        <dc:title xml:lang="en">Imperial Encyclopedia</dc:title>
+        <dc:publisher rdf:resource="http://www.travellerrpg.com"/>
+        <dc:rights rdf:resource="http://wiki.travellerrpg.com/Copyright"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.farfuture.net -->
+
+    <owl:NamedIndividual rdf:about="http://www.farfuture.net"/>
+    
+
+
+    <!-- http://www.travellerrpg.com -->
+
+    <owl:NamedIndividual rdf:about="http://www.travellerrpg.com"/>
+    
+
+
+    <!-- http://data.travellerrpg.com/organization/FarFutureEnterprises -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/organization/FarFutureEnterprises">
+        <rdf:type rdf:resource="&foaf;Agent"/>
+        <dc:title xml:lang="en">Far Future Enterprises</dc:title>
+        <foaf:homepage rdf:resource="http://www.farfuture.net"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/person/MarcWMiller -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/person/MarcWMiller">
+        <rdf:type rdf:resource="&foaf;Agent"/>
+        <foaf:givenname>Marc</foaf:givenname>
+        <foaf:surname>Miller</foaf:surname>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/publication/Traveller5Core -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/publication/Traveller5Core">
+        <rdf:type rdf:resource="&rpg;Rules"/>
+        <rdf:type rdf:resource="&rpg;SourceBook"/>
+        <rdfs:label xml:lang="en">Traveller5 Core Rules</rdfs:label>
+        <dc:date rdf:datatype="&xsd;dateTime">2013</dc:date>
+        <dc:publisher rdf:resource="http://data.travellerrpg.com/organization/FarFutureEnterprises"/>
+        <dcterms:creator rdf:resource="http://data.travellerrpg.com/person/MarcWMiller"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/race/Humaniti -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/race/Humaniti">
+        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/t5#Race"/>
+        <rdfs:label xml:lang="en">Humaniti</rdfs:label>
+        <geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Dexterity"/>
+        <geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Education"/>
+        <geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Endurance"/>
+        <geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Intelligence"/>
+        <geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#SocialStanding"/>
+        <geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Strength"/>
+        <hasDexterity rdf:resource="http://data.travellerrpg.com/race/humaniti-dexterity-generator"/>
+        <hasEducation rdf:resource="http://data.travellerrpg.com/race/humaniti-education-generator"/>
+        <hasEndurance rdf:resource="http://data.travellerrpg.com/race/humaniti-endurance-generator"/>
+        <hasIntelligence rdf:resource="http://data.travellerrpg.com/race/humaniti-intelligence-generator"/>
+        <hasSocialStanding rdf:resource="http://data.travellerrpg.com/race/humaniti-social-standing-generator"/>
+        <hasStrength rdf:resource="http://data.travellerrpg.com/race/humaniti-strength-generator"/>
+        <rdfs:seeAlso rdf:resource="http://wiki.travellerrpg.com/Humaniti"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/race/Imperials -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/race/Imperials">
+        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/t5#MajorRace"/>
+        <rdfs:label xml:lang="en">Imperials</rdfs:label>
+        <skos:broaderTransitive rdf:resource="http://data.travellerrpg.com/race/Humaniti"/>
+        <rdfs:seeAlso rdf:resource="http://wiki.travellerrpg.com/Imperials"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/race/humaniti-dexterity-generator -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/race/humaniti-dexterity-generator">
+        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/t5#Dexterity"/>
+        <characteristic rdf:datatype="&xsd;decimal">7</characteristic>
+        <characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/race/humaniti-education-generator -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/race/humaniti-education-generator">
+        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/t5#Education"/>
+        <characteristic rdf:datatype="&xsd;decimal">7</characteristic>
+        <characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/race/humaniti-endurance-generator -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/race/humaniti-endurance-generator">
+        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/t5#Endurance"/>
+        <characteristic rdf:datatype="&xsd;decimal">7</characteristic>
+        <characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/race/humaniti-intelligence-generator -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/race/humaniti-intelligence-generator">
+        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/t5#Intelligence"/>
+        <characteristic rdf:datatype="&xsd;decimal">7</characteristic>
+        <characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/race/humaniti-social-standing-generator -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/race/humaniti-social-standing-generator">
+        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/t5#SocialStanding"/>
+        <characteristic rdf:datatype="&xsd;decimal">7</characteristic>
+        <characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/race/humaniti-strength-generator -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/race/humaniti-strength-generator">
+        <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/t5#Strength"/>
+        <characteristic rdf:datatype="&xsd;decimal">7</characteristic>
+        <characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/ArtificalPeople -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/ArtificalPeople">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Artifical People</rdfs:label>
+        <rdfs:comment xml:lang="en">Artificial people, such as clones, synthetics, robots, etc. are part of the general environment at appropriate levels of technology.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/Consolidation -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/Consolidation">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">Consolidation</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/EarlyEmpire"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Consolidation_Wars"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/Cosmopolitan -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/Cosmopolitan">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Cosmopolitan</rdfs:label>
+        <rdfs:comment xml:lang="en">The game setting is diverse and heterogeneous with many different speices, factions, ideologies, etc.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/Credit -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/Credit">
+        <rdfs:label xml:lang="en">Credit</rdfs:label>
+        <skos:prefLabel xml:lang="en">Cr</skos:prefLabel>
+        <rdfs:comment xml:lang="en">The basic form of money in Traveller.
+
+Roughy equal to a quarter hour of unskilled labour.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/EarlyEmpire -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/EarlyEmpire">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">The Early Empire</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/VilaniEra"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/FalseDawn -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/FalseDawn">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">The False Dawn</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Kursae"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/FusionPower -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/FusionPower">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Fusion Power</rdfs:label>
+        <rdfs:comment xml:lang="en">Energy derived from nuclear fusion is available at suitable technlogical levels.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/GrandfatherEra -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/GrandfatherEra">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">Grandfather Era</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Ancients"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/GravityManipulation -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/GravityManipulation">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Gravity Manipulation</rdfs:label>
+        <rdfs:comment xml:lang="en">Practical technologies for the control of gravitational fields.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/HumanDominated -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/HumanDominated">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Human Dominated</rdfs:label>
+        <rdfs:comment xml:lang="en">The game environment is dominated by humans.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/IncompleteInformation -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/IncompleteInformation">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Incomplete Information</rdfs:label>
+        <rdfs:comment xml:lang="en">In the game environment, nobody has complete information or understanding of the events surrounding them. Surface explanations may give way to deeper explanations and new insights may be gained during the course of the game.</rdfs:comment>
+        <skos:altLabel xml:lang="en">Wheels Within Wheels</skos:altLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/InterstellarWars -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/InterstellarWars">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">The Interstellar Wars</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Interstellar_Wars"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/JumpDrive -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/JumpDrive">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Jump Drive</rdfs:label>
+        <rdfs:comment xml:lang="en">The standard method of interstellar travel within the Traveller universe.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Jump_Drive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/LongNight -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/LongNight">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">The Long Night</rdfs:label>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Long_Night"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/MCr-Cr -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/MCr-Cr">
+        <rdfs:label xml:lang="en">Megacredit-Credit Exchange Rate</rdfs:label>
+        <rpg:conversionRatio rdf:datatype="&xsd;decimal">1000000</rpg:conversionRatio>
+        <rpg:fixedConversion rdf:datatype="&xsd;boolean">true</rpg:fixedConversion>
+        <rpg:toUnit rdf:resource="http://data.travellerrpg.com/setting/Credit"/>
+        <rpg:fromUnit rdf:resource="http://data.travellerrpg.com/setting/MegaCredit"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/MegaCredit -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/MegaCredit">
+        <rdfs:label xml:lang="en">MegaCredit</rdfs:label>
+        <rdfs:comment xml:lang="en">A million credits.</rdfs:comment>
+        <skos:prefLabel xml:lang="en">MCr</skos:prefLabel>
+        <skos:scopeNote xml:lang="en">The basic corporate measure of money.</skos:scopeNote>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/NoPrimeDirective -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/NoPrimeDirective">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">No Prime Directive</rdfs:label>
+        <rdfs:comment xml:lang="en">There is no Star-Trek style &quot;Prime Directive&quot; restricting contact with less technologically developed cultures.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Prime_Directive"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/ResourceUnit -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/ResourceUnit">
+        <rdfs:label xml:lang="en">Resource Unit</rdfs:label>
+        <skos:prefLabel xml:lang="en">RU</skos:prefLabel>
+        <rdfs:comment xml:lang="en">The basic unit of governmental and megacorporation accountng</rdfs:comment>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/RigidCulture -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/RigidCulture">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">Rigid Culture</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/VilaniEra"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/ScarcityEconomics -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/ScarcityEconomics">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Scarcity Economics</rdfs:label>
+        <skos:altLabel xml:lang="en">Everything is Driven by Economics</skos:altLabel>
+        <rdfs:comment xml:lang="en">In the game environment, economic decisions involve making choice between limited possibilities. The decisions made may lead to economic advantage (or disadvatage).</rdfs:comment>
+        <skos:editorialNote xml:lang="en">In the rules, this concept is labelled &quot;Everything Is Driven By Economics&quot;.
+
+Sublimed, or semi-sublimed societies, such as Iain M. Banks&apos; Culture may operate accoirding to different economic rules.
+</skos:editorialNote>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Scarcity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/TechnologySpectrum -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/TechnologySpectrum">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">A Spectrum of Available Technology</rdfs:label>
+        <rdfs:comment xml:lang="en">Technology is distributed unevenly</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/ThirdImperium -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/ThirdImperium">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">The Third Imperium</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Third_Imperium"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/TransportationSpeedCommunication -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/TransportationSpeedCommunication">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Communication Limited to Tranportation Speed</rdfs:label>
+        <rdfs:comment xml:lang="en">Interstellar communication speeds are limited to the carrying speed of a ship.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/TravellerCoreConcepts"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/TravellerCoreConcepts -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/TravellerCoreConcepts">
+        <rdf:type rdf:resource="&skos;ConceptScheme"/>
+        <rdfs:label xml:lang="en">Traveller Core Concepts</rdfs:label>
+        <skos:scopeNote xml:lang="en">Most terms in this schema are derived from the OTU. A specific milleau is under no obligation to use any or all of these concepts.</skos:scopeNote>
+        <rdfs:comment xml:lang="en">The fundamental concepts that underpin Traveller games. These can be used in various milleau as descriptive terms that nature of the milleau.</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/TravellerUniverse -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/TravellerUniverse">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">Traveller Universe</rdfs:label>
+        <skos:prefLabel xml:lang="en">OTU</skos:prefLabel>
+        <rdfs:comment xml:lang="en">The general back story and environment of the standard Traveller universe.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/ArtificalPeople"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/Cosmopolitan"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/Credit"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/FusionPower"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/GravityManipulation"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/HumanDominated"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/IncompleteInformation"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/JumpDrive"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/MegaCredit"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/NoPrimeDirective"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/ResourceUnit"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/ScarcityEconomics"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/TechnologySpectrum"/>
+        <rpg:settingConcept rdf:resource="http://data.travellerrpg.com/setting/TransportationSpeedCommunication"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/VilaniEra -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/VilaniEra">
+        <rdf:type rdf:resource="&rpg;Milieau"/>
+        <rdfs:label xml:lang="en">The Vilani Era</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Ziru_Sirka"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/nobility -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/nobility">
+        <rdf:type rdf:resource="&skos;ConceptScheme"/>
+        <rdfs:label xml:lang="en">OTU Nobility</rdfs:label>
+        <rdfs:comment xml:lang="en">The system of ranks associated with social status in the OTU.</rdfs:comment>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/nobility/baron -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/nobility/baron">
+        <rdfs:label xml:lang="en">Baron</rdfs:label>
+        <skos:altLabel xml:lang="en">Baroness</skos:altLabel>
+        <skos:altLabel xml:lang="en">Baronet</skos:altLabel>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/nobility"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/nobility/count -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/nobility/count">
+        <rdfs:label xml:lang="en">Count</rdfs:label>
+        <skos:altLabel xml:lang="en">Countess</skos:altLabel>
+        <skos:altLabel xml:lang="en">Viscount</skos:altLabel>
+        <skos:altLabel xml:lang="en">Viscountess</skos:altLabel>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/nobility"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/nobility/duke -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/nobility/duke">
+        <rdfs:label xml:lang="en">Duke</rdfs:label>
+        <skos:altLabel xml:lang="en">Duchess</skos:altLabel>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/nobility"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/nobility/gentle -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/nobility/gentle">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Gentle</rdfs:label>
+        <rdfs:comment xml:lang="en">A status above ordinary level but technically not a member of the nobilty.</rdfs:comment>
+        <skos:altLabel xml:lang="en">Gentleman</skos:altLabel>
+        <skos:altLabel xml:lang="en">Gentleone</skos:altLabel>
+        <skos:altLabel xml:lang="en">Gentleperson</skos:altLabel>
+        <skos:altLabel xml:lang="en">Gentlesophont</skos:altLabel>
+        <skos:altLabel xml:lang="en">Gentlewoman</skos:altLabel>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/nobility"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/nobility/knight -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/nobility/knight">
+        <rdf:type rdf:resource="&skos;Concept"/>
+        <rdfs:label xml:lang="en">Knight</rdfs:label>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/nobility"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://data.travellerrpg.com/setting/nobility/marquis -->
+
+    <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/nobility/marquis">
+        <rdfs:label xml:lang="en">Marquis</rdfs:label>
+        <skos:altLabel xml:lang="en">Marchioness</skos:altLabel>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/TravellerUniverse"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/nobility"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Ancients -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Ancients">
+        <rdf:type rdf:resource="&foaf;Document"/>
+        <dc:title xml:lang="en">Ancients</dc:title>
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Consolidation_Wars -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Consolidation_Wars">
+        <rdf:type rdf:resource="&foaf;Document"/>
+        <dc:title xml:lang="en">Consolidation Wars</dc:title>
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Interstellar_Wars -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Interstellar_Wars">
+        <rdf:type rdf:resource="&foaf;Document"/>
+        <dc:title xml:lang="en">Interstellar Wars</dc:title>
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Jump_Drive -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Jump_Drive">
+        <rdf:type rdf:resource="&foaf;Document"/>
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Kursae -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Kursae">
+        <rdf:type rdf:resource="&foaf;Document"/>
+        <dc:title xml:lang="en">Kursae</dc:title>
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Long_Night -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Long_Night">
+        <rdf:type rdf:resource="&foaf;Document"/>
+        <dc:title xml:lang="en">Long Night</dc:title>
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Rule_of_Man -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Rule_of_Man">
+        <rdf:type rdf:resource="&foaf;Document"/>
+        <dc:title xml:lang="en">Rule of Man</dc:title>
+        <dc:title xml:lang="en">Second Imperium</dc:title>
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Third_Imperium -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Third_Imperium">
+        <rdf:type rdf:resource="&foaf;Document"/>
+        <dc:title xml:lang="en">Third Imperium</dc:title>
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://wiki.travellerrpg.com/Ziru_Sirka -->
+
+    <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com/Ziru_Sirka">
+        <rdf:type rdf:resource="&foaf;Document"/>
+        <dc:title xml:lang="en">First Imperium</dc:title>
+        <dc:title xml:lang="en">Ziru Sirka</dc:title>
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

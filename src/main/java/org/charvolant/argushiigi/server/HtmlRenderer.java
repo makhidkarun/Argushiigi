@@ -33,7 +33,7 @@ import org.w3c.dom.Document;
  *
  */
 public class HtmlRenderer extends Renderer {
-  private static final Logger logger = LoggerFactory.getLogger(XmlRenderer.class);
+  private static final Logger logger = LoggerFactory.getLogger(HtmlRenderer.class);
 
   /** The message catalogue entries to pass in as variables */
   private static final String[] MESSAGES = {

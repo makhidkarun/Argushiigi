@@ -187,7 +187,7 @@ public class XmlRenderer extends Renderer implements HrefBuilder {
    */
   @Override
   public String asHref(Reference ref) {
-    if (!this.application.getRootRef().isParent(ref))
+    if (this.isExternal(ref))
       return ref.toString();
     if (ref.hasFragment()) {
       Reference local = new Reference(this.application.getApparentRef());
@@ -196,6 +196,16 @@ public class XmlRenderer extends Renderer implements HrefBuilder {
       return local.toString();
     }
     return this.application.getLocalRef(ref).toString();
+  }
+
+  /**
+   * {@inheritDoc}
+   *
+   * @see org.charvolant.argushiigi.server.HrefBuilder#isExternal(org.restlet.data.Reference)
+   */
+  @Override
+  public boolean isExternal(Reference ref) {
+    return !this.application.getRootRef().isParent(ref);
   }
 
   /**
