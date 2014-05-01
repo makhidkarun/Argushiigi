@@ -67,8 +67,8 @@ public class RendererResource extends ServerResource {
   private ServerApplication application;
   /** The display sorter (from the application) */
   private DisplaySorter sorter;
-  
-  
+
+
   /**
    * Should we ignore this statement?
    * <p>
@@ -82,7 +82,7 @@ public class RendererResource extends ServerResource {
     Resource subject = statement.getSubject();
     Property predicate = statement.getPredicate();
     RDFNode object = statement.getObject();
-    
+
     // Ignore self-references
     if (object.equals(subject))
       return true;
@@ -147,7 +147,7 @@ public class RendererResource extends ServerResource {
       boolean found = false;
 
       if (this.ignore(s))
-         continue;
+        continue;
       // Ignore A p B where A q B has been seen and q -> p
       if (sp == null) {
         sp = new HashSet<Property>();
@@ -239,7 +239,7 @@ public class RendererResource extends ServerResource {
       seen.addAll(nseen);
     }
   }
-  
+
   /**
    * Get a list of references to the resource.
    * 
@@ -251,11 +251,17 @@ public class RendererResource extends ServerResource {
   private void buildReferences(Category top, Resource resource, Model model) {
     StmtIterator si = model.listStatements(null, null, resource);
     Statement statement;
-    
+    Category references = null;
+
     while (si.hasNext()) {
       statement = si.next();
-      if (!this.ignore(statement))
+      if (!this.ignore(statement)) {
+        if (references == null) {
+          references = new Category(this.sorter.getReference(), true);
+          top.getSubCategories().add(references);
+        }
         top.add(statement, this.sorter.getReference());
+      }
     }
   }
 
@@ -278,10 +284,8 @@ public class RendererResource extends ServerResource {
     Reference uri = null;
     Resource resource;
     Category top = new Category(this.sorter.getTop());
-    Category references = new Category(this.sorter.getReference(), true);
     Renderer renderer;
 
-    top.getSubCategories().add(references);
     if (format == null)
       format = this.FORMAT_HTML;
     if (this.getQueryValue(this.PARAM_URI) != null)

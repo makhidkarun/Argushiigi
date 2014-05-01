@@ -9,6 +9,7 @@ package org.charvolant.argushiigi.server;
 
 import java.util.Comparator;
 import java.util.Locale;
+import java.util.logging.Level;
 
 import org.charvolant.argushiigi.ontology.DisplaySorter;
 import org.json.JSONArray;
@@ -28,6 +29,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Statement;
 import com.hp.hpl.jena.rdf.model.StmtIterator;
+import com.hp.hpl.jena.vocabulary.OWL;
 import com.hp.hpl.jena.vocabulary.RDF;
 
 /**
@@ -78,7 +80,7 @@ public class TypeQueryResource extends ServerResource {
    */
   @Get
   public Representation get() {
-    String type = this.getQueryValue(this.PARAM_TYPE);
+    String type = Reference.decode(this.getQueryValue(this.PARAM_TYPE));
 
     try {
       JSONObject wrap = new JSONObject();
@@ -90,34 +92,36 @@ public class TypeQueryResource extends ServerResource {
         Statement s = si.next();
         Resource res = s.getSubject();
 
-        if (res.getURI() != null) {
+        if (res.isURIResource()) {
           JSONObject obj = new JSONObject();
           Reference ref = this.application.getLocalRef(new Reference(res.getURI()));
           StmtIterator ci = this.model.listStatements(res, RDF.type, (Resource) null);
           Resource cls = null;
-          
+
           obj.put("name", this.sorter.getName(s.getSubject(), Locale.ENGLISH));
           obj.put("uri", s.getSubject().getURI());
           obj.put("href", ref);
           while (ci.hasNext()) {
             Resource c = ci.next().getResource();
-            
+
+            if (c.isAnon())
+              continue;
             if (cls == null || classComparator.compare(cls, c) > 0)
               cls = c;
           }
-          if (cls != null) {
-            ref = this.application.getLocalRef(new Reference(cls.getURI()));
-            obj.put("cls", this.sorter.getName(cls, Locale.ENGLISH));
-            obj.put("clsUri", cls.getURI());
-            obj.put("clsHref", ref);
-          }
+          if (cls == null)
+            cls = OWL.Thing;
+          ref = this.application.getLocalRef(new Reference(cls.getURI()));
+          obj.put("cls", this.sorter.getName(cls, Locale.ENGLISH));
+          obj.put("clsUri", cls.getURI());
+          obj.put("clsHref", ref);
           result.put(obj);
         }
       }
       wrap.put("aaData", result);
       return new JsonRepresentation(wrap);
     } catch (Exception ex) {
-      this.logger.error("Unable to get resources of type " + type, ex);
+      this.application.getLogger().log(Level.SEVERE, "Unable to get resources of type " + type, ex);
       this.getResponse().setStatus(Status.SERVER_ERROR_INTERNAL, ex);
       return new StringRepresentation(ex.getMessage());
     }

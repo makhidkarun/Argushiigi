@@ -82,7 +82,7 @@
     <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/rpg/test1/mass1">
         <rdf:type rdf:resource="&rpg2;Mass"/>
         <rdfs:label xml:lang="en">mass1</rdfs:label>
-        <rpg2:value rdf:datatype="&xsd;decimal">1.5</rpg2:value>
+        <rdf:value rdf:datatype="&xsd;decimal">1.5</rdf:value>
     </owl:NamedIndividual>
     
 
@@ -123,7 +123,7 @@
     <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/rpg/test1/pl10">
         <rdf:type rdf:resource="&rpg2;Skill"/>
         <rdfs:label>pl10</rdfs:label>
-        <rpg2:value rdf:datatype="&xsd;integer">10</rpg2:value>
+        <rdf:value rdf:datatype="&xsd;integer">10</rdf:value>
         <rpg2:inSkillType rdf:resource="http://data.travellerrpg.com/ontology/rpg/test1/picklocks"/>
     </owl:NamedIndividual>
     
@@ -144,7 +144,7 @@
     <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/rpg/test1/price1">
         <rdf:type rdf:resource="&rpg2;Price"/>
         <rdfs:label xml:lang="en">price1</rdfs:label>
-        <rpg2:value rdf:datatype="&xsd;integer">100</rpg2:value>
+        <rdf:value rdf:datatype="&xsd;integer">100</rdf:value>
         <rpg2:unit rdf:resource="http://data.travellerrpg.com/ontology/rpg/test1/credit"/>
     </owl:NamedIndividual>
     

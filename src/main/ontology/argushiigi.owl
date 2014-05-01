@@ -1,358 +1,206 @@
 <?xml version="1.0"?>
-
-
-<!DOCTYPE rdf:RDF [
-    <!ENTITY terms "http://purl.org/dc/terms/" >
-    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-    <!ENTITY argushiigi3 "http://data.travellerrpg.com/ontology/argushiigi/" >
-    <!ENTITY argushiigi2 "http://data.travellerrpg.com/ontology/argushiigi#" >
-]>
-
-
-<rdf:RDF xmlns="http://data.travellerrpg.com/ontology/argushiigi.owl#"
-     xml:base="http://data.travellerrpg.com/ontology/argushiigi.owl"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:argushiigi2="http://data.travellerrpg.com/ontology/argushiigi#"
-     xmlns:argushiigi3="http://data.travellerrpg.com/ontology/argushiigi/"
-     xmlns:terms="http://purl.org/dc/terms/"
-     xmlns:owl="http://www.w3.org/2002/07/owl#"
-     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:skos="http://www.w3.org/2004/02/skos/core#">
-    <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/argushiigi">
-        <rdfs:label>Argushiigi</rdfs:label>
-        <rdfs:comment xml:lang="en">The Argushiigi ontology allows annotations on other classes and properties that allow them to be organised and displayed in a human-readable form.</rdfs:comment>
-        <terms:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
-        <terms:creator rdf:resource="https://github.com/charvolant"/>
-        <rdfs:isDefinedBy rdf:resource="https://github.com/makhidkarun/Argushiigi/wiki/Display-Ontology"/>
-    </owl:Ontology>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#displayCategory -->
-
-    <owl:AnnotationProperty rdf:about="&argushiigi2;displayCategory">
-        <rdfs:label xml:lang="en">display category</rdfs:label>
-        <rdfs:comment xml:lang="en">Places an entity into a category. Display categories can be used to annotate classes, properties and individuals. Classes and properties inherit categories from super-entities, using the closest super-entity with the lowest priority.</rdfs:comment>
-        <rdfs:range rdf:resource="&argushiigi2;DisplayCategory"/>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#displayPriority -->
-
-    <owl:AnnotationProperty rdf:about="&argushiigi2;displayPriority">
-        <rdfs:label xml:lang="en">display priority</rdfs:label>
-        <rdfs:comment xml:lang="en">The priority of this item in any list of items to be displayed.</rdfs:comment>
-        <skos:historyNote xml:lang="en">This was originally intended to be a system for defining partial orders. Too hard.</skos:historyNote>
-        <rdfs:range rdf:resource="&xsd;integer"/>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#usesFormat -->
-
-    <owl:AnnotationProperty rdf:about="&argushiigi2;usesFormat">
-        <rdfs:label xml:lang="en">uses format</rdfs:label>
-        <rdfs:comment xml:lang="en">Gives the format a resource or resource of this class uses.
-
-Formats are generally associated with classes. However, a resource may have its own format.
-
-Formats use the list pattern to decide which format to use. Formats can be chained by use of the nextFormat property.</rdfs:comment>
-    </owl:AnnotationProperty>
-    
-
-
-    <!-- http://www.w3.org/2004/02/skos/core#historyNote -->
-
-    <owl:AnnotationProperty rdf:about="&skos;historyNote"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Object Properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#fromProperty -->
-
-    <owl:ObjectProperty rdf:about="&argushiigi2;fromProperty">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">from property</rdfs:label>
-        <rdfs:comment xml:lang="en">Gives the property that this pattern draws data from.</rdfs:comment>
-        <rdfs:domain rdf:resource="&argushiigi2;Pattern"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#nextFormat -->
-
-    <owl:ObjectProperty rdf:about="&argushiigi2;nextFormat">
-        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
-        <rdfs:label xml:lang="en">next format</rdfs:label>
-        <rdfs:comment xml:lang="en">The next format to try in a list of formats.</rdfs:comment>
-        <rdfs:range rdf:resource="&argushiigi2;Format"/>
-        <rdfs:domain rdf:resource="&argushiigi2;Format"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#nextPattern -->
-
-    <owl:ObjectProperty rdf:about="&argushiigi2;nextPattern">
-        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
-        <rdfs:label xml:lang="en">next pattern</rdfs:label>
-        <rdfs:comment xml:lang="en">The next pattern to use when trying pattern sequences.</rdfs:comment>
-        <rdfs:domain rdf:resource="&argushiigi2;Pattern"/>
-        <rdfs:range rdf:resource="&argushiigi2;Pattern"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#parentCategory -->
-
-    <owl:ObjectProperty rdf:about="&argushiigi2;parentCategory">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
-        <rdfs:comment xml:lang="en">The parent category of a sub-category.
-
-This property can be used to build embedded hierarchies of categories.</rdfs:comment>
-        <rdfs:domain rdf:resource="&argushiigi2;DisplayCategory"/>
-        <rdfs:range rdf:resource="&argushiigi2;DisplayCategory"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#usesFormat -->
-
-    <owl:ObjectProperty rdf:about="&argushiigi2;usesFormat">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">uses format</rdfs:label>
-        <rdfs:comment xml:lang="en">Gives the format a resource or resource of this class uses.
-
-Formats are generally associated with classes. However, a resource may have its own format.
-
-Formats use the list pattern to decide which format to use. Formats can be chained by use of the nextFormat property.</rdfs:comment>
-        <rdfs:range rdf:resource="&argushiigi2;Format"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#usesLabelPattern -->
-
-    <owl:ObjectProperty rdf:about="&argushiigi2;usesLabelPattern">
-        <rdfs:label xml:lang="en">uses label pattern</rdfs:label>
-        <rdfs:comment xml:lang="en">The pattern when displaying the label of statement.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&argushiigi2;usesPattern"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#usesPattern -->
-
-    <owl:ObjectProperty rdf:about="&argushiigi2;usesPattern">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">uses pattern</rdfs:label>
-        <rdfs:comment xml:lang="en">The first in a sequence of patterns to use when attempting to format a resource.
-</rdfs:comment>
-        <rdfs:range rdf:resource="&argushiigi2;Pattern"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#usesValuePattern -->
-
-    <owl:ObjectProperty rdf:about="&argushiigi2;usesValuePattern">
-        <rdfs:label xml:lang="en">uses value pattern</rdfs:label>
-        <rdfs:comment xml:lang="en">The pattern to use when displaying the value of a statement.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&argushiigi2;usesPattern"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Data properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#implementationFormat -->
-
-    <owl:DatatypeProperty rdf:about="&argushiigi2;implementationFormat">
-        <rdfs:comment xml:lang="en">A format description specific to a particular (computer) language.</rdfs:comment>
-        <rdfs:domain rdf:resource="&argushiigi2;Pattern"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#javaFormat -->
-
-    <owl:DatatypeProperty rdf:about="&argushiigi2;javaFormat">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">java format</rdfs:label>
-        <rdfs:comment xml:lang="en">The format to use when displaying this property in Java.
-
-This uses java.text.MessageFormat syntax to define the property, with the value of the property as argument 0, the name of the property as argument 1 and the name of the subject of the statement as argument 2.</rdfs:comment>
-        <rdfs:subPropertyOf rdf:resource="&argushiigi2;implementationFormat"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#language -->
-
-    <owl:DatatypeProperty rdf:about="&argushiigi2;language">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">language</rdfs:label>
-        <rdfs:comment xml:lang="en">Associates a format or pattern with a specific language.
-
-If not specified, the format or pattern applies to any language.</rdfs:comment>
-        <rdfs:range rdf:resource="&xsd;language"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&argushiigi2;Format"/>
-                    <rdf:Description rdf:about="&argushiigi2;Pattern"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#literal -->
-
-    <owl:DatatypeProperty rdf:about="&argushiigi2;literal">
-        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
-        <rdfs:label xml:lang="en">literal</rdfs:label>
-        <rdfs:comment xml:lang="en">A literal value to format.
-
-The literal can be any literal value, not just text. If a format is specified then the format will be used to format the literal.</rdfs:comment>
-        <rdfs:domain rdf:resource="&argushiigi2;Pattern"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Classes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#DisplayCategory -->
-
-    <owl:Class rdf:about="&argushiigi2;DisplayCategory">
-        <rdfs:label xml:lang="en">Display Category</rdfs:label>
-        <rdfs:comment xml:lang="en">A named category things to display.
-
-Display categories can be organised into a hierarchy.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#Format -->
-
-    <owl:Class rdf:about="&argushiigi2;Format">
-        <rdfs:label xml:lang="en">Format</rdfs:label>
-        <rdfs:comment xml:lang="en">A way of formatting a resource textually. 
-
-Formats provide a mechanism for displaying &quot;value-like&quot; resources. A class with a format is expected to be displayed in-line, rather than as a link.
-
-A format contains a sequence of patterns, references to specific properties and ways of formatting them that can be used to extract information and format it.</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://data.travellerrpg.com/ontology/argushiigi#Pattern -->
-
-    <owl:Class rdf:about="&argushiigi2;Pattern">
-        <rdfs:label xml:lang="en">Pattern</rdfs:label>
-        <rdfs:comment xml:lang="en">A formatting pattern.
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:terms="http://purl.org/dc/terms/"
+    xmlns:argushiigi2="http://data.travellerrpg.com/ontology/argushiigi/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:argushiigi="http://data.travellerrpg.com/ontology/argushiigi#"
+  xml:base="http://data.travellerrpg.com/ontology/argushiigi">
+  <owl:Ontology rdf:about="">
+    <terms:creator rdf:resource="https://github.com/charvolant"/>
+    <terms:license rdf:resource="http://creativecommons.org/licenses/by/3.0/"/>
+    <owl:imports rdf:resource="http://purl.org/dc/terms/"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Argushiigi</rdfs:label>
+    <rdfs:comment xml:lang="en">The Argushiigi ontology allows annotations on other classes and properties that allow them to be organised and displayed in a human-readable form.</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="https://github.com/makhidkarun/Argushiigi/wiki/Display-Ontology"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="Pattern">
+    <rdfs:label xml:lang="en">Pattern</rdfs:label>
+    <rdfs:comment xml:lang="en">A formatting pattern.
 
 Patterns are specific sequences of elements that can be combined to produce a textual representation of a resource. Individual properties are followed and rendered as required.</rdfs:comment>
-    </owl:Class>
-    
+  </owl:Class>
+  <owl:Class rdf:ID="Format">
+    <rdfs:comment xml:lang="en">A way of formatting a resource textually. 
 
+Formats provide a mechanism for displaying "value-like" resources. A class with a format is expected to be displayed in-line, rather than as a link.
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Individuals
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
+A format contains a sequence of patterns, references to specific properties and ways of formatting them that can be used to extract information and format it.  All patterns in a sequence must match for the format to be used, otherwise the next pattern is tried.</rdfs:comment>
+    <rdfs:label xml:lang="en">Format</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="DisplayCategory">
+    <rdfs:label xml:lang="en">Display Category</rdfs:label>
+    <rdfs:comment xml:lang="en">A named category things to display.
 
-    
+Display categories can be organised into a hierarchy.</rdfs:comment>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="fromProperty">
+    <rdfs:label xml:lang="en">from property</rdfs:label>
+    <rdfs:comment xml:lang="en">Gives the property that this pattern draws data from.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Pattern"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="usesValuePattern">
+    <rdfs:label xml:lang="en">uses value pattern</rdfs:label>
+    <rdfs:comment xml:lang="en">The pattern to use when displaying the value of a statement.</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="usesPattern"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="nextFormat">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">next format</rdfs:label>
+    <rdfs:comment xml:lang="en">The next format to try in a list of formats.</rdfs:comment>
+    <rdfs:range rdf:resource="#Format"/>
+    <rdfs:domain rdf:resource="#Format"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="usesLabelPattern">
+    <rdfs:label xml:lang="en">uses label pattern</rdfs:label>
+    <rdfs:comment xml:lang="en">The pattern when displaying the label of statement.</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#usesPattern"/>
+    </rdfs:subPropertyOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="parentCategory">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">The parent category of a sub-category.
 
+This property can be used to build embedded hierarchies of categories.</rdfs:comment>
+    <rdfs:domain rdf:resource="#DisplayCategory"/>
+    <rdfs:range rdf:resource="#DisplayCategory"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="nextPattern">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:label xml:lang="en">next pattern</rdfs:label>
+    <rdfs:comment xml:lang="en">The next pattern to use when trying pattern sequences.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Pattern"/>
+    <rdfs:range rdf:resource="#Pattern"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#usesPattern">
+    <rdfs:label xml:lang="en">uses pattern</rdfs:label>
+    <rdfs:comment xml:lang="en">The first in a sequence of patterns to use when attempting to format a resource.
+</rdfs:comment>
+    <rdfs:range rdf:resource="#Pattern"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="language">
+    <rdfs:label xml:lang="en">language</rdfs:label>
+    <rdfs:comment xml:lang="en">Associates a format or pattern with a specific language.
 
-    <!-- http://data.travellerrpg.com/ontology/argushiigi/name -->
+If not specified, the format or pattern applies to any language.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#language"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Format"/>
+          <owl:Class rdf:about="#Pattern"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="eHex">
+    <rdfs:label xml:lang="en">eHex</rdfs:label>
+    <rdfs:comment xml:lang="en">Indicates that a value should be expressed as Traveller-style eHex.
 
-    <owl:NamedIndividual rdf:about="&argushiigi3;name">
-        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
-        <rdfs:label xml:lang="en">Name</rdfs:label>
-        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">10</argushiigi2:displayPriority>
-        <rdfs:comment xml:lang="en">The name category, used to locate labels and titles that can be used to name an object.</rdfs:comment>
-        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
-    </owl:NamedIndividual>
-    
+eHex values are extended hexadecimal, with the following values
 
+decimal ehex
 
-    <!-- http://data.travellerrpg.com/ontology/argushiigi/reference -->
+0-9 0-9
+10-17 A-H
+x I (omitted)
+18-22 J-N
+x O (omitted)
+23-33 P-Z
 
-    <owl:NamedIndividual rdf:about="&argushiigi3;reference">
-        <rdfs:label xml:lang="en">Reference</rdfs:label>
-        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">900</argushiigi2:displayPriority>
-        <rdfs:comment xml:lang="en">The category containing references to a resource</rdfs:comment>
-        <argushiigi2:parentCategory rdf:resource="&argushiigi3;top"/>
-    </owl:NamedIndividual>
-    
+Additional codes are
 
+unknown X
+special Y
+ulitmate Z
 
-    <!-- http://data.travellerrpg.com/ontology/argushiigi/top -->
+</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:ID="implementationFormat"/>
+    </rdfs:subPropertyOf>
+    <rdfs:seeAlso rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="javaFormat">
+    <rdfs:label xml:lang="en">java format</rdfs:label>
+    <rdfs:comment xml:lang="en">The format to use when displaying this property in Java.
 
-    <owl:NamedIndividual rdf:about="&argushiigi3;top">
-        <rdf:type rdf:resource="&argushiigi2;DisplayCategory"/>
-        <rdfs:label xml:lang="en">Top</rdfs:label>
-        <argushiigi2:displayPriority rdf:datatype="&xsd;integer">1000</argushiigi2:displayPriority>
+This uses java.text.MessageFormat syntax to define the property, with the value of the property as argument 0, the name of the property as argument 1 and the name of the subject of the statement as argument 2.</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="#implementationFormat"/>
+    </rdfs:subPropertyOf>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#implementationFormat">
+    <rdfs:comment xml:lang="en">A format description specific to a particular (computer) language or system's conventions.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Pattern"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="literal">
+    <rdfs:label xml:lang="en">literal</rdfs:label>
+    <rdfs:comment xml:lang="en">A literal value to format.
+
+The literal can be any literal value, not just text. If a format is specified then the format will be used to format the literal.</rdfs:comment>
+    <rdfs:domain rdf:resource="#Pattern"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/reference">
+    <argushiigi:parentCategory>
+      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/top">
         <rdfs:comment xml:lang="en">The top-level category. Used as a catch-all for uncategorised elements.</rdfs:comment>
-    </owl:NamedIndividual>
+        <rdfs:label xml:lang="en">Top</rdfs:label>
+        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >1000</argushiigi:displayPriority>
+      </argushiigi:DisplayCategory>
+    </argushiigi:parentCategory>
+    <rdfs:label xml:lang="en">Reference</rdfs:label>
+    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >900</argushiigi:displayPriority>
+    <rdfs:comment xml:lang="en">The category containing references to a resource</rdfs:comment>
+  </argushiigi:DisplayCategory>
+  <owl:AnnotationProperty rdf:ID="usesFormat">
+    <rdfs:label xml:lang="en">uses format</rdfs:label>
+    <rdfs:comment xml:lang="en">Gives the format a resource or resource of this class uses.
+
+Formats are generally associated with classes. However, a resource may have its own format.
+
+Formats use the list pattern to decide which format to use. Formats can be chained by use of the nextFormat property.</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:range rdf:resource="#Format"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:AnnotationProperty>
+  <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/name">
+    <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
+    <rdfs:label xml:lang="en">Name</rdfs:label>
+    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >10</argushiigi:displayPriority>
+    <rdfs:comment xml:lang="en">The name category, used to locate labels and titles that can be used to name an object.</rdfs:comment>
+  </argushiigi:DisplayCategory>
+  <owl:AnnotationProperty rdf:ID="displayCategory">
+    <rdfs:label xml:lang="en">display category</rdfs:label>
+    <rdfs:comment xml:lang="en">Places an entity into a category. Display categories can be used to annotate classes, properties and individuals. Classes and properties inherit categories from super-entities, using the closest super-entity with the lowest priority.</rdfs:comment>
+    <rdfs:range rdf:resource="#DisplayCategory"/>
+  </owl:AnnotationProperty>
+  <owl:AnnotationProperty rdf:ID="displayPriority">
+    <rdfs:label xml:lang="en">display priority</rdfs:label>
+    <rdfs:comment xml:lang="en">The priority of this item in any list of items to be displayed.</rdfs:comment>
+    <skos:historyNote xml:lang="en">This was originally intended to be a system for defining partial orders. Too hard.</skos:historyNote>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+  </owl:AnnotationProperty>
+  <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#historyNote"/>
 </rdf:RDF>
 
-
-
-<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
-
+<!-- Created with TopBraid -->

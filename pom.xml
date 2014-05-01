@@ -152,47 +152,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <executions>
-          <execution>
-            <id>generate-SKOS</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>java</goal>
-            </goals>
-            <configuration>
-              <mainClass>jena.schemagen</mainClass>
-              <commandlineArgs>
-                --owl \
-                --inference \
-                --ontology \
-                -i ${basedir}/src/main/ontology/skos.owl \
-                -a http://www.w3.org/2004/02/skos/core# \
-                --package org.charvolant.argushiigi.ontology \
-                -o ${project.build.directory}/generated-sources/java \
-                -n SKOS
-              </commandlineArgs>
-            </configuration>
-          </execution>
-          <execution>
-            <id>generate-FOAF</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>java</goal>
-            </goals>
-            <configuration>
-              <mainClass>jena.schemagen</mainClass>
-              <commandlineArgs>
-                --owl \
-                --inference \
-                --ontology \
-                -i ${basedir}/src/main/ontology/foaf.owl \
-                -a http://xmlns.com/foaf/0.1/ \
-                --package org.charvolant.argushiigi.ontology \
-                -o ${project.build.directory}/generated-sources/java \
-                -n FOAF
-              </commandlineArgs>
-            </configuration>
-          </execution>
-          <execution>
+           <execution>
             <id>generate-Argushiigi</id>
             <phase>generate-sources</phase>
             <goals>

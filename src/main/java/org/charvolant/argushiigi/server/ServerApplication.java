@@ -90,6 +90,17 @@ public class ServerApplication extends Application {
     this.apparent = new Reference("http://www.charvolant.org/argushiigi/data/");
     this.build();
   }
+
+  /**
+   * Constructor for Argushiigi.
+   */
+  public ServerApplication() {
+    super();
+    this.root = new Reference("http://data.travellerrpg.com/");
+    this.source = new Reference("http://localhost:8080/argushiigi/data/");
+    this.apparent = new Reference("http://www.charvolant.org/argushiigi/data/");
+    this.build();
+  }
   
   
   
@@ -195,13 +206,15 @@ public class ServerApplication extends Application {
     this.ontology.read(this.getClass().getResource("../ontology/argushiigi.owl").toExternalForm());
     this.ontology.read(this.getClass().getResource("../ontology/rpg.owl").toExternalForm());
     this.ontology.read(this.getClass().getResource("../ontology/t5.owl").toExternalForm());
+    this.ontology.read(this.getClass().getResource("../ontology/t5-characters.owl").toExternalForm());
     this.display = ModelFactory.createDefaultModel();
     this.display.read(this.getClass().getResource("../ontology/argushiigi-rpg.rdf").toExternalForm());
     this.display.read(this.getClass().getResource("../ontology/argushiigi-t5.rdf").toExternalForm());
     reasoner = ReasonerRegistry.getOWLMiniReasoner();
     //this.dataset = TDBFactory.createDataset(dataset);
     this.dataset = ModelFactory.createDefaultModel();
-    this.dataset.read(this.getClass().getResource("../ontology/t5-data.rdf").toExternalForm(), "TTL");
+    this.dataset.read(this.getClass().getResource("../ontology/traveller-universe.rdf").toExternalForm());
+    this.dataset.read(this.getClass().getResource("../ontology/spinward-marches.ttl").toExternalForm(), "TTL");
     this.inference = ModelFactory.createInfModel(reasoner, this.ontology, this.dataset);
     this.sorter = new DisplaySorter(ModelFactory.createUnion(this.ontology, this.display));
     this.logger.debug("Created data source");
@@ -244,13 +257,17 @@ public class ServerApplication extends Application {
    */
   @Override
   public synchronized void stop() throws Exception {
-    this.inference.close();
+    if (this.inference != null)
+      this.inference.close();
     this.inference = null;
-    this.dataset.close();
+    if (this.dataset != null)
+      this.dataset.close();
     this.dataset = null;
-    this.display.close();
+    if (this.display != null)
+      this.display.close();
     this.display = null;
-    this.ontology.close();
+    if (this.ontology != null)
+      this.ontology.close();
     this.ontology = null;
     super.stop();
   }

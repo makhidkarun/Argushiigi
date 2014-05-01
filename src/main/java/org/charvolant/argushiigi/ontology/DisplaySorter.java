@@ -65,11 +65,11 @@ public class DisplaySorter implements Comparator<Resource> {
   private static final Logger logger = LoggerFactory.getLogger(DisplaySorter.class);
   
   /** The URI of the top catch-all category for display */
-  public static final String TOP_URI = "http://data.travellerrpg.com/ontology/argushiigi/top";
+  public static final String TOP_URI = "http://data.travellerrpg.com/argushiigi/top";
   /** The URI of the reference category for display */
-  public static final String REFERENCE_URI = "http://data.travellerrpg.com/ontology/argushiigi/reference";
+  public static final String REFERENCE_URI = "http://data.travellerrpg.com/argushiigi/reference";
   /** The URI of the name category for display */
-  public static final String NAME_URI = "http://data.travellerrpg.com/ontology/argushiigi/name";
+  public static final String NAME_URI = "http://data.travellerrpg.com/argushiigi/name";
 
   /** The model that contains the sort information */
   private Model model;
@@ -1062,7 +1062,11 @@ public class DisplaySorter implements Comparator<Resource> {
       if (p1 != null && p2 != null) {
         return p1.intValue() - p2.intValue();
       }
-      if (p1 != null && p2 == null)
+      if (o1.isAnon() && !o2.isAnon())
+        return 1;
+      if (o2.isAnon() && !o1.isAnon())
+        return -1;
+       if (p1 != null && p2 == null)
         return -1;
       if (p1 == null && p2 != null)
         return 1;

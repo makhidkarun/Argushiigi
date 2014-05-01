@@ -13,6 +13,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.hp.hpl.jena.ontology.OntDocumentManager;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.rdf.model.InfModel;
@@ -42,7 +43,10 @@ public class RPGTest extends JenaTest {
   public void setUp() throws Exception {
     Reasoner reasoner;
 
+    OntDocumentManager.getInstance().setProcessImports(false);
     this.ontology = ModelFactory.createDefaultModel();
+    this.ontology.read(this.getClass().getResource("foaf.owl").toExternalForm());
+    this.ontology.read(this.getClass().getResource("skos.owl").toExternalForm());
     this.ontology.read(this.getClass().getResource("rpg.owl").toExternalForm());
     reasoner = ReasonerRegistry.getOWLMiniReasoner();
     this.data = ModelFactory.createDefaultModel();
@@ -101,7 +105,7 @@ public class RPGTest extends JenaTest {
     Assert.assertTrue(si.hasNext());
     Assert.assertEquals(s1, si.next().getResource());
     Assert.assertTrue(s1.hasProperty(RPG.inSkillType, p1));
-    Assert.assertTrue(s1.hasLiteral(RPG.value, 10));
+    Assert.assertTrue(s1.hasLiteral(RDF.value, 10));
     Assert.assertFalse(si.hasNext());
   }
 
@@ -116,10 +120,10 @@ public class RPGTest extends JenaTest {
     p1 = w1.getPropertyResourceValue(RPG.hasPrice);
     Assert.assertNotNull(p1);
     Assert.assertTrue(p1.hasProperty(RPG.unit, cr));
-    Assert.assertTrue(p1.hasLiteral(RPG.value, 100));
+    Assert.assertTrue(p1.hasLiteral(RDF.value, 100));
     m1 = w1.getPropertyResourceValue(RPG.hasMass);
     Assert.assertNotNull(m1);
-    Assert.assertEquals(BigDecimal.valueOf(1.5), m1.getProperty(RPG.value).getLiteral().getValue());
+    Assert.assertEquals(BigDecimal.valueOf(1.5), m1.getProperty(RDF.value).getLiteral().getValue());
   }
 
   @Test

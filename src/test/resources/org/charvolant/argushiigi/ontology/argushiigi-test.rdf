@@ -256,7 +256,7 @@
         <rdfs:label xml:lang="en">Category 1</rdfs:label>
         <rdfs:label xml:lang="fr">Categorie 1</rdfs:label>
         <argushiigi:displayPriority rdf:datatype="&xsd;integer">20</argushiigi:displayPriority>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/ontology/argushiigi/top"/>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
     </owl:NamedIndividual>
     
 
@@ -280,7 +280,7 @@
         <rdfs:label xml:lang="de">Cat 3</rdfs:label>
         <rdfs:label xml:lang="en-gb">Category 3</rdfs:label>
         <skos:prefLabel xml:lang="de">Cat-3</skos:prefLabel>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/ontology/argushiigi/top"/>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
     </owl:NamedIndividual>
     
 
