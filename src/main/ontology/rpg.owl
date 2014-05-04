@@ -15,8 +15,8 @@
     <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
     <terms:license>
       <terms:LicenseDocument rdf:about="http://creativecommons.org/licenses/by/3.0/">
-        <rdfs:label xml:lang="en">Creative Commons Attribution 3.0 (Unported)</rdfs:label>
         <rdfs:seeAlso rdf:resource="http://i.creativecommons.org/l/by/3.0/88x31.png"/>
+        <rdfs:label xml:lang="en">Creative Commons Attribution 3.0 (Unported)</rdfs:label>
       </terms:LicenseDocument>
     </terms:license>
     <terms:creator rdf:resource="https://github.com/charvolant"/>
@@ -32,75 +32,77 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </owl:Ontology>
   <owl:Class rdf:ID="LengthUnit">
-    <rdfs:label xml:lang="en">Length Unit</rdfs:label>
+    <rdfs:comment xml:lang="en">A unit of length or distance</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Class rdf:ID="Unit"/>
     </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A unit of length or distance</rdfs:comment>
+    <rdfs:label xml:lang="en">Length Unit</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="MassUnit">
-    <rdfs:label xml:lang="en">Mass Unit</rdfs:label>
+    <rdfs:comment xml:lang="en">A unit of mass.</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Unit"/>
     </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A unit of mass.</rdfs:comment>
+    <rdfs:label xml:lang="en">Mass Unit</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="State">
-    <rdfs:label xml:lang="en">State</rdfs:label>
-    <rdfs:comment xml:lang="en">A changable status for something in a game.</rdfs:comment>
-    <skos:example xml:lang="en">Examples are things like health statistics, unconciosness, asleep for characters and oiut of ammunition for a gun.</skos:example>
     <skos:scopeNote xml:lang="en">States are generally strongly connected to the mechanics of an RPG and are generally directly modelled for a specific game.</skos:scopeNote>
+    <skos:example xml:lang="en">Examples are things like health statistics, unconciosness, asleep for characters and oiut of ammunition for a gun.</skos:example>
+    <rdfs:comment xml:lang="en">A changable status for something in a game.</rdfs:comment>
+    <rdfs:label xml:lang="en">State</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Volume">
-    <rdfs:label xml:lang="en">Volume</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:ID="VolumeUnit"/>
-        </owl:allValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="unit"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">A volume of 3-dimensional space</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Class rdf:ID="Amount"/>
     </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A volume of 3-dimensional space</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="unit"/>
+        </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="VolumeUnit"/>
+        </owl:allValuesFrom>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Volume</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Conversion">
     <rdfs:comment xml:lang="en">A conversion between two units.</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="fromUnit"/>
-        </owl:onProperty>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
         <owl:onClass>
           <owl:Class rdf:about="#Unit"/>
         </owl:onClass>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="toUnit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:qualifiedCardinality>
+        <owl:onClass>
+          <owl:Class rdf:about="#Unit"/>
+        </owl:onClass>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="fromUnit"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:label xml:lang="en">Conversion</rdfs:label>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
         <owl:onProperty>
           <owl:DatatypeProperty rdf:ID="conversionRatio"/>
         </owl:onProperty>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:qualifiedCardinality>
-        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:DatatypeProperty rdf:ID="fixedConversion"/>
-        </owl:onProperty>
-        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:maxQualifiedCardinality>
-        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <skos:scopeNote xml:lang="en">Generally, conversions are fixed and apply to the highest level setting. However, some conversions such as exchange rates may vary from setting to setting.</skos:scopeNote>
@@ -109,587 +111,577 @@ This ontology imports SKOS for knowledge descriptions and FOAF for player inform
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxQualifiedCardinality>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="toUnit"/>
+          <owl:FunctionalProperty rdf:ID="fixedConversion"/>
         </owl:onProperty>
-        <owl:onClass>
-          <owl:Class rdf:about="#Unit"/>
-        </owl:onClass>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:qualifiedCardinality>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:comment xml:lang="en">A date according to a system of dates.</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="Player">
-    <rdfs:label xml:lang="en">Player</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Participant"/>
-    </rdfs:subClassOf>
     <rdfs:comment xml:lang="en">A player in a role playing game "plays" a one or more characters within the game.
 
 The player has partial knowledge of the game situation.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Participant"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Player</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="SkillType">
-    <rdfs:label xml:lang="en">Skill Type</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     <rdfs:comment xml:lang="en">A type of skill. Skills are learned abilities that can be improved by a character exercising the skill or undergoing training.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">Skill Type</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Setting">
-    <rdfs:label xml:lang="en">Setting</rdfs:label>
-    <rdfs:comment xml:lang="en">A setting is the stage that an RPG is played on. Settings range in scale from entire universes to the bar in which an adventure takes place. A setting may refer to a location, a time period, a social mileau or any combination.</rdfs:comment>
     <skos:scopeNote xml:lang="en">Settings may also act as collections of concepts that describe the nature of the setting. The settingConcept property allows settings to be associated with the concepts that define them.</skos:scopeNote>
-  </owl:Class>
-  <owl:Class rdf:ID="Attribute">
-    <rdfs:label xml:lang="en">Attribute</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Feature"/>
-    </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A descriptive attribute of a character or item.</rdfs:comment>
-    <skos:scopeNote xml:lang="en">Attributes are generally fixed things about a character or things which change very slowly. 
-
-Attributes are generally central to the game system and are descibed via subclassing for a specific RPG, rather than by referencing individuals.</skos:scopeNote>
-    <skos:example xml:lang="en">Examples are strength, size, education, as well as sex, hair colour, etc.</skos:example>
+    <rdfs:comment xml:lang="en">A setting is the stage that an RPG is played on. Settings range in scale from entire universes to the bar in which an adventure takes place. A setting may refer to a location, a time period, a social mileau or any combination.</rdfs:comment>
+    <rdfs:label xml:lang="en">Setting</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Duration">
-    <rdfs:label xml:lang="en">Duration</rdfs:label>
+    <rdfs:comment xml:lang="en">A period of time.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Amount"/>
+    </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#unit"/>
+        </owl:onProperty>
         <owl:allValuesFrom>
           <owl:Class rdf:ID="TimeUnit"/>
         </owl:allValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#unit"/>
-        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Duration</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Attribute">
+    <skos:example xml:lang="en">Examples are strength, size, education, as well as sex, hair colour, etc.</skos:example>
+    <skos:scopeNote xml:lang="en">Attributes are generally fixed things about a character or things which change very slowly. 
+
+Attributes are generally central to the game system and are descibed via subclassing for a specific RPG, rather than by referencing individuals.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">A descriptive attribute of a character or item.</rdfs:comment>
     <rdfs:subClassOf>
-      <owl:Class rdf:about="#Amount"/>
+      <owl:Class rdf:ID="Feature"/>
     </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A period of time.</rdfs:comment>
+    <rdfs:label xml:lang="en">Attribute</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="#SettingState">
-    <rdfs:label xml:lang="en">Setting State</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#State"/>
     <rdfs:comment xml:lang="en">A piece of state that applies to a game setting.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#State"/>
+    <rdfs:label xml:lang="en">Setting State</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="#TimeUnit">
+    <rdfs:comment xml:lang="en">A unit of time (duration)</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Unit"/>
     </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A unit of time (duration)</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="Organisation">
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Extra"/>
-    </owl:disjointWith>
-    <owl:disjointWith>
-      <owl:Class rdf:ID="Character"/>
-    </owl:disjointWith>
-    <rdfs:comment xml:lang="en">An organisation that exists within the game</rdfs:comment>
-    <rdfs:label xml:lang="en-us">Organization</rdfs:label>
+    <rdfs:label xml:lang="en">Organisation</rdfs:label>
     <rdfs:subClassOf>
       <owl:Class rdf:ID="Actor"/>
     </rdfs:subClassOf>
-    <rdfs:label xml:lang="en">Organisation</rdfs:label>
+    <rdfs:label xml:lang="en-us">Organization</rdfs:label>
+    <rdfs:comment xml:lang="en">An organisation that exists within the game</rdfs:comment>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Character"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Extra"/>
+    </owl:disjointWith>
   </owl:Class>
   <owl:Class rdf:ID="Price">
-    <rdfs:label xml:lang="en">Price</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:allValuesFrom>
-          <owl:Class rdf:ID="Currency"/>
-        </owl:allValuesFrom>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#unit"/>
-        </owl:onProperty>
-      </owl:Restriction>
-    </rdfs:subClassOf>
+    <skos:scopeNote xml:lang="en">While usually applied to non-characters, there is no reason why a character cannot have a price as well.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">The price of a game object, in game currency.</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Amount"/>
     </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">The price of a game object, in game currency.</rdfs:comment>
-    <skos:scopeNote xml:lang="en">While usually applied to non-characters, there is no reason why a character cannot have a price as well.</skos:scopeNote>
-  </owl:Class>
-  <owl:Class rdf:ID="Date">
-    <rdfs:label xml:lang="en">Date</rdfs:label>
-    <rdfs:comment xml:lang="en">A date according to some calendar</rdfs:comment>
-    <skos:scopeNote xml:lang="en">The accuracy of a date is determined by its attributes, which may include year, month, day of year, day of month, time values, etc.</skos:scopeNote>
-  </owl:Class>
-  <owl:Class rdf:ID="Weapon">
-    <rdfs:label xml:lang="en">Weapon</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Item"/>
-    </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A single-person weapon.</rdfs:comment>
-    <skos:scopeNote xml:lang="en">Within a role-playing game, weapons generally refer to personal weapons such as swords, guns, etc. rather than a crew-operated weapon, such as an artillery piece. 
-
-Something like a machine gun or a sniper's rifle is often formally regarded as a crew-operated weapon. However, from a role-playing perspective it makes sense to treat these things as personal weapons.</skos:scopeNote>
-  </owl:Class>
-  <owl:Class rdf:about="#Character">
-    <owl:disjointWith rdf:resource="#Organisation"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Extra"/>
-    </owl:disjointWith>
-    <rdfs:label xml:lang="en">Character</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Actor"/>
-    </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">An RPG representation of a person or similar within-game creature capable of making its own decsions. </rdfs:comment>
-    <skos:scopeNote xml:lang="en">Characters are usually modelled as something that could be controlled by a player, even if the character is not.</skos:scopeNote>
-  </owl:Class>
-  <owl:Class rdf:about="http://purl.org/dc/terms/RightsStatement"/>
-  <owl:Class rdf:ID="SenseType">
-    <rdfs:label xml:lang="en">Sense Type</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:comment xml:lang="en">The ability to sense a specific form of phenomenon.</rdfs:comment>
-    <skos:example xml:lang="en">Visible light, sound, infravision (infrared light), magic.</skos:example>
-  </owl:Class>
-  <owl:Class rdf:ID="Vehicle">
-    <rdfs:label xml:lang="en">Vehicle</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:ID="Asset"/>
-    </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A means of transporting one or more actors.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:about="#Amount">
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:onClass rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:qualifiedCardinality>
-        <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf>
-      <owl:Restriction>
-        <owl:onClass>
-          <owl:Class rdf:about="#Unit"/>
-        </owl:onClass>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:qualifiedCardinality>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#unit"/>
         </owl:onProperty>
+        <owl:allValuesFrom>
+          <owl:Class rdf:ID="Currency"/>
+        </owl:allValuesFrom>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:label xml:lang="en">Amount</rdfs:label>
+    <rdfs:label xml:lang="en">Price</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Date">
+    <skos:scopeNote xml:lang="en">The accuracy of a date is determined by its attributes, which may include year, month, day of year, day of month, time values, etc.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">A date according to some calendar</rdfs:comment>
+    <rdfs:label xml:lang="en">Date</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Weapon">
+    <skos:scopeNote xml:lang="en">Within a role-playing game, weapons generally refer to personal weapons such as swords, guns, etc. rather than a crew-operated weapon, such as an artillery piece. 
+
+Something like a machine gun or a sniper's rifle is often formally regarded as a crew-operated weapon. However, from a role-playing perspective it makes sense to treat these things as personal weapons.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">A single-person weapon.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Item"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Weapon</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Character">
+    <skos:scopeNote xml:lang="en">Characters are usually modelled as something that could be controlled by a player, even if the character is not.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">An RPG representation of a person or similar within-game creature capable of making its own decsions. </rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Actor"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Character</rdfs:label>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Extra"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Organisation"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://purl.org/dc/terms/RightsStatement"/>
+  <owl:Class rdf:ID="SenseType">
+    <skos:example xml:lang="en">Visible light, sound, infravision (infrared light), magic.</skos:example>
+    <rdfs:comment xml:lang="en">The ability to sense a specific form of phenomenon.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">Sense Type</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Vehicle">
+    <rdfs:comment xml:lang="en">A means of transporting one or more actors.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Asset"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Vehicle</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Amount">
     <rdfs:comment xml:lang="en">A quantity of something</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:ID="Template">
-    <rdfs:label xml:lang="en">Tempate</rdfs:label>
-    <rdfs:comment xml:lang="en">Something that is a template represents an abstract class-like description of a game item. A template can be used to describe a generic instance of an item. Individual items can inherit from the template and override speicifc elements.
-</rdfs:comment>
-    <skos:scopeNote xml:lang="en">Templates can inherit from other templates. The rules on how inheritance is managed are game-specific.</skos:scopeNote>
-    <skos:scopeNote xml:lang="en">The template class is usually added to other entities to indicate that the entity is for use as a template.</skos:scopeNote>
-  </owl:Class>
-  <owl:Class rdf:ID="ExchangeRate">
-    <rdfs:label xml:lang="en">Exchange Rate</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#Conversion"/>
+    <rdfs:label xml:lang="en">Amount</rdfs:label>
     <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#toUnit"/>
+          <owl:ObjectProperty rdf:about="#unit"/>
         </owl:onProperty>
-        <owl:onClass>
-          <owl:Class rdf:about="#Currency"/>
-        </owl:onClass>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
         >1</owl:qualifiedCardinality>
+        <owl:onClass>
+          <owl:Class rdf:about="#Unit"/>
+        </owl:onClass>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
       <owl:Restriction>
+        <owl:onProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+        <owl:onClass rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Template">
+    <skos:scopeNote xml:lang="en">The template class is usually added to other entities to indicate that the entity is for use as a template.</skos:scopeNote>
+    <skos:scopeNote xml:lang="en">Templates can inherit from other templates. The rules on how inheritance is managed are game-specific.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">Something that is a template represents an abstract class-like description of a game item. A template can be used to describe a generic instance of an item. Individual items can inherit from the template and override speicifc elements.
+</rdfs:comment>
+    <rdfs:label xml:lang="en">Tempate</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="ExchangeRate">
+    <rdfs:comment xml:lang="en">An exchange rate between two currencies.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
+        <owl:onClass>
+          <owl:Class rdf:about="#Currency"/>
+        </owl:onClass>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#fromUnit"/>
         </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:qualifiedCardinality>
         <owl:onClass>
           <owl:Class rdf:about="#Currency"/>
         </owl:onClass>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
-        >1</owl:qualifiedCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#toUnit"/>
+        </owl:onProperty>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">An exchange rate between two currencies.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Conversion"/>
+    <rdfs:label xml:lang="en">Exchange Rate</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="FacultyType">
-    <rdfs:label xml:lang="en">Faculty Type</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
     <rdfs:comment xml:lang="en">A type of inherent ability or power.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">Faculty Type</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="#Currency">
-    <rdfs:label xml:lang="en">Currency</rdfs:label>
+    <rdfs:comment xml:lang="en">A medium of exchange</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Unit"/>
     </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A medium of exchange</rdfs:comment>
+    <rdfs:label xml:lang="en">Currency</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Language">
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:label xml:lang="en">Language </rdfs:label>
-    <rdfs:comment xml:lang="en">Language used within a game</rdfs:comment>
     <skos:scopeNote xml:lang="en">Game languages are usually associated with specific settings.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">Language used within a game</rdfs:comment>
+    <rdfs:label xml:lang="en">Language </rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </owl:Class>
   <owl:Class rdf:about="#Feature">
-    <rdfs:label xml:lang="en">Feature</rdfs:label>
     <rdfs:comment xml:lang="en">Something that describes a character or an item: a characteristic, a skill, an ability, etc.</rdfs:comment>
+    <rdfs:label xml:lang="en">Feature</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="#Unit">
-    <rdfs:label xml:lang="en">Unit</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-    <rdfs:comment xml:lang="en">A unit of measure</rdfs:comment>
-    <skos:editorialNote xml:lang="en">Resist the tempation to produce a fully fledged system of units and measures. That way lies madness.</skos:editorialNote>
     <skos:scopeNote xml:lang="en">This heirarchy is a small unit model designed for use within RPGs. Specific types of units are modelled as subclasses.</skos:scopeNote>
+    <skos:editorialNote xml:lang="en">Resist the tempation to produce a fully fledged system of units and measures. That way lies madness.</skos:editorialNote>
+    <rdfs:comment xml:lang="en">A unit of measure</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">Unit</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="GameEntity">
-    <rdfs:label xml:lang="en">Game Entity</rdfs:label>
     <rdfs:comment xml:lang="en">Something that exists with the role playing game.</rdfs:comment>
+    <rdfs:label xml:lang="en">Game Entity</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="DateSystem">
-    <rdfs:label xml:lang="en">Date System</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#Unit"/>
-    <rdfs:comment xml:lang="en">A real or fantasy date system.</rdfs:comment>
     <skos:altLabel xml:lang="en">Calendar</skos:altLabel>
+    <rdfs:comment xml:lang="en">A real or fantasy date system.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Unit"/>
+    <rdfs:label xml:lang="en">Date System</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="#VolumeUnit">
-    <rdfs:label xml:lang="en">A unit of 3-dimensional size</rdfs:label>
-    <rdfs:label xml:lang="en">Volume</rdfs:label>
     <rdfs:subClassOf rdf:resource="#Unit"/>
+    <rdfs:label xml:lang="en">Volume</rdfs:label>
+    <rdfs:label xml:lang="en">A unit of 3-dimensional size</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Event">
+    <rdfs:comment xml:lang="en">An in-game event</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#GameEntity"/>
+    <rdfs:label xml:lang="en">Event</rdfs:label>
     <owl:disjointWith>
-      <owl:Class rdf:ID="Place"/>
+      <owl:Class rdf:about="#Actor"/>
     </owl:disjointWith>
     <owl:disjointWith>
       <owl:Class rdf:about="#Asset"/>
     </owl:disjointWith>
     <owl:disjointWith>
-      <owl:Class rdf:about="#Actor"/>
+      <owl:Class rdf:ID="Place"/>
     </owl:disjointWith>
-    <rdfs:label xml:lang="en">Event</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#GameEntity"/>
-    <rdfs:comment xml:lang="en">An in-game event</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="GameMaster">
-    <rdfs:label xml:lang="en">Game Master</rdfs:label>
-    <rdfs:subClassOf>
-      <owl:Class rdf:about="#Participant"/>
-    </rdfs:subClassOf>
     <rdfs:comment xml:lang="en">The participant responsible for creating and managing the situation that forms the role playing game.
 
 The game master has, in theory if not in practice, complete knowledge of the game world. The game master is also generally responsible for refereeing decsicions within the game.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Participant"/>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Game Master</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Campaign">
-    <rdfs:label xml:lang="en">Campaign</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#Setting"/>
     <rdfs:comment xml:lang="en">A series of events and adventures featuring a continuing set of chracters and settings.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Setting"/>
+    <rdfs:label xml:lang="en">Campaign</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="PlayerCharacter">
-    <rdfs:label xml:lang="en">Player Character</rdfs:label>
+    <rdfs:comment xml:lang="en">A character directly controlled by a player.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Character"/>
     <owl:equivalentClass>
       <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#Player"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:ID="isPortrayedBy"/>
         </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#Player"/>
       </owl:Restriction>
     </owl:equivalentClass>
-    <rdfs:subClassOf rdf:resource="#Character"/>
-    <rdfs:comment xml:lang="en">A character directly controlled by a player.</rdfs:comment>
+    <rdfs:label xml:lang="en">Player Character</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Faculty">
-    <rdfs:label xml:lang="en">Faculty</rdfs:label>
+    <rdfs:comment xml:lang="en">The level of power for an inherent ability or power.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Feature"/>
     <owl:equivalentClass>
       <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#FacultyType"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:ID="inFacultyType"/>
         </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#FacultyType"/>
       </owl:Restriction>
     </owl:equivalentClass>
-    <rdfs:subClassOf rdf:resource="#Feature"/>
-    <rdfs:comment xml:lang="en">The level of power for an inherent ability or power.</rdfs:comment>
+    <rdfs:label xml:lang="en">Faculty</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="EntityState">
-    <rdfs:label xml:lang="en">Entity State</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#State"/>
     <rdfs:comment xml:lang="en">A state associated with a game entity.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#State"/>
+    <rdfs:label xml:lang="en">Entity State</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="NonPlayerCharacter">
-    <rdfs:label>Non-Player Character</rdfs:label>
+    <rdfs:comment xml:lang="en">A character controlled by a game master or some other agent, such as a software program.</rdfs:comment>
+    <skos:prefLabel>NPC</skos:prefLabel>
+    <rdfs:subClassOf rdf:resource="#Character"/>
     <owl:equivalentClass>
       <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#GameMaster"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#isPortrayedBy"/>
         </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#GameMaster"/>
       </owl:Restriction>
     </owl:equivalentClass>
-    <rdfs:subClassOf rdf:resource="#Character"/>
-    <skos:prefLabel>NPC</skos:prefLabel>
-    <rdfs:comment xml:lang="en">A character controlled by a game master or some other agent, such as a software program.</rdfs:comment>
+    <rdfs:label>Non-Player Character</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="http://purl.org/dc/terms/LicenseDocument">
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
   </owl:Class>
   <owl:Class rdf:ID="Rules">
-    <rdfs:label>Rules</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
-    <rdfs:comment xml:lang="en">A specific set of RPG rules.
-
-Rules can be used to define which sets of rules are compatible with characters, settings, etc.</rdfs:comment>
     <rdfs:seeAlso>
       <owl:Class rdf:ID="SourceBook"/>
     </rdfs:seeAlso>
+    <rdfs:comment xml:lang="en">A specific set of RPG rules.
+
+Rules can be used to define which sets of rules are compatible with characters, settings, etc.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <rdfs:label>Rules</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="#Actor">
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Place"/>
-    </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Event"/>
-    <owl:disjointWith>
-      <owl:Class rdf:about="#Asset"/>
-    </owl:disjointWith>
-    <rdfs:label xml:lang="en">Actor</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#GameEntity"/>
     <rdfs:comment xml:lang="en">Something that can be interacted with within the game. 
 
 Actors can be modelled within the game to various degrees of fidelity. For example, a player character may be more detailed than an animal that the character encounters.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:about="#SourceBook">
-    <rdfs:label xml:lang="en">Source Book</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
-    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
-    <rdfs:comment xml:lang="en">Additional information about a setting.
-
-Conceptually, rules define the mechanics of a game and a source book defines the environment to which the rules apply. In practice, an RPG usually consists of a combined set of rules and setting.</rdfs:comment>
-    <rdfs:seeAlso rdf:resource="#Rules"/>
-  </owl:Class>
-  <owl:Class rdf:about="#Participant">
-    <rdfs:label xml:lang="en">Participant</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
-    <rdfs:comment xml:lang="en">A participant in a role playing game.
-
-Participants are usually a singular Person. However, groups are also possible.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:about="#Place">
-    <owl:disjointWith rdf:resource="#Event"/>
+    <rdfs:subClassOf rdf:resource="#GameEntity"/>
+    <rdfs:label xml:lang="en">Actor</rdfs:label>
     <owl:disjointWith>
       <owl:Class rdf:about="#Asset"/>
     </owl:disjointWith>
-    <owl:disjointWith rdf:resource="#Actor"/>
-    <skos:note xml:lang="en">Places are both actual locations within a game and the settings for adventures</skos:note>
-    <rdfs:subClassOf rdf:resource="#Setting"/>
-    <rdfs:comment xml:lang="en">A location within the game</rdfs:comment>
-    <rdfs:label xml:lang="en">Place </rdfs:label>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Place"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#SourceBook">
+    <rdfs:seeAlso rdf:resource="#Rules"/>
+    <rdfs:comment xml:lang="en">Additional information about a setting.
+
+Conceptually, rules define the mechanics of a game and a source book defines the environment to which the rules apply. In practice, an RPG usually consists of a combined set of rules and setting.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <rdfs:label xml:lang="en">Source Book</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Participant">
+    <rdfs:comment xml:lang="en">A participant in a role playing game.
+
+Participants are usually a singular Person. However, groups are also possible.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+    <rdfs:label xml:lang="en">Participant</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#Place">
     <rdfs:subClassOf rdf:resource="#GameEntity"/>
+    <rdfs:label xml:lang="en">Place </rdfs:label>
+    <rdfs:comment xml:lang="en">A location within the game</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Setting"/>
+    <skos:note xml:lang="en">Places are both actual locations within a game and the settings for adventures</skos:note>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Asset"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Event"/>
   </owl:Class>
   <owl:Class rdf:about="#Extra">
-    <owl:disjointWith rdf:resource="#Organisation"/>
-    <owl:disjointWith rdf:resource="#Character"/>
-    <rdfs:label xml:lang="en">Extra</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#Actor"/>
-    <rdfs:comment xml:lang="en">A game actor modelled to a low level of detail.</rdfs:comment>
     <skos:example xml:lang="en">A wandering monster, a background soldier or a bureaucrat.</skos:example>
+    <rdfs:comment xml:lang="en">A game actor modelled to a low level of detail.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Actor"/>
+    <rdfs:label xml:lang="en">Extra</rdfs:label>
+    <owl:disjointWith rdf:resource="#Character"/>
+    <owl:disjointWith rdf:resource="#Organisation"/>
   </owl:Class>
   <owl:Class rdf:about="http://data.travellerrpg.com/ontology/t5#DiceConventions">
-    <rdfs:comment xml:lang="en">Conventions for describing how die rolls are represented.</rdfs:comment>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
     <rdfs:label xml:lang="en">Dice Conventions</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+    <rdfs:comment xml:lang="en">Conventions for describing how die rolls are represented.</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:about="#Item">
-    <rdfs:label xml:lang="en">Item</rdfs:label>
+    <rdfs:comment xml:lang="en">A semi-portable object that is typically carried and used by one person.</rdfs:comment>
     <rdfs:subClassOf>
       <owl:Class rdf:about="#Asset"/>
     </rdfs:subClassOf>
-    <rdfs:comment xml:lang="en">A semi-portable object that is typically carried and used by one person.</rdfs:comment>
+    <rdfs:label xml:lang="en">Item</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Document">
-    <rdfs:comment xml:lang="en">An in-game document</rdfs:comment>
-    <rdfs:label xml:lang="en">Document </rdfs:label>
     <rdfs:subClassOf rdf:resource="#Item"/>
+    <rdfs:label xml:lang="en">Document </rdfs:label>
+    <rdfs:comment xml:lang="en">An in-game document</rdfs:comment>
   </owl:Class>
   <owl:Class rdf:ID="Sense">
-    <rdfs:label xml:lang="en">Sense</rdfs:label>
-    <owl:equivalentClass>
-      <owl:Restriction>
-        <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="inSenseType"/>
-        </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#SenseType"/>
-      </owl:Restriction>
-    </owl:equivalentClass>
-    <rdfs:subClassOf rdf:resource="#Feature"/>
     <rdfs:comment xml:lang="en">The ability to sense something at a particular level.
 
 The mehanics of how sense work form part of a specific RPGs mechanics.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:ID="Mass">
-    <rdfs:label xml:lang="en">Mass</rdfs:label>
-    <rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Feature"/>
+    <owl:equivalentClass>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#MassUnit"/>
+        <owl:someValuesFrom rdf:resource="#SenseType"/>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:about="#unit"/>
+          <owl:ObjectProperty rdf:ID="inSenseType"/>
         </owl:onProperty>
       </owl:Restriction>
-    </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="#Amount"/>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Sense</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Mass">
+    <skos:altLabel xml:lang="en">Weight</skos:altLabel>
     <rdfs:comment xml:lang="en">The basic mass of an item or character.
 
 Generally, this means the most convienient defintiion for role-playing purposes. A character's mass is their mass in ordingary clothing, without additional items such as armour. A weapon's mass is generally its mass with a full load of ammunition.
 
 Depending on setting, mass and weight may be two different things. eg. in Zero-G an item has no weight but still has mass. For purely single-world games, the terms are interchanable.</rdfs:comment>
-    <skos:altLabel xml:lang="en">Weight</skos:altLabel>
-  </owl:Class>
-  <owl:Class rdf:about="#Asset">
-    <owl:disjointWith rdf:resource="#Place"/>
-    <owl:disjointWith rdf:resource="#Event"/>
-    <owl:disjointWith rdf:resource="#Actor"/>
-    <rdfs:label xml:lang="en">Asset</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#GameEntity"/>
-    <rdfs:comment xml:lang="en">An object within the game that can be used or owned by an actor.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:ID="Adventure">
-    <rdfs:label xml:lang="en">Adventure</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#Setting"/>
-    <rdfs:comment xml:lang="en">A story-level setting for a game, usually with a clear beginning, middle and end.</rdfs:comment>
-  </owl:Class>
-  <owl:Class rdf:ID="Length">
+    <rdfs:subClassOf rdf:resource="#Amount"/>
     <rdfs:subClassOf>
       <owl:Restriction>
-        <owl:allValuesFrom rdf:resource="#LengthUnit"/>
         <owl:onProperty>
           <owl:ObjectProperty rdf:about="#unit"/>
         </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#MassUnit"/>
       </owl:Restriction>
     </rdfs:subClassOf>
-    <rdfs:subClassOf rdf:resource="#Amount"/>
+    <rdfs:label xml:lang="en">Mass</rdfs:label>
   </owl:Class>
-  <owl:Class rdf:ID="Skill">
-    <rdfs:label xml:lang="en">Skill</rdfs:label>
-    <owl:equivalentClass>
+  <owl:Class rdf:about="#Asset">
+    <rdfs:comment xml:lang="en">An object within the game that can be used or owned by an actor.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#GameEntity"/>
+    <rdfs:label xml:lang="en">Asset</rdfs:label>
+    <owl:disjointWith rdf:resource="#Actor"/>
+    <owl:disjointWith rdf:resource="#Event"/>
+    <owl:disjointWith rdf:resource="#Place"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Adventure">
+    <rdfs:comment xml:lang="en">A story-level setting for a game, usually with a clear beginning, middle and end.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Setting"/>
+    <rdfs:label xml:lang="en">Adventure</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Length">
+    <rdfs:subClassOf rdf:resource="#Amount"/>
+    <rdfs:subClassOf>
       <owl:Restriction>
         <owl:onProperty>
-          <owl:ObjectProperty rdf:ID="inSkillType"/>
+          <owl:ObjectProperty rdf:about="#unit"/>
         </owl:onProperty>
-        <owl:someValuesFrom rdf:resource="#SkillType"/>
+        <owl:allValuesFrom rdf:resource="#LengthUnit"/>
       </owl:Restriction>
-    </owl:equivalentClass>
-    <rdfs:subClassOf rdf:resource="#Feature"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Skill">
     <rdfs:comment xml:lang="en">A level of ability in a specific skill.
 
 The way that skill levels are represented are specific to a game system.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Feature"/>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:someValuesFrom rdf:resource="#SkillType"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="inSkillType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Skill</rdfs:label>
   </owl:Class>
   <owl:Class rdf:ID="Milieau">
-    <rdfs:label xml:lang="en">Milieau</rdfs:label>
-    <rdfs:subClassOf rdf:resource="#Setting"/>
     <rdfs:comment xml:lang="en">The large-scale setting of a campaign or an adventure. An outline of the world or universe that the game takes place in.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Setting"/>
+    <rdfs:label xml:lang="en">Milieau</rdfs:label>
   </owl:Class>
   <owl:ObjectProperty rdf:ID="related">
-    <rdfs:comment xml:lang="en">Indicates that two game entities are related in some way</rdfs:comment>
-    <rdfs:range rdf:resource="#GameEntity"/>
-    <rdfs:domain rdf:resource="#GameEntity"/>
     <rdfs:label xml:lang="en">related </rdfs:label>
+    <rdfs:domain rdf:resource="#GameEntity"/>
+    <rdfs:range rdf:resource="#GameEntity"/>
+    <rdfs:comment xml:lang="en">Indicates that two game entities are related in some way</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="date">
-    <rdfs:label xml:lang="en">date</rdfs:label>
-    <rdfs:comment xml:lang="en">The date of an event or other occurance</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <rdf:Property rdf:ID="occurrenceAt"/>
+    </rdfs:subPropertyOf>
     <rdfs:range rdf:resource="#Date"/>
+    <rdfs:comment xml:lang="en">The date of an event or other occurance</rdfs:comment>
+    <rdfs:label xml:lang="en">date</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="amount">
-    <rdfs:range rdf:resource="#Amount"/>
-    <rdfs:label xml:lang="en">amount</rdfs:label>
     <rdfs:comment xml:lang="en">An amount of some value</rdfs:comment>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="year">
-    <rdfs:label xml:lang="en">year</rdfs:label>
-    <skos:scopeNote xml:lang="en">The form of a date is dependent on the calndar being used and may include years, months, days or other elements.</skos:scopeNote>
-    <rdfs:comment xml:lang="en">The year of a date</rdfs:comment>
-    <rdfs:domain rdf:resource="#Date"/>
-    <rdfs:range rdf:resource="#Date"/>
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:ID="attribute"/>
-    </rdfs:subPropertyOf>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:label xml:lang="en">amount</rdfs:label>
+    <rdfs:range rdf:resource="#Amount"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasPrice">
-    <rdfs:label xml:lang="en">price</rdfs:label>
-    <rdfs:comment xml:lang="en">Gives the price of an item.
-
-If left further unspecified, this generallty means the common, in-game price.</rdfs:comment>
-    <rdfs:range rdf:resource="#Price"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:ID="hasAttribute"/>
     </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#Price"/>
+    <rdfs:comment xml:lang="en">Gives the price of an item.
+
+If left further unspecified, this generallty means the common, in-game price.</rdfs:comment>
+    <rdfs:label xml:lang="en">price</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasMass">
-    <rdfs:label xml:lang="en">mass</rdfs:label>
-    <rdfs:comment xml:lang="en">Gives the basic mass of a game item.</rdfs:comment>
-    <rdfs:range rdf:resource="#Mass"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="#hasAttribute"/>
     </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#Mass"/>
+    <rdfs:comment xml:lang="en">Gives the basic mass of a game item.</rdfs:comment>
+    <rdfs:label xml:lang="en">mass</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/rights">
+    <rdfs:range rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasSkill">
-    <rdfs:label xml:lang="en">has skill</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates that an actor has a level of a specific skill</rdfs:comment>
-    <rdfs:domain rdf:resource="#GameEntity"/>
-    <rdfs:range rdf:resource="#Skill"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:ID="hasFeature"/>
     </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#Skill"/>
+    <rdfs:domain rdf:resource="#GameEntity"/>
+    <rdfs:comment xml:lang="en">Indicates that an actor has a level of a specific skill</rdfs:comment>
+    <rdfs:label xml:lang="en">has skill</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasState">
-    <rdfs:label xml:lang="en">is in state</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates that a game item is currently in a particular state</rdfs:comment>
-    <rdfs:domain rdf:resource="#GameEntity"/>
     <rdfs:range rdf:resource="#State"/>
+    <rdfs:domain rdf:resource="#GameEntity"/>
+    <rdfs:comment xml:lang="en">Indicates that a game item is currently in a particular state</rdfs:comment>
+    <rdfs:label xml:lang="en">is in state</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="parent">
-    <rdfs:comment xml:lang="en">Indicates a parent relationship between two game entities</rdfs:comment>
-    <rdfs:label xml:lang="en">parent</rdfs:label>
     <rdfs:subPropertyOf rdf:resource="#related"/>
+    <rdfs:label xml:lang="en">parent</rdfs:label>
+    <rdfs:comment xml:lang="en">Indicates a parent relationship between two game entities</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#inSenseType">
-    <rdfs:label xml:lang="en">in sense</rdfs:label>
-    <rdfs:comment xml:lang="en">Gives the speciifc sense that a sense level gives the capability level of.</rdfs:comment>
-    <rdfs:domain rdf:resource="#Sense"/>
-    <rdfs:range rdf:resource="#SenseType"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:ID="inFeatureType"/>
     </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#SenseType"/>
+    <rdfs:domain rdf:resource="#Sense"/>
+    <rdfs:comment xml:lang="en">Gives the speciifc sense that a sense level gives the capability level of.</rdfs:comment>
+    <rdfs:label xml:lang="en">in sense</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/license">
+    <rdfs:range rdf:resource="http://purl.org/dc/terms/LicenseDocument"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="settingConcept">
-    <rdfs:label xml:lang="en">setting concept</rdfs:label>
-    <rdfs:comment xml:lang="en">A concept that helps define the nature of a setting.</rdfs:comment>
-    <rdfs:domain rdf:resource="#Setting"/>
     <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="organisation">
-    <rdfs:label xml:lang="en">organisation</rdfs:label>
-    <rdfs:comment xml:lang="en">Associated with a game organisation</rdfs:comment>
-    <rdfs:range rdf:resource="#Organisation"/>
+    <rdfs:domain rdf:resource="#Setting"/>
+    <rdfs:comment xml:lang="en">A concept that helps define the nature of a setting.</rdfs:comment>
+    <rdfs:label xml:lang="en">setting concept</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#isPortrayedBy">
-    <rdfs:label xml:lang="en">is portrayed by</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates that a character is portrayed by a specific participant.</rdfs:comment>
-    <rdfs:domain rdf:resource="#Character"/>
-    <rdfs:range rdf:resource="#Participant"/>
     <owl:inverseOf>
       <owl:ObjectProperty rdf:ID="portrays"/>
     </owl:inverseOf>
+    <rdfs:range rdf:resource="#Participant"/>
+    <rdfs:domain rdf:resource="#Character"/>
+    <rdfs:comment xml:lang="en">Indicates that a character is portrayed by a specific participant.</rdfs:comment>
+    <rdfs:label xml:lang="en">is portrayed by</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="organisation">
+    <rdfs:range rdf:resource="#Organisation"/>
+    <rdfs:comment xml:lang="en">Associated with a game organisation</rdfs:comment>
+    <rdfs:label xml:lang="en">organisation</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="level">
-    <rdfs:seeAlso>
-      <owl:DatatypeProperty rdf:ID="quantity"/>
-    </rdfs:seeAlso>
-    <rdfs:comment xml:lang="en">Gives the level of a feature or temporary state.
-
-The concept of a 'level' is specific to a specific set of RPG rules and is specified further by sub-ontologies. Some features do not have a level associated with them.</rdfs:comment>
-    <skos:note xml:lang="en">Use a level when it refers to a distinct category of abilities or state. If a simple numeric value is needed, use value.</skos:note>
-    <rdfs:label xml:lang="en">level</rdfs:label>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -698,20 +690,25 @@ The concept of a 'level' is specific to a specific set of RPG rules and is speci
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
+    <rdfs:label xml:lang="en">level</rdfs:label>
+    <skos:note xml:lang="en">Use a level when it refers to a distinct category of abilities or state. If a simple numeric value is needed, use value.</skos:note>
+    <rdfs:comment xml:lang="en">Gives the level of a feature or temporary state.
+
+The concept of a 'level' is specific to a specific set of RPG rules and is specified further by sub-ontologies. Some features do not have a level associated with them.</rdfs:comment>
+    <rdfs:seeAlso>
+      <owl:DatatypeProperty rdf:ID="quantity"/>
+    </rdfs:seeAlso>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#hasAttribute">
-    <rdfs:label xml:lang="en">has attribute</rdfs:label>
-    <rdfs:comment xml:lang="en">Gives the attributes that describe an actor</rdfs:comment>
-    <rdfs:range rdf:resource="#Attribute"/>
-    <rdfs:domain rdf:resource="#GameEntity"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="#hasFeature"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#GameEntity"/>
+    <rdfs:range rdf:resource="#Attribute"/>
+    <rdfs:comment xml:lang="en">Gives the attributes that describe an actor</rdfs:comment>
+    <rdfs:label xml:lang="en">has attribute</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#unit">
-    <rdfs:label xml:lang="en">unit</rdfs:label>
-    <rdfs:comment xml:lang="en">The unit a quanity is expressed in.</rdfs:comment>
-    <rdfs:range rdf:resource="#Unit"/>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -722,125 +719,115 @@ The concept of a 'level' is specific to a specific set of RPG rules and is speci
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
+    <rdfs:range rdf:resource="#Unit"/>
+    <rdfs:comment xml:lang="en">The unit a quanity is expressed in.</rdfs:comment>
+    <rdfs:label xml:lang="en">unit</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasFaculty">
-    <rdfs:label xml:lang="en">has faculty</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates that an actor has a specific faculty available</rdfs:comment>
-    <rdfs:range rdf:resource="#Faculty"/>
-    <rdfs:domain rdf:resource="#GameEntity"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="#hasFeature"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#GameEntity"/>
+    <rdfs:range rdf:resource="#Faculty"/>
+    <rdfs:comment xml:lang="en">Indicates that an actor has a specific faculty available</rdfs:comment>
+    <rdfs:label xml:lang="en">has faculty</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#inSkillType">
-    <rdfs:label xml:lang="en">in skill</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates that a skill level is in a specific skill.</rdfs:comment>
-    <rdfs:domain rdf:resource="#Skill"/>
-    <rdfs:range rdf:resource="#SkillType"/>
     <rdfs:subPropertyOf>
       <owl:ObjectProperty rdf:about="#inFeatureType"/>
     </rdfs:subPropertyOf>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="hasSetting">
-    <rdfs:label xml:lang="en">has setting</rdfs:label>
-    <rdfs:comment xml:lang="en">Indiicates that a gane entity, state or template applies to or comes from a particular setting.</rdfs:comment>
-    <skos:scopeNote xml:lang="en">Settings themselves may have parent settings.</skos:scopeNote>
-    <rdfs:range rdf:resource="#Setting"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:range rdf:resource="#SkillType"/>
+    <rdfs:domain rdf:resource="#Skill"/>
+    <rdfs:comment xml:lang="en">Indicates that a skill level is in a specific skill.</rdfs:comment>
+    <rdfs:label xml:lang="en">in skill</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#hasFeature">
-    <rdfs:label xml:lang="en">has feature</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates that a character possesses a certain feature.</rdfs:comment>
-    <rdfs:range rdf:resource="#Feature"/>
     <rdfs:domain rdf:resource="#GameEntity"/>
+    <rdfs:range rdf:resource="#Feature"/>
+    <rdfs:comment xml:lang="en">Indicates that a character possesses a certain feature.</rdfs:comment>
+    <rdfs:label xml:lang="en">has feature</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="duration">
-    <rdfs:range rdf:resource="#Duration"/>
-    <rdfs:subPropertyOf rdf:resource="#amount"/>
-    <rdfs:label xml:lang="en">duration </rdfs:label>
     <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
     >The duration of an event or process</rdfs:comment>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:ID="template">
-    <rdfs:label xml:lang="en">template</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates that the subject uses the object as a template.</rdfs:comment>
-    <rdfs:domain rdf:resource="#GameEntity"/>
-    <rdfs:range rdf:resource="#GameEntity"/>
-    <rdfs:range rdf:resource="#Template"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+    <rdfs:label xml:lang="en">duration </rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#amount"/>
+    <rdfs:range rdf:resource="#Duration"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#fromUnit">
-    <rdfs:label xml:lang="en">from unit</rdfs:label>
-    <rdfs:domain rdf:resource="#Conversion"/>
     <rdfs:range rdf:resource="#Unit"/>
+    <rdfs:domain rdf:resource="#Conversion"/>
+    <rdfs:label xml:lang="en">from unit</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="referenceMaterial">
+    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+    <rdfs:comment xml:lang="en">A reference to a document or concept that contains additional information.</rdfs:comment>
+    <rdfs:label xml:lang="en">reference material</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AnnotationProperty"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#portrays">
-    <rdfs:label xml:lang="en">portrays</rdfs:label>
-    <rdfs:comment xml:lang="en">A participant portrays a character, speaking for the characters actions and controling the character's decsiions.</rdfs:comment>
-    <rdfs:range rdf:resource="#Character"/>
     <rdfs:domain rdf:resource="#Participant"/>
+    <rdfs:range rdf:resource="#Character"/>
+    <rdfs:comment xml:lang="en">A participant portrays a character, speaking for the characters actions and controling the character's decsiions.</rdfs:comment>
+    <rdfs:label xml:lang="en">portrays</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasSense">
-    <rdfs:label xml:lang="en">has sense</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates that an actor has a specific sense available</rdfs:comment>
-    <rdfs:domain rdf:resource="#GameEntity"/>
-    <rdfs:range rdf:resource="#Sense"/>
     <rdfs:subPropertyOf rdf:resource="#hasFeature"/>
+    <rdfs:range rdf:resource="#Sense"/>
+    <rdfs:domain rdf:resource="#GameEntity"/>
+    <rdfs:comment xml:lang="en">Indicates that an actor has a specific sense available</rdfs:comment>
+    <rdfs:label xml:lang="en">has sense</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#inFeatureType">
-    <rdfs:label xml:lang="en">in feature type</rdfs:label>
-    <rdfs:comment xml:lang="en">Indicates that a feature is associated with a particular type of feature concept.</rdfs:comment>
-    <rdfs:domain rdf:resource="#Feature"/>
     <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:domain rdf:resource="#Feature"/>
+    <rdfs:comment xml:lang="en">Indicates that a feature is associated with a particular type of feature concept.</rdfs:comment>
+    <rdfs:label xml:lang="en">in feature type</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="dateSystem">
-    <rdfs:label xml:lang="en">date system</rdfs:label>
-    <rdfs:comment xml:lang="en">The dating system used to record a date</rdfs:comment>
-    <skos:prefLabel xml:lang="en">calendar</skos:prefLabel>
-    <rdfs:range rdf:resource="#DateSystem"/>
     <rdfs:subPropertyOf rdf:resource="#unit"/>
+    <rdfs:range rdf:resource="#DateSystem"/>
+    <skos:prefLabel xml:lang="en">calendar</skos:prefLabel>
+    <rdfs:comment xml:lang="en">The dating system used to record a date</rdfs:comment>
+    <rdfs:label xml:lang="en">date system</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#toUnit">
-    <rdfs:label xml:lang="en">to unit</rdfs:label>
-    <rdfs:domain rdf:resource="#Conversion"/>
     <rdfs:range rdf:resource="#Unit"/>
+    <rdfs:domain rdf:resource="#Conversion"/>
+    <rdfs:label xml:lang="en">to unit</rdfs:label>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="#inFacultyType">
-    <rdfs:label xml:lang="en">in faculty</rdfs:label>
-    <rdfs:comment xml:lang="en">Gives the type of faculty that a faculty level refers to.</rdfs:comment>
     <rdfs:subPropertyOf rdf:resource="#inFeatureType"/>
+    <rdfs:comment xml:lang="en">Gives the type of faculty that a faculty level refers to.</rdfs:comment>
+    <rdfs:label xml:lang="en">in faculty</rdfs:label>
   </owl:ObjectProperty>
+  <rdf:Property rdf:about="#occurrenceAt">
+    <rdfs:comment xml:lang="en">When something has happened </rdfs:comment>
+    <rdfs:label xml:lang="en">ocurrence  at</rdfs:label>
+    <skos:scopeNote xml:lang="en">Sub-properties describe how an occurrence is measured: an absolute date, an interval since some other event etc.</skos:scopeNote>
+  </rdf:Property>
   <owl:DatatypeProperty rdf:ID="conversionDifference">
-    <rdfs:label xml:lang="en">conversion difference</rdfs:label>
-    <rdfs:comment xml:lang="en">The amount to add (or subtract for negative values) from an amount of the from unit to conver to the to unit.</rdfs:comment>
-    <rdfs:domain rdf:resource="#Conversion"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="#fixedConversion">
-    <rdfs:label xml:lang="en">fixed conversion</rdfs:label>
-    <rdfs:comment xml:lang="en">This is a fixed conversion, defined by the nature of the units and, therefore, will not vary from setting to setting.</rdfs:comment>
     <rdfs:domain rdf:resource="#Conversion"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:comment xml:lang="en">The amount to add (or subtract for negative values) from an amount of the from unit to conver to the to unit.</rdfs:comment>
+    <rdfs:label xml:lang="en">conversion difference</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="#conversionRatio">
-    <rdfs:label xml:lang="en">conversion ratio</rdfs:label>
-    <rdfs:comment xml:lang="en">The number to to units produced by one from unit.</rdfs:comment>
-    <rdfs:domain rdf:resource="#Conversion"/>
     <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+    <rdfs:domain rdf:resource="#Conversion"/>
+    <rdfs:comment xml:lang="en">The number to to units produced by one from unit.</rdfs:comment>
+    <rdfs:label xml:lang="en">conversion ratio</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="dayOfYear">
-    <rdfs:label xml:lang="en">day of year</rdfs:label>
-    <rdfs:comment xml:lang="en">The day within a year of a date</rdfs:comment>
-    <rdfs:domain rdf:resource="#Date"/>
     <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="#attribute"/>
+      <owl:DatatypeProperty rdf:ID="attribute"/>
     </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Date"/>
+    <rdfs:comment xml:lang="en">The day within a year of a date</rdfs:comment>
+    <rdfs:label xml:lang="en">day of year</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="#attribute">
-    <rdfs:label xml:lang="en">attribute</rdfs:label>
-    <rdfs:comment xml:lang="en">An attribute of some state of affairs</rdfs:comment>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
     <rdfs:domain>
       <owl:Class>
         <owl:unionOf rdf:parseType="Collection">
@@ -851,53 +838,72 @@ The concept of a 'level' is specific to a specific set of RPG rules and is speci
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
+    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+    <rdfs:comment xml:lang="en">An attribute of some state of affairs</rdfs:comment>
+    <rdfs:label xml:lang="en">attribute</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="dayOfMonth">
-    <rdfs:label xml:lang="en">day of month</rdfs:label>
-    <rdfs:comment xml:lang="en">The day of an event within a month</rdfs:comment>
     <rdfs:subPropertyOf rdf:resource="#attribute"/>
+    <rdfs:comment xml:lang="en">The day of an event within a month</rdfs:comment>
+    <rdfs:label xml:lang="en">day of month</rdfs:label>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:about="#quantity">
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
-    <rdfs:seeAlso rdf:resource="#level"/>
-    <rdfs:subPropertyOf rdf:resource="#attribute"/>
+    <rdfs:label xml:lang="en">value</rdfs:label>
     <rdfs:comment xml:lang="en">The value of a feature or state.
 
 Some features or states do not have a value associated with them, in which case the value is not needed.</rdfs:comment>
-    <rdfs:label xml:lang="en">value</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="#attribute"/>
+    <rdfs:seeAlso rdf:resource="#level"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="year">
+    <rdfs:subPropertyOf rdf:resource="#attribute"/>
+    <rdfs:range rdf:resource="#Date"/>
+    <rdfs:domain rdf:resource="#Date"/>
+    <rdfs:comment xml:lang="en">The year of a date</rdfs:comment>
+    <skos:scopeNote xml:lang="en">The form of a date is dependent on the calndar being used and may include years, months, days or other elements.</skos:scopeNote>
+    <rdfs:label xml:lang="en">year</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="month">
-    <rdfs:label xml:lang="en">month</rdfs:label>
-    <rdfs:comment xml:lang="en">The month of a date</rdfs:comment>
     <rdfs:subPropertyOf rdf:resource="#attribute"/>
+    <rdfs:comment xml:lang="en">The month of a date</rdfs:comment>
+    <rdfs:label xml:lang="en">month</rdfs:label>
   </owl:DatatypeProperty>
+  <owl:TransitiveProperty rdf:ID="hasSetting">
+    <rdfs:range rdf:resource="#Setting"/>
+    <skos:scopeNote xml:lang="en">Settings themselves may have parent settings.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">Indiicates that a gane entity, state or template applies to or comes from a particular setting.</rdfs:comment>
+    <rdfs:label xml:lang="en">has setting</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:TransitiveProperty>
+  <owl:TransitiveProperty rdf:ID="template">
+    <rdfs:range rdf:resource="#Template"/>
+    <rdfs:range rdf:resource="#GameEntity"/>
+    <rdfs:domain rdf:resource="#GameEntity"/>
+    <rdfs:comment xml:lang="en">Indicates that the subject uses the object as a template.</rdfs:comment>
+    <rdfs:label xml:lang="en">template</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:TransitiveProperty>
+  <owl:FunctionalProperty rdf:about="#fixedConversion">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:domain rdf:resource="#Conversion"/>
+    <rdfs:comment xml:lang="en">This is a fixed conversion, defined by the nature of the units and, therefore, will not vary from setting to setting.</rdfs:comment>
+    <rdfs:label xml:lang="en">fixed conversion</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  </owl:FunctionalProperty>
   <terms:LicenseDocument rdf:about="http://www.opencontent.org/openpub/">
     <rdfs:label xml:lang="en">Open Publication License v1.0</rdfs:label>
   </terms:LicenseDocument>
-  <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/rights">
-    <rdfs:range rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:AnnotationProperty>
   <DateSystem rdf:about="http://placetime.com/instant/gregorian/">
-    <rdfs:label xml:lang="en">Gregorian Calendar</rdfs:label>
-    <rdfs:comment xml:lang="en">Dates represented by the Gregorian Calendar</rdfs:comment>
-    <skos:scopeNote xml:lang="en">This calendar is generally used in an RPG setting to provide a parallel calendar to the game calendar.</skos:scopeNote>
     <referenceMaterial rdf:resource="http://en.wikipedia.org/wiki/Gregorian_calendar"/>
+    <skos:scopeNote xml:lang="en">This calendar is generally used in an RPG setting to provide a parallel calendar to the game calendar.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">Dates represented by the Gregorian Calendar</rdfs:comment>
+    <rdfs:label xml:lang="en">Gregorian Calendar</rdfs:label>
   </DateSystem>
-  <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license">
-    <rdfs:range rdf:resource="http://purl.org/dc/terms/LicenseDocument"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:AnnotationProperty>
   <terms:LicenseDocument rdf:about="http://opensource.org/licenses/MIT">
     <rdfs:label xml:lang="en">The MIT License</rdfs:label>
   </terms:LicenseDocument>
-  <owl:AnnotationProperty rdf:ID="referenceMaterial">
-    <rdfs:label xml:lang="en">reference material</rdfs:label>
-    <rdfs:comment xml:lang="en">A reference to a document or concept that contains additional information.</rdfs:comment>
-    <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
-    <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Document"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-  </owl:AnnotationProperty>
   <terms:LicenseDocument rdf:about="http://www.opengamingfoundation.org/ogl.html">
     <rdfs:label xml:lang="en">Open Game License v1.0 Simplified</rdfs:label>
   </terms:LicenseDocument>

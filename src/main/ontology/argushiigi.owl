@@ -17,6 +17,7 @@
     >Argushiigi</rdfs:label>
     <rdfs:comment xml:lang="en">The Argushiigi ontology allows annotations on other classes and properties that allow them to be organised and displayed in a human-readable form.</rdfs:comment>
     <rdfs:isDefinedBy rdf:resource="https://github.com/makhidkarun/Argushiigi/wiki/Display-Ontology"/>
+    <owl:imports rdf:resource="http://www.w3.org/2004/02/skos/core"/>
   </owl:Ontology>
   <owl:Class rdf:ID="Pattern">
     <rdfs:label xml:lang="en">Pattern</rdfs:label>
@@ -157,20 +158,35 @@ The literal can be any literal value, not just text. If a format is specified th
     <rdfs:domain rdf:resource="#Pattern"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </owl:DatatypeProperty>
-  <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/reference">
-    <argushiigi:parentCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/top">
-        <rdfs:comment xml:lang="en">The top-level category. Used as a catch-all for uncategorised elements.</rdfs:comment>
-        <rdfs:label xml:lang="en">Top</rdfs:label>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >1000</argushiigi:displayPriority>
-      </argushiigi:DisplayCategory>
-    </argushiigi:parentCategory>
-    <rdfs:label xml:lang="en">Reference</rdfs:label>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
     <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >900</argushiigi:displayPriority>
-    <rdfs:comment xml:lang="en">The category containing references to a resource</rdfs:comment>
-  </argushiigi:DisplayCategory>
+    >30</argushiigi:displayPriority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hiddenLabel">
+    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >100</argushiigi:displayPriority>
+    <argushiigi:displayCategory>
+      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/name">
+        <argushiigi:parentCategory>
+          <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/top">
+            <rdfs:comment xml:lang="en">The top-level category. Used as a catch-all for uncategorised elements.</rdfs:comment>
+            <rdfs:label xml:lang="en">Top</rdfs:label>
+            <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >1000</argushiigi:displayPriority>
+          </argushiigi:DisplayCategory>
+        </argushiigi:parentCategory>
+        <rdfs:label xml:lang="en">Name</rdfs:label>
+        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >10</argushiigi:displayPriority>
+        <rdfs:comment xml:lang="en">The name category, used to locate labels and titles that can be used to name an object.</rdfs:comment>
+      </argushiigi:DisplayCategory>
+    </argushiigi:displayCategory>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel">
+    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >10</argushiigi:displayPriority>
+    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/name"/>
+  </rdf:Description>
   <owl:AnnotationProperty rdf:ID="usesFormat">
     <rdfs:label xml:lang="en">uses format</rdfs:label>
     <rdfs:comment xml:lang="en">Gives the format a resource or resource of this class uses.
@@ -182,12 +198,17 @@ Formats use the list pattern to decide which format to use. Formats can be chain
     <rdfs:range rdf:resource="#Format"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
   </owl:AnnotationProperty>
-  <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/name">
-    <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
-    <rdfs:label xml:lang="en">Name</rdfs:label>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#altLabel">
     <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >10</argushiigi:displayPriority>
-    <rdfs:comment xml:lang="en">The name category, used to locate labels and titles that can be used to name an object.</rdfs:comment>
+    >50</argushiigi:displayPriority>
+    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/name"/>
+  </rdf:Description>
+  <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/reference">
+    <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
+    <rdfs:label xml:lang="en">Reference</rdfs:label>
+    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >900</argushiigi:displayPriority>
+    <rdfs:comment xml:lang="en">The category containing references to a resource</rdfs:comment>
   </argushiigi:DisplayCategory>
   <owl:AnnotationProperty rdf:ID="displayCategory">
     <rdfs:label xml:lang="en">display category</rdfs:label>
