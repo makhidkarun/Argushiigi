@@ -1,0 +1,39 @@
+# baseURI: http://data.travellerrpg.com/ontology/spinward-marches
+# imports: http://data.travellerrpg.com/ontology/t5
+# imports: http://data.travellerrpg.com/ontology/t5/characters
+# imports: http://data.travellerrpg.com/setting/traveller
+
+@prefix : <http://data.travellerrpg.com/setting/traveller/third-imperium/sector/spinward-marches> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rpg: <http://data.travellerrpg.com/ontology/rpg#> .
+@prefix t5: <http://data.travellerrpg.com/ontology/t5#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.travellerrpg.com/ontology/spinward-marches>
+  rdf:type owl:Ontology ;
+  rdfs:comment "Descriptions of the Spinward Marches sector"@en ;
+  owl:imports <http://data.travellerrpg.com/ontology/t5> ;
+  owl:imports <http://data.travellerrpg.com/ontology/t5/characters> ;
+  owl:imports <http://data.travellerrpg.com/setting/traveller> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+<http://data.travellerrpg.com/setting/traveller/third-imperium/sector/spinward-marches>
+  rdf:type t5:Sector ;
+  rpg:hasSetting <http://data.travellerrpg.com/setting/traveller/third-imperium> ;
+  rpg:referenceMaterial <http://wiki.travellerrpg.com/Spinward_Marches_Sector> ;
+  rdfs:label "Spinward Marches"@en ;
+.
+<http://data.travellerrpg.com/setting/traveller/third-imperium/sector/spinward-marches/subsector/regina>
+  rdf:type t5:Subsector ;
+  rpg:parent <http://data.travellerrpg.com/setting/traveller/third-imperium/sector/spinward-marches> ;
+  rpg:referenceMaterial <http://wiki.travellerrpg.com/Regina_Subsector> ;
+  rdfs:label "Regina"@en ;
+.
+<http://data.travellerrpg.com/setting/traveller/third-imperium/sector/spinward-marches/subsector/regina/world/regina>
+  rdf:type t5:World ;
+  rpg:parent <http://data.travellerrpg.com/setting/traveller/third-imperium/sector/spinward-marches/subsector/regina> ;
+  rpg:referenceMaterial <http://wiki.travellerrpg.com/Regina_%28world%29> ;
+  rdfs:label "Regina"@en ;
+.

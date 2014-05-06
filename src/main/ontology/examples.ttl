@@ -1,0 +1,173 @@
+# baseURI: http://www.charvolant.org/argushiigi/examples
+# imports: http://data.travellerrpg.com/ontology/spinward-marches
+# imports: http://data.travellerrpg.com/ontology/t5
+# imports: http://data.travellerrpg.com/ontology/t5/characters
+# imports: http://data.travellerrpg.com/setting/traveller
+
+@prefix : <http://www.charvolant.org/argushiigi/examples#> .
+@prefix characters: <http://data.travellerrpg.com/ontology/t5/characters#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rpg: <http://data.travellerrpg.com/ontology/rpg#> .
+@prefix spinward-marche: <http://data.travellerrpg.com/setting/traveller/third-imperium/sector/spinward-marches> .
+@prefix t5: <http://data.travellerrpg.com/ontology/t5#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.charvolant.org/argushiigi/examples>
+  rdf:type owl:Ontology ;
+  rdfs:comment "A number of example elements"^^xsd:string ;
+  rdfs:label "Example Instances"^^xsd:string ;
+  owl:imports <http://data.travellerrpg.com/ontology/spinward-marches> ;
+  owl:imports <http://data.travellerrpg.com/ontology/t5> ;
+  owl:imports <http://data.travellerrpg.com/ontology/t5/characters> ;
+  owl:imports <http://data.travellerrpg.com/setting/traveller> ;
+  owl:versionInfo "Created with TopBraid Composer"^^xsd:string ;
+.
+:JherikAmdalu
+  rdf:type rpg:Character ;
+  rpg:hasSkill [
+      rdf:type rpg:Skill ;
+      rpg:inSkillType <http://data.travellerrpg.com/rules/t5/skills/academic-knowledge/archaeology> ;
+      rpg:level 2 ;
+    ] ;
+  rpg:hasSkill [
+      rdf:type rpg:Skill ;
+      rpg:inSkillType <http://data.travellerrpg.com/rules/t5/skills/academic-knowledge/planetology> ;
+      rpg:level 4 ;
+    ] ;
+  rpg:hasSkill [
+      rdf:type rpg:Skill ;
+      rpg:inSkillType <http://data.travellerrpg.com/rules/t5/skills/admin> ;
+      rpg:level 2 ;
+    ] ;
+  rpg:hasSkill [
+      rdf:type rpg:Skill ;
+      rpg:inSkillType <http://data.travellerrpg.com/rules/t5/skills/dancer> ;
+      rpg:level 1 ;
+    ] ;
+  rpg:hasSkill [
+      rdf:type rpg:Skill ;
+      rpg:inSkillType <http://data.travellerrpg.com/rules/t5/skills/fighter/unarmed> ;
+      rpg:level 2 ;
+    ] ;
+  rpg:hasSkill [
+      rdf:type rpg:Skill ;
+      rpg:inSkillType <http://data.travellerrpg.com/rules/t5/skills/leader> ;
+      rpg:level 1 ;
+    ] ;
+  rpg:hasSkill [
+      rdf:type rpg:Skill ;
+      rpg:inSkillType <http://data.travellerrpg.com/rules/t5/skills/tactics> ;
+      rpg:level 1 ;
+    ] ;
+  rpg:hasSkill [
+      rdf:type rpg:Skill ;
+      rpg:inSkillType <http://data.travellerrpg.com/rules/t5/skills/trader> ;
+      rpg:level 1 ;
+    ] ;
+  rpg:hasSkill [
+      rdf:type rpg:Skill ;
+      rpg:inSkillType <http://data.travellerrpg.com/rules/t5/skills/vacc-suit> ;
+      rpg:level 1 ;
+    ] ;
+  rpg:isPortrayedBy <https://github.com/charvolant> ;
+  t5:hasDexterity [
+      rdf:type t5:Dexterity ;
+      t5:characteristic "7"^^xsd:int ;
+    ] ;
+  t5:hasEducation [
+      rdf:type t5:Education ;
+      t5:characteristic "6"^^xsd:int ;
+    ] ;
+  t5:hasEndurance [
+      rdf:type t5:Endurance ;
+      t5:characteristic "5"^^xsd:int ;
+    ] ;
+  t5:hasIntelligence [
+      rdf:type t5:Intelligence ;
+      t5:characteristic "9"^^xsd:int ;
+    ] ;
+  t5:hasRace <http://data.travellerrpg.com/race/imperials> ;
+  t5:hasSocialStanding [
+      rdf:type t5:SocialStanding ;
+      t5:characteristic "7"^^xsd:int ;
+    ] ;
+  t5:hasStrength [
+      rdf:type t5:Strength ;
+      t5:characteristic "9"^^xsd:int ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Activity ;
+      characters:activityType <http://data.travellerrpg.com/rules/t5/careers/soldier/activity/anm-school> ;
+      characters:atAge "23"^^xsd:decimal ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Activity ;
+      characters:activityType <http://data.travellerrpg.com/rules/t5/careers/soldier/activity/mission> ;
+      characters:atAge "24"^^xsd:decimal ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Activity ;
+      characters:activityType <http://data.travellerrpg.com/rules/t5/careers/soldier/activity/peace-keeper> ;
+      characters:atAge "22"^^xsd:decimal ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Branch ;
+      characters:atAge "22"^^xsd:decimal ;
+      characters:branch <http://data.travellerrpg.com/rules/t5/careers/solider/branch/commando> ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Continuation ;
+      characters:atAge "24"^^xsd:decimal ;
+      characters:backstorySuccess "false"^^xsd:boolean ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Education ;
+      rpg:organisation <http://data.travellerrpg.com/setting/traveller/organisation/anm-school> ;
+      characters:atAge "23"^^xsd:decimal ;
+      characters:educationMajor <http://data.travellerrpg.com/rules/t5/skills/fighter/unarmed> ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Education ;
+      rpg:organisation <http://data.travellerrpg.com/setting/traveller/organisation/imperial-military-academy> ;
+      characters:atAge "18"^^xsd:decimal ;
+      characters:educationMajor <http://data.travellerrpg.com/rules/t5/skills/academic-knowledge/planetology> ;
+      characters:educationMinor <http://data.travellerrpg.com/rules/t5/skills/academic-knowledge/archaeology> ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Enrolment ;
+      rpg:organisation <http://data.travellerrpg.com/setting/traveller/organisation/imperial-army> ;
+      characters:atAge "22"^^xsd:decimal ;
+      characters:career <http://data.travellerrpg.com/rules/t5/careers/soldier> ;
+      characters:rank <http://data.travellerrpg.com/rules/t5/ranks/soldier/officer1> ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Promotion ;
+      characters:atAge "24"^^xsd:decimal ;
+      characters:rank <http://data.travellerrpg.com/rules/t5/ranks/soldier/officer2> ;
+      rdfs:label "success "@en ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Reward ;
+      characters:atAge "24"^^xsd:decimal ;
+      characters:awarded <http://data.travellerrpg.com/setting/decorations/campaign-ribbon> ;
+      rdfs:label "The trench war at Aramis"@en ;
+    ] ;
+  characters:backstory [
+      rdf:type characters:Reward ;
+      characters:atAge "24"^^xsd:decimal ;
+      characters:awarded <http://data.travellerrpg.com/setting/traveller/decoration/military/mcuf> ;
+    ] ;
+  characters:homeWorld <http://data.travellerrpg.com/setting/traveller/third-imperium/sector/spinward-marches/subsector/regina/world/regina> ;
+  rdfs:comment "A sample character "@en ;
+  rdfs:label "Jherik Amdalu "@en ;
+.
+<https://github.com/charvolant>
+  rdf:type rpg:GameMaster ;
+  rdf:type foaf:Person ;
+  rdfs:label "charvolant"^^xsd:string ;
+  foaf:familyName "Palmer"@en ;
+  foaf:firstName "Doug"@en ;
+.

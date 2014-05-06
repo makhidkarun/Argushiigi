@@ -1,0 +1,2231 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:terms="http://purl.org/dc/terms/"
+    xmlns="http://data.travellerrpg.com/ontology/t5/characters#"
+    xmlns:t5="http://data.travellerrpg.com/ontology/t5#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://data.travellerrpg.com/ontology/t5/characters">
+  <owl:Ontology rdf:about="">
+    <terms:license rdf:resource="http://wiki.travellerrpg.com/Copyright"/>
+    <rdfs:comment xml:lang="en">Detailed information on Traveller5 characters</rdfs:comment>
+    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="PersonalDay">
+    <rdfs:comment xml:lang="en">The day-length that a character regards as normal</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Duration"/>
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Attribute"/>
+    <rdfs:label xml:lang="en">Personal Day</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="LifePursuit">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty rdf:resource="http://data.travellerrpg.com/ontology/t5#primarySkill"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty rdf:resource="http://data.travellerrpg.com/ontology/t5#usesCharacteristic"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">The choice of pursuing a specific skill for a character</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Promotion">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Backstory"/>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">A promotion in rank </rdfs:comment>
+    <rdfs:label xml:lang="en">Promotion </rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="rank"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Rank">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">Rank </rdfs:label>
+    <rdfs:comment xml:lang="en">A rank within one of the careers or organisations in the game universe</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:about="#Backstory">
+    <skos:note xml:lang="en">Backstory events can have durations and/or terms, rather than fixed dates. This allows a character to be generated without a specific date of birth, which can then be calculated from the backstory.</skos:note>
+    <rdfs:comment xml:lang="en">Events that have taken place prior to the character's appearance in the game, which provide benefits in terms of dkills, education, money, etc.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Feature"/>
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Event"/>
+    <rdfs:label xml:lang="en">Backstory</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Branch">
+    <rdfs:label xml:lang="en">Branch </rdfs:label>
+    <rdfs:comment xml:lang="en">A choice of branch (sub-category) in a career  </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Backstory"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Education">
+    <rdfs:label xml:lang="en">Education</rdfs:label>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#organisation"/>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Backstory"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="educationMinor"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">Attendance at an educational institution</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="educationMajor"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="ActivityType">
+    <rdfs:label xml:lang="en">Activity Type</rdfs:label>
+    <skos:scopeNote xml:lang="en">Career activities are generally subsumed by the career concept hierachy.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">What a character has been doing during their career</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="QualificationLevel">
+    <rdfs:label xml:lang="en">Qualification Level </rdfs:label>
+    <rdfs:comment xml:lang="en">A formal level in some qualification </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Injury">
+    <rdfs:label xml:lang="en">Injury</rdfs:label>
+    <rdfs:comment xml:lang="en">A wound or injury during a career</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Impairment"/>
+    </rdfs:subClassOf>
+    <skos:altLabel xml:lang="en">Wound</skos:altLabel>
+  </owl:Class>
+  <owl:Class rdf:ID="Activity">
+    <skos:scopeNote xml:lang="en">Activities generally represent the events of one year in a career. If sufficiently interesting, they can be given titles such as "The defence of Pax Rulin."</skos:scopeNote>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="activityType"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:label xml:lang="en">Activity </rdfs:label>
+    <rdfs:comment xml:lang="en">An activity taken as part of a career </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Backstory"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Career">
+    <rdfs:comment xml:lang="en">A general type of career in an area or organisation</rdfs:comment>
+    <rdfs:label xml:lang="en">Career </rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Decoration">
+    <rdfs:label xml:lang="en">Decoration</rdfs:label>
+    <rdfs:comment xml:lang="en">A medal or other decoration </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CareerBranch">
+    <skos:scopeNote xml:lang="en">Career branches are generally subsumed by the career concept hierachy.</skos:scopeNote>
+    <rdfs:label xml:lang="en">Career Branch</rdfs:label>
+    <rdfs:comment xml:lang="en">A specific branch of a career</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Enrolment">
+    <rdfs:comment xml:lang="en">An enrolment in a career</rdfs:comment>
+    <rdfs:label xml:lang="en">Enrolment</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#Backstory"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="career"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#organisation"/>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:about="#rank"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Continuation">
+    <rdfs:label xml:lang="en">Continuation</rdfs:label>
+    <rdfs:comment xml:lang="en">Continuation in a chosen career </rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Backstory"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Impairment">
+    <rdfs:subClassOf rdf:resource="#Backstory"/>
+    <rdfs:label xml:lang="en">Impairment</rdfs:label>
+    <rdfs:comment xml:lang="en">An adverse event during the character's backstory</rdfs:comment>
+  </owl:Class>
+  <owl:Class rdf:ID="DateOfBirth">
+    <rdfs:comment xml:lang="en">The originating date of an entity</rdfs:comment>
+    <skos:prefLabel xml:lang="en">DOB</skos:prefLabel>
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Date"/>
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Attribute"/>
+    <rdfs:label xml:lang="en">Date of Birth</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Reward">
+    <rdfs:label xml:lang="en">Reward</rdfs:label>
+    <rdfs:comment xml:lang="en">A reward for career activities  (medal, prize, publication, etc.)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Backstory"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:minCardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="awarded"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Aging">
+    <rdfs:comment xml:lang="en">An aging event</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Impairment"/>
+    <rdfs:label xml:lang="en">Aging</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="Certificate">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="atQualificationLevel"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:comment xml:lang="en">A formal statement that a character is capable of some skill</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="http://data.travellerrpg.com/ontology/t5#usesSkill"/>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="LifeStage">
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Feature"/>
+    <rdfs:comment xml:lang="en">The life stage of an actor </rdfs:comment>
+    <rdfs:label xml:lang="en">Life Stage </rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasDateOfBirth">
+    <rdfs:range rdf:resource="#DateOfBirth"/>
+    <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#hasAttribute"/>
+    <rdfs:label xml:lang="en">has date of birth</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#educationMajor">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="educationSubject"/>
+    </rdfs:subPropertyOf>
+    <rdfs:comment xml:lang="en">The major subject of an education</rdfs:comment>
+    <rdfs:label xml:lang="en">major</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasLifePursuit">
+    <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/rpg#Actor"/>
+    <rdfs:range rdf:resource="#LifePursuit"/>
+    <rdfs:label xml:lang="en">has life pursuit </rdfs:label>
+    <rdfs:comment xml:lang="en">Indicates that a character has a specific life pursuit. </rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#activityType">
+    <rdfs:domain rdf:resource="#Activity"/>
+    <rdfs:range rdf:resource="#ActivityType"/>
+    <skos:altLabel xml:lang="en">operation</skos:altLabel>
+    <rdfs:label xml:lang="en">activity type</rdfs:label>
+    <rdfs:comment xml:lang="en">An activity undertaken during a career step  </rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasPersonalDay">
+    <rdfs:range rdf:resource="#PersonalDay"/>
+    <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#hasAttribute"/>
+    <rdfs:label xml:lang="en">has personal day</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasHobby">
+    <rdfs:subPropertyOf rdf:resource="#hasLifePursuit"/>
+    <rdfs:label xml:lang="en">has hobby </rdfs:label>
+    <rdfs:comment xml:lang="en">Associates a character with a hobby; a pursuit which the character is not formally capable of pursuing </rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="homeWorld">
+    <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#World"/>
+    <rdfs:comment xml:lang="en">The world on which a character was raised.</rdfs:comment>
+    <rdfs:label xml:lang="en">home world</rdfs:label>
+    <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/rpg#Actor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="branch">
+    <rdfs:range rdf:resource="#CareerBranch"/>
+    <rdfs:comment xml:lang="en">The choice of a branch within a career</rdfs:comment>
+    <rdfs:label xml:lang="en">Branch </rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#awarded">
+    <rdfs:label xml:lang="en">awarded </rdfs:label>
+    <rdfs:comment xml:lang="en">An awarded item or recognition </rdfs:comment>
+    <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/rpg#GameEntity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#atQualificationLevel">
+    <rdfs:range rdf:resource="#QualificationLevel"/>
+    <rdfs:label xml:lang="en">Generic Qualification Level </rdfs:label>
+    <rdfs:comment xml:lang="en">A generic qualification level </rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="birthWorld">
+    <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#World"/>
+    <rdfs:comment xml:lang="en">The world on which a character was born</rdfs:comment>
+    <rdfs:label xml:lang="en">birth world</rdfs:label>
+    <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/rpg#Actor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#rank">
+    <rdfs:comment xml:lang="en">The rank an actor has achieved or been promoted to </rdfs:comment>
+    <rdfs:label xml:lang="en">rank </rdfs:label>
+    <rdfs:range rdf:resource="#Rank"/>
+    <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/rpg#Actor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#educationMinor">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#educationSubject"/>
+    </rdfs:subPropertyOf>
+    <rdfs:label xml:lang="en">minor</rdfs:label>
+    <rdfs:label xml:lang="en">The minor subject of an education</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#educationSubject">
+    <rdfs:range rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:comment xml:lang="en">The subject of education or training</rdfs:comment>
+    <rdfs:label xml:lang="en">subject</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#career">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >An event, skill, action etc. associated with a career choice</rdfs:comment>
+    <rdfs:range rdf:resource="#Career"/>
+    <rdfs:label xml:lang="en">career </rdfs:label>
+    <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/rpg#Actor"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="backstory">
+    <rdfs:comment xml:lang="en">A backstory event </rdfs:comment>
+    <rdfs:label xml:lang="en">backstory </rdfs:label>
+    <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/rpg#Actor"/>
+    <rdfs:range rdf:resource="#Backstory"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="educationPass">
+    <rdfs:domain rdf:resource="#Education"/>
+    <rdfs:label xml:lang="en">pass</rdfs:label>
+    <rdfs:comment xml:lang="en">A pass/fail at formal education</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:ID="backstorySuccess"/>
+    </rdfs:subPropertyOf>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#backstorySuccess">
+    <skos:scopeNote xml:lang="en">Generally, the absence of a specific success/failure statement implies success.</skos:scopeNote>
+    <rdfs:domain rdf:resource="#Backstory"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    <rdfs:label xml:lang="en">success </rdfs:label>
+    <rdfs:comment xml:lang="en">Whether a particular backstory activity successed or failed </rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="atAge">
+    <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/rpg#Event"/>
+    <rdfs:comment xml:lang="en">The age at which an event occurred </rdfs:comment>
+    <rdfs:label xml:lang="en">at age </rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#occurrenceAt"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+  </owl:DatatypeProperty>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/officer1">
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/rules/t5/ranks">
+        <rdfs:comment xml:lang="en">Ranks associated with careers</rdfs:comment>
+        <skos:hasTopConcept>
+          <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/rank">
+            <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+            <rdfs:label xml:lang="en">Rank</rdfs:label>
+            <rdfs:comment xml:lang="en">A formal rank associated with a career or organisation</rdfs:comment>
+            <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+          </owl:NamedIndividual>
+        </skos:hasTopConcept>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Traveller 5 Ranks</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/rank"/>
+        <rdfs:comment xml:lang="en">A marine (space army) rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:related>
+          <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer">
+            <rdfs:comment xml:lang="en">Someone who serves in a space navy</rdfs:comment>
+            <skos:inScheme>
+              <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/rules/t5/careers">
+                <rdfs:comment xml:lang="en">The Traveller5 careers.</rdfs:comment>
+                <skos:hasTopConcept>
+                  <Career rdf:about="http://data.travellerrpg.com/rules/t5/careers/career">
+                    <rdfs:label xml:lang="en">Career</rdfs:label>
+                    <rdfs:comment xml:lang="en">The top-level career.</rdfs:comment>
+                    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+                    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </Career>
+                </skos:hasTopConcept>
+                <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+                <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+                <rdfs:label xml:lang="en">Traveller 5 Careers</rdfs:label>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </skos:ConceptScheme>
+            </skos:inScheme>
+            <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+            <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+            <rdfs:label xml:lang="en">Spacer</rdfs:label>
+            <rdf:type rdf:resource="#Career"/>
+          </owl:NamedIndividual>
+        </skos:related>
+        <rdfs:label xml:lang="en">Marine Rank</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:Concept>
+    </skos:broader>
+    <rdfs:label xml:lang="en">2nd Lieutenant</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O1</skos:altLabel>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/officer1">
+        <skos:prefLabel xml:lang="en">O1</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">First level officier rank</rdfs:comment>
+        <rdfs:label xml:lang="en">Officer1</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader>
+          <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/military">
+            <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+            <rdfs:label xml:lang="en">Standardised Military Ranks</rdfs:label>
+            <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+            <rdfs:comment xml:lang="en">Standard military ranks</rdfs:comment>
+            <skos:broader>
+              <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard">
+                <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+                <rdfs:comment xml:lang="en">Standard ranks are matched by career-specific ranks using skos:closeMatch.</rdfs:comment>
+                <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+                <rdfs:comment xml:lang="en">Standard equivalent ranks</rdfs:comment>
+                <rdfs:label xml:lang="en">Standardised Ranks</rdfs:label>
+                <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/rank"/>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </skos:Concept>
+            </skos:broader>
+            <skos:scopeNote xml:lang="en">Standardised military ranks are intended for military and military-like organisations that have a formal rank structure.</skos:scopeNote>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </skos:Concept>
+        </skos:broader>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/solider/branch/commando">
+    <rdfs:comment xml:lang="en">Soliders specialising in infliltration and raiding</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier">
+        <rdfs:label xml:lang="en">Soldier</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Someone who serves in a ground army</rdfs:comment>
+        <rdf:type rdf:resource="#Career"/>
+      </owl:NamedIndividual>
+    </skos:broader>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Commando</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/marine6">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M6</skos:altLabel>
+    <rdfs:label xml:lang="en">Sergeant Major</rdfs:label>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted6">
+        <rdfs:label xml:lang="en">Enlisted6</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Sixth-level enlished rank</rdfs:comment>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:prefLabel xml:lang="en">E6</skos:prefLabel>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/rogue/activity/scheme">
+    <rdfs:label xml:lang="en">Scheme</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/rogue">
+        <rdfs:comment xml:lang="en">A criminal or someone who acts on the fringes of society</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Rogue</rdfs:label>
+        <rdf:type rdf:resource="#Career"/>
+      </owl:NamedIndividual>
+    </skos:broader>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">A scheme to acquire illicit wealth</rdfs:comment>
+  </ActivityType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/branch/medical">
+    <rdfs:comment xml:lang="en">Military medicine</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdfs:label xml:lang="en">Medical</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader>
+      <Career rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine">
+        <rdfs:comment xml:lang="en">Someone who serves in space combat forces</rdfs:comment>
+        <rdfs:label xml:lang="en">Marine</rdfs:label>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Career>
+    </skos:broader>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/scholar/scholar5">
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian5">
+        <skos:prefLabel xml:lang="en">C5</skos:prefLabel>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader>
+          <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian">
+            <skos:scopeNote xml:lang="en">Standardised civilian ranks are intended as a base-mark for civlian careers and organisations with a hierarchical structure; not all civilian careers have a concept of rank.</skos:scopeNote>
+            <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard"/>
+            <rdfs:comment xml:lang="en">Standard military ranks</rdfs:comment>
+            <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+            <rdfs:label xml:lang="en">Standardised Civilian Ranks</rdfs:label>
+            <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+            <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+          </owl:NamedIndividual>
+        </skos:broader>
+        <rdfs:comment xml:lang="en">Fifth-level civilian rank</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Civilian5</rdfs:label>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <skos:broader>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/ranks/scholar">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <rdfs:comment xml:lang="en">Individual institutions may have specific names for the scholarly ranks. (eg. Chancellor, Lecturer, etc.)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Scholarly Rank</rdfs:label>
+        <rdfs:comment xml:lang="en">A scholarly rank</rdfs:comment>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/rank"/>
+        <skos:related>
+          <Career rdf:about="http://data.travellerrpg.com/rules/t5/careers/scholar">
+            <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+            <rdfs:label xml:lang="en">Scholar</rdfs:label>
+            <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+            <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+            <rdfs:comment xml:lang="en">The person learned in an academic subject</rdfs:comment>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </Career>
+        </skos:related>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:Concept>
+    </skos:broader>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Professor</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/adult">
+    <rdfs:comment xml:lang="en">The adult life-stage from 26-33 years</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human">
+        <rdfs:label xml:lang="en">Human Life Stage</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+        <rdfs:comment xml:lang="en">A human life-stage</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:broader>
+          <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/life-stage">
+            <rdfs:label xml:lang="en">Life Stage</rdfs:label>
+            <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+            <rdfs:comment xml:lang="en">A non-specific life stage</rdfs:comment>
+            <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+            <rdf:type rdf:resource="#LifeStage"/>
+          </owl:NamedIndividual>
+        </skos:broader>
+        <rdf:type rdf:resource="#LifeStage"/>
+      </owl:NamedIndividual>
+    </skos:broader>
+    <rdfs:label xml:lang="en">Adult</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/peak">
+    <rdfs:label xml:lang="en">Peak</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/human"/>
+    <rdfs:comment xml:lang="en">The peakadult life-stage from 34-41 years</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <Decoration rdf:about="http://data.travellerrpg.com/setting/decorations/campaign-ribbon">
+    <skos:broader>
+      <Decoration rdf:about="http://data.travellerrpg.com/setting/decorations/military">
+        <skos:broader>
+          <Decoration rdf:about="http://data.travellerrpg.com/setting/decorations/decoration">
+            <rdfs:comment xml:lang="en">A generic decoration </rdfs:comment>
+            <rdfs:label xml:lang="en">Generic Decoration</rdfs:label>
+            <skos:inScheme>
+              <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/setting/decorations">
+                <skos:hasTopConcept rdf:resource="http://data.travellerrpg.com/setting/decorations/decoration"/>
+                <rdfs:comment xml:lang="en">Possible rewards for meritorious conduct</rdfs:comment>
+                <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+                <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+                <rdfs:label xml:lang="en">Decorations</rdfs:label>
+                <skos:scopeNote xml:lang="en">The decorations concept scheme is placed in the 'setting' URI hierarchy, since decorations are milleau-specific.</skos:scopeNote>
+                <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+              </owl:NamedIndividual>
+            </skos:inScheme>
+          </Decoration>
+        </skos:broader>
+        <rdfs:comment xml:lang="en">A generic military decoration</rdfs:comment>
+        <rdfs:label xml:lang="en">Military Decoration</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+      </Decoration>
+    </skos:broader>
+    <rdfs:comment xml:lang="en">A campaign ribbon for participating in a military action</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <rdfs:label xml:lang="en">Campaign Ribbon</rdfs:label>
+  </Decoration>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary/functionary8">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Secretary</rdfs:label>
+    <skos:broader>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/rank"/>
+        <rdfs:comment xml:lang="en">A functionary (bureaucrat) rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+        <rdfs:label xml:lang="en">Functionary Rank</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:Concept>
+    </skos:broader>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F8</skos:altLabel>
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian8">
+        <rdfs:label xml:lang="en">Civilian8</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian"/>
+        <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >C8</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Eighth-level civilian rank</rdfs:comment>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/branch/technical">
+    <rdfs:comment xml:lang="en">Technical systems</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdfs:label xml:lang="en">Technical</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/officer2">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O2</skos:altLabel>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/officer2">
+        <rdfs:comment xml:lang="en">Second level officier rank</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Officer2</rdfs:label>
+        <skos:prefLabel xml:lang="en">O2</skos:prefLabel>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <rdfs:label xml:lang="en">1st Lieutenant</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/marine5">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M5</skos:altLabel>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted5">
+        <skos:prefLabel xml:lang="en">E5</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Enlisted5</rdfs:label>
+        <rdfs:comment xml:lang="en">Fifth-level enlished rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <rdfs:label xml:lang="en">Master Sergeant</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <CareerBranch rdf:about="http://data.travellerrpg.com/rules/t5/careers/entertainer/branch/actor">
+    <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/skills/actor"/>
+    <rdfs:label xml:lang="en">Actor</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Acting or broadcasting</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/entertainer">
+        <rdfs:comment xml:lang="en">The person with talents in performance</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Entertainer</rdfs:label>
+        <rdf:type rdf:resource="#Career"/>
+      </owl:NamedIndividual>
+    </skos:broader>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </CareerBranch>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/relief">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/relief">
+        <rdfs:label xml:lang="en">Relief</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Disaster relief</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+      </ActivityType>
+    </skos:closeMatch>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Disaster relief</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Relief</rdfs:label>
+  </ActivityType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/branch/line">
+    <rdfs:label xml:lang="en">Line</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">General ship management</rdfs:comment>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/scholar/scholar4">
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian4">
+        <rdfs:label xml:lang="en">Civilian4</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian"/>
+        <skos:prefLabel xml:lang="en">C4</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Fourth-level civilian rank</rdfs:comment>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/scholar"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Associate Professor</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary/functionary7">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F7</skos:altLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/functionary"/>
+    <rdfs:label xml:lang="en">Under-Secretary</rdfs:label>
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian7">
+        <rdfs:comment xml:lang="en">Seventh-level civilian rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian"/>
+        <skos:prefLabel xml:lang="en">C7</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Civilian7</rdfs:label>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/officer3">
+    <rdfs:label xml:lang="en">Captain</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O3</skos:altLabel>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/officer3">
+        <rdfs:label xml:lang="en">Officer3</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:prefLabel xml:lang="en">O3</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Third level officier rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/branch/commando">
+    <rdfs:label xml:lang="en">Commando</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdfs:comment xml:lang="en">Marines specialising in infliltration and raiding</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/officer7">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O7</skos:altLabel>
+    <skos:broader>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/rank"/>
+        <rdfs:label xml:lang="en">Spacer Rank</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">A spacer (space navy) rank</rdfs:comment>
+        <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:Concept>
+    </skos:broader>
+    <rdfs:label xml:lang="en">Admiral</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/officer7">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <rdfs:label xml:lang="en">Officer7</rdfs:label>
+        <rdfs:comment xml:lang="en">Seventh level officier rank</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:prefLabel xml:lang="en">O7</skos:prefLabel>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/branch/technical">
+    <rdfs:comment xml:lang="en">Technical systems</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Technical</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/agent/activity/mission">
+    <rdfs:comment xml:lang="en">A mission based on the previous undercover activity</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/agent">
+        <rdfs:comment xml:lang="en">Someone acts or spies for others</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Agent</rdfs:label>
+        <rdf:type rdf:resource="#Career"/>
+      </owl:NamedIndividual>
+    </skos:broader>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Mission</rdfs:label>
+  </ActivityType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/officer4">
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <rdfs:label xml:lang="en">Force Commander</rdfs:label>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/officer4">
+        <skos:prefLabel xml:lang="en">O4</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Officer4</rdfs:label>
+        <rdfs:comment xml:lang="en">Fourth level officier rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O4</skos:altLabel>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary/functionary6">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian6">
+        <rdfs:comment xml:lang="en">Sixth-level civilian rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian"/>
+        <rdfs:label xml:lang="en">Civilian6</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:prefLabel xml:lang="en">C6</skos:prefLabel>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/functionary"/>
+    <rdfs:label xml:lang="en">Director</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F6</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/peace-keeper">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/peace-keeper">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Peace-keeping operations between two hostile groups</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:label xml:lang="en">Peace Keeping</rdfs:label>
+      </ActivityType>
+    </skos:closeMatch>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Peace-keeping operations between two hostile groups</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Peace Keeping</rdfs:label>
+  </ActivityType>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/scout/activity/courier">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/scout">
+        <rdfs:comment xml:lang="en">An explorer</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Scout</rdfs:label>
+        <rdf:type rdf:resource="#Career"/>
+      </owl:NamedIndividual>
+    </skos:broader>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Courier</rdfs:label>
+    <rdfs:comment xml:lang="en">Courier duty</rdfs:comment>
+  </ActivityType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/noble">
+    <rdfs:label xml:lang="en">Noble</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">A member of the aristocracy</rdfs:comment>
+    <rdf:type rdf:resource="#Career"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/scholar/scholar0_1">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:label xml:lang="en">Non-Traditional Scholar</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/scholar"/>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/no-rank">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/rank"/>
+        <rdfs:comment xml:lang="en">A position where rank does not apply</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">No Rank</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/officer6">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/officer6">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:prefLabel xml:lang="en">O6</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Sixth level officier rank</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Officer6</rdfs:label>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <rdfs:label xml:lang="en">Captain</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O6</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/craftsman/activity/masterpiece">
+    <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/skills/craftsman"/>
+    <skos:broader>
+      <Career rdf:about="http://data.travellerrpg.com/rules/t5/careers/craftsman">
+        <rdfs:label xml:lang="en">Craftsman</rdfs:label>
+        <rdfs:comment xml:lang="en">The skilled craftsman of unique objects</rdfs:comment>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Career>
+    </skos:broader>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Masterpiece</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Creating a masterpiece</rdfs:comment>
+  </ActivityType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/scholar/scholar6">
+    <rdfs:label xml:lang="en">Distinguished Professor</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/scholar"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian6"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/activity/ocs">
+    <rdfs:comment xml:lang="en">Attendance at the officer candidate school</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">OCS</rdfs:label>
+  </ActivityType>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary/functionary5">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian5"/>
+    <rdfs:label xml:lang="en">Assistant Director</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/functionary"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F5</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/young-adult">
+    <rdfs:comment xml:lang="en">The young adult life-stage from 18-25 years</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/human"/>
+    <rdfs:label xml:lang="en">Young Adult</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/marine2">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <rdfs:label xml:lang="en">Corporal</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M2</skos:altLabel>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted2">
+        <skos:prefLabel xml:lang="en">E2</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Second-level enlished rank</rdfs:comment>
+        <rdfs:label xml:lang="en">Enlisted2</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/branch/infantry">
+    <rdfs:label xml:lang="en">Infantry</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdfs:comment xml:lang="en">Marines who fight on foot</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/marine1">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M1</skos:altLabel>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted1">
+        <rdfs:label xml:lang="en">Enlisted1</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Bottom-level enlisted rank</rdfs:comment>
+        <skos:prefLabel xml:lang="en">E1</skos:prefLabel>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <rdfs:label xml:lang="en">Private</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/branch/artillery">
+    <rdfs:label xml:lang="en">Artillery</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdfs:comment xml:lang="en">Marines who operate large, indirect weapons</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <QualificationLevel rdf:about="http://data.travellerrpg.com/rules/t5/qualification-levels/competence/experienced">
+    <skos:inScheme>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/qualification-levels">
+        <rdfs:label xml:lang="en">Qualification Levels</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Possible levels of attainment in formal qualifications (certificates)</rdfs:comment>
+        <skos:hasTopConcept>
+          <QualificationLevel rdf:about="http://data.travellerrpg.com/rules/t5/qualification-levels/qualification-level">
+            <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels"/>
+            <rdfs:label xml:lang="en">Generic Qualification Level </rdfs:label>
+            <rdfs:comment xml:lang="en">A generic qualification level </rdfs:comment>
+          </QualificationLevel>
+        </skos:hasTopConcept>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      </owl:NamedIndividual>
+    </skos:inScheme>
+    <rdfs:label xml:lang="en">Experienced</rdfs:label>
+    <skos:broader>
+      <QualificationLevel rdf:about="http://data.travellerrpg.com/rules/t5/qualification-levels/competence">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels/qualification-level"/>
+        <rdfs:label xml:lang="en">Competence Qualification Level</rdfs:label>
+        <rdfs:comment xml:lang="en">A competence-based qualification level</rdfs:comment>
+      </QualificationLevel>
+    </skos:broader>
+    <rdfs:comment xml:lang="en">Capable of handling most tasks with a skill</rdfs:comment>
+  </QualificationLevel>
+  <CareerBranch rdf:about="http://data.travellerrpg.com/rules/t5/careers/entertainer/branch/chef">
+    <rdfs:label xml:lang="en">Chef</rdfs:label>
+    <rdfs:comment xml:lang="en">Cooking, cuisine</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/entertainer"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/skills/chef"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </CareerBranch>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/scholar/scholar1">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/scholar"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian1">
+        <rdfs:label xml:lang="en">Civilian1</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian"/>
+        <skos:prefLabel xml:lang="en">C1</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">First-level civilian rank</rdfs:comment>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:label xml:lang="en">Lecturer</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/solider/branch/cavalry">
+    <rdfs:comment xml:lang="en">Soliders who fight from vehicles or mounts</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Cavalry</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/solider/branch/medical">
+    <rdfs:comment xml:lang="en">Military medicine</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdfs:label xml:lang="en">Medical</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary/functionary4">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian4"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/functionary"/>
+    <rdfs:label xml:lang="en">Senior Manager</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F4</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/solider/branch/protected">
+    <rdfs:comment xml:lang="en">Soliders who fight in hostile environments</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Protected</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/branch/cavalry">
+    <rdfs:label xml:lang="en">Cavalry</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdfs:comment xml:lang="en">Marines who fight from vehicles or mounts</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/rear-area">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <rdfs:label xml:lang="en">Rear Area</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/rear-area">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Rear Area</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:comment xml:lang="en">Rear area support operations</rdfs:comment>
+      </ActivityType>
+    </skos:closeMatch>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Rear area support operations</rdfs:comment>
+  </ActivityType>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/elder">
+    <rdfs:label xml:lang="en">Elder</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/human"/>
+    <rdfs:comment xml:lang="en">The elder life-stage from 58-65 years</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/childhood">
+    <rdfs:label xml:lang="en">Childhood</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">The child life-stage from 2-9 years</rdfs:comment>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/human"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/rules/t5/life-stages">
+    <rdfs:comment xml:lang="en">Someone acts or spies for others</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Life Stages</rdfs:label>
+    <skos:hasTopConcept rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/life-stage"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </skos:ConceptScheme>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary/functionary3">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/functionary"/>
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian3">
+        <rdfs:label xml:lang="en">Civilian3</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian"/>
+        <skos:prefLabel xml:lang="en">C3</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Third-level civilian rank</rdfs:comment>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <rdfs:label xml:lang="en">Manager</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F3</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/battle">
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/battle">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Participation in a space battle</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:label xml:lang="en">Battle</rdfs:label>
+      </ActivityType>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/activity/battle">
+        <rdfs:comment xml:lang="en">A major space battle</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:label xml:lang="en">Battle</rdfs:label>
+      </ActivityType>
+    </skos:closeMatch>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Participation in a space battle</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Battle</rdfs:label>
+  </ActivityType>
+  <CareerBranch rdf:about="http://data.travellerrpg.com/rules/t5/careers/entertainer/branch/artist">
+    <rdfs:comment xml:lang="en">Painting, sculture, graphics</rdfs:comment>
+    <rdfs:label xml:lang="en">Artist</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/skills/artist"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/entertainer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </CareerBranch>
+  <CareerBranch rdf:about="http://data.travellerrpg.com/rules/t5/careers/entertainer/branch/dancer">
+    <rdfs:label xml:lang="en">Dancer</rdfs:label>
+    <rdfs:comment xml:lang="en">Dancing or coreography</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/entertainer"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/skills/dancer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </CareerBranch>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/scholar/scholar0">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/scholar"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian0">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <rdfs:comment xml:lang="en">Unranked civilian</rdfs:comment>
+        <rdfs:label xml:lang="en">Civilian0</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:prefLabel xml:lang="en">C0</skos:prefLabel>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:label xml:lang="en">Amateur</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/marine4">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M4</skos:altLabel>
+    <rdfs:label xml:lang="en">Staff Sergeant</rdfs:label>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted4">
+        <rdfs:label xml:lang="en">Enlisted4</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:prefLabel xml:lang="en">E4</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Fourth-level enlished rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/branch/flight">
+    <rdfs:comment xml:lang="en">Flight duties</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Flight</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/occupation">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/occupation">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Occupation of a defeated group</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:label xml:lang="en">Occupation</rdfs:label>
+      </ActivityType>
+    </skos:closeMatch>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Occupation of a defeated group</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Occupation</rdfs:label>
+  </ActivityType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/officer6">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer6"/>
+    <rdfs:label xml:lang="en">Senior Captain</rdfs:label>
+    <skos:broader>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/rank"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">A merchant (space naval trading) rank</rdfs:comment>
+        <rdfs:label xml:lang="en">Merchant Rank</rdfs:label>
+        <skos:related>
+          <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/merchant">
+            <rdfs:comment xml:lang="en">A businessperson or trader</rdfs:comment>
+            <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+            <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+            <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+            <rdfs:label xml:lang="en">Merchant</rdfs:label>
+            <rdf:type rdf:resource="#Career"/>
+          </owl:NamedIndividual>
+        </skos:related>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:Concept>
+    </skos:broader>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M6</skos:altLabel>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/infancy">
+    <rdfs:comment xml:lang="en">The infant life-stage from 0-1 years</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Infancy</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/human"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary/functionary2">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian2">
+        <rdfs:comment xml:lang="en">Second-level civilian rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian"/>
+        <skos:prefLabel xml:lang="en">C2</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Civilian2</rdfs:label>
+        <rdf:type rdf:resource="#Rank"/>
+      </owl:NamedIndividual>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/functionary"/>
+    <rdfs:label xml:lang="en">Senior Supervisor</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F2</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/scholar/scholar3">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian3"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/scholar"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:label xml:lang="en">Assistant Professor</rdfs:label>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/officer5">
+    <rdfs:label xml:lang="en">Captain</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M5</skos:altLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/merchant"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/officer5">
+        <rdfs:label xml:lang="en">Officer5</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:prefLabel xml:lang="en">O5</skos:prefLabel>
+        <rdfs:comment xml:lang="en">Fifth level officier rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <QualificationLevel rdf:about="http://data.travellerrpg.com/rules/t5/qualification-levels/competence/qualified">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels"/>
+    <rdfs:comment xml:lang="en">Novice-level certification level</rdfs:comment>
+    <rdfs:label xml:lang="en">Qualified</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels/competence"/>
+  </QualificationLevel>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/solider/branch/technical">
+    <rdfs:comment xml:lang="en">Technical systems</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Technical</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/soldier6">
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >S6</skos:altLabel>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/rank"/>
+        <rdfs:comment xml:lang="en">A soldier (planetary army) rank</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+        <rdfs:label xml:lang="en">Soldier Rank</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:Concept>
+    </skos:broader>
+    <rdfs:label xml:lang="en">Sergeant Major</rdfs:label>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted6"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <QualificationLevel rdf:about="http://data.travellerrpg.com/rules/t5/qualification-levels/competence/master">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels"/>
+    <rdfs:comment xml:lang="en">Capable of handling almost all tasks with a skill</rdfs:comment>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels/competence"/>
+    <rdfs:label xml:lang="en">Master</rdfs:label>
+  </QualificationLevel>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/branch/medical">
+    <rdfs:comment xml:lang="en">Shipboard medicine</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Medical</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/spacer2">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted2"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <rdfs:label xml:lang="en">Able Spacer</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >R2</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/branch/crew">
+    <rdfs:comment xml:lang="en">General crew duties</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Crew</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/marine3">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M3</skos:altLabel>
+    <rdfs:label xml:lang="en">Sergeant</rdfs:label>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted3">
+        <rdfs:comment xml:lang="en">Third-level enlished rank</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Enlisted3</rdfs:label>
+        <skos:prefLabel xml:lang="en">E3</skos:prefLabel>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/activity/strike">
+    <rdfs:label xml:lang="en">Strike</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">An attack on a chosen target</rdfs:comment>
+  </ActivityType>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/mission">
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/mission">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Mission</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:comment xml:lang="en">A detatched mission</rdfs:comment>
+      </ActivityType>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <rdfs:label xml:lang="en">Mission</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/activity/mission">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Mission</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:comment xml:lang="en">A detatched mission</rdfs:comment>
+      </ActivityType>
+    </skos:closeMatch>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">A detatched mission</rdfs:comment>
+  </ActivityType>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/activity/siege">
+    <rdfs:label xml:lang="en">Siege</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">A siege or blockade of a planet or system</rdfs:comment>
+  </ActivityType>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/spacer1">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted1"/>
+    <rdfs:label xml:lang="en">Spacehand</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >R1</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/garrison_">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/garrison">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Protection of existing territory</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:label xml:lang="en">Garrison</rdfs:label>
+      </ActivityType>
+    </skos:closeMatch>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Protection of existing territory</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Garrison</rdfs:label>
+  </ActivityType>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary/functionary1">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian1"/>
+    <rdfs:label xml:lang="en">Supervisor</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/functionary"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F1</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/scholar/scholar2">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian2"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/scholar"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:label xml:lang="en">Instructor</rdfs:label>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/functionary/activity/office-politics">
+    <rdfs:comment xml:lang="en">Promoting oneself and one's organisation</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Office Politics</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <skos:broader>
+      <Career rdf:about="http://data.travellerrpg.com/rules/t5/careers/functionary">
+        <rdfs:label xml:lang="en">Functionary</rdfs:label>
+        <rdfs:comment xml:lang="en">Someone who serves in a bureaucracy</rdfs:comment>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Career>
+    </skos:broader>
+  </ActivityType>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/officer4">
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M4</skos:altLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/merchant"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">1st Officer</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer4"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/officer6">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer6"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:label xml:lang="en">Colonel</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O6</skos:altLabel>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/agent/activity/undercover">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/agent"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Undercover</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:comment xml:lang="en">Undercover investigation</rdfs:comment>
+  </ActivityType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/soldier5">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted5"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <rdfs:label xml:lang="en">Master Sergeant</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >S5</skos:altLabel>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/spacer3">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted3"/>
+    <rdfs:label xml:lang="en">Petty Officer Second</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >R3</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/rating0">
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >R0</skos:altLabel>
+    <rdfs:label xml:lang="en">Spacehand</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch>
+      <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted0">
+        <skos:prefLabel xml:lang="en">E0</skos:prefLabel>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Unranked enlisted</rdfs:comment>
+        <rdfs:label xml:lang="en">Enlisted0</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/military"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </Rank>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/merchant"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/functionary/functionary0">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/civilian0"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/functionary"/>
+    <rdfs:comment xml:lang="en">A low-level, inconsequentual functionary rank</rdfs:comment>
+    <rdfs:label xml:lang="en">Clerk</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F0</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/officer3">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer3"/>
+    <rdfs:label xml:lang="en">2nd Officer</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/merchant"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M3</skos:altLabel>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/officer5">
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O5</skos:altLabel>
+    <skos:altLabel xml:lang="en">Lieutenant Colonel</skos:altLabel>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer5"/>
+    <rdfs:label xml:lang="en">Lt Colonel</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/soldier4">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted4"/>
+    <rdfs:label xml:lang="en">Staff Sergeant</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >S4</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/spacer4">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted4"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <rdfs:label xml:lang="en">Petty Officer First</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >R4</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/insurgency">
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/insurgency">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Pacification operations against irregular opponents</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:label xml:lang="en">Insurgency</rdfs:label>
+      </ActivityType>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Pacification operations against irregular opponents</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Insurgency</rdfs:label>
+  </ActivityType>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/retirement">
+    <rdfs:label xml:lang="en">Retirement</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/human"/>
+    <rdfs:comment xml:lang="en">The retirement life-stage from 66-71+ years</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/scholar/activity/research">
+    <rdfs:comment xml:lang="en">Research in a scholar's area of interest</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/scholar"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Research</rdfs:label>
+  </ActivityType>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/rating1">
+    <rdfs:label xml:lang="en">Steward Apprentice</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/merchant"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >R1</skos:altLabel>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted1"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/mid-life">
+    <rdfs:label xml:lang="en">Mid-Life</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/human"/>
+    <rdfs:comment xml:lang="en">The mid-life stage from 42-50 years</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/soldier3">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted3"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <rdfs:label xml:lang="en">Sergeant</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >S3</skos:altLabel>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/officer2">
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M2</skos:altLabel>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/merchant"/>
+    <rdfs:label xml:lang="en">3rd Officer</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer2"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/spacer5">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted5"/>
+    <rdfs:label xml:lang="en">Chief Petty Officer</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >R5</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/anm-school">
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/anm-school">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Attendance at the ANM school</rdfs:comment>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:label xml:lang="en">ANM School</rdfs:label>
+      </ActivityType>
+    </skos:closeMatch>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/activity/anm-school">
+        <rdfs:comment xml:lang="en">Attendance at the ANM school</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdfs:label xml:lang="en">ANM School</rdfs:label>
+      </ActivityType>
+    </skos:closeMatch>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Attendance at the ANM school</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">ANM School</rdfs:label>
+  </ActivityType>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/scout/activity/exploration">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/scout"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Explorartion beyond the borders of civilisation</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Exploration</rdfs:label>
+  </ActivityType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/soldier2">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted2"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <rdfs:label xml:lang="en">Corporal</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >S2</skos:altLabel>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/officer7">
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O7</skos:altLabel>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:label xml:lang="en">General</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer7"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/officer1">
+    <rdfs:label xml:lang="en">4th Officer</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M1</skos:altLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/merchant"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer1"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/spacer6">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >R6</skos:altLabel>
+    <rdfs:label xml:lang="en">Master Chief Petty Officer</rdfs:label>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted6"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/branch/engineer">
+    <rdfs:comment xml:lang="en">Ship's drives and machinery</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Engineer</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/solider/branch/infantry">
+    <rdfs:label xml:lang="en">Infantry</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Soliders who fight on foot</rdfs:comment>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/temp">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/merchant"/>
+    <rdfs:comment xml:lang="en">An temporary merchant crew member</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Temp</rdfs:label>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/no-rank"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/officer5">
+    <rdfs:label xml:lang="en">Lt Coronel</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer5"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O5</skos:altLabel>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Lieutenant Coronel</skos:altLabel>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/soldier1">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted1"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <rdfs:label xml:lang="en">Private</rdfs:label>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >S1</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/senior">
+    <rdfs:comment xml:lang="en">The senior life-stage from 50-57 years</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/human"/>
+    <rdfs:label xml:lang="en">Senior</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/officer2">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">1st Lieutenant</rdfs:label>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer2"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O2</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/activity/combat">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <rdfs:comment xml:lang="en">Combat against an organised enemy</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Combat</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <skos:closeMatch>
+      <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/soldier/activity/combat">
+        <rdfs:comment xml:lang="en">Combat against an organised enemy</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:label xml:lang="en">Combat</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+      </ActivityType>
+    </skos:closeMatch>
+  </ActivityType>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/officer5">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer5"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <rdfs:label xml:lang="en">Commander</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O5</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/officer6">
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer6"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:label xml:lang="en">Coronel</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <skos:altLabel xml:lang="en">O6</skos:altLabel>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/citizen">
+    <rdfs:comment xml:lang="en">An ordinary citizen</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/career"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Citizen</rdfs:label>
+    <rdf:type rdf:resource="#Career"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/officer1">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">2nd Lieutenant</rdfs:label>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer1"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O1</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/officer4">
+    <rdfs:label xml:lang="en">Lt Commander</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer4"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:altLabel xml:lang="en">Lieutenant Commander</skos:altLabel>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O4</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/marine/officer7">
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer7"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:altLabel xml:lang="en">O7</skos:altLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/marine"/>
+    <rdfs:label xml:lang="en">General</rdfs:label>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/officer4">
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O4</skos:altLabel>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer4"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Major</rdfs:label>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <LifeStage rdf:about="http://data.travellerrpg.com/rules/t5/life-stages/human/adolesence">
+    <rdfs:comment xml:lang="en">The adolescent life-stage from 10-17 years</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/life-stage"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/life-stages/human"/>
+    <rdfs:label xml:lang="en">Adolescence</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </LifeStage>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/solider/branch/artillery">
+    <rdfs:comment xml:lang="en">Soliders who operate large, indirect weapons</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/soldier"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Artillery</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <CareerBranch rdf:about="http://data.travellerrpg.com/rules/t5/careers/entertainer/branch/author">
+    <rdfs:label xml:lang="en">Author</rdfs:label>
+    <rdfs:comment xml:lang="en">Writing, poetry, journalism, storytelling</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/skills/author"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/entertainer"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </CareerBranch>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/officer3">
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer3"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O3</skos:altLabel>
+    <rdfs:label xml:lang="en">Lieutenant</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/marine/branch/protected">
+    <rdfs:label xml:lang="en">Protected</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdfs:comment xml:lang="en">Marines who fight in hostile environments</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/marine"/>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <CareerBranch rdf:about="http://data.travellerrpg.com/rules/t5/careers/entertainer/branch/musician">
+    <rdfs:comment xml:lang="en">Musical performance, singing, composition</rdfs:comment>
+    <rdfs:label xml:lang="en">Musician</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/entertainer"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:related rdf:resource="http://data.travellerrpg.com/rules/t5/skills/musician"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </CareerBranch>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/merchant/rating2">
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >R2</skos:altLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/merchant"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Drive Helper</rdfs:label>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/enlisted2"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <QualificationLevel rdf:about="http://data.travellerrpg.com/rules/t5/qualification-levels/competence/competent">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels"/>
+    <rdfs:comment xml:lang="en">Capable of handling common tasks with a skill</rdfs:comment>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels/competence"/>
+    <rdfs:label xml:lang="en">Competent</rdfs:label>
+  </QualificationLevel>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/officer1">
+    <rdfs:label xml:lang="en">Ensign</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O1</skos:altLabel>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer1"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdf:type rdf:resource="#Rank"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/branch/gunnery">
+    <rdfs:comment xml:lang="en">Ship's weaponary</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:label xml:lang="en">Gunnery</rdfs:label>
+    <rdf:type rdf:resource="#CareerBranch"/>
+  </owl:NamedIndividual>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/soldier/officer3">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer3"/>
+    <rdfs:label xml:lang="en">Captain</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/soldier"/>
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O3</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <Rank rdf:about="http://data.travellerrpg.com/rules/t5/ranks/spacer/officer2">
+    <skos:altLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O2</skos:altLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/spacer"/>
+    <rdfs:label xml:lang="en">Sublieutenant</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/ranks"/>
+    <skos:closeMatch rdf:resource="http://data.travellerrpg.com/rules/t5/ranks/standard/officer2"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </Rank>
+  <ActivityType rdf:about="http://data.travellerrpg.com/rules/t5/careers/spacer/activity/shore-duty">
+    <rdfs:comment xml:lang="en">Off-starship duty</rdfs:comment>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/careers/spacer"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/careers"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">Shore Duty</rdfs:label>
+  </ActivityType>
+  <LifePursuit rdf:about="http://data.travellerrpg.com/setting/life-pursuits/life-pursuit">
+    <t5:usesCharacteristic rdf:resource="http://data.travellerrpg.com/ontology/t5#C5"/>
+    <t5:usesSkill rdf:resource="http://data.travellerrpg.com/rules/t5/skills/competence"/>
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/setting/life-pursuits">
+        <skos:scopeNote xml:lang="en">The life pursuits concept scheme is placed in the 'setting' URI hierarchy, since life-pursuits are often milleau-specific.</skos:scopeNote>
+        <skos:hasTopConcept rdf:resource="http://data.travellerrpg.com/setting/life-pursuits/life-pursuit"/>
+        <rdfs:label xml:lang="en">Life Pursuits</rdfs:label>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Possible life pursuits</rdfs:comment>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <rdfs:label xml:lang="en">Life Pursuit </rdfs:label>
+    <rdfs:comment xml:lang="en">A generic life pursuit </rdfs:comment>
+  </LifePursuit>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/certificates">
+    <rdfs:label xml:lang="en">Certificates</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Possible certificates in various skills</rdfs:comment>
+    <skos:hasTopConcept>
+      <Certificate rdf:about="http://data.travellerrpg.com/setting/certificates/certificate">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/certificates"/>
+        <atQualificationLevel rdf:resource="http://data.travellerrpg.com/rules/t5/qualification-levels/qualification-level"/>
+        <t5:usesSkill rdf:resource="http://data.travellerrpg.com/rules/t5/skills/competence"/>
+        <rdfs:label xml:lang="en">Generic Certificate </rdfs:label>
+        <rdfs:comment xml:lang="en">A generic certificate </rdfs:comment>
+      </Certificate>
+    </skos:hasTopConcept>
+    <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+  </owl:NamedIndividual>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

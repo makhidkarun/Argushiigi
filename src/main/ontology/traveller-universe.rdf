@@ -1,0 +1,910 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dcterms="http://purl.org/dc/terms/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:characters="http://data.travellerrpg.com/ontology/t5/characters#"
+    xmlns:t5="http://data.travellerrpg.com/ontology/t5#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#"
+  xml:base="http://data.travellerrpg.com/setting/traveller">
+  <rpg:Milieau rdf:about="">
+    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5/characters"/>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/fusion-power">
+        <skos:inScheme>
+          <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/setting/traveller-core-concepts">
+            <skos:scopeNote xml:lang="en">Most terms in this schema are derived from the OTU. A specific milleau is under no obligation to use any or all of these concepts.</skos:scopeNote>
+            <rdfs:seeAlso rdf:resource=""/>
+            <rdfs:label xml:lang="en">Traveller Core Concepts</rdfs:label>
+            <rdfs:comment xml:lang="en">The fundamental concepts that underpin Traveller games. These can be used in various milleau as descriptive terms that nature of the milleau.</rdfs:comment>
+          </skos:ConceptScheme>
+        </skos:inScheme>
+        <rdfs:label xml:lang="en">Fusion Power</rdfs:label>
+        <rdfs:isDefinedBy>
+          <rpg:SourceBook rdf:about="http://data.travellerrpg.com/publication/traveller-5/core">
+            <dcterms:creator>
+              <foaf:Agent rdf:about="http://data.travellerrpg.com/person/MarcWMiller">
+                <foaf:surname>Miller</foaf:surname>
+                <foaf:givenname>Marc</foaf:givenname>
+              </foaf:Agent>
+            </dcterms:creator>
+            <dc:publisher>
+              <foaf:Agent rdf:about="http://data.travellerrpg.com/organization/FarFutureEnterprises">
+                <foaf:homepage rdf:resource="http://www.farfuture.net"/>
+                <dc:title xml:lang="en">Far Future Enterprises</dc:title>
+              </foaf:Agent>
+            </dc:publisher>
+            <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#gYear"
+            >2013</dc:date>
+            <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/rpg#Rules"/>
+          </rpg:SourceBook>
+        </rdfs:isDefinedBy>
+        <rdfs:comment xml:lang="en">Energy derived from nuclear fusion is available at suitable technlogical levels.</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5"/>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/gravity-manipulation">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <rdfs:label xml:lang="en">Gravity Manipulation</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Practical technologies for the control of gravitational fields.</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <rdfs:label xml:lang="en">Traveller Universe</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rpg:settingConcept>
+      <rpg:Currency rdf:about="http://data.travellerrpg.com/unit/credit">
+        <skos:prefLabel xml:lang="en">Cr</skos:prefLabel>
+        <rdfs:label xml:lang="en">Credit</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">The basic form of money in Traveller.
+
+Roughy equal to a quarter hour of unskilled labour.</rdfs:comment>
+      </rpg:Currency>
+    </rpg:settingConcept>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/cosmopolitan">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <rdfs:label xml:lang="en">Cosmopolitan</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">The game setting is diverse and heterogeneous with many different speices, factions, ideologies, etc.</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <rdfs:comment xml:lang="en">The general back story and environment of the standard Traveller universe.</rdfs:comment>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/scarcity-economics">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <skos:editorialNote xml:lang="en">In the rules, this concept is labelled "Everything Is Driven By Economics".
+
+Sublimed, or semi-sublimed societies, such as Iain M. Banks' Culture may operate accoirding to different economic rules.
+</skos:editorialNote>
+        <skos:altLabel xml:lang="en">Everything is Driven by Economics</skos:altLabel>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Scarcity"/>
+        <rdfs:label xml:lang="en">Scarcity Economics</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">In the game environment, economic decisions involve making choice between limited possibilities. The decisions made may lead to economic advantage (or disadvatage).</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/technology-spectrum">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <rdfs:label xml:lang="en">A Spectrum of Available Technology</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Technology is distributed unevenly</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/artifical-people">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <rdfs:label xml:lang="en">Artifical People</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Artificial people, such as clones, synthetics, robots, etc. are part of the general environment at appropriate levels of technology.</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/no-prime-directive">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Prime_Directive"/>
+        <rdfs:label xml:lang="en">No Prime Directive</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">There is no Star-Trek style "Prime Directive" restricting contact with less technologically developed cultures.</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <skos:prefLabel xml:lang="en">OTU</skos:prefLabel>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/transportation-speed-communication">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <rdfs:label xml:lang="en">Communication Limited to Tranportation Speed</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">Interstellar communication speeds are limited to the carrying speed of a ship.</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/human-dominated">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <rdfs:label xml:lang="en">Human Dominated</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">The game environment is dominated by humans.</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <rpg:settingConcept>
+      <rpg:Currency rdf:about="http://data.travellerrpg.com/unit/resource-unit">
+        <skos:prefLabel xml:lang="en">RU</skos:prefLabel>
+        <rdfs:label xml:lang="en">Resource Unit</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">The basic unit of governmental and megacorporation accountng</rdfs:comment>
+      </rpg:Currency>
+    </rpg:settingConcept>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/jump-drive">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <rdfs:label xml:lang="en">Jump Drive</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">The standard method of interstellar travel within the Traveller universe.</rdfs:comment>
+        <rpg:referenceMaterial>
+          <foaf:Document rdf:about="http://wiki.travellerrpg.com/Jump_Drive">
+            <skos:inScheme>
+              <owl:NamedIndividual rdf:about="http://wiki.travellerrpg.com">
+                <dc:title xml:lang="en">Imperial Encyclopedia</dc:title>
+                <dc:rights rdf:resource="http://wiki.travellerrpg.com/Copyright"/>
+                <dc:publisher>
+                  <foaf:Document rdf:about="http://www.travellerrpg.com"/>
+                </dc:publisher>
+                <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/rpg#SourceBook"/>
+              </owl:NamedIndividual>
+            </skos:inScheme>
+          </foaf:Document>
+        </rpg:referenceMaterial>
+      </skos:Concept>
+    </rpg:settingConcept>
+    <rpg:settingConcept>
+      <rpg:Currency rdf:about="http://data.travellerrpg.com/unit/mega-credit">
+        <skos:scopeNote xml:lang="en">The basic corporate measure of money.</skos:scopeNote>
+        <skos:prefLabel xml:lang="en">MCr</skos:prefLabel>
+        <rdfs:label xml:lang="en">MegaCredit</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">A million credits.</rdfs:comment>
+      </rpg:Currency>
+    </rpg:settingConcept>
+    <rpg:settingConcept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/incomplete-information">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller-core-concepts"/>
+        <skos:altLabel xml:lang="en">Wheels Within Wheels</skos:altLabel>
+        <rdfs:label xml:lang="en">Incomplete Information</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">In the game environment, nobody has complete information or understanding of the events surrounding them. Surface explanations may give way to deeper explanations and new insights may be gained during the course of the game.</rdfs:comment>
+      </skos:Concept>
+    </rpg:settingConcept>
+  </rpg:Milieau>
+  <owl:Ontology rdf:about="http://data.travellerrpg.com/ontology/traveller-universe">
+    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5/characters"/>
+    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5"/>
+  </owl:Ontology>
+  <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/givenname"/>
+  <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/surname"/>
+  <skos:Concept rdf:about="http://data.travellerrpg.com/setting/traveller/nobility/gentle">
+    <skos:altLabel xml:lang="en">Gentlewoman</skos:altLabel>
+    <rdfs:comment xml:lang="en">A status above ordinary level but technically not a member of the nobilty.</rdfs:comment>
+    <skos:broader>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/setting/traveller/nobility/noble">
+        <skos:inScheme>
+          <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/setting/traveller/nobility">
+            <skos:hasTopConcept rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility/noble"/>
+            <rdfs:label xml:lang="en">OTU Nobility</rdfs:label>
+            <rdfs:comment xml:lang="en">The system of ranks associated with social status in the OTU.</rdfs:comment>
+            <rpg:hasSetting rdf:resource=""/>
+          </skos:ConceptScheme>
+        </skos:inScheme>
+        <rpg:hasSetting rdf:resource=""/>
+        <rdfs:label xml:lang="en">Noble</rdfs:label>
+      </skos:Concept>
+    </skos:broader>
+    <rpg:hasSetting rdf:resource=""/>
+    <skos:altLabel xml:lang="en">Gentleman</skos:altLabel>
+    <rdfs:label xml:lang="en">Gentle</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility"/>
+    <skos:altLabel xml:lang="en">Gentlesophont</skos:altLabel>
+    <skos:altLabel xml:lang="en">Gentleperson</skos:altLabel>
+    <skos:altLabel xml:lang="en">Gentleone</skos:altLabel>
+  </skos:Concept>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/sagamaal/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/sagamaal">
+        <skos:broader>
+          <skos:Concept rdf:about="http://data.travellerrpg.com/setting/traveller/language/language">
+            <rdfs:label xml:lang="en">Traveller Language</rdfs:label>
+            <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+            <rpg:hasSetting>
+              <rpg:Milieau rdf:about="http://data.travellerrpg.com/setting/traveller/third-imperium">
+                <rdfs:label xml:lang="en">The Third Imperium</rdfs:label>
+                <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+                <rpg:referenceMaterial>
+                  <foaf:Document rdf:about="http://wiki.travellerrpg.com/Third_Imperium">
+                    <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+                    <dc:title xml:lang="en">Third Imperium</dc:title>
+                  </foaf:Document>
+                </rpg:referenceMaterial>
+                <rpg:hasSetting rdf:resource=""/>
+              </rpg:Milieau>
+            </rpg:hasSetting>
+            <rdfs:comment xml:lang="en">A language in the traveller universe</rdfs:comment>
+            <skos:inScheme>
+              <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/setting/traveller/language">
+                <rdfs:comment xml:lang="en">The languages within the OTU.</rdfs:comment>
+                <rdfs:label xml:lang="en">OTU Languages</rdfs:label>
+                <skos:hasTopConcept rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+                <rpg:hasSetting rdf:resource=""/>
+              </skos:ConceptScheme>
+            </skos:inScheme>
+          </skos:Concept>
+        </skos:broader>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Sagamaal</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Sagamaal"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Sagamaal)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Sagamaal</rdfs:comment>
+  </t5:KnowledgeType>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/gvegh/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/gvegh">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Gvegh</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Gvegh"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Gvegh)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Gvegh</rdfs:comment>
+  </t5:KnowledgeType>
+  <foaf:Document rdf:about="http://wiki.travellerrpg.com/Interstellar_Wars">
+    <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    <dc:title xml:lang="en">Interstellar Wars</dc:title>
+  </foaf:Document>
+  <rpg:Organisation rdf:about="http://data.travellerrpg.com/setting/traveller/organisation/imperial-marines">
+    <rdfs:comment xml:lang="en">The imperial armed forces carried aboard starships</rdfs:comment>
+    <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+    <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Imperial_Navy"/>
+    <rdfs:label xml:lang="en">Imperial Marines</rdfs:label>
+    <rpg:parent>
+      <rpg:Organisation rdf:about="http://data.travellerrpg.com/setting/traveller/organisation/third-imperium">
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+        <rdfs:label xml:lang="en">Third Imperium</rdfs:label>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Third_Imperium"/>
+        <rdfs:comment xml:lang="en">The Third Imperium as an organised government</rdfs:comment>
+      </rpg:Organisation>
+    </rpg:parent>
+  </rpg:Organisation>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/xs">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <rdfs:label xml:lang="en">Exemplary Service</rdfs:label>
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >XS</skos:prefLabel>
+    <skos:broader>
+      <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+        <rdfs:label xml:lang="en">Imperial Military Decoration</rdfs:label>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/decorations/military"/>
+      </characters:Decoration>
+    </skos:broader>
+  </characters:Decoration>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/sehd">
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >*SEH*</skos:prefLabel>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <rdfs:label xml:lang="en">Starburst for Extreme Heroism with Diamonds</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military"/>
+  </characters:Decoration>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/zdetl/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/zdetl">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Zdetl</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Zdetl"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Zdetl)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Zdetl</rdfs:comment>
+  </t5:KnowledgeType>
+  <rpg:Conversion rdf:about="http://wiki.travellerrpg.com/unit/imperial-gregorian">
+    <rdfs:label xml:lang="en">Imperial-Gregorian Calendar Conversion</rdfs:label>
+    <rdfs:comment xml:lang="en">Conversion from Imperial dates (years) to Gregorian dates (years)</rdfs:comment>
+    <rpg:toUnit rdf:resource="http://placetime.com/instant/gregorian/"/>
+    <rpg:fromUnit>
+      <rpg:DateSystem rdf:about="http://data.travellerrpg.com/unit/imperial-calendar">
+        <rdfs:label xml:lang="en">Imperial Calendar</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rdfs:comment xml:lang="en">The standard imperial calendar within the OTU.</rdfs:comment>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Imperial_calendar"/>
+        <rpg:hasSetting rdf:resource=""/>
+      </rpg:DateSystem>
+    </rpg:fromUnit>
+    <rpg:fixedConversion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</rpg:fixedConversion>
+    <rpg:conversionDifference rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >4521</rpg:conversionDifference>
+  </rpg:Conversion>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/battle/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/battle">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Battle</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Battle)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Battle</rdfs:comment>
+  </t5:KnowledgeType>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/mcuf">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MCUF</skos:prefLabel>
+    <rdfs:label xml:lang="en">Meritorious Conduct Under Fire</rdfs:label>
+  </characters:Decoration>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/wb-6">
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WB-6</skos:prefLabel>
+    <rdfs:label xml:lang="en">Wound Badge-6</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <skos:broader>
+      <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/wb">
+        <skos:scopeNote xml:lang="en">Narrower terms give the number of times a wound badge has been received.</skos:scopeNote>
+        <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >WB</skos:prefLabel>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+        <rdfs:label xml:lang="en">Wound Badge</rdfs:label>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military"/>
+      </characters:Decoration>
+    </skos:broader>
+  </characters:Decoration>
+  <rpg:Organisation rdf:about="http://data.travellerrpg.com/setting/traveller/organisation/anm-school">
+    <rpg:parent rdf:resource="http://data.travellerrpg.com/setting/traveller/organisation/third-imperium"/>
+    <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+    <rdfs:label xml:lang="en">ANM School</rdfs:label>
+    <rdfs:comment xml:lang="en">The imperial military academy </rdfs:comment>
+  </rpg:Organisation>
+  <skos:Concept rdf:about="http://data.travellerrpg.com/setting/traveller/nobility/marquis">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility"/>
+    <rpg:hasSetting rdf:resource=""/>
+    <rdfs:label xml:lang="en">Marquis</rdfs:label>
+    <skos:altLabel xml:lang="en">Marchioness</skos:altLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility/noble"/>
+  </skos:Concept>
+  <rpg:Milieau rdf:about="http://data.travellerrpg.com/setting/traveller/interstellar-wars">
+    <rdfs:label xml:lang="en">The Interstellar Wars</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rpg:hasSetting rdf:resource=""/>
+  </rpg:Milieau>
+  <skos:Concept rdf:about="http://data.travellerrpg.com/setting/traveller/nobility/duke">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility"/>
+    <rpg:hasSetting rdf:resource=""/>
+    <rdfs:label xml:lang="en">Duke</rdfs:label>
+    <skos:altLabel xml:lang="en">Duchess</skos:altLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility/noble"/>
+  </skos:Concept>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/wb-5">
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WB-5</skos:prefLabel>
+    <rdfs:label xml:lang="en">Wound Badge-5</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military/wb"/>
+  </characters:Decoration>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/rights"/>
+  <rpg:Organisation rdf:about="http://data.travellerrpg.com/setting/traveller/organisation/imperial-military-academy">
+    <rdfs:comment xml:lang="en">The imperial military academy </rdfs:comment>
+    <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+    <rpg:parent>
+      <rpg:Organisation rdf:about="http://data.travellerrpg.com/setting/traveller/organisation/imperial-army">
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+        <rdfs:comment xml:lang="en">The unified armies of the Imperium</rdfs:comment>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Imperial_Army"/>
+        <rdfs:label xml:lang="en">Imperial Army</rdfs:label>
+        <rpg:parent rdf:resource="http://data.travellerrpg.com/setting/traveller/organisation/third-imperium"/>
+      </rpg:Organisation>
+    </rpg:parent>
+    <rdfs:label xml:lang="en">Imperial Military Academy</rdfs:label>
+  </rpg:Organisation>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/trokh/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/trokh">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Trokh</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Trokh"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Trokh)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Trokh</rdfs:comment>
+  </t5:KnowledgeType>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/oynprith/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/oynprith">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Oynprith</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Oynprith"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Oynprith)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Oynprith</rdfs:comment>
+  </t5:KnowledgeType>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/tezapet/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/tezapet">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Tezapet</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Tezapet)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Tezapet</rdfs:comment>
+  </t5:KnowledgeType>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/wb-4">
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WB-4</skos:prefLabel>
+    <rdfs:label xml:lang="en">Wound Badge-4</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military/wb"/>
+  </characters:Decoration>
+  <t5:MajorRace rdf:about="http://data.travellerrpg.com/race/imperials">
+    <skos:broaderTransitive>
+      <t5:Race rdf:about="http://data.travellerrpg.com/race/humaniti">
+        <rdfs:label xml:lang="en">Humaniti</rdfs:label>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/vacc-suit"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/gunner/turret"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/mechanics"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <t5:hasStrength>
+          <t5:Strength>
+            <t5:characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+            <t5:characteristic rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+            >7</t5:characteristic>
+          </t5:Strength>
+        </t5:hasStrength>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/author"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <t5:geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Intelligence"/>
+        <t5:hasSocialStanding>
+          <t5:SocialStanding>
+            <t5:characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+            <t5:characteristic rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+            >7</t5:characteristic>
+          </t5:SocialStanding>
+        </t5:hasSocialStanding>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/computer"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <t5:hasDexterity>
+          <t5:Dexterity>
+            <t5:characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+            <t5:characteristic rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+            >7</t5:characteristic>
+          </t5:Dexterity>
+        </t5:hasDexterity>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/driver"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <t5:geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Education"/>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/athlete"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/fighter"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/steward"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <t5:geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Dexterity"/>
+        <rdfs:seeAlso rdf:resource="http://wiki.travellerrpg.com/Humaniti"/>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/comms"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <t5:geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Endurance"/>
+        <t5:hasIntelligence>
+          <t5:Intelligence>
+            <t5:characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+            <t5:characteristic rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+            >7</t5:characteristic>
+          </t5:Intelligence>
+        </t5:hasIntelligence>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/artist"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <t5:hasEducation>
+          <t5:Education>
+            <t5:characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+            <t5:characteristic rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+            >7</t5:characteristic>
+          </t5:Education>
+        </t5:hasEducation>
+        <t5:hasEndurance>
+          <t5:Endurance>
+            <t5:characteristicGenerator rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/2D"/>
+            <t5:characteristic rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+            >7</t5:characteristic>
+          </t5:Endurance>
+        </t5:hasEndurance>
+        <rpg:hasSkill>
+          <rpg:Skill>
+            <rpg:inSkillType rdf:resource="http://data.travellerrpg.com/rules/t5/skills/actor"/>
+            <rpg:level rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >0</rpg:level>
+          </rpg:Skill>
+        </rpg:hasSkill>
+        <t5:geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#Strength"/>
+        <t5:geneticProfile rdf:resource="http://data.travellerrpg.com/ontology/t5#SocialStanding"/>
+      </t5:Race>
+    </skos:broaderTransitive>
+    <rdfs:seeAlso rdf:resource="http://wiki.travellerrpg.com/Imperials"/>
+    <rdfs:label xml:lang="en">Imperials</rdfs:label>
+    <rpg:template rdf:resource="http://data.travellerrpg.com/race/humaniti"/>
+  </t5:MajorRace>
+  <rpg:ExchangeRate rdf:about="http://data.travellerrpg.com/unit/MCr-Cr">
+    <rdfs:label xml:lang="en">Megacredit-Credit Exchange Rate</rdfs:label>
+    <rpg:toUnit rdf:resource="http://data.travellerrpg.com/unit/credit"/>
+    <rpg:fromUnit rdf:resource="http://data.travellerrpg.com/unit/mega-credit"/>
+    <rpg:fixedConversion rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >true</rpg:fixedConversion>
+    <rpg:conversionRatio rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal"
+    >1000000</rpg:conversionRatio>
+  </rpg:ExchangeRate>
+  <t5:WorldKnowledgeType rdf:about="http://data.travellerrpg.com/rules/t5/skills/cultural-knowledge/capital">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/cultural-knowledge/world"/>
+    <rdfs:label xml:lang="en">Capital</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of the imperial capital world</rdfs:comment>
+    <t5:knowledgeOf>
+      <t5:World rdf:about="http://data.travellerrpg.com/setting/traveller/third-imperium/sector/core/subsector/core/world/capital">
+        <rpg:parent>
+          <t5:Subsector rdf:about="http://data.travellerrpg.com/setting/traveller/third-imperium/sector/core/subsector/core">
+            <rpg:parent>
+              <t5:Sector rdf:about="http://data.travellerrpg.com/setting/traveller/third-imperium/sector/core">
+                <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+                <rdfs:label xml:lang="en">Core</rdfs:label>
+                <rdfs:comment xml:lang="en">The sector containing the imperial capital</rdfs:comment>
+                <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Core_Sector"/>
+              </t5:Sector>
+            </rpg:parent>
+            <rdfs:label xml:lang="en">Core</rdfs:label>
+            <rdfs:comment xml:lang="en">The subsector containing the imperial capital</rdfs:comment>
+            <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Core_Subsector"/>
+          </t5:Subsector>
+        </rpg:parent>
+        <rdfs:label xml:lang="en">Capital</rdfs:label>
+        <rdfs:comment xml:lang="en">The imperial capital world</rdfs:comment>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Capital_%28world%29"/>
+      </t5:World>
+    </t5:knowledgeOf>
+  </t5:WorldKnowledgeType>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/vilani/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/vilani">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Vilani</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Vilani_language"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Vilani)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Vilani</rdfs:comment>
+  </t5:KnowledgeType>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/wb-3">
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WB-3</skos:prefLabel>
+    <rdfs:label xml:lang="en">Wound Badge-3</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military/wb"/>
+  </characters:Decoration>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/mcg">
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >MCG</skos:prefLabel>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <rdfs:label xml:lang="en">Medal for Conspicuous Gallantry</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military"/>
+  </characters:Decoration>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/gonk/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/gonk">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Gonk</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Gonk)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Gonk</rdfs:comment>
+  </t5:KnowledgeType>
+  <rpg:Milieau rdf:about="http://data.travellerrpg.com/setting/traveller/long-night">
+    <rdfs:label xml:lang="en">The Long Night</rdfs:label>
+    <rpg:referenceMaterial>
+      <foaf:Document rdf:about="http://wiki.travellerrpg.com/Long_Night">
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+        <dc:title xml:lang="en">Long Night</dc:title>
+      </foaf:Document>
+    </rpg:referenceMaterial>
+    <rpg:hasSetting rdf:resource=""/>
+  </rpg:Milieau>
+  <rpg:Milieau rdf:about="http://data.travellerrpg.com/setting/grandfather-era">
+    <rdfs:label xml:lang="en">Grandfather Era</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rpg:referenceMaterial>
+      <foaf:Document rdf:about="http://wiki.travellerrpg.com/Ancients">
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+        <dc:title xml:lang="en">Ancients</dc:title>
+      </foaf:Document>
+    </rpg:referenceMaterial>
+    <rpg:hasSetting rdf:resource=""/>
+  </rpg:Milieau>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/publisher"/>
+  <foaf:Document rdf:about="http://wiki.travellerrpg.com/Rule_of_Man">
+    <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+    <dc:title xml:lang="en">Second Imperium</dc:title>
+    <dc:title xml:lang="en">Rule of Man</dc:title>
+  </foaf:Document>
+  <rpg:Milieau rdf:about="http://data.travellerrpg.com/setting/traveller/rigid-culture">
+    <rdfs:label xml:lang="en">Rigid Culture</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rpg:hasSetting>
+      <rpg:Milieau rdf:about="http://data.travellerrpg.com/setting/vilani-era">
+        <rdfs:label xml:lang="en">The Vilani Era</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:referenceMaterial>
+          <foaf:Document rdf:about="http://wiki.travellerrpg.com/Ziru_Sirka">
+            <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+            <dc:title xml:lang="en">Ziru Sirka</dc:title>
+            <dc:title xml:lang="en">First Imperium</dc:title>
+          </foaf:Document>
+        </rpg:referenceMaterial>
+        <rpg:hasSetting rdf:resource=""/>
+      </rpg:Milieau>
+    </rpg:hasSetting>
+  </rpg:Milieau>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/wb-2">
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WB-2</skos:prefLabel>
+    <rdfs:label xml:lang="en">Wound Badge-2</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military/wb"/>
+  </characters:Decoration>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/anglic/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/anglic">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Anglic</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Anglic"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Anglic)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Anglic</rdfs:comment>
+  </t5:KnowledgeType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/worlds/ancient-site">
+    <rdfs:comment xml:lang="en">A world that holds an archaeological site connected with The Ancients</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/worlds"/>
+    <rpg:hasSetting rdf:resource=""/>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Trade_classification"/>
+    <rdf:type rdf:resource="http://data.travellerrpg.com/ontology/t5#WorldClassification"/>
+    <skos:prefLabel xml:lang="en">An</skos:prefLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/worlds/special"/>
+    <rdfs:label xml:lang="en">Ancient Site</rdfs:label>
+  </owl:NamedIndividual>
+  <rpg:Organisation rdf:about="http://data.travellerrpg.com/setting/traveller/organisation/imperial-naval-academy_1">
+    <rdfs:comment xml:lang="en">The imperial naval academy</rdfs:comment>
+    <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+    <rpg:parent>
+      <rpg:Organisation rdf:about="http://data.travellerrpg.com/setting/traveller/organisation/imperial-navy">
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Imperial_Navy"/>
+        <rdfs:comment xml:lang="en">The imperial space forces</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Imperial Navy</rdfs:label>
+        <rpg:parent rdf:resource="http://data.travellerrpg.com/setting/traveller/organisation/third-imperium"/>
+      </rpg:Organisation>
+    </rpg:parent>
+    <rdfs:label xml:lang="en">Imperial Naval Academy</rdfs:label>
+  </rpg:Organisation>
+  <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/wb-1">
+    <rdfs:label xml:lang="en">Wound Badge-1</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >WB-1</skos:prefLabel>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military/wb"/>
+  </characters:Decoration>
+  <skos:Concept rdf:about="http://data.travellerrpg.com/setting/traveller/nobility/count">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility"/>
+    <rdfs:label xml:lang="en">Count</rdfs:label>
+    <skos:altLabel xml:lang="en">Countess</skos:altLabel>
+    <skos:altLabel xml:lang="en">Viscount</skos:altLabel>
+    <skos:altLabel xml:lang="en">Viscountess</skos:altLabel>
+    <rpg:hasSetting rdf:resource=""/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility/noble"/>
+  </skos:Concept>
+  <characters:Decoration rdf:about="http://data.travellerrpg.com/setting/traveller/decoration/military/seh">
+    <skos:prefLabel rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >SEH</skos:prefLabel>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/decorations"/>
+    <rdfs:label xml:lang="en">Starburst for Extreme Heroism</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/decoration/military"/>
+  </characters:Decoration>
+  <skos:Concept rdf:about="http://data.travellerrpg.com/setting/traveller/nobility/knight">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility"/>
+    <rpg:hasSetting rdf:resource=""/>
+    <rdfs:label xml:lang="en">Knight</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/nobility/noble"/>
+  </skos:Concept>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/flash/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/flash">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">Flash</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (Flash)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of Flash</rdfs:comment>
+  </t5:KnowledgeType>
+  <rpg:Milieau rdf:about="http://data.travellerrpg.com/setting/traveller/false-dawn">
+    <rdfs:label xml:lang="en">The False Dawn</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rpg:referenceMaterial>
+      <foaf:Document rdf:about="http://wiki.travellerrpg.com/Kursae">
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+        <dc:title xml:lang="en">Kursae</dc:title>
+      </foaf:Document>
+    </rpg:referenceMaterial>
+    <rpg:hasSetting rdf:resource=""/>
+  </rpg:Milieau>
+  <t5:KnowledgeType rdf:about="http://data.travellerrpg.com/setting/traveller/language/kkree/knowledge">
+    <skos:related>
+      <rpg:Language rdf:about="http://data.travellerrpg.com/setting/traveller/language/kkree">
+        <skos:broader rdf:resource="http://data.travellerrpg.com/setting/traveller/language/language"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/setting/traveller/language"/>
+        <rdfs:label xml:lang="en">!kree</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Anglic"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/traveller/third-imperium"/>
+      </rpg:Language>
+    </skos:related>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/language"/>
+    <rdfs:label xml:lang="en">Language (!kree)</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rdfs:comment xml:lang="en">Knowledge of !kree</rdfs:comment>
+  </t5:KnowledgeType>
+  <rpg:Milieau rdf:about="http://data.travellerrpg.com/setting/traveller/consolidation">
+    <rdfs:label xml:lang="en">Consolidation</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+    <rpg:referenceMaterial>
+      <foaf:Document rdf:about="http://wiki.travellerrpg.com/Consolidation_Wars">
+        <skos:inScheme rdf:resource="http://wiki.travellerrpg.com"/>
+        <dc:title xml:lang="en">Consolidation Wars</dc:title>
+      </foaf:Document>
+    </rpg:referenceMaterial>
+    <rpg:hasSetting>
+      <rpg:Milieau rdf:about="http://data.travellerrpg.com/setting/traveller/early-empire">
+        <rdfs:label xml:lang="en">The Early Empire</rdfs:label>
+        <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
+        <rpg:hasSetting rdf:resource="http://data.travellerrpg.com/setting/vilani-era"/>
+      </rpg:Milieau>
+    </rpg:hasSetting>
+  </rpg:Milieau>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->
