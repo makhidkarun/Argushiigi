@@ -99,6 +99,7 @@ public class ServerApplication extends Application {
     this.root = new Reference("http://data.travellerrpg.com/");
     this.source = new Reference("http://localhost:8080/argushiigi/data/");
     this.apparent = new Reference("http://www.charvolant.org/argushiigi/data/");
+    //this.apparent = new Reference("http://localhost:8080/argushiigi/data/");
     this.build();
   }
   
@@ -215,6 +216,7 @@ public class ServerApplication extends Application {
     this.dataset = ModelFactory.createDefaultModel();
     this.dataset.read(this.getClass().getResource("../ontology/traveller-universe.rdf").toExternalForm());
     this.dataset.read(this.getClass().getResource("../ontology/spinward-marches.ttl").toExternalForm(), "TTL");
+    this.dataset.read(this.getClass().getResource("../ontology/examples.ttl").toExternalForm(), "TTL");
     this.inference = ModelFactory.createInfModel(reasoner, this.ontology, this.dataset);
     this.sorter = new DisplaySorter(ModelFactory.createUnion(this.ontology, this.display));
     this.logger.debug("Created data source");
@@ -231,6 +233,7 @@ public class ServerApplication extends Application {
     
     router.attach("/css", new Directory(this.getContext(), this.getClass().getResource("/META-INF/css/").toExternalForm()));
     router.attach("/query/type", TypeQueryResource.class);
+    router.attach("/query/references", ReferenceQueryResource.class);
     router.attach("/ontology/{ontology}.owl", OntologyResource.class);
     router.attachDefault(RendererResource.class);
     return router;

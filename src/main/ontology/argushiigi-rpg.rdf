@@ -1,341 +1,406 @@
 <?xml version="1.0"?>
 <rdf:RDF
+    xmlns:argushiigi="http://data.travellerrpg.com/ontology/argushiigi#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
     xmlns="http://data.travellerrpg.com/ontology/argushiigi-rpg#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:argushiigi="http://data.travellerrpg.com/ontology/argushiigi#"
-	xml:base="http://data.travellerrpg.com/argushiigi/rpg/">
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#"
+  xml:base="http://data.travellerrpg.com/argushiigi/rpg/">
   <owl:Ontology rdf:about="">
-    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/rpg"/>
     <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/argushiigi"/>
+    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/rpg"/>
   </owl:Ontology>
-  <rdf:Description rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/metadata">
-        <rdfs:comment xml:lang="en">Metadata about who, what and when.</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >100</argushiigi:displayPriority>
-        <rdfs:label xml:lang="en">Metadata</rdfs:label>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#backwardCompatibleWith">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/documents">
-        <rdfs:comment xml:lang="en">Information about additional information in a document, such as rules or a source book.</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >50</argushiigi:displayPriority>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#incompatibleWith">
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/documents">
         <rdfs:label xml:lang="en">Documents</rdfs:label>
         <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
+        <rdfs:comment xml:lang="en">Information about additional information in a document, such as rules or a source book.</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >60</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#semanticRelation">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/description">
-        <rdfs:comment xml:lang="en">The description category</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >20</argushiigi:displayPriority>
-        <rdfs:label xml:lang="en">Description</rdfs:label>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/name"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >50</argushiigi:displayPriority>
-  </rdf:Description>
-  <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/secondary-attributes">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >60</argushiigi:displayPriority>
-    <argushiigi:parentCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/characteristics">
-        <rdfs:comment xml:lang="en">Information about the defined characteristics of game entity</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >40</argushiigi:displayPriority>
-        <rdfs:label xml:lang="en">Characteristics</rdfs:label>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:parentCategory>
-    <rdfs:comment xml:lang="en">Information about secondary attributes</rdfs:comment>
-    <rdfs:label xml:lang="en">Secondary Attributes</rdfs:label>
-  </argushiigi:DisplayCategory>
-  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hiddenLabel">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >100</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >40</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#comment">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >30</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#incompatibleWith">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/documents"/>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#backwardCompatibleWith">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/documents"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#equivalentClass">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/structure">
-        <rdfs:comment xml:lang="en">Information about the type and nature of the entity</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >90</argushiigi:displayPriority>
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/structure">
         <rdfs:label xml:lang="en">Structure</rdfs:label>
         <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >60</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/terms/rights">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasSkill">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/skills">
-        <rdfs:comment xml:lang="en">Information about a character's skills</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >20</argushiigi:displayPriority>
-        <rdfs:label xml:lang="en">Skills</rdfs:label>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasState">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/state">
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
-        <rdfs:comment xml:lang="en">Information about a current state</rdfs:comment>
-        <rdfs:label xml:lang="en">State</rdfs:label>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >50</argushiigi:displayPriority>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >30</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inSenseType">
-    <argushiigi:displayCategory>
-      <rdf:Description rdf:about="http://data.travellerrpg.com/argushiigi/rpg/senses">
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >40</argushiigi:displayPriority>
-        <rdfs:label xml:lang="en">Senses</rdfs:label>
-        <rdfs:comment xml:lang="en">Information about a characters senses</rdfs:comment>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
-      </rdf:Description>
-    </argushiigi:displayCategory>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/terms/license">
-    <rdfs:label xml:lang="en">license</rdfs:label>
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#isDefinedBy">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/documents"/>
-    <rdfs:label xml:lang="en">is defined by</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#seeAlso">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/documents"/>
-    <rdfs:label xml:lang="en">see also</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >20</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isPortrayedBy">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/player">
-        <rdfs:comment xml:lang="en">The category of information to do with a player</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >60</argushiigi:displayPriority>
-        <rdfs:label xml:lang="en">Player</rdfs:label>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#altLabel">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >60</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://xmlns.com/wot/0.1/assurance">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasFaculty">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/faculties">
-        <rdfs:comment xml:lang="en">Information about a characters faculties.</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >30</argushiigi:displayPriority>
-        <rdfs:label xml:lang="en">Faculties</rdfs:label>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#note">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >50</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/terms/creator">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inSkillType">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/skills"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#domain">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >40</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#portrays">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/player"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/terms/description">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >10</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#deprecated">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
-  </rdf:Description>
-  <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/template">
-    <rdfs:comment xml:lang="en">Information generally associated with a template</rdfs:comment>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >60</argushiigi:displayPriority>
-    <rdfs:label xml:lang="en">Template</rdfs:label>
-    <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
-  </argushiigi:DisplayCategory>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isInSetting">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/setting">
-        <rdfs:comment xml:lang="en">Information about the setting of a game entity</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >70</argushiigi:displayPriority>
-        <rdfs:label xml:lang="en">Setting</rdfs:label>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#range">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >50</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#differentFrom">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >80</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >30</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#subClassOf">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >20</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/terms/title">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/name"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >10</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >10</argushiigi:displayPriority>
+        <rdfs:comment xml:lang="en">Information about the type and nature of the entity</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >90</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >60</argushiigi:priority>
   </rdf:Description>
   <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/title">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/name"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >20</argushiigi:displayPriority>
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/name"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >20</argushiigi:priority>
   </rdf:Description>
-  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/membershipClass">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inSkillType">
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/skills">
+        <rdfs:label xml:lang="en">Skills</rdfs:label>
+        <argushiigi:parentCategory>
+          <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/characteristics">
+            <rdfs:label xml:lang="en">Characteristics</rdfs:label>
+            <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
+            <rdfs:comment xml:lang="en">Information about the defined characteristics of game entity</rdfs:comment>
+            <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+            >40</argushiigi:priority>
+          </argushiigi:Category>
+        </argushiigi:parentCategory>
+        <rdfs:comment xml:lang="en">Information about a character's skills</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >20</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
   </rdf:Description>
-  <rdf:Description rdf:about="http://purl.org/dc/terms/contributor">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/rights">
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/metadata">
+        <rdfs:label xml:lang="en">Metadata</rdfs:label>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
+        <rdfs:comment xml:lang="en">Metadata about who, what and when.</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >100</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
   </rdf:Description>
-  <rdf:Description rdf:about="http://xmlns.com/wot/0.1/src_assurance">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#note">
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/description">
+        <rdfs:label xml:lang="en">Description</rdfs:label>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
+        <rdfs:comment xml:lang="en">The description category</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >20</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >50</argushiigi:priority>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#priorVersion">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasAttribute">
-    <argushiigi:displayCategory>
-      <argushiigi:DisplayCategory rdf:about="http://data.travellerrpg.com/argushiigi/rpg/attributes">
-        <rdfs:comment xml:lang="en">The category that holds information about player attributes.</rdfs:comment>
-        <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-        >10</argushiigi:displayPriority>
-        <rdfs:label xml:lang="en">Attributes</rdfs:label>
-        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
-      </argushiigi:DisplayCategory>
-    </argushiigi:displayCategory>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Class">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >90</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#imports">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >100</argushiigi:displayPriority>
-  </rdf:Description>
-  <owl:AnnotationProperty rdf:about="http://data.travellerrpg.com/ontology/argushiigi#displayCategory"/>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasSetting">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/setting"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#versionInfo">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasFeature">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#member">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#template">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >40</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isInState">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/state"/>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#broader">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
   </rdf:Description>
   <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasSense">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/senses"/>
+    <argushiigi:category>
+      <rdf:Description rdf:about="http://data.travellerrpg.com/argushiigi/rpg/senses">
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >40</argushiigi:priority>
+        <rdfs:comment xml:lang="en">Information about a characters senses</rdfs:comment>
+        <rdfs:label xml:lang="en">Senses</rdfs:label>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
+      </rdf:Description>
+    </argushiigi:category>
   </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inFeatureType">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#seeAlso">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/documents"/>
+    <rdfs:label xml:lang="en">see also</rdfs:label>
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#comment">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >30</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#mappingRelation">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inSenseType">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/senses"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >90</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#topConceptOf">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#subClassOf">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >20</argushiigi:priority>
+  </rdf:Description>
+  <owl:AnnotationProperty rdf:about="http://data.travellerrpg.com/ontology/argushiigi#category"/>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#differentFrom">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >80</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isPortrayedBy">
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/player">
+        <rdfs:label xml:lang="en">Player</rdfs:label>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
+        <rdfs:comment xml:lang="en">The category of information to do with a player</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >70</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#broaderTransitive">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#narrowMatch">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasState">
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/state">
+        <rdfs:label xml:lang="en">State</rdfs:label>
+        <rdfs:comment xml:lang="en">Information about a current state</rdfs:comment>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >50</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isInState">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/state"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >10</argushiigi:priority>
+  </rdf:Description>
+  <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/secondary-attributes">
+    <rdfs:comment xml:lang="en">Information about secondary attributes</rdfs:comment>
+    <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
+    <rdfs:label xml:lang="en">Secondary Attributes</rdfs:label>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >60</argushiigi:priority>
+  </argushiigi:Category>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#relatedMatch">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#narrower">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#range">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >50</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/description">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >10</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/date">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#imports">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >100</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/elements/1.1/description">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >20</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#label">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/name"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >50</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasFaculty">
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/faculties">
+        <rdfs:label xml:lang="en">Faculties</rdfs:label>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
+        <rdfs:comment xml:lang="en">Information about a characters faculties.</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >30</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#semanticRelation">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/license">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+    <rdfs:label xml:lang="en">license</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/title">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/name"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >10</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#template">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >40</argushiigi:priority>
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/template">
+        <rdfs:label xml:lang="en">Template</rdfs:label>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
+        <rdfs:comment xml:lang="en">Information generally associated with a template</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >70</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasFeature">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#isDefinedBy">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/documents"/>
+    <rdfs:label xml:lang="en">is defined by</rdfs:label>
   </rdf:Description>
   <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inFacultyType">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/faculties"/>
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/faculties"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#sameAs">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >70</argushiigi:displayPriority>
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >70</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#hiddenLabel">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >100</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/name">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >40</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#versionInfo">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/membershipClass">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#deprecated">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasSetting">
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/setting">
+        <rdfs:label xml:lang="en">Setting</rdfs:label>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
+        <rdfs:comment xml:lang="en">Information about the setting of a game entity</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >80</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#portrays">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/player"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inFeatureType">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#domain">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >40</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/creator">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://purl.org/dc/terms/contributor">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#broadMatch">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isInSetting">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/setting"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#related">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#member">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#altLabel">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >60</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2003/06/sw-vocab-status/ns#term_status">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  </rdf:Description>
+  <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/history">
+    <rdfs:comment xml:lang="en">Information backstory and history.</rdfs:comment>
+    <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/top"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >50</argushiigi:priority>
+    <rdfs:label xml:lang="en">History</rdfs:label>
+  </argushiigi:Category>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#prefLabel">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >30</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#priorVersion">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/description"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#Class">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasAttribute">
+    <argushiigi:category>
+      <argushiigi:Category rdf:about="http://data.travellerrpg.com/argushiigi/rpg/attributes">
+        <rdfs:label xml:lang="en">Attributes</rdfs:label>
+        <argushiigi:parentCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/characteristics"/>
+        <rdfs:comment xml:lang="en">The category that holds information about player attributes.</rdfs:comment>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >10</argushiigi:priority>
+      </argushiigi:Category>
+    </argushiigi:category>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/wot/0.1/assurance">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2000/01/rdf-schema#subPropertyOf">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/structure"/>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >30</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#narrowerTransitive">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://xmlns.com/wot/0.1/src_assurance">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/metadata"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#related">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasSkill">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/skills"/>
   </rdf:Description>
 </rdf:RDF>
 

@@ -7,12 +7,15 @@
   <xsl:param name="label.home.detail"/>
   <xsl:param name="label.html"/>
   <xsl:param name="label.html.detail"/>
+  <xsl:param name="label.references"/>
+  <xsl:param name="label.references.detail"/>
   <xsl:param name="label.rdf"/>
   <xsl:param name="label.rdf.detail"/>
   <xsl:param name="label.ttl"/>
   <xsl:param name="label.ttl.detail"/>
   <xsl:param name="label.xml"/>
   <xsl:param name="label.xml.detail"/>
+  <xsl:param name="link.references"/>
   <xsl:variable name="base" select="/@ag:base"/>
   
   <xsl:template match="/ag:resource">
@@ -23,6 +26,11 @@
       <link rel="shortcut icon" href="/argushiigi/favicon.ico"/>
       <link href="http://fonts.googleapis.com/css?family=Marcellus|Open+Sans:400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="Stylesheet" type="text/css"/>
       <link rel="Stylesheet" type="text/css"><xsl:attribute name="href">/argushiigi/css/argushiigi.css</xsl:attribute></link>
+      <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.min.css"/>
+      <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.js"><xsl:text> </xsl:text></script>
+      <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"><xsl:text> </xsl:text></script>
+      <link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css"/>
+      <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"><xsl:text> </xsl:text></script>    
     </head>
     <body>
     <div id="header">
@@ -34,8 +42,61 @@
     <xsl:call-template name="format-link"><xsl:with-param name="href" select="@ag:href"/><xsl:with-param name="format">rdf</xsl:with-param><xsl:with-param name="title" select="$label.rdf.detail"/><xsl:with-param name="label" select="$label.rdf"/></xsl:call-template>
     <xsl:call-template name="format-link"><xsl:with-param name="href" select="@ag:href"/><xsl:with-param name="format">ttl</xsl:with-param><xsl:with-param name="title" select="$label.ttl.detail"/><xsl:with-param name="label" select="$label.ttl"/></xsl:call-template>
     <xsl:call-template name="format-link"><xsl:with-param name="href" select="@ag:href"/><xsl:with-param name="format">xml</xsl:with-param><xsl:with-param name="title" select="$label.xml.detail"/><xsl:with-param name="label" select="$label.xml"/></xsl:call-template>
+    <span id="references-button" class="format-link"><xsl:attribute name="title"><xsl:value-of select="$label.references.detail"/></xsl:attribute><xsl:value-of select="$label.references"/></span>
     </div>
     </div>
+    <div id="references" style="display: none;" class="resource-table"><xsl:attribute name="title"><xsl:value-of select="$label.references"/></xsl:attribute>
+    <table id="references-table"><xsl:text> </xsl:text></table>
+    </div>
+    <script type="text/javascript">    
+    function showReferences() {
+      $("#references-table").dataTable( {
+          bDestroy: true,
+          bProcessing: true,
+          sAjaxSource: "<xsl:value-of select="$link.references"/>",
+          aoColumns: [
+         {
+           sTitle: "Name",
+           sClass: "resource-name",
+           mData: "name",
+           mRender: function ( data, type, full ) {
+                <xsl:text disable-output-escaping="yes"><![CDATA[return "<a href=\""+full.href+"\">" + data + "</a>";]]></xsl:text>
+           }
+         },
+         {
+           sTitle: "Class",
+           sClass: "resource-class",
+           mData: "cls",
+           mRender: function ( data, type, full ) {
+                return data;
+           }
+         },
+         {
+           sTitle: "URI",
+           sClass: "resource-uri",
+           mData: "uri",
+           mRender: function ( data, type, full ) {
+                <xsl:text disable-output-escaping="yes"><![CDATA[return "<a href=\""+full.href+"\">" + data + "</a&>";]]></xsl:text>
+           }
+         }
+      ]
+     });
+     $("#references").dialog({
+      modal: true,
+      height: "auto",
+      buttons: {
+        Close: function() {
+          $(this).dialog("close");
+        }
+      }
+    });
+  }
+  
+  $("#references-button").ready(function() {
+    $("#references-button").click(showReferences)
+  });
+  </script>
+    
     <div id="content">
     <xsl:apply-templates select="ag:category"/>
     </div>

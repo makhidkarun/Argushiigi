@@ -11,14 +11,14 @@
 <div id="about">
 <fmt:message key="jsp.index.about"/>
 </div>
-<div id="settings" class="resource-table">
-<h2><fmt:message key="label.settings"/></h2>
-<table id="settings-table"></table>
+<div id="worlds" class="resource-table">
+<h2><fmt:message key="label.worlds"/></h2>
+<table id="worlds-table"></table>
 <script type="text/javascript">
-$("#settings-table").ready(function() {
-	$("#settings-table").dataTable( {
+$("#worlds-table").ready(function() {
+	$("#worlds-table").dataTable( {
 		bProcessing: true,
-		sAjaxSource: "<c:url value="/data/query/type"><c:param name="type" value="http://data.travellerrpg.com/ontology/rpg#Setting"/></c:url>",
+		sAjaxSource: "<c:url value="/data/query/type"><c:param name="type" value="http://data.travellerrpg.com/ontology/t5#World"/></c:url>",
 		aoColumns: [
 		   {
 			   sTitle: "<fmt:message key="label.name"/>",
@@ -33,7 +33,7 @@ $("#settings-table").ready(function() {
 			   sClass: "resource-class",
 			   mData: "cls",
 			   mRender: function ( data, type, full ) {
-			        return "<a href=\""+full.clsHref+"\">" + data + "</a>";
+			        return data;
 			   }
 		   },
 		   {
@@ -50,15 +50,14 @@ $("#settings-table").ready(function() {
 </script>
 </div>
 <br/>
-<div id="game-entities" class="resource-table">
-<h2><fmt:message key="label.entities"/></h2>
-<table id="entities-table">
-</table>
+<div id="characters" class="resource-table">
+<h2><fmt:message key="label.characters"/></h2>
+<table id="characters-table"></table>
 <script type="text/javascript">
-$("#entities-table").ready(function() {
-	$("#entities-table").dataTable( {
+$("#characters-table").ready(function() {
+	$("#characters-table").dataTable( {
 		bProcessing: true,
-		sAjaxSource: "<c:url value="/data/query/type"><c:param name="type" value="http://data.travellerrpg.com/ontology/rpg#GameEntity"/></c:url>",
+		sAjaxSource: "<c:url value="/data/query/type"><c:param name="type" value="http://data.travellerrpg.com/ontology/rpg#Character"/></c:url>",
 		aoColumns: [
 		   {
 			   sTitle: "<fmt:message key="label.name"/>",
@@ -73,7 +72,7 @@ $("#entities-table").ready(function() {
 			   sClass: "resource-class",
 			   mData: "cls",
 			   mRender: function ( data, type, full ) {
-			        return "<a href=\""+full.clsHref+"\">" + data + "</a>";
+			        return data;
 			   }
 		   },
 		   {

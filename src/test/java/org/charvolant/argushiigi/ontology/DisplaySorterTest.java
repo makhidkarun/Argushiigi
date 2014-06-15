@@ -332,7 +332,7 @@ public class DisplaySorterTest extends JenaTest {
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testCompareGetName1() {
+  public void testGetName1() {
     Resource c = this.inference.createResource(this.PREFIX + "c1");
     
     Assert.assertEquals("Category 1", this.sorter.getName(c, "en", false));
@@ -344,7 +344,7 @@ public class DisplaySorterTest extends JenaTest {
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testCompareGetName2() {
+  public void testGetName2() {
     Resource c = this.inference.createResource(this.PREFIX + "c2");
     
     Assert.assertEquals("Category 2", this.sorter.getName(c, "en-gb", false));
@@ -359,7 +359,7 @@ public class DisplaySorterTest extends JenaTest {
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testCompareGetName3() {
+  public void testGetName3() {
     Resource c = this.inference.createResource(this.PREFIX + "c3");
     
     Assert.assertEquals("Category 3", this.sorter.getName(c, "en-gb", false));
@@ -373,7 +373,7 @@ public class DisplaySorterTest extends JenaTest {
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testCompareGetName4() {
+  public void testGetName4() {
     Resource c = this.inference.createResource(this.PREFIX + "c1");
     
     Assert.assertEquals("Category 1", this.sorter.getName(c, Locale.ENGLISH));
@@ -385,7 +385,7 @@ public class DisplaySorterTest extends JenaTest {
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testCompareGetName5() {
+  public void testGetName5() {
     Resource c = this.inference.createResource(this.PREFIX + "c2");
     
     Assert.assertEquals("Category 2", this.sorter.getName(c, new Locale("en", "GB")));
@@ -399,7 +399,7 @@ public class DisplaySorterTest extends JenaTest {
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testCompareGetName6() {
+  public void testGetName6() {
     Resource c = this.inference.createResource(this.PREFIX + "c3");
     
     Assert.assertEquals("Category 3", this.sorter.getName(c, new Locale("en", "GB")));
@@ -411,135 +411,158 @@ public class DisplaySorterTest extends JenaTest {
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue1() {
-    Resource c41 = this.inference.createResource(this.PREFIX + "c4-1");
-    Resource pattern2 = this.inference.createResource(this.PREFIX + "pattern2");
-    Text text;
+  public void testGetName7() {
+    Resource c = this.inference.createResource(this.PREFIX + "thing7");
     
-    text = this.sorter.formatValue(c41, null, new Locale("en", "AU"), pattern2);
-    Assert.assertNotNull(text);
-    Assert.assertEquals("23/04/13", text.toString());
+    Assert.assertEquals("7T", this.sorter.getName(c, new Locale("en", "GB")));
+    Assert.assertEquals("7T", this.sorter.getName(c, Locale.ENGLISH));
+    Assert.assertEquals("7T", this.sorter.getName(c, Locale.FRENCH));
   }
 
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue2() {
-    Resource c41 = this.inference.createResource(this.PREFIX + "c4-1");
-    Resource pattern1 = this.inference.createResource(this.PREFIX + "pattern1");
-    Text text;
+  public void testGetName8() {
+    Resource c = this.inference.createResource(this.PREFIX + "thing6");
     
-    text = this.sorter.formatValue(c41, null, new Locale("en", "AU"), pattern1);
-    Assert.assertNotNull(text);
-    Assert.assertEquals("0020.523/04/13", text.toString());
+    Assert.assertEquals("thing6", this.sorter.getName(c, new Locale("en", "GB")));
+    Assert.assertEquals("thing6", this.sorter.getName(c, Locale.ENGLISH));
+    Assert.assertEquals("thing6", this.sorter.getName(c, Locale.FRENCH));
   }
 
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue3() {
+  public void testFormat1() {
     Resource c41 = this.inference.createResource(this.PREFIX + "c4-1");
     Text text;
     
-    text = this.sorter.formatValue(c41, null, new Locale("en", "AU"));
+    text = this.sorter.format(c41, new Locale("en", "AU"));
     Assert.assertNotNull(text);
-    Assert.assertEquals("0020.523/04/13", text.toString());
+    Assert.assertEquals("0020.5:8/05/14", text.toString());
   }
 
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue4() {
+  public void testFormat2() {
+    Resource c41 = this.inference.createResource(this.PREFIX + "c4-1");
+    Text text;
+    
+    text = this.sorter.format(c41, new Locale("en", "US"));
+    Assert.assertNotNull(text);
+    Assert.assertEquals("0020.5:5/8/14", text.toString());
+  }
+
+  /**
+   * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
+   */
+  @Test
+  public void testFormat3() {
+    Resource c41 = this.inference.createResource(this.PREFIX + "c4-1");
+    Text text;
+    
+    text = this.sorter.format(c41, new Locale("en", "AU"));
+    Assert.assertNotNull(text);
+    Assert.assertEquals("0020.5:8/05/14", text.toString());
+  }
+
+  /**
+   * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
+   */
+  @Test
+  public void testFormat4() {
     Resource c41 = this.inference.createResource(this.PREFIX + "c4-1");
     
-    Assert.assertEquals("0020.523/04/13", this.sorter.formatValue(c41, null, new Locale("en", "AU")).toString());
-    Assert.assertEquals("0020.54/23/13", this.sorter.formatValue(c41, null, Locale.ENGLISH).toString());
-    Assert.assertEquals("0020,523/04/13", this.sorter.formatValue(c41, null, Locale.FRENCH).toString());
+    Assert.assertEquals("0020.5:8/05/14", this.sorter.format(c41, new Locale("en", "AU")).toString());
+    Assert.assertEquals("0020.5:5/8/14", this.sorter.format(c41, Locale.ENGLISH).toString());
+    Assert.assertEquals("0020,5:08/05/14", this.sorter.format(c41, Locale.FRENCH).toString());
   }
 
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue5() {
+  public void testFormat5() {
     Resource thing1 = this.inference.createResource(this.PREFIX + "thing1");
     
-    Assert.assertEquals("thing1", this.sorter.formatValue(thing1, null, Locale.ENGLISH).toString());
+    Assert.assertEquals("thing1", this.sorter.format(thing1, Locale.ENGLISH).toString());
   }
 
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue6() {
+  public void testFormat6() {
     Resource c1 = this.inference.createResource(this.PREFIX + "c1");
     
-    Assert.assertEquals("Category 1", this.sorter.formatValue(c1, null, Locale.ENGLISH).toString());
+    Assert.assertEquals("Category 1", this.sorter.format(c1, Locale.ENGLISH).toString());
   }
 
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue7() {
+  public void testFormat7() {
     Literal l1 = this.inference.createLiteral("Hello");
     
-    Assert.assertEquals("Hello", this.sorter.formatValue(l1, null, Locale.ENGLISH).toString());
+    Assert.assertEquals("Hello", this.sorter.format(l1, Locale.ENGLISH).toString());
   }
 
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue8() {
+  public void testFormat8() {
     Literal l1 = this.inference.createTypedLiteral(12);
     
-    Assert.assertEquals("12", this.sorter.formatValue(l1, null, Locale.ENGLISH).toString());
+    Assert.assertEquals("12", this.sorter.format(l1, Locale.ENGLISH).toString());
   }
 
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue9() {
+  public void testFormat9() {
     Literal l1 = this.inference.createTypedLiteral(12.6);
     
-    Assert.assertEquals("12.6", this.sorter.formatValue(l1, null, Locale.ENGLISH).toString());
+    Assert.assertEquals("12.6", this.sorter.format(l1, Locale.ENGLISH).toString());
   }
 
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue10() {
+  public void testFormat10() {
     Date date = new Date();
     Literal l1 = this.inference.createTypedLiteral(date);
-    DateFormat format = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, Locale.ENGLISH);
+    DateFormat format = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.ENGLISH);
     
-    Assert.assertEquals(format.format(date), this.sorter.formatValue(l1, null, Locale.ENGLISH).toString());
+    Assert.assertEquals(format.format(date), this.sorter.format(l1, Locale.ENGLISH).toString());
   }
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue11() {
+  public void testFormat11() {
     String uri = "http://localhost/nothing";
     Resource r1 = this.inference.createResource(uri);
     
-    Assert.assertEquals("nothing", this.sorter.formatValue(r1, null, Locale.ENGLISH).toString());
+    Assert.assertEquals("nothing", this.sorter.format(r1, Locale.ENGLISH).toString());
   }
+  
   /**
    * Test method for {@link org.charvolant.argushiigi.ontology.DisplaySorter#getName(Resource, String, boolean)}.
    */
   @Test
-  public void testFormatValue12() {
+  public void testFormat12() {
     String uri = "http://localhost/nothing/";
     Resource r1 = this.inference.createResource(uri);
     
-    Assert.assertEquals(uri, this.sorter.formatValue(r1, null, Locale.ENGLISH).toString());
+    Assert.assertEquals(uri, this.sorter.format(r1, Locale.ENGLISH).toString());
   }
 
   /**

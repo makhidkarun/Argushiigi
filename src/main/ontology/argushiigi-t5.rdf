@@ -1,239 +1,854 @@
 <?xml version="1.0"?>
 <rdf:RDF
+    xmlns="http://data.travellerrpg.com/ontology/argushiigi-t5#"
+    xmlns:argushiigi="http://data.travellerrpg.com/ontology/argushiigi#"
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
     xmlns:characters="http://data.travellerrpg.com/ontology/t5/characters#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns="http://data.travellerrpg.com/ontology/argushiigi-t5#"
+    xmlns:argushiigi-rpg="http://data.travellerrpg.com/ontology/argushiigi-rpg#"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:argushiigi="http://data.travellerrpg.com/ontology/argushiigi#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#"
   xml:base="http://data.travellerrpg.com/ontology/argushiigi-t5">
   <owl:Ontology rdf:about="">
-    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5"/>
-    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/argushiigi-rpg"/>
-    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/argushiigi"/>
+    <owl:imports rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/"/>
     <rdfs:comment xml:lang="en">Display definitions for the Traveller 5 ontology</rdfs:comment>
+    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/argushiigi"/>
     <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5/characters"/>
+    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5"/>
   </owl:Ontology>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#GSFAttribute">
-    <argushiigi:usesFormat>
-      <argushiigi:Format rdf:about="http://data.travellerrpg.com/argushiigi/t5/characteristic-format">
-        <argushiigi:usesValuePattern>
-          <argushiigi:Pattern>
-            <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-            >20</argushiigi:displayPriority>
-            <argushiigi:javaFormat>{0,number,integer}</argushiigi:javaFormat>
-            <argushiigi:fromProperty>
-              <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/t5#characteristic">
-                <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/attributes"/>
-                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-              </owl:NamedIndividual>
-            </argushiigi:fromProperty>
-          </argushiigi:Pattern>
-        </argushiigi:usesValuePattern>
-        <argushiigi:usesLabelPattern>
-          <argushiigi:Pattern>
-            <argushiigi:javaFormat>{1}</argushiigi:javaFormat>
-          </argushiigi:Pattern>
-        </argushiigi:usesLabelPattern>
-        <argushiigi:usesValuePattern>
-          <argushiigi:Pattern>
-            <argushiigi:nextPattern>
-              <argushiigi:Pattern>
-                <argushiigi:nextPattern>
-                  <argushiigi:Pattern>
-                    <argushiigi:nextPattern>
-                      <argushiigi:Pattern>
-                        <argushiigi:literal>]</argushiigi:literal>
-                      </argushiigi:Pattern>
-                    </argushiigi:nextPattern>
-                    <argushiigi:fromProperty>
-                      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/t5#characteristicGenerator">
-                        <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/attributes"/>
-                      </owl:NamedIndividual>
-                    </argushiigi:fromProperty>
-                  </argushiigi:Pattern>
-                </argushiigi:nextPattern>
-                <argushiigi:literal> [</argushiigi:literal>
-              </argushiigi:Pattern>
-            </argushiigi:nextPattern>
-            <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-            >10</argushiigi:displayPriority>
-            <argushiigi:javaFormat>{0,number,integer}</argushiigi:javaFormat>
-            <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristic"/>
-          </argushiigi:Pattern>
-        </argushiigi:usesValuePattern>
-      </argushiigi:Format>
-    </argushiigi:usesFormat>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Attribute">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristic"/>
-    <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/argushiigi/t5/characteristic-format"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasStamina">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >40</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasState">
-    <argushiigi:usesFormat>
-      <argushiigi:Format rdf:about="http://data.travellerrpg.com/ontology/rpg#state-format">
-        <argushiigi:usesValuePattern>
-          <argushiigi:Pattern>
-            <argushiigi:fromProperty>
-              <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/rpg#quantity">
-                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-              </owl:Thing>
-            </argushiigi:fromProperty>
-            <argushiigi:javaFormat>{0,number,00}</argushiigi:javaFormat>
-          </argushiigi:Pattern>
-        </argushiigi:usesValuePattern>
-        <argushiigi:usesLabelPattern>
-          <argushiigi:Pattern>
-            <argushiigi:javaFormat>{1}</argushiigi:javaFormat>
-          </argushiigi:Pattern>
-        </argushiigi:usesLabelPattern>
-      </argushiigi:Format>
-    </argushiigi:usesFormat>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Price">
-    <argushiigi:usesFormat>
-      <argushiigi:Format rdf:about="http://data.travellerrpg.com/argushiigi/t5/currency-format">
-        <argushiigi:usesPattern>
-          <argushiigi:Pattern>
-            <argushiigi:nextPattern>
-              <argushiigi:Pattern>
-                <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#quantity"/>
-                <argushiigi:javaFormat>{0,number,###,###,###,###0.00}</argushiigi:javaFormat>
-              </argushiigi:Pattern>
-            </argushiigi:nextPattern>
-            <argushiigi:fromProperty>
-              <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/rpg#unit">
-                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-              </owl:NamedIndividual>
-            </argushiigi:fromProperty>
-          </argushiigi:Pattern>
-        </argushiigi:usesPattern>
-      </argushiigi:Format>
-    </argushiigi:usesFormat>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasDurability">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >100</argushiigi:displayPriority>
-  </rdf:Description>
-  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/t5#generator">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/attributes"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </owl:NamedIndividual>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Amount">
-    <argushiigi:usesFormat>
-      <argushiigi:Format rdf:about="http://data.travellerrpg.com/argushiigi/t5/amount-format">
-        <argushiigi:usesPattern>
-          <argushiigi:Pattern>
-            <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#quantity"/>
-            <argushiigi:javaFormat>{0,number,###,##0.0}</argushiigi:javaFormat>
-            <argushiigi:nextPattern>
-              <argushiigi:Pattern>
-                <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#unit"/>
-              </argushiigi:Pattern>
-            </argushiigi:nextPattern>
-          </argushiigi:Pattern>
-        </argushiigi:usesPattern>
-      </argushiigi:Format>
-    </argushiigi:usesFormat>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#homeWorld">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/secondary-attributes"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Feature">
-    <argushiigi:usesFormat>
-      <argushiigi:Format rdf:about="http://data.travellerrpg.com/argushiigi/rpg/feature-format">
-        <argushiigi:usesValuePattern>
-          <argushiigi:Pattern>
-            <argushiigi:fromProperty>
-              <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/rpg#level">
-                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-              </owl:NamedIndividual>
-            </argushiigi:fromProperty>
-            <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-            >20</argushiigi:displayPriority>
-          </argushiigi:Pattern>
-        </argushiigi:usesValuePattern>
-        <argushiigi:usesLabelPattern>
-          <argushiigi:Pattern>
-            <argushiigi:fromProperty>
-              <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/rpg#inFeatureType">
-                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-              </owl:NamedIndividual>
-            </argushiigi:fromProperty>
-          </argushiigi:Pattern>
-        </argushiigi:usesLabelPattern>
-        <argushiigi:usesValuePattern>
-          <argushiigi:Pattern>
-            <argushiigi:fromProperty rdf:resource="http://data.travellerrpg.com/ontology/rpg#quantity"/>
-            <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-            >10</argushiigi:displayPriority>
-            <argushiigi:javaFormat>{0,number,00}</argushiigi:javaFormat>
-          </argushiigi:Pattern>
-        </argushiigi:usesValuePattern>
-      </argushiigi:Format>
-    </argushiigi:usesFormat>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Faculty">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/ontology/t5/faculties"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasPrice">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >10</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasMass">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >20</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#settingConcept">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/setting"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasFame">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/secondary-attributes"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasAttribute">
-    <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/argushiigi/t5/characteristic-format"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasStrength">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >30</argushiigi:displayPriority>
-  </rdf:Description>
   <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasIntelligence">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >70</argushiigi:displayPriority>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >70</argushiigi:priority>
   </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#geneticProfile">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/template"/>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasRace">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/secondary-attributes"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#birthWorld">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/secondary-attributes"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasFeature">
-    <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/feature-format"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Sense">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/ontology/t5/senses"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasAgility">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >60</argushiigi:displayPriority>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasDamage">
-    <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/rpg#state-format"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Skill">
-    <argushiigi:displayCategory rdf:resource="http://data.travellerrpg.com/ontology/t5/skills"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#isInState">
-    <argushiigi:usesFormat rdf:resource="http://data.travellerrpg.com/ontology/rpg#state-format"/>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#Continuation">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:SubPattern rdf:about="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern">
+                <argushiigi:format>
+                  <argushiigi:Format rdf:about="http://data.travellerrpg.com/ontology/argushiigi#event-date-format">
+                    <rdfs:comment xml:lang="en">A common format for dates of events</rdfs:comment>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:required rdf:datatype=
+                            "http://www.w3.org/2001/XMLSchema#boolean"
+                            >false</argushiigi:required>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#atAge"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:required rdf:datatype=
+                            "http://www.w3.org/2001/XMLSchema#boolean"
+                            >false</argushiigi:required>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/rpg#date"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+                <rdfs:comment xml:lang="en">A subpattern for common event times</rdfs:comment>
+              </argushiigi:SubPattern>
+            </rdf:li>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > continues</rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern rdf:about="http://data.travellerrpg.com/ontology/argushiigi#backstory-success">
+                <rdfs:comment xml:lang="en">This property is inherited by an object using a template</rdfs:comment>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#backstorySuccess"/>
+                            <argushiigi:javaFormat rdf:datatype=
+                            "http://www.w3.org/2001/XMLSchema#string"
+                            >{0,choice,0# Failed|1# Success}</argushiigi:javaFormat>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+              </argushiigi:SubPattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
   </rdf:Description>
   <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasDexterity">
-    <argushiigi:displayPriority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
-    >50</argushiigi:displayPriority>
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >50</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#homeWorld">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/secondary-attributes"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Skill">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/ontology/t5/skills"/>
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/rpg#inSkillType"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >-</rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:eHex rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</argushiigi:eHex>
+                <argushiigi:property>
+                  <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/rpg#level">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </owl:Thing>
+                </argushiigi:property>
+              </argushiigi:Pattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Attribute">
+    <argushiigi:category>
+      <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/t5#characteristic">
+        <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/attributes"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </owl:Thing>
+    </argushiigi:category>
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:eHex rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</argushiigi:eHex>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristic"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >20</argushiigi:priority>
+      </argushiigi:Format>
+    </argushiigi:format>
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristic"/>
+                <argushiigi:eHex rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</argushiigi:eHex>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > [</rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property>
+                  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/t5#characteristicGenerator">
+                    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/attributes"/>
+                  </owl:NamedIndividual>
+                </argushiigi:property>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >]</rdf:li>
+            <rdf:_3 rdf:datatype="http://www.w3.org/2001/XMLSchema#int"
+            >3</rdf:_3>
+          </rdf:Seq>
+        </argushiigi:pattern>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >10</argushiigi:priority>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#discriminator">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/template"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#birthWorld">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/secondary-attributes"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#Promotion">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > promoted to </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#rank"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern rdf:about="http://data.travellerrpg.com/ontology/argushiigi#append-label">
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >, </rdf:li>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:property rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+                <rdfs:comment xml:lang="en">This property is inherited by an object using a template</rdfs:comment>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+              </argushiigi:SubPattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasAgility">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >60</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasFame">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/secondary-attributes"/>
+  </rdf:Description>
+  <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/rpg#inFeatureType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </owl:Thing>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Faculty">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/ontology/t5/faculties"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#inherit">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/template"/>
+  </rdf:Description>
+  <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/t5#generator">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/attributes"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </owl:Thing>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#Education">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >10</argushiigi:priority>
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >20</argushiigi:priority>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > education</rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern rdf:about="http://data.travellerrpg.com/ontology/argushiigi#backstory-organisation">
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+                <rdfs:comment xml:lang="en">An optional organisation element in backstory</rdfs:comment>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >, </rdf:li>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/rpg#organisation"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+              </argushiigi:SubPattern>
+            </rdf:li>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >, major </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#educationMajor"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#backstory-success"/>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#append-label"/>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >10</argushiigi:priority>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > education</rdf:li>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#backstory-organisation"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >, major </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#educationMajor"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >, minor </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#educationMinor"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#backstory-success"/>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#append-label"/>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasStamina">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >40</argushiigi:priority>
+  </rdf:Description>
+  <argushiigi:Format>
+    <argushiigi:pattern>
+      <rdf:Seq>
+        <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        > enrolled </rdf:li>
+        <rdf:li>
+          <argushiigi:Pattern>
+            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#career"/>
+          </argushiigi:Pattern>
+        </rdf:li>
+        <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#backstory-organisation"/>
+        <rdf:li>
+          <argushiigi:SubPattern rdf:about="http://data.travellerrpg.com/ontology/argushiigi#backstory-rank">
+            <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+            >false</argushiigi:required>
+            <rdfs:comment xml:lang="en">An optional rank element in backstory</rdfs:comment>
+            <argushiigi:format>
+              <argushiigi:Format>
+                <argushiigi:pattern>
+                  <rdf:Seq>
+                    <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                    >, </rdf:li>
+                    <rdf:li>
+                      <argushiigi:Pattern>
+                        <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#rank"/>
+                      </argushiigi:Pattern>
+                    </rdf:li>
+                  </rdf:Seq>
+                </argushiigi:pattern>
+              </argushiigi:Format>
+            </argushiigi:format>
+          </argushiigi:SubPattern>
+        </rdf:li>
+        <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#backstory-success"/>
+        <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#append-label"/>
+      </rdf:Seq>
+    </argushiigi:pattern>
+  </argushiigi:Format>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#CharacterDamage">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#damageToCharacteristic"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristicDamage"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >, recovered </rdf:li>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristicRecovery"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+              </argushiigi:SubPattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >, permanent </rdf:li>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristicPermanentDamage"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+              </argushiigi:SubPattern>
+            </rdf:li>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#append-label"/>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#Injury">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > injury </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#hasDamage"/>
+                <argushiigi:multiple rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</argushiigi:multiple>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#append-label"/>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#Enrolment">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > enrolled </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#career"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#backstory-organisation"/>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#backstory-rank"/>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#backstory-success"/>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#append-label"/>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#backstory">
+    <argushiigi:category>
+      <rdf:Description rdf:about="http://data.travellerrpg.com/argushiigi/rpg/history">
+        <argushiigi:sortProperty rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#atAge"/>
+      </rdf:Description>
+    </argushiigi:category>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#Reward">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > awarded </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#awarded"/>
+                <argushiigi:multiple rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</argushiigi:multiple>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#append-label"/>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Date">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:SubPattern>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/rpg#dayOfYear"/>
+                            <argushiigi:javaFormat rdf:datatype=
+                            "http://www.w3.org/2001/XMLSchema#string"
+                            >{0,number,000}</argushiigi:javaFormat>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-</rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+              </argushiigi:SubPattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:javaFormat rdf:datatype=
+                            "http://www.w3.org/2001/XMLSchema#string"
+                            >{0,number,00}</argushiigi:javaFormat>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/rpg#dayOfMonth"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-</rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+              </argushiigi:SubPattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:javaFormat rdf:datatype=
+                            "http://www.w3.org/2001/XMLSchema#string"
+                            >{0,number,00}</argushiigi:javaFormat>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/rpg#month"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >-</rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+              </argushiigi:SubPattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:javaFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >{0,number,0000}</argushiigi:javaFormat>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/rpg#year"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#settingConcept">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/setting"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasPrice">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >10</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Sense">
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/ontology/t5/senses"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Feature">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:eHex rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</argushiigi:eHex>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/rpg#level"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property>
+                  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/ontology/rpg#quantity">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+                  </owl:NamedIndividual>
+                </argushiigi:property>
+              </argushiigi:Pattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >10</argushiigi:priority>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#hasMass">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >20</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#Damage">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#damageToCharacteristic"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristicDamage"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >, recovered </rdf:li>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristicRecovery"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+              </argushiigi:SubPattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >, permanent </rdf:li>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#characteristicPermanentDamage"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+              </argushiigi:SubPattern>
+            </rdf:li>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#append-label"/>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasStrength">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >30</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#Branch">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > branch </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#branch"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#Activity">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5/characters#activityType"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:SubPattern>
+                <argushiigi:required rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >false</argushiigi:required>
+                <argushiigi:format>
+                  <argushiigi:Format>
+                    <argushiigi:pattern>
+                      <rdf:Seq>
+                        <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >, </rdf:li>
+                        <rdf:li>
+                          <argushiigi:Pattern>
+                            <argushiigi:property rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
+                          </argushiigi:Pattern>
+                        </rdf:li>
+                      </rdf:Seq>
+                    </argushiigi:pattern>
+                  </argushiigi:Format>
+                </argushiigi:format>
+              </argushiigi:SubPattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Amount">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:javaFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >{0,number,###,##0.0}</argushiigi:javaFormat>
+                <argushiigi:property rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property>
+                  <owl:Thing rdf:about="http://data.travellerrpg.com/ontology/rpg#unit">
+                    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+                  </owl:Thing>
+                </argushiigi:property>
+              </argushiigi:Pattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+        <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+        >10</argushiigi:priority>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/rpg#Price">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/rpg#unit"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:javaFormat rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >{0,number,###,###,###,##0.00}</argushiigi:javaFormat>
+                <argushiigi:property rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+              </argushiigi:Pattern>
+            </rdf:li>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#hasDurability">
+    <argushiigi:priority rdf:datatype="http://www.w3.org/2001/XMLSchema#integer"
+    >100</argushiigi:priority>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#geneticProfile">
+    <rpg:inherit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+    >false</rpg:inherit>
+    <argushiigi:category rdf:resource="http://data.travellerrpg.com/argushiigi/rpg/template"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5/characters#Aging">
+    <argushiigi:format>
+      <argushiigi:Format>
+        <argushiigi:pattern>
+          <rdf:Seq>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#event-date-subpattern"/>
+            <rdf:li rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            > aging </rdf:li>
+            <rdf:li>
+              <argushiigi:Pattern>
+                <argushiigi:property rdf:resource="http://data.travellerrpg.com/ontology/t5#hasDamage"/>
+                <argushiigi:multiple rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean"
+                >true</argushiigi:multiple>
+              </argushiigi:Pattern>
+            </rdf:li>
+            <rdf:li rdf:resource="http://data.travellerrpg.com/ontology/argushiigi#append-label"/>
+          </rdf:Seq>
+        </argushiigi:pattern>
+      </argushiigi:Format>
+    </argushiigi:format>
   </rdf:Description>
 </rdf:RDF>
 

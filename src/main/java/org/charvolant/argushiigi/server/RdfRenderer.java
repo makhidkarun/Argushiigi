@@ -13,6 +13,7 @@ import java.util.Locale;
 
 import org.charvolant.argushiigi.ontology.Category;
 import org.charvolant.argushiigi.ontology.DisplaySorter;
+import org.restlet.Request;
 import org.restlet.data.Language;
 import org.restlet.data.Reference;
 import org.restlet.ext.rdf.Graph;
@@ -54,12 +55,13 @@ public class RdfRenderer extends Renderer {
    * @param locale The locale
    * @param sorter The sorter
    * @param application The application this is done for
+   * @param request The request to render
    * @param turtle Use turtle format for output (otherwise RDF/XML)
    * 
    * @throws Exception if unable to construct the renderer
    */
-  public RdfRenderer(Locale locale, DisplaySorter sorter, ServerApplication application, boolean turtle) throws Exception {
-    super(locale, sorter, application);
+  public RdfRenderer(Locale locale, DisplaySorter sorter, ServerApplication application, Request request, boolean turtle) throws Exception {
+    super(locale, sorter, application, request);
     this.turtle = turtle;
     this.graph = new Graph();  
   }

@@ -17,6 +17,7 @@ import org.charvolant.argushiigi.ontology.Argushiigi;
 import org.charvolant.argushiigi.ontology.Category;
 import org.charvolant.argushiigi.ontology.DisplaySorter;
 import org.charvolant.argushiigi.ontology.Text;
+import org.restlet.Request;
 import org.restlet.data.MediaType;
 import org.restlet.data.Reference;
 import org.restlet.ext.xml.DomRepresentation;
@@ -59,11 +60,12 @@ public class XmlRenderer extends Renderer implements HrefBuilder {
    * @param locale The locale
    * @param sorter The sorter
    * @param application The application this is done for
+   * @param request The request to render
    * 
    * @throws Exception if unable to construct the renderer
    */
-  public XmlRenderer(Locale locale, DisplaySorter sorter, ServerApplication application) throws Exception {
-    super(locale, sorter, application);
+  public XmlRenderer(Locale locale, DisplaySorter sorter, ServerApplication application, Request request) throws Exception {
+    super(locale, sorter, application, request);
     this.representation = new DomRepresentation(MediaType.TEXT_XML);
     this.document = this.representation.getDocument();
     this.representation.setLanguages(this.getLanguages());

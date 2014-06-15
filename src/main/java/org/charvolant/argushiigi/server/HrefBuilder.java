@@ -22,7 +22,7 @@ import org.restlet.data.Reference;
  */
 public interface HrefBuilder {
   /**
-   * Convert a uri into a resolvable reference.
+   * Convert a reference into a resolvable URI.
    * 
    * @param ref The reference
    * 

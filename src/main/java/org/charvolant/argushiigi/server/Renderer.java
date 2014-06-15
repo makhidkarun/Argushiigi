@@ -15,6 +15,7 @@ import java.util.Locale;
 import org.charvolant.argushiigi.ontology.Category;
 import org.charvolant.argushiigi.ontology.CategoryVisitor;
 import org.charvolant.argushiigi.ontology.DisplaySorter;
+import org.restlet.Request;
 import org.restlet.data.Language;
 import org.restlet.representation.Representation;
 
@@ -38,6 +39,8 @@ abstract public class Renderer implements CategoryVisitor {
   protected Locale locale;
   /** The display sorter */
   protected DisplaySorter sorter;
+  /** The request being rendered for */
+  protected Request request;
   /** The application */
   protected ServerApplication application;
   /** The resource comparator */
@@ -51,15 +54,17 @@ abstract public class Renderer implements CategoryVisitor {
    * @param locale The locale to render in
    * @param sorter The sorter to use when ordering elements
    * @param application The server application
+   * @param request The request
    * 
    * @throws Exception if unable to build some sub element
    */
-  public Renderer(Locale locale, DisplaySorter sorter, ServerApplication application) throws Exception {
+  public Renderer(Locale locale, DisplaySorter sorter, ServerApplication application, Request request) throws Exception {
     super();
     this.resource = null;
     this.locale = locale;
     this.sorter = sorter;
     this.application = application;
+    this.request = request;
     this.resourceComparator = this.sorter.getResourceComparator(this.locale);
     this.statementComparator = this.sorter.getStatementComparator(this.locale);
   }

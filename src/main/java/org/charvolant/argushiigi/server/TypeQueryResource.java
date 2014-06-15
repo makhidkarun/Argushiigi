@@ -41,6 +41,7 @@ import com.hp.hpl.jena.vocabulary.RDF;
  *
  */
 public class TypeQueryResource extends ServerResource {
+  @SuppressWarnings("unused")
   private static final Logger logger = LoggerFactory.getLogger(TypeQueryResource.class);
 
   public static final String PARAM_TYPE = "type";

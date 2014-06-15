@@ -8,14 +8,10 @@
 package org.charvolant.argushiigi.ontology;
 
 import java.text.Collator;
-import java.text.DateFormat;
-import java.text.MessageFormat;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -26,7 +22,6 @@ import java.util.Set;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.hp.hpl.jena.datatypes.xsd.XSDDateTime;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
@@ -62,8 +57,9 @@ import com.hp.hpl.jena.vocabulary.RDFS;
  */
 public class DisplaySorter implements Comparator<Resource> {
   /** The logger for this display sorter */
+  @SuppressWarnings("unused")
   private static final Logger logger = LoggerFactory.getLogger(DisplaySorter.class);
-  
+
   /** The URI of the top catch-all category for display */
   public static final String TOP_URI = "http://data.travellerrpg.com/argushiigi/top";
   /** The URI of the reference category for display */
@@ -83,14 +79,20 @@ public class DisplaySorter implements Comparator<Resource> {
   private List<Property> nameOrder;
   /** The category map */
   private Map<Resource, Resource> categories;
-  /** The format map */
-  private Map<Resource, Resource> formats;
+  /** The label format map */
+  private Map<Resource, List<Format>> labelFormats;
+  /** The value format map */
+  private Map<Resource, List<Format>> valueFormats;
   /** The priority list */
   private Map<Resource, Integer> priorities;
   /** The property order */
   private Map<Resource, Integer> propertyOrder;
   /** The class order */
   private Map<Resource, Integer> classOrder;
+  /** Inheritable properties */
+  private Map<Property, Boolean> inherits;
+  /** The default format to use */
+  private AbstractFormat defaultFormat;
 
   /**
    * Construct with a source model.
@@ -108,6 +110,8 @@ public class DisplaySorter implements Comparator<Resource> {
     this.top = this.model.createResource(this.TOP_URI);
     this.reference = this.model.createResource(this.REFERENCE_URI);
     this.name = this.model.createResource(this.NAME_URI);
+    this.defaultFormat = new DefaultFormat();
+    this.inherits = new HashMap<Property, Boolean>();
     this.buildPriorityMap();
     this.buildCategoryMap();
     this.buildFormatMap();
@@ -137,7 +141,7 @@ public class DisplaySorter implements Comparator<Resource> {
   public Resource getReference() {
     return this.reference;
   }
-  
+
 
   /**
    * Get the categories.
@@ -171,13 +175,11 @@ public class DisplaySorter implements Comparator<Resource> {
    */
   private void addBottoms(Set<Resource> bottoms, Resource type, Property exclude) {
     StmtIterator si = this.model.listStatements(null, RDF.type, type);
-    StmtIterator ss;
     Resource r;
 
     while (si.hasNext()) {
       r = si.next().getSubject();
-      ss = this.model.listStatements(null, exclude, r);
-      if (!ss.hasNext())
+      if (!this.model.contains(null, exclude, r))
         bottoms.add(r);
     }
   }
@@ -187,7 +189,7 @@ public class DisplaySorter implements Comparator<Resource> {
    * Build a map for some property.
    * <p>
    * Work upwards through super-classes and super-properties, breadth-first
-   * until a specific property is discovered. Also builds a lattice of 
+   * until a specific property is discovered.
    * 
    * @param map The map to fill out
    * @param property The property to use
@@ -252,9 +254,90 @@ public class DisplaySorter implements Comparator<Resource> {
         while (si.hasNext()) nwork.add(si.next().getResource());
         si = this.model.listStatements(wr, RDFS.subClassOf, (Resource) null);
         while (si.hasNext()) nwork.add(si.next().getResource());
-     }
+      }
       work = nwork;
     }
+  }
+
+  /**
+   * Build a list map for some property.
+   * <p>
+   * Work upwards through super-classes and super-properties, breadth-first
+   * until a specific property is discovered. If there are multiple entries,
+   * then a list of entries, sorted by priority is built.
+   * <p>
+   * Note that if there is already a map entry for a resource then it
+   * is not added to.
+   * 
+   * @param map The map to fill out
+   * @param property The property to use
+   * @param comparator The comparator to use when deciding between candidates
+   */
+  synchronized private void buildFormatMap(Map<Resource, List<Format>> map, Property property) {
+    Set<Resource> work, nwork, supers, nsupers;
+    StmtIterator si;
+    Format current;
+    List<Format> candidate, list;
+
+    si = this.model.listStatements(null, property, (Resource) null);
+    while (si.hasNext()) {
+      Statement s = si.next();
+
+      if (s.getSubject().isAnon())
+        continue;
+      current = new Format(s.getResource());
+      list = map.get(s.getSubject());
+      if (list == null) {
+        list = new ArrayList<Format>();
+        map.put(s.getSubject(), list);
+      }
+      list.add(current);
+    }
+    work = new HashSet<Resource>();
+    this.addBottoms(work, RDF.Property, RDFS.subPropertyOf);
+    this.addBottoms(work, OWL.AnnotationProperty, RDFS.subPropertyOf);
+    this.addBottoms(work, OWL.DatatypeProperty, RDFS.subPropertyOf);
+    this.addBottoms(work, OWL.ObjectProperty, RDFS.subPropertyOf);
+    this.addBottoms(work, RDFS.Class, RDFS.subClassOf);
+    this.addBottoms(work, OWL.Class, RDFS.subClassOf);
+    while (!work.isEmpty()) {
+      nwork = new HashSet<Resource>(work.size() * 2);
+      for (Resource wr: work) {
+        if (!map.containsKey(wr)) {
+          candidate = null;
+          supers = new HashSet<Resource>();
+          supers.add(wr);
+          while (candidate == null && !supers.isEmpty()) {
+            nsupers = new HashSet<Resource>();
+            for (Resource sr: supers) {
+              list = map.get(sr);
+              if (list != null) {
+                if (candidate == null)
+                  candidate = new ArrayList<Format>(list);
+                else
+                  candidate.addAll(list);
+              }
+              if (candidate == null) {
+                si = this.model.listStatements(sr, RDFS.subPropertyOf, (Resource) null);
+                while (si.hasNext()) nsupers.add(si.next().getResource());
+                si = this.model.listStatements(sr, RDFS.subClassOf, (Resource) null);
+                while (si.hasNext()) nsupers.add(si.next().getResource());
+              }
+            }
+            supers = nsupers;
+          }
+          if (candidate != null)
+            map.put(wr, candidate);
+        }
+        si = this.model.listStatements(wr, RDFS.subPropertyOf, (Resource) null);
+        while (si.hasNext()) nwork.add(si.next().getResource());
+        si = this.model.listStatements(wr, RDFS.subClassOf, (Resource) null);
+        while (si.hasNext()) nwork.add(si.next().getResource());
+      }
+      work = nwork;
+    }
+    for (List<Format> v: map.values())
+      Collections.sort(v);
   }
 
 
@@ -268,7 +351,7 @@ public class DisplaySorter implements Comparator<Resource> {
     this.priorities = new HashMap<Resource, Integer>();
     this.buildMap(
         this.priorities, 
-        Argushiigi.displayPriority, 
+        Argushiigi.priority, 
         Integer.class, 
         new Comparator<Integer>() {
           @Override
@@ -299,7 +382,7 @@ public class DisplaySorter implements Comparator<Resource> {
     this.categories = new HashMap<Resource, Resource>();
     this.buildMap(
         this.categories, 
-        Argushiigi.displayCategory, 
+        Argushiigi.category, 
         Resource.class, 
         new Comparator<Resource>() {
           @Override
@@ -327,28 +410,11 @@ public class DisplaySorter implements Comparator<Resource> {
    * until a category or priority is discovered.
    */
   synchronized private void buildFormatMap() {
-    this.formats = new HashMap<Resource, Resource>();
-    this.buildMap(
-        this.formats, 
-        Argushiigi.usesFormat, 
-        Resource.class, 
-        new Comparator<Resource>() {
-          @Override
-          public int compare(Resource o1, Resource o2) {
-            return DisplaySorter.this.compare(o1, o2);
-          }
-        }, 
-        null);
-  }
-
-  /**
-   * Add a new format to the format map.
-   * 
-   * @param r The resource
-   * @param format The resource format
-   */
-  synchronized private void addFormat(Resource r, Resource format) {
-    this.formats.put(r, format);
+    this.labelFormats = new HashMap<Resource, List<Format>>();
+    this.buildFormatMap(this.labelFormats, Argushiigi.labelFormat);
+    this.valueFormats = new HashMap<Resource, List<Format>>();
+    this.buildFormatMap(this.valueFormats, Argushiigi.valueFormat);
+    this.buildFormatMap(this.valueFormats, Argushiigi.format);
   }
 
   /**
@@ -373,7 +439,7 @@ public class DisplaySorter implements Comparator<Resource> {
     this.nameOrder.add(this.model.createProperty(RDFS.label.getURI()));
     Collections.sort(this.nameOrder, this);
   }
-  
+
   /**
    * Build an order based on a subXxxOf relationship.
    * <p>
@@ -391,15 +457,15 @@ public class DisplaySorter implements Comparator<Resource> {
     Map<Resource, Integer> result;
     StmtIterator si;
     int index;
-    
+
     for (Resource type: types)
       this.addBottoms(work, type, sub);
     while (!work.isEmpty()) {
       order.addAll(work);
       nwork = new HashSet<Resource>(work.size() * 2 + 1);
       for (Resource wr: work) {
-      si = this.model.listStatements(wr, sub, (Resource) null);
-      while (si.hasNext()) nwork.add(si.next().getResource());
+        si = this.model.listStatements(wr, sub, (Resource) null);
+        while (si.hasNext()) nwork.add(si.next().getResource());
       }
       work = nwork;
     }
@@ -408,9 +474,9 @@ public class DisplaySorter implements Comparator<Resource> {
     for (Resource r: order)
       result.put(r, index++);
     return result;
-   
+
   }
-  
+
   /**
    * Build the property order, for which properties are
    * lowest in the property hierarchy.
@@ -418,7 +484,7 @@ public class DisplaySorter implements Comparator<Resource> {
   private void buildPropertyOrder() {
     this.propertyOrder = this.buildOrder(RDFS.subPropertyOf, RDF.Property, OWL.AnnotationProperty, OWL.DatatypeProperty, OWL.ObjectProperty);
   }
-  
+
   /**
    * Build the class order, for which classes are
    * lowest in the class hierarchy.
@@ -426,7 +492,7 @@ public class DisplaySorter implements Comparator<Resource> {
   private void buildClassOrder() {
     this.classOrder = this.buildOrder(RDFS.subClassOf, RDFS.Class, OWL.Class);
   }
-  
+
   /**
    * Find the category of the resource.
    * <p>
@@ -453,7 +519,7 @@ public class DisplaySorter implements Comparator<Resource> {
 
     if (category != null)
       return category;
-    category = resource.getPropertyResourceValue(Argushiigi.displayCategory);
+    category = resource.getPropertyResourceValue(Argushiigi.category);
     if (category != null) {
       this.addCategory(resource, category);
       return category;
@@ -506,8 +572,8 @@ public class DisplaySorter implements Comparator<Resource> {
 
     if (cached != null)
       return cached;
-    if (resource.hasProperty(Argushiigi.displayPriority)) {
-      priority = resource.getProperty(Argushiigi.displayPriority).getInt();
+    if (resource.hasProperty(Argushiigi.priority)) {
+      priority = resource.getProperty(Argushiigi.priority).getInt();
       this.addPriority(resource, priority);
       return priority;
     }
@@ -528,13 +594,31 @@ public class DisplaySorter implements Comparator<Resource> {
     this.addPriority(resource, priority);
     return priority; 
   }
+  
+  /**
+   * Is this a template-inheritable property?
+   * 
+   * @param property The property
+   * 
+   * @return True if the property is inherited
+   */
+  public boolean inherit(Property property) {
+    Boolean inherit = this.inherits.get(property);
+    
+    if (inherit != null)
+      return inherit;
+    synchronized (this.inherits) {
+      inherit = !this.model.containsLiteral(property, RPG.inherit, false);
+      this.inherits.put(property, inherit);
+    }
+    return inherit;
+  }
 
   /**
-   * Find the format of the resource.
+   * Find the a list of possible formats of the resource.
    * <p>
    * Formats are chosen according to the following order:
    * <ol>
-   * <li>If the resource has a category specified, then that category is used.</li>
    * <li>If the resource is a class, then the super-classes are explored in the same way.</li>
    * <li>Otherwise the classes of the resource are explored.</li>
    * <li>If all else fails, then there is no format (null).</li>
@@ -543,34 +627,29 @@ public class DisplaySorter implements Comparator<Resource> {
    * The search is breadth-first, so the lowest super-object that has a specific format is
    * chosen. Formats are cached, for efficiency.
    * 
+   * @param map The format map
    * @param resource The resource to find a format for
+   * @param properties Properties to seacrh
    * 
    * @return The resource format
    */
-  public Resource format(Resource resource) {
-    Resource format = this.formats.get(resource);
-    Resource candidate = null;
+  private List<Format> getFormats(Map<Resource, List<Format>> map, Resource resource) {
+    List<Format> format = map.get(resource);
     StmtIterator si = null;
 
-    if (format != null || this.formats.containsKey(resource))
+    if (format != null || map.containsKey(resource))
       return format;
-    format = resource.getPropertyResourceValue(Argushiigi.usesFormat);
-    if (format != null) {
-      this.addFormat(resource, format);
-      return format;
-    }
     if (
         !resource.hasProperty(RDF.type, RDFS.Class) && 
         !resource.hasProperty(RDF.type, OWL.Class)
         ) {
       si = resource.listProperties(RDF.type);
-      while (si.hasNext()) {
-        candidate = this.format(si.next().getResource());
-        if (format == null || (candidate != null && this.compare(candidate, format) < 0))
-          format = candidate;
-      }
+      while (si.hasNext() && format == null)
+        format = map.get(si.next().getResource());
     }
-    this.addFormat(resource, format);
+    synchronized (map) {
+      map.put(resource, format);
+    }
     return format; 
   }
 
@@ -695,159 +774,6 @@ public class DisplaySorter implements Comparator<Resource> {
     return tc;
   }
 
-  /**
-   * Format a resource according to a pattern.
-   * <p>
-   * The pattern is defined as a chain of {@link Argushiigi#Pattern}
-   * resources, linked by {@link Argushiigi#nextPattern}.
-   * <p>
-   * If the pattern has a {@link Argushiigi#fromProperty} defined,
-   * then the pattern succeeds only if that property is present,
-   * in which case the value of the property is used, unless a literal is specified.
-   * If the pattern has a {@link Argushiigi#literal} defined, then
-   * the literal value is used.
-   * Literal values are used directly.
-   * Resources are formatted according to their own formatters.
-   * <p>
-   * If the pattern has a {@link Argushiigi#javaFormat} defined, then that
-   * is used to format the result, with argument 0 being the value,
-   * argument 1 being the property name (according to {@link #getName(Resource, Locale)})
-   * and argument 2 being the resource name.
-   * 
-   * @param resource The resource to format
-   * @param predicate The predicate used with the format
-   * @param locale The locale to use
-   * @param pattern The first pattern to format
-   * 
-   * @return The resulting text if able to format the resource according to this pattern or null if unable to format.
-   */
-  public Text formatValue(RDFNode value, Property predicate, Locale locale, Resource pattern) {
-    RDFNode original = value;
-    String format = null;
-    String propertyName = null;
-    String subjectName = null;
-    Statement s;
-    Text text = null, next;
-
-    s = pattern.getProperty(Argushiigi.javaFormat);
-    if (s != null)
-      format = s.getString();
-    s = pattern.getProperty(Argushiigi.fromProperty);
-    if (s != null && value.isResource()) {
-      Resource resource = value.asResource();
-      Property property = s.getObject().as(Property.class);
-
-      s = resource.getProperty(property);
-      if (s == null)
-        return null;
-      propertyName = this.getName(property, locale);
-      subjectName = this.getName(resource, locale);
-      value = s.getObject();
-    }
-    s = pattern.getProperty(Argushiigi.literal);
-    if (s != null)
-      value = s.getObject();
-    if (propertyName == null && predicate != null) {
-      propertyName = this.getName(predicate, locale);
-      if (propertyName == null)
-        propertyName = predicate.getLocalName();
-    }
-    if (format != null) {
-      MessageFormat mf = new MessageFormat(format, locale);
-      Object obj;
-
-      if (value.isResource()) {
-        obj = this.formatValue(value, predicate, locale);
-      } else {
-        obj = value.asLiteral().getValue();
-        if (obj instanceof XSDDateTime)
-          obj = ((XSDDateTime) obj).asCalendar().getTime();
-      }
-      try {
-        text = new LiteralText(mf.format(new Object[] { obj,  propertyName,  subjectName }));
-      } catch (Exception ex) {
-        this.logger.warn("Unable for format " + obj + " with " + format);
-        return new LiteralText(obj == null ? "null" : obj.toString());
-      }
-    } else {
-      text = this.formatValue(value, predicate, locale);
-    }
-    if (text == null)
-      return null;
-    pattern = pattern.getPropertyResourceValue(Argushiigi.nextPattern);
-    if (pattern == null)
-      return text;
-    next = this.formatValue(original, predicate, locale, pattern);
-    return next == null ? null : Text.compose(text, next);
-  }
-
-  /**
-   * Format a value.
-   * <p>
-   * If the value is a literal, then the literal is formatted
-   * according to locale-specific rules for the literal type.
-   * <p>
-   * If the resource has no format, then the name of the resource
-   * as defined by {@link #getName(Resource, Locale)} is appended.
-   * If the resource has a format, then patterns, defined by {@link Argushiigi#usesPattern} are tried
-   * until one succeeds.
-   * 
-   * @param value The resource to format
-   * @param locale The locale to use
-   * 
-   * @return The value text if successfully formatted or null if unsuccessful
-   */
-  public Text formatValue(RDFNode value, Property predicate, Locale locale) {    
-    if (value.isLiteral()) {
-      Object literal = value.asLiteral().getValue();
-
-      if (literal instanceof String) {
-        return new LiteralText((String) literal);
-
-      }
-      if (literal instanceof Integer) {
-        NumberFormat format = NumberFormat.getNumberInstance(locale);
-
-        return new LiteralText(format.format(literal));
-      }
-      if (literal instanceof Number) {
-        NumberFormat format = NumberFormat.getNumberInstance(locale);
-
-        return new LiteralText(format.format(literal));
-      }
-      if (literal instanceof XSDDateTime)
-        literal = ((XSDDateTime) literal).asCalendar().getTime();
-      if (literal instanceof Date) {
-        DateFormat format = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, locale);
-
-        return new LiteralText(format.format(literal));
-      }
-    } else {
-      Resource resource = value.asResource();
-      Resource format = this.format(resource);
-      StmtIterator pi;
-      List<Resource> patterns;
-      String name;
-      Text text = null;
-
-      if (format != null) {
-        pi = format.listProperties(Argushiigi.usesPattern);
-        patterns = new ArrayList<Resource>();
-        while (pi.hasNext()) patterns.add(pi.next().getResource());
-        Collections.sort(patterns, this);
-        for (Resource pattern: patterns) {
-          if ((text = this.formatValue(resource, predicate, locale, pattern)) != null)
-            break;
-        }
-      }
-      if (text == null && (name = this.getName(resource, locale)) != null) {
-        text = new LiteralText(name);
-      }
-      if (text != null)
-        return new LinkText(resource.getURI(), text);
-    }
-    return new LiteralText(value.toString());
-  }
 
   /**
    * Format a statement label.
@@ -865,30 +791,8 @@ public class DisplaySorter implements Comparator<Resource> {
   public Text formatStatementLabel(Statement statement, Locale locale) {
     Property predicate = statement.getPredicate();
     RDFNode object = statement.getObject();
-    Resource format = this.format(predicate);
-    List<Resource> patterns;
-    StmtIterator si;
-    Text text;
-    String name;
-
-    if (format != null) {
-      si = format.listProperties(Argushiigi.usesLabelPattern);
-      patterns = new ArrayList<Resource>();
-      while (si.hasNext()) patterns.add(si.next().getResource());
-      Collections.sort(patterns, this);
-      for (Resource pattern: patterns) {
-        if ((text = this.formatValue(object, predicate, locale, pattern)) != null)
-          return new LinkText(predicate.getURI(), text);
-       }
-    }
-    name = this.getName(predicate, locale);
-    if (name == null)
-      name = predicate.getLocalName();
-    if (name == null)
-      name = predicate.toString();
-    if (name != null)
-      return new LinkText(predicate.getURI(), new LiteralText(name));
-    return null;
+    
+    return formatLabel(predicate, object, locale);
   }
 
   /**
@@ -905,27 +809,62 @@ public class DisplaySorter implements Comparator<Resource> {
    * @return The resulting DOM object, or null for not formatted
    */
   public Text formatStatementValue(Statement statement, Locale locale, boolean reference) {
-    Property predicate = statement.getPredicate();
     RDFNode object = reference ? statement.getSubject() : statement.getObject();
-    Resource format = this.format(predicate);
-    List<Resource> patterns;
-    StmtIterator si;
-    Text text;
-
-    if (format != null) {
-      si = format.listProperties(Argushiigi.usesValuePattern);
-      patterns = new ArrayList<Resource>();
-      while (si.hasNext()) patterns.add(si.next().getResource());
-      Collections.sort(patterns, this);
-      for (Resource pattern: patterns) {
-        if ((text =  this.formatValue(object, predicate, locale, pattern)) != null)        
-          return text;
-      }
-    }
-    if ((text = this.formatValue(object, predicate, locale)) != null)
-      return text;
-    return new LiteralText(object.toString());
+    
+    return this.format(object, locale);
   }
+  
+  /**
+   * Format a statement label.
+   * <p>
+   * If a resource has a format then that is used against the statement object.
+   * Otherwise, the predicate label is used.
+   * 
+   * @param node The node to format
+   * @param locale The locale to format against
+   * 
+   * @return The formatted value, or null for none
+   */
+  public Text formatLabel(Property predicate, RDFNode node, Locale locale) {
+    List<Format> formats;
+    Text text = null;
+    
+    formats = this.getFormats(this.labelFormats, predicate);
+    if (formats != null)
+      for (Format format: formats)
+        if ((text = format.format(node, this, locale)) != null)
+          return text;
+    return new LinkText(predicate.getURI(), new LiteralText(this.getName(predicate, locale)));
+    }
+
+  /**
+   * Format a node.
+   * <p>
+   * Literals are formatted into a default pattern.
+   * If a resource has a format then that is used.
+   * Resources with URIs link to the URI.
+   * Anonymous resources
+   * 
+   * @param node The node to format
+   * @param locale The locale to format against
+   * 
+   * @return The formatted value, or null for none
+   */
+  public Text format(RDFNode node, Locale locale) {
+    Resource resource;
+    List<Format> formats;
+    Text text = null;
+    
+    if (node.isLiteral())
+      return AbstractFormat.defaultLiteral(node.asLiteral(), locale);
+    resource = node.asResource();
+    formats = this.getFormats(this.valueFormats, resource);
+    if (formats != null)
+      for (Format format: formats)
+        if ((text = format.format(node, this, locale)) != null)
+          return text;
+    return this.defaultFormat.format(node, this, locale);
+    }
 
   /**
    * Get a resource comparator for sorting.
@@ -1058,7 +997,7 @@ public class DisplaySorter implements Comparator<Resource> {
     public int compare(Resource o1, Resource o2) {
       Integer p1 = DisplaySorter.this.classOrder.get(o1);
       Integer p2 = DisplaySorter.this.classOrder.get(o2);
-      
+
       if (p1 != null && p2 != null) {
         return p1.intValue() - p2.intValue();
       }
@@ -1066,7 +1005,7 @@ public class DisplaySorter implements Comparator<Resource> {
         return 1;
       if (o2.isAnon() && !o1.isAnon())
         return -1;
-       if (p1 != null && p2 == null)
+      if (p1 != null && p2 == null)
         return -1;
       if (p1 == null && p2 != null)
         return 1;
@@ -1090,13 +1029,13 @@ public class DisplaySorter implements Comparator<Resource> {
     public int compare(Statement o1, Statement o2) {
       Integer p1 = DisplaySorter.this.propertyOrder.get(o1.getPredicate());
       Integer p2 = DisplaySorter.this.propertyOrder.get(o2.getPredicate());
-      
+
       if (p1 != null && p2 != null) {
         int r = p1.intValue() - p2.intValue();
         if (r == 0 && o1.getObject().isResource() && o2.getObject().isResource()) {
           p1 = DisplaySorter.this.classOrder.get(o1.getResource());
           p2 = DisplaySorter.this.classOrder.get(o1.getResource());
-          
+
           if (p1 != null && p2 != null)
             r = p1.intValue() - p2.intValue();
         }

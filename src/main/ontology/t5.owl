@@ -239,6 +239,11 @@ Races act as templates, giving typical features and capabilities for a member of
   <owl:Class rdf:ID="DistanceBand">
     <rdfs:subClassOf rdf:resource="#Scale"/>
   </owl:Class>
+  <owl:Class rdf:ID="Damage">
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#EntityState"/>
+    <rdfs:label xml:lang="en">Damage</rdfs:label>
+    <rdfs:comment xml:lang="en">Damage sustained by an entity. Different types of entity suffer damage in different ways</rdfs:comment>
+  </owl:Class>
   <owl:Class rdf:ID="Subsector">
     <rdfs:comment xml:lang="en">A sub-sector of space covering approximately 10pc</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Place"/>
@@ -289,6 +294,38 @@ Races act as templates, giving typical features and capabilities for a member of
     <rdfs:comment xml:lang="en">Physical power</rdfs:comment>
     <rdfs:subClassOf rdf:resource="#C1"/>
     <rdfs:label xml:lang="en">Strength</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="CharacterDamage">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="characteristicDamage"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:DatatypeProperty rdf:ID="characteristicPermanentDamage"/>
+        </owl:onProperty>
+        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:maxCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="#Damage"/>
+    <rdfs:label xml:lang="en">Character Damage</rdfs:label>
+    <rdfs:comment xml:lang="en">Damage sustained by a character</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="damageToCharacteristic"/>
+        </owl:onProperty>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
   </owl:Class>
   <owl:Class rdf:about="#SkillType">
     <rdfs:comment xml:lang="en">A Traveller 5 skill</rdfs:comment>
@@ -384,6 +421,12 @@ Races act as templates, giving typical features and capabilities for a member of
     <rdfs:range rdf:resource="#Agility"/>
     <rdfs:label xml:lang="en">has agility</rdfs:label>
   </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#damageToCharacteristic">
+    <rdfs:comment xml:lang="en">The characteristic that has been damaged</rdfs:comment>
+    <rdfs:label xml:lang="en">damage to characteristic</rdfs:label>
+    <rdfs:domain rdf:resource="#CharacterDamage"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="knowledgeOf">
     <skos:altLabel xml:lang="en">knowledge subject</skos:altLabel>
     <skos:scopeNote rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
@@ -427,6 +470,7 @@ Races act as templates, giving typical features and capabilities for a member of
         </owl:unionOf>
       </owl:Class>
     </rdfs:domain>
+    <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#template"/>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasSanity">
     <rdfs:subPropertyOf>
@@ -492,6 +536,13 @@ Races act as templates, giving typical features and capabilities for a member of
     <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#hasAttribute"/>
     <rdfs:label xml:lang="en">has C4</rdfs:label>
     <rdfs:domain rdf:resource="http://data.travellerrpg.com/ontology/rpg#Character"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasDamage">
+    <rdfs:range rdf:resource="#Damage"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >has damage</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#hasState"/>
+    <rdfs:comment xml:lang="en">Indicates that an entity has suffered damage</rdfs:comment>
   </owl:ObjectProperty>
   <owl:ObjectProperty rdf:ID="hasPsionics">
     <rdfs:subPropertyOf rdf:resource="#hasCP"/>
@@ -587,6 +638,21 @@ Races act as templates, giving typical features and capabilities for a member of
     <rdfs:comment xml:lang="en">Indicates that a game activity uses a specific skill type.</rdfs:comment>
     <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/rpg#SkillType"/>
   </rdf:Property>
+  <owl:DatatypeProperty rdf:about="#characteristicPermanentDamage">
+    <rdfs:label xml:lang="en">characteristic permanent damage</rdfs:label>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="#characteristicDamage"/>
+    </rdfs:subPropertyOf>
+    <rdfs:comment xml:lang="en">Permanent, unrecoverage damge</rdfs:comment>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="#characteristicDamage">
+    <rdfs:domain rdf:resource="#CharacterDamage"/>
+    <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#level"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#quantity"/>
+    <rdfs:comment xml:lang="en">The value of a characteristic</rdfs:comment>
+    <rdfs:label xml:lang="en">characteristic damage</rdfs:label>
+  </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="hasMinimumCS">
     <rdfs:comment xml:lang="en">The minimum C+S required for an activity </rdfs:comment>
     <rdfs:label xml:lang="en">has minimum C+S </rdfs:label>
@@ -625,6 +691,15 @@ All dice are six-sided.</rdfs:comment>
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       </owl:NamedIndividual>
     </rdfs:seeAlso>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="characteristicRecovery">
+    <rdfs:domain rdf:resource="#CharacterDamage"/>
+    <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#level"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#quantity"/>
+    <rdfs:label xml:lang="en">characteristic damage</rdfs:label>
+    <rdfs:comment xml:lang="en">The amount recovery from a level of damage</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="#characteristicDamage"/>
   </owl:DatatypeProperty>
   <owl:DatatypeProperty rdf:ID="characteristic">
     <rdfs:subPropertyOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#level"/>
@@ -1879,9 +1954,9 @@ All dice are six-sided.</rdfs:comment>
     </skos:broader>
   </SkillType>
   <SkillType rdf:about="http://data.travellerrpg.com/rules/t5/skills/language">
-    <skos:scopeNote xml:lang="en">Specific settings will have knowledges that refer to a specific language.</skos:scopeNote>
+    <rdfs:comment xml:lang="en">Knowledge of (and fluency in) a specific language</rdfs:comment>
     <rdfs:label xml:lang="en">Language</rdfs:label>
-    <rdfs:comment xml:lang="en">Skill in games for stakes</rdfs:comment>
+    <skos:scopeNote xml:lang="en">Specific settings will have knowledges that refer to a specific language.</skos:scopeNote>
     <rdfs:isDefinedBy rdf:resource="http://data.travellerrpg.com/publication/traveller-5/core"/>
     <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/skills"/>
     <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/skills/personal"/>
@@ -1956,6 +2031,24 @@ All dice are six-sided.</rdfs:comment>
     <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/worlds"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </WorldClassification>
+  <owl:AllDifferent>
+    <owl:distinctMembers rdf:parseType="Collection">
+      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/dice-conventions/dice-modifier">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/dice-conventions"/>
+        <skos:prefLabel xml:lang="en">DM</skos:prefLabel>
+        <rdfs:comment xml:lang="en">A modification to the result of a dice throw.</rdfs:comment>
+        <rdfs:label xml:lang="en">Dice Modifier</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:Concept>
+      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/dice-conventions/modifier">
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/dice-conventions"/>
+        <rdfs:seeAlso rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/Target"/>
+        <rdfs:comment xml:lang="en">A change to the target number.</rdfs:comment>
+        <rdfs:label xml:lang="en">Modifier</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:Concept>
+    </owl:distinctMembers>
+  </owl:AllDifferent>
   <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-10">
     <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/scales/orbital/outer-system"/>
     <skos:prefLabel xml:lang="en">10</skos:prefLabel>
@@ -2690,24 +2783,6 @@ All dice are six-sided.</rdfs:comment>
     <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/scales/fame"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
   </Fame>
-  <owl:AllDifferent>
-    <owl:distinctMembers rdf:parseType="Collection">
-      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/dice-conventions/dice-modifier">
-        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/dice-conventions"/>
-        <skos:prefLabel xml:lang="en">DM</skos:prefLabel>
-        <rdfs:comment xml:lang="en">A modification to the result of a dice throw.</rdfs:comment>
-        <rdfs:label xml:lang="en">Dice Modifier</rdfs:label>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </skos:Concept>
-      <skos:Concept rdf:about="http://data.travellerrpg.com/rules/t5/dice-conventions/modifier">
-        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/dice-conventions"/>
-        <rdfs:seeAlso rdf:resource="http://data.travellerrpg.com/publication/Traveller5Core/DiceConventions/Target"/>
-        <rdfs:comment xml:lang="en">A change to the target number.</rdfs:comment>
-        <rdfs:label xml:lang="en">Modifier</rdfs:label>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </skos:Concept>
-    </owl:distinctMembers>
-  </owl:AllDifferent>
   <WorldClassification rdf:about="http://data.travellerrpg.com/rules/t5/worlds/vacuum">
     <rpg:referenceMaterial rdf:resource="http://wiki.travellerrpg.com/Trade_classification"/>
     <rdfs:label xml:lang="en">Vacuum World</rdfs:label>
