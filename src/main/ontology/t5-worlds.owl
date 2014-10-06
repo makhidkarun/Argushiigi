@@ -1,0 +1,1131 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:t5="http://data.travellerrpg.com/ontology/t5#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:worlds="http://data.travellerrpg.com/ontology/t5/worlds#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+  xml:base="http://data.travellerrpg.com/ontology/t5/worlds">
+  <owl:Ontology rdf:about="">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Created with TopBraid Composer</owl:versionInfo>
+    <owl:imports rdf:resource="http://data.travellerrpg.com/ontology/t5"/>
+  </owl:Ontology>
+  <owl:Class rdf:ID="SpectralType">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:comment xml:lang="en">The spectral type of a star</rdfs:comment>
+    <rdfs:label xml:lang="en">Spectral Type </rdfs:label>
+    <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Stellar_classification"/>
+  </owl:Class>
+  <owl:Class rdf:ID="GalacticRegion">
+    <rdfs:label xml:lang="en">Galactic Region</rdfs:label>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A region of the galaxy, used to describe the level of density of stars {@en{</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:ID="CompanionStar">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="RemoteStar"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="OuterStar"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="InnerStar"/>
+    </owl:disjointWith>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:hasValue>
+          <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-0"/>
+        </owl:hasValue>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="inOrbit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class rdf:ID="SecondaryStar"/>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Companion Star</rdfs:label>
+    <rdfs:comment xml:lang="en">A star that is a very close companion of a primary star</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SecondaryStar"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#InnerStar">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#RemoteStar"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#OuterStar"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#CompanionStar"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-1"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-2"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-3"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-4"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-5"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:equivalentClass>
+      <owl:Class rdf:about="#SecondaryStar"/>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Inner Star</rdfs:label>
+    <rdfs:comment xml:lang="en">A seconadry start within the innner system of the primary star</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SecondaryStar"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="StellarSize">
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Stellar_classification#Yerkes_spectral_classification"/>
+    <rdfs:label xml:lang="en">Stellar Size</rdfs:label>
+    <rdfs:comment xml:lang="en">A stellar size classification</rdfs:comment>
+    <skos:altLabel xml:lang="en">Luminosity class</skos:altLabel>
+  </owl:Class>
+  <owl:Class rdf:about="#RemoteStar">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#OuterStar"/>
+    </owl:disjointWith>
+    <rdfs:label xml:lang="en">Remote Star</rdfs:label>
+    <owl:disjointWith rdf:resource="#CompanionStar"/>
+    <rdfs:comment xml:lang="en">A secondary start within the remote system of the primary star</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Class rdf:about="#SecondaryStar"/>
+    </owl:equivalentClass>
+    <owl:disjointWith rdf:resource="#InnerStar"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SecondaryStar"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-13"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-14"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-15"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-16"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-17"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-18"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-19"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#SecondaryStar">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Star"/>
+    </rdfs:subClassOf>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#inOrbit"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <rdfs:label xml:lang="en">Secondary Star</rdfs:label>
+    <rdfs:comment xml:lang="en">A star that is gravitationally bound to a larger, primary star</rdfs:comment>
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >1</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:ID="primaryStar"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="System">
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Place"/>
+    <rdfs:comment xml:lang="en">A star system </rdfs:comment>
+    <rdfs:label xml:lang="en">System </rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="#OuterStar">
+    <owl:disjointWith rdf:resource="#RemoteStar"/>
+    <owl:disjointWith rdf:resource="#InnerStar"/>
+    <owl:disjointWith rdf:resource="#CompanionStar"/>
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-6"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-7"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-8"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-9"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-10"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-11"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Restriction>
+            <owl:hasValue>
+              <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-12"/>
+            </owl:hasValue>
+            <owl:onProperty>
+              <owl:FunctionalProperty rdf:about="#inOrbit"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:unionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+    <owl:equivalentClass rdf:resource="#SecondaryStar"/>
+    <rdfs:comment xml:lang="en">A secondary start within the outer system of the primary star</rdfs:comment>
+    <rdfs:label xml:lang="en">Outer Star</rdfs:label>
+    <rdfs:subClassOf rdf:resource="#SecondaryStar"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Star">
+    <rdfs:subClassOf rdf:resource="http://data.travellerrpg.com/ontology/rpg#Place"/>
+    <rdfs:comment xml:lang="en">A star in a star system</rdfs:comment>
+    <rdfs:label xml:lang="en">Star </rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:ID="PrimaryStar">
+    <owl:equivalentClass>
+      <owl:Restriction>
+        <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"
+        >0</owl:cardinality>
+        <owl:onProperty>
+          <owl:FunctionalProperty rdf:about="#primaryStar"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </owl:equivalentClass>
+    <owl:equivalentClass rdf:resource="#Star"/>
+    <rdfs:label xml:lang="en">Primary Star</rdfs:label>
+    <rdfs:comment xml:lang="en">The primarr star of a system</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="#Star"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Orbit">
+    <rdfs:comment xml:lang="en">A an orbit around a star or other body. An orbit represents a general order of planets/moons/other bodies, rather than a specific distance.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+    <rdfs:label xml:lang="en">Orbit</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="hasStellarSize">
+    <rdfs:comment xml:lang="en">The size classification of a star</rdfs:comment>
+    <rdfs:domain rdf:resource="#Star"/>
+    <rdfs:label xml:lang="en">stellar size</rdfs:label>
+    <rdfs:range rdf:resource="#StellarSize"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="mainworld">
+    <rdfs:comment xml:lang="en">The main world of a star system</rdfs:comment>
+    <rdfs:label xml:lang="en">mainworld </rdfs:label>
+    <rdfs:domain rdf:resource="#System"/>
+    <rdfs:range rdf:resource="http://data.travellerrpg.com/ontology/t5#World"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="hasSpectralType">
+    <rdfs:range rdf:resource="#SpectralType"/>
+    <rdfs:domain rdf:resource="#Star"/>
+    <rdfs:label xml:lang="en">spectral type</rdfs:label>
+    <rdfs:comment xml:lang="en">The spectral type of a star</rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="inGalacticRegion">
+    <rdfs:range rdf:resource="#GalacticRegion"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#Sector"/>
+          <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#Subsector"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="en">galactic region </rdfs:label>
+    <rdfs:comment xml:lang="en">The general region that an area of the galaxy is in </rdfs:comment>
+  </owl:ObjectProperty>
+  <owl:FunctionalProperty rdf:ID="companionStar">
+    <rdfs:range rdf:resource="#Star"/>
+    <rdfs:domain rdf:resource="#Star"/>
+    <rdfs:comment xml:lang="en">A minor star that is very close to its primary star, to the point that it can be treated as part of the stellar mass. </rdfs:comment>
+    <rdfs:label xml:lang="en">companion star</rdfs:label>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#inOrbit">
+    <rdfs:range rdf:resource="#Orbit"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Star"/>
+          <rdf:Description rdf:about="http://data.travellerrpg.com/ontology/t5#World"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:label xml:lang="en">orbit</rdfs:label>
+    <rdfs:comment xml:lang="en">The orbit a star or world is in</rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:about="#primaryStar">
+    <rdfs:label xml:lang="en">primary star</rdfs:label>
+    <rdfs:comment xml:lang="en">The primary star of a secondary, tertiary or lower-order star. </rdfs:comment>
+  </owl:FunctionalProperty>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O0">
+    <skos:broader>
+      <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O">
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/O-type_star"/>
+        <skos:broader>
+          <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/spectral-type">
+            <rdfs:label xml:lang="en">Spectral Type </rdfs:label>
+            <rdfs:comment xml:lang="en">The top-level spectral type concept</rdfs:comment>
+            <skos:inScheme>
+              <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types">
+                <rdfs:comment xml:lang="en">The special types of star</rdfs:comment>
+                <skos:hasTopConcept rdf:resource="http://data.travellerrpg.com/rules/spectral-types/spectral-type"/>
+                <rdfs:label xml:lang="en">Spectral Type</rdfs:label>
+                <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+              </skos:ConceptScheme>
+            </skos:inScheme>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </worlds:SpectralType>
+        </skos:broader>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >O</rdfs:label>
+        <rdfs:comment xml:lang="en">Blue stars</rdfs:comment>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </worlds:SpectralType>
+    </skos:broader>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O0</rdfs:label>
+    <rdfs:comment xml:lang="en">The hottest O-type star</rdfs:comment>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:GalacticRegion rdf:about="http://data.travellerrpg.com/rules/galactic-regions/dense">
+    <rdfs:label xml:lang="en">Dense</rdfs:label>
+    <skos:inScheme>
+      <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/galactic-regions">
+        <rdfs:label xml:lang="en">Galactic Regions</rdfs:label>
+        <rdfs:comment xml:lang="en">The types of galactic regions</rdfs:comment>
+        <skos:hasTopConcept>
+          <worlds:GalacticRegion rdf:about="http://data.travellerrpg.com/rules/galactic-regions/galactic-region">
+            <rdfs:comment xml:lang="en">A generic galactic region</rdfs:comment>
+            <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/galactic-regions"/>
+            <rdfs:label xml:lang="en">Galactic Region</rdfs:label>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </worlds:GalacticRegion>
+        </skos:hasTopConcept>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+      </owl:NamedIndividual>
+    </skos:inScheme>
+    <rdfs:comment xml:lang="en">Denser star density than normal for a galactic arm</rdfs:comment>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/galactic-regions/galactic-region"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:GalacticRegion>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G0">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G0</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader>
+      <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >G</rdfs:label>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/spectral-type"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+        <rdfs:comment xml:lang="en">Yellow stars</rdfs:comment>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/G-type_main-sequence_star"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </worlds:SpectralType>
+    </skos:broader>
+    <rdfs:comment xml:lang="en">The hottest G-type star</rdfs:comment>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K8">
+    <skos:broader>
+      <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K">
+        <rdfs:comment xml:lang="en">Orange stars</rdfs:comment>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/spectral-type"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >G</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/K-type_main-sequence_star"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </worlds:SpectralType>
+    </skos:broader>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K8</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A4">
+    <skos:broader>
+      <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A">
+        <rdfs:comment xml:lang="en">White stars</rdfs:comment>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/spectral-type"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >A</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/A-type_main-sequence_star"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </worlds:SpectralType>
+    </skos:broader>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A4</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B6">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B6</rdfs:label>
+    <skos:broader>
+      <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B">
+        <rdfs:comment xml:lang="en">Blue-white stars</rdfs:comment>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/spectral-type"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >B</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/B-type_main-sequence_star"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </worlds:SpectralType>
+    </skos:broader>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:SpectralType>
+  <worlds:GalacticRegion rdf:about="http://data.travellerrpg.com/rules/galactic-regions/scattered">
+    <rdfs:comment xml:lang="en">Areas in the galaxy with scattered stars</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/galactic-regions"/>
+    <rdfs:label xml:lang="en">Scattered</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/galactic-regions/galactic-region"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:GalacticRegion>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O1">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O1</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/O"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G1">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/G"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G1</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K9">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/K"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K9</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A5">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/A"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A5</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B7">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B7</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/B"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:SpectralType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K6">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/K"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K6</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B4">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/B"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B4</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A2">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A2</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/A"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K7">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/K"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K7</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A3">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A3</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/A"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B5">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B5</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/B"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:SpectralType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A9">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/A"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A9</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M0">
+    <rdfs:comment xml:lang="en">The hottest M-type star</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader>
+      <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M">
+        <rdfs:comment xml:lang="en">Red stars</rdfs:comment>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/spectral-type"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Red_dwarf"/>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Red_giant"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >M</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </worlds:SpectralType>
+    </skos:broader>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M0</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O4">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/O"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O4</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F2">
+    <skos:broader>
+      <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F">
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >F</rdfs:label>
+        <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/spectral-type"/>
+        <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+        <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/F-type_main-sequence_star"/>
+        <rdfs:comment xml:lang="en">Yellow-white stars</rdfs:comment>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </worlds:SpectralType>
+    </skos:broader>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F2</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G4">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G4</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/G"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A8">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A8</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/A"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:StellarSize rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes/II">
+    <skos:altLabel xml:lang="en">Bright Giant</skos:altLabel>
+    <skos:inScheme>
+      <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes">
+        <rdfs:comment xml:lang="en">The size classifications of stars</rdfs:comment>
+        <rdfs:label xml:lang="en">Stellar Sizes</rdfs:label>
+        <skos:hasTopConcept>
+          <worlds:StellarSize rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes/stellar-size">
+            <rdfs:label xml:lang="en">Stellar Size</rdfs:label>
+            <rdfs:comment xml:lang="en">The top-level stellar size concept</rdfs:comment>
+            <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes"/>
+            <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+          </worlds:StellarSize>
+        </skos:hasTopConcept>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </skos:ConceptScheme>
+    </skos:inScheme>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes/stellar-size"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >II</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:StellarSize>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M1">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/M"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M1</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O5">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/O"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O5</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G5">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/G"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G5</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F3">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F3</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/F"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:GalacticRegion rdf:about="http://data.travellerrpg.com/rules/galactic-regions/extra-galactic">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/galactic-regions"/>
+    <rdfs:label xml:lang="en">Extra Galactic</rdfs:label>
+    <rdfs:comment xml:lang="en">Outside the galaxy</rdfs:comment>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/galactic-regions/galactic-region"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:GalacticRegion>
+  <worlds:GalacticRegion rdf:about="http://data.travellerrpg.com/rules/galactic-regions/standard">
+    <rdfs:label xml:lang="en">Standard</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/galactic-regions"/>
+    <rdfs:comment xml:lang="en">Standard star sensity for a galactic arm</rdfs:comment>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/galactic-regions/galactic-region"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:GalacticRegion>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O2">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O2</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/O"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F0">
+    <rdfs:comment xml:lang="en">The hottest F-type star</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F0</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/F"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G2">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/G"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G2</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:StellarSize rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes/IV">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >IV</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes/stellar-size"/>
+    <skos:altLabel xml:lang="en">Subgiant</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:StellarSize>
+  <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B8">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B8</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/B"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:SpectralType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A6">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/A"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A6</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O3">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O3</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/O"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F1">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F1</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/F"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G3">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G3</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/G"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A7">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A7</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/A"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B9">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B9</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/B"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:SpectralType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M4">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/M"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M4</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K0">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K0</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/K"/>
+    <rdfs:comment xml:lang="en">The hottest K-type star</rdfs:comment>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O8">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/O"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O8</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F6">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F6</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/F"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G8">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G8</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/G"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:StellarSize rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes/VII">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VII</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes/stellar-size"/>
+    <skos:altLabel xml:lang="en">White dwarf</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:StellarSize>
+  <worlds:Orbit rdf:about="http://data.travellerrpg.com/rules/t5/scales/orbital/orbital-20"/>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K1">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/K"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K1</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M5">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/M"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M5</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O9">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/O"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O9</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G9">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G9</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/G"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F7">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F7</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/F"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/galactic-regions/rift">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/galactic-regions"/>
+    <rdfs:label xml:lang="en">Rift</rdfs:label>
+    <rdfs:comment xml:lang="en">Areas between the arms of the galaxy</rdfs:comment>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/galactic-regions/galactic-region"/>
+    <rdf:type rdf:resource="#GalacticRegion"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O6">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/O"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O6</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M2">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/M"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M2</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F4">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/F"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F4</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G6">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/G"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G6</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M3">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/M"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M3</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/O7">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >O7</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/O"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F5">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F5</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/F"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/G7">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >G7</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/G"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:StellarSize rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes/Ia">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes/stellar-size"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ia</rdfs:label>
+    <skos:altLabel xml:lang="en">Luminous Supergiant</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:StellarSize>
+  <skos:ConceptScheme rdf:about="http://data.travellerrpg.com/rules/t5/orbits">
+    <rdfs:comment xml:lang="en">The orbit indexes of stars</rdfs:comment>
+    <rdfs:label xml:lang="en">Orbits</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </skos:ConceptScheme>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M8">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M8</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/M"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K4">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/K"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K4</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A0">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/A"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:comment xml:lang="en">The hottest A-type star</rdfs:comment>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A0</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B2">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B2</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/B"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:StellarSize rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes/VI">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >VI</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes/stellar-size"/>
+    <skos:altLabel xml:lang="en">Subdwarf</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:StellarSize>
+  <worlds:StellarSize rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes/Ib">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes/stellar-size"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes"/>
+    <skos:altLabel xml:lang="en">Less-luminous Supergiant</skos:altLabel>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ib</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:StellarSize>
+  <worlds:SpectralType rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/BD">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >BD</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/spectral-type"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:seeAlso rdf:resource="http://en.wikipedia.org/wiki/Brown_dwarf"/>
+    <rdfs:comment xml:lang="en">Brown dwarf stars. Covering spectral classifications L, T and Y</rdfs:comment>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:SpectralType>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K5">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K5</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/K"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:GalacticRegion rdf:about="http://data.travellerrpg.com/rules/galactic-regions/core">
+    <rdfs:comment xml:lang="en">Densely packed stars at a level equivalent to the galactic core.</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/galactic-regions"/>
+    <rdfs:label xml:lang="en">Standard</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/galactic-regions/galactic-region"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:GalacticRegion>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M9">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/M"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M9</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/A1">
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/A"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >A1</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B3">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B3</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/B"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:GalacticRegion rdf:about="http://data.travellerrpg.com/rules/galactic-regions/sparse">
+    <rdfs:label xml:lang="en">Sparse</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/galactic-regions"/>
+    <rdfs:comment xml:lang="en">Areas in the galaxy with sparser than normal density</rdfs:comment>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/galactic-regions/galactic-region"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:GalacticRegion>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K2">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K2</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/K"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:StellarSize rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes/V">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >V</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes/stellar-size"/>
+    <skos:altLabel xml:lang="en">Main sequence star</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:StellarSize>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M6">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M6</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/M"/>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B0">
+    <rdfs:comment xml:lang="en">The hottest B-type star</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B0</rdfs:label>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/B"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F8">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F8</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/F"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:GalacticRegion rdf:about="http://data.travellerrpg.com/rules/galactic-regions/cluster">
+    <rdfs:comment xml:lang="en">Densely packed stars, similar to a stellar cluster</rdfs:comment>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/galactic-regions"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/galactic-regions/galactic-region"/>
+    <rdfs:label xml:lang="en">Cluster</rdfs:label>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:GalacticRegion>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/M7">
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/M"/>
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >M7</rdfs:label>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/K3">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >K3</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/K"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <worlds:StellarSize rdf:about="http://data.travellerrpg.com/rules/t5/stellar-sizes/III">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >III</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/stellar-sizes/stellar-size"/>
+    <skos:altLabel xml:lang="en">Giant</skos:altLabel>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </worlds:StellarSize>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/B1">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >B1</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/B"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="http://data.travellerrpg.com/rules/t5/spectral-types/F9">
+    <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >F9</rdfs:label>
+    <skos:inScheme rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types"/>
+    <skos:broader rdf:resource="http://data.travellerrpg.com/rules/t5/spectral-types/F"/>
+    <rdf:type rdf:resource="#SpectralType"/>
+  </owl:NamedIndividual>
+</rdf:RDF>
+
+<!-- Created with TopBraid -->

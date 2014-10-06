@@ -7,7 +7,6 @@
  */
 package org.charvolant.argushiigi.server;
 
-import java.net.URLEncoder;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.logging.Level;

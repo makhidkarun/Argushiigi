@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xsi:schemaLocation="http://maven.apache.org/DECORATION/1.4.0 http://maven.apache.org/xsd/decoration-1.4.0.xsd"
+  name="Argushiigi" xmlns="http://maven.apache.org/DECORATION/1.4.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <bannerLeft>
+    <name>Argushiigi</name>
+    <src>images/logo2-64.png</src>
+    <href>http://makhidkarun.github.io/Argushiigi</href>
+  </bannerLeft>
+  <bannerRight>
+    <name>Argushiigi Traveller 5 Ontology</name>
+  </bannerRight>
+  <publishDate />
+  <version />
+  <body>
+<!--     <menu ref="parent" /> -->
+    <menu name="Overview">
+      <item name="Introduction" href="index.html" />
+      <item name="FAQ" href="faq.html" />
+    </menu>
+    <menu name="Ontologies">
+      <item name="Argushiigi" href="dossier/argushiigi.html" />
+      <item name="Generic RPG" href="dossier/rpg.html" />
+      <item name="Traveller 5 Core" href="dossier/t5.html" />
+      <item name="Traveller 5 Characters" href="dossier/t5-characters.html" />
+    </menu>
+    <menu ref="reports" />
+  </body>
+</project>
+

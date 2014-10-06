@@ -6,6 +6,7 @@
     xmlns:t5="http://data.travellerrpg.com/ontology/t5#"
     xmlns:owl="http://www.w3.org/2002/07/owl#"
     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:rpg="http://data.travellerrpg.com/ontology/rpg#Attribute"
     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
   xml:base="http://data.travellerrpg.com/ontology/t5/characters">

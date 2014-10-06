@@ -1,0 +1,14 @@
+Argushiigi
+
+  Argushiigi is an ontology, data resources and linked open data server for the 
+  {{{http://www.traveller5.net/} Traveller 5}} or T5 role playing game.
+  
+  Argushiigi is several things:
+ 
+  * An OWL ontology describing Traveller5
+
+  * Data about the Traveller5 universe and Third Imperium in RDF
+
+  * A web server that formats and serves the data and ontology in various formats
+
+ For more information about Traveller and Argushiigi see the {{{./faq.html} FAQ}}. 

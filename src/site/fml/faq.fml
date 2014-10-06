@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+  title="Frequently Asked Questions"
+  toplink="false">
+
+  <part id="traveller">
+    <title>Traveller</title>
+
+    <faq id="whats-traveller">
+      <question>
+        What is Traveller?
+      </question>
+      <answer>
+        <p>
+          Traveller is one of the first role-playing games.
+          Originally published in 1977 by Game Designers Workshop, 
+          the game has had a number of versions and editions since then.
+          Traveller was originally written by Marc M. Miller.
+        </p>
+        <p>
+          Traveller allows for generic space-opera setting.
+          However, most Traveller adventures and the standard setting for Traveller
+          is the Third Imperium, a massive, sprawling space empire, set approximately
+          3,500 years in the future.
+        </p>
+        <ul>
+          <li><a href="http://en.wikipedia.org/wiki/Traveller_%28role-playing_game%29">Wikipedia article</a></li>
+          <li><a href="http://wiki.travellerrpg.com/Main_Page">Traveller wiki</a></li>
+          <li><a href="http://www.travellerrpg.com/CotI/Discuss/">Citizens of the Imperium Traveller forum</a></li>
+        </ul>
+      </answer>
+    </faq>
+
+    <faq id="whats-traveller-5">
+      <question>
+        What is Traveller<sup>5</sup>?
+      </question>
+      <answer>
+        <p>
+          Traveller<sup>5</sup> (or T5) is (as of 2013) the latest edition of Traveller,
+          also written by Marc M. Miller and published by Far Future Enterprises.
+          The core rules (aka "The big black book") provide game mechanics
+        </p>
+        <p>
+        </p>
+        <ul>
+          <li><a href="http://www.farfuture.net/">Far Future Enterprises</a></li>
+        </ul>
+        
+      </answer>
+    </faq>
+  </part>
+
+  <part id="argushiigi">
+
+    <title>Argushiigi</title>
+
+    <faq id="whats-argushiigi">
+      <question>
+        What is Argushiigi?
+      </question>
+      <answer>
+        <p>
+          Argushiigi is several things:
+        </p>
+        <ul>
+          <li>An <em>OWL</em> ontology describing Traveller<sup>5</sup></li>
+          <li>Data about the Traveller<sup>5</sup> universe and Third Imperium in <em>RDF</em></li>
+          <li>A web server that formats and serves the data and ontology in various formats</li>
+        </ul>
+        <p>
+          The main aim of Argushiigi is to provide a way of describing T5 characters, objects, worlds,
+          etc. in such a way that machines can unambigiously read information about these things
+          without the need for special formats.
+          The RDF way of describing data makes it relatively easy to extend information about something,
+          so that individual campaign settings and house rules can be handled without difficulty.
+          Encoding data using ontologies and RDF allows Traveller resources to be placed on
+          the <em>semantic web</em>, making it possible to locate and use Traveller resources.
+          Using <em>linked open data</em> principles allows many users to link resources together,
+          reusing information that has already be developed.
+        </p>
+        <p>
+          Some of these terms probably require some explanation.
+          Read on ...
+        </p>
+        <ul>
+          <li><a href="http://www.travellerrpg.com/CotI/Discuss/showthread.php?t=30041">Traveller ontology thread at Citizens of the Imperium</a></li>
+        </ul>
+      </answer>
+    </faq>
+    <faq id="whats-semantic-web">
+      <question>
+        What is the semantic web?
+      </question>
+      <answer>
+        <p>
+          The semantic web is a movement led by the W3C to convert the current web of
+          unstructured and semi-structured documents into a web of data.
+        </p>
+        <ul>
+          <li><a href="http://www.w3.org/standards/semanticweb/">W3C Semantic Web</a></li>
+          <li><a href="http://en.wikipedia.org/wiki/Semantic_Web">Wikipedia article</a></li>
+        </ul>
+      </answer>
+    </faq>
+    <faq id="whats-rdf">
+      <question>
+        What is RDF?
+      </question>
+      <answer>
+        <p>
+          The Resource Description Framework (RDF) is the basic way of describing
+          resources on the semantic web.
+          Essentially, RDF allows you to make statements about resources (either real things,
+          things on the web or purely imaginary constructs) using subject-verb-object statements. 
+        </p>
+        <p>
+          Characters, objects etc. in the T5 universe are identified by URIs (think
+          extended URLs).
+          Information about a specific item in the T5 universe can be stored
+          by linking these URLs to other informaion.
+          For example, the world Regina may be identified by
+          <code>http://data.travellerrpg.com/setting/traveller/third-imperium/sector/spinward-marches/subsector/regina/world/regina</code>.
+          From there, we can link the type of thing Regina is (a T5 World), information about the nature of the world,
+          such as its size, and links to other resources, such as its subsector.
+        </p>
+        <ul>
+          <li><a href="http://www.w3.org/RDF/">W3C RDF</a></li>
+          <li><a href="http://en.wikipedia.org/wiki/Resource_Description_Framework">Wikipedia article</a></li>
+        </ul>
+      </answer>
+    </faq>
+    <faq id="whats-owl">
+      <question>
+        What is OWL?
+      </question>
+      <answer>
+        <p>
+          The Web Ontology Language (OWL) provides a way of describing the vocabularies
+          used to make statements in RDF.
+          OWL also allows you to link vocabulary information together (eg. a Desert World is also
+          a World) and allows a machine reasoner to deduce implied information about something.
+        </p>
+        <p>
+          Argushiigi uses OWL to describe <em>how</em> something like a character, a starship or
+          a world should be described.
+        </p>
+        <ul>
+          <li><a href="http://www.w3.org/TR/owl2-overview/">W3C OWL 2</a></li>
+          <li><a href="http://en.wikipedia.org/wiki/Web_Ontology_Language">Wikipedia article</a></li>
+        </ul>
+      </answer>
+    </faq>
+    <faq id="whats-lod">
+      <question>
+        What is Linked Open Data?
+      </question>
+      <answer>
+        <p>
+          Linked Open Data (LOD) is a set of principles that allow information to be shared.
+          In theory the URIs used by RDF do not have to be resolvable in the sense that
+          you can put them into a browser and get information back.
+          LOD allows the URIs to be resolvable and feed back information about the resource
+          -- in human readble form for humans and a machine readable form for machines.
+        </p>
+        <p>
+          Argushiigi uses LOD principles so that someone using Argushiigi can simply
+          link to a concept (such as a Naval rank) that has already been defined, rather
+          than carrying about a (probably stale) copy of the information.
+        </p>
+        <ul>
+          <li><a href="http://linkeddata.org/">Linked Data</a></li>
+          <li><a href="http://en.wikipedia.org/wiki/Linked_data">Wikipedia article</a></li>
+        </ul>
+      </answer>
+    </faq>
+    <faq id="why-argushiigi">
+      <question>
+        Why is it called Argushiigi?
+      </question>
+      <answer>
+        <p>
+          Argushiigi Admegulasha Bilanidin, AAB, or the
+          "Vilani Repository of All Knowledge" in the Vilani language, is
+          an organisation in the Third Imperium.
+          It seemed like a good name for something that is intended to encode Traveller<sup>5</sup>.
+        </p>
+        <ul>
+          <li><a href="http://wiki.travellerrpg.com/Argushiigi_Admegulasha_Bilanidin">AAB article</a></li>
+        </ul>
+      </answer>
+    </faq>
+
+  </part>
+
+</faqs>

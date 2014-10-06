@@ -7,10 +7,6 @@
  */
 package org.charvolant.argushiigi.ontology;
 
-import java.text.DateFormat;
-import java.text.MessageFormat;
-import java.text.NumberFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import com.hp.hpl.jena.rdf.model.RDFNode;

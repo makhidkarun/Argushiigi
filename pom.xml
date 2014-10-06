@@ -4,16 +4,61 @@
   <groupId>org.charvolant.argushiigi</groupId>
   <artifactId>web</artifactId>
   <packaging>war</packaging>
-  <version>0.1-alpha</version>
+  <version>0.2-SNAPSHOT</version>
   <name>Argushiigi Traveller ontology and linked open data</name>
-  <url>https://github.com/makhidkarun/Argushiigi</url>
+  <url>http://makhidkarun.github.io/Argushiigi</url>
   <description>An ontology for Traveller 5, as well as a linked open data source for Traveller concepts.</description>
   <properties>
     <junit.version>4.8.1</junit.version>
     <jstl.version>1.2</jstl.version>
-    <jena.version>2.10.0</jena.version>
+    <jena.version>2.12.0</jena.version>
+    <jena.tools.version>0.6</jena.tools.version>
     <restlet.version>2.1.2</restlet.version>
+    <github.global.server>github</github.global.server>
+    <dossier.version>0.1.0</dossier.version>
   </properties>
+  <organization>
+    <name>charvolant.org</name>
+    <url>http://www.charvolant.org</url>
+  </organization>
+  <inceptionYear>2013</inceptionYear>
+
+  <scm>
+    <connection>scm:git:https://github.com/makhidkarun/Argushiigi.git</connection>
+    <url>https://github.com/makhidkarun/Argushiigi</url>
+    <developerConnection>scm:git:https://github.com/makhidkarun/Argushiigi.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>http://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+      <comments>Argushiigi source code</comments>
+    </license>
+    <license>
+      <name>Far Future Enterprises Fair Use Policy</name>
+      <url>http://www.farfuture.net/FFEFairUsePolicy2008.pdf</url>
+      <distribution>manual</distribution>
+      <comments>Traveller 5</comments>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <name>Doug Palmer</name>
+      <email>doug@charvolant.org</email>
+      <organization>charvolant.org</organization>
+      <organizationUrl>http://www.charvolant.org</organizationUrl>
+      <timezone>Australia/Sydney</timezone>
+      <roles>
+        <role>Principal Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <issueManagement>
+    <url>https://github.com/makhidkarun/Argushiigi/issues</url>
+    <system>Github Issues</system>
+  </issueManagement>
 
   <dependencies>
     <dependency>
@@ -76,9 +121,9 @@
       <version>3.2.1</version>
     </dependency>
     <dependency>
-        <groupId>com.github.jsonld-java</groupId>
-        <artifactId>jsonld-java</artifactId>
-        <version>0.4.1</version>
+      <groupId>com.github.jsonld-java</groupId>
+      <artifactId>jsonld-java</artifactId>
+      <version>0.4.1</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -120,7 +165,7 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-       <plugin>
+      <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.0</version>
@@ -154,48 +199,37 @@
         </executions>
       </plugin>
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
+        <groupId>org.apache.jena</groupId>
+        <artifactId>jena-maven-tools</artifactId>
+        <configuration>
+          <includes>
+            <include>${basedir}/src/main/ontology/argushiigi.owl</include>
+            <include>${basedir}/src/main/ontology/rpg.owl</include>
+          </includes>
+          <fileOptions>
+            <source>
+              <input>default</input>
+              <output>${project.build.directory}/generated-sources/java</output>
+              <package-name>org.charvolant.argushiigi.ontology</package-name>
+              <ontology>true</ontology>
+              <lang-owl>true</lang-owl>
+            </source>
+            <source>
+              <input>${basedir}/src/main/ontology/argushiigi.owl</input>
+              <className>Argushiigi</className>
+            </source>
+            <source>
+              <input>${basedir}/src/main/ontology/rpg.owl</input>
+              <className>RPG</className>
+            </source>
+          </fileOptions>
+        </configuration>
         <executions>
-           <execution>
-            <id>generate-Argushiigi</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>java</goal>
-            </goals>
-            <configuration>
-              <mainClass>jena.schemagen</mainClass>
-              <commandlineArgs>
-                --owl \
-                --inference \
-                --ontology \
-                -i ${basedir}/src/main/ontology/argushiigi.owl \
-                -a http://data.travellerrpg.com/ontology/argushiigi# \
-                --package org.charvolant.argushiigi.ontology \
-                -o ${project.build.directory}/generated-sources/java \
-                -n Argushiigi
-              </commandlineArgs>
-            </configuration>
-          </execution>
           <execution>
-            <id>generate-RPG</id>
-            <phase>generate-sources</phase>
+            <id>schemagen</id>
             <goals>
-              <goal>java</goal>
+              <goal>translate</goal>
             </goals>
-            <configuration>
-              <mainClass>jena.schemagen</mainClass>
-              <commandlineArgs>
-                --owl \
-                --inference \
-                --ontology \
-                -i ${basedir}/src/main/ontology/rpg.owl \
-                -a http://data.travellerrpg.com/ontology/rpg# \
-                --package org.charvolant.argushiigi.ontology \
-                -o ${project.build.directory}/generated-sources/java \
-                -n RPG
-              </commandlineArgs>
-            </configuration>
           </execution>
         </executions>
       </plugin>
@@ -216,7 +250,7 @@
           </execution>
         </executions>
       </plugin>
-     <plugin>
+      <plugin>
         <groupId>org.lesscss</groupId>
         <artifactId>lesscss-maven-plugin</artifactId>
         <version>1.3.3</version>
@@ -232,10 +266,40 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.charvolant</groupId>
+        <artifactId>dossier-maven-plugin</artifactId>
+        <version>0.2.0-SNAPSHOT</version>
+        <configuration>
+          <ontologies>
+            <directory>src/main/ontology</directory>
+            <includes>
+              <include>argushiigi.owl</include>
+              <include>rpg.owl</include>
+              <include>t5.owl</include>
+              <include>t5-characters.owl</include>
+            </includes>
+          </ontologies>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>document</goal>
+            </goals>
+            <phase>site</phase>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        <plugin>
+          <groupId>org.apache.jena</groupId>
+          <artifactId>jena-maven-tools</artifactId>
+          <version>${jena.tools.version}</version>
+        </plugin>
+        <!--This plugin's configuration is used to store Eclipse m2e settings 
+          only. It has no influence on the Maven build itself. -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
@@ -276,4 +340,54 @@
       </plugins>
     </pluginManagement>
   </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.7</version>
+        <configuration>
+          <linkOnly>true</linkOnly>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>index</report>
+              <report>summary</report>
+              <report>project-team</report>
+              <report>issue-tracking</report>
+              <report>license</report>
+              <report>scm</report>
+              <!-- <report>dependencies</report> -->
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+  <profiles>    
+    <profile>
+      <id>deploy-site</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.github.github</groupId>
+            <artifactId>site-maven-plugin</artifactId>
+            <version>0.10</version>
+            <configuration>
+              <message>Creating site for ${project.version}</message>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>site</goal>
+                </goals>
+                <phase>site</phase>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
