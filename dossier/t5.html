@@ -1,0 +1,2228 @@
+<!DOCTYPE html><html xmlns:dossier="http://www.charvolant.org/dossier#">
+<head>
+<title>t5</title>
+<link rel="Stylesheet" type="text/css" href="css/dossier.css"/>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div id="header">
+<div id="left-header">
+<a title="Main index" href="index.html">
+<span>Home</span>
+</a>
+</div>
+<div id="centre-header">
+<div id="title">t5</div>
+</div>
+<div id="right-header">&nbsp;</div>
+</div>
+<div class="toc">
+<ul>
+<li>
+<a href="#Agility">Agility</a>
+</li>
+<li>
+<a href="#AtmosphereType">AtmosphereType</a>
+</li>
+<li>
+<a href="#Burden">Burden</a>
+</li>
+<li>
+<a href="#C1">C1</a>
+</li>
+<li>
+<a href="#C2">C2</a>
+</li>
+<li>
+<a href="#C3">C3</a>
+</li>
+<li>
+<a href="#C4">C4</a>
+</li>
+<li>
+<a href="#C5">C5</a>
+</li>
+<li>
+<a href="#C6">C6</a>
+</li>
+<li>
+<a href="#Caste">Caste</a>
+</li>
+<li>
+<a href="#CharacterDamage">CharacterDamage</a>
+</li>
+<li>
+<a href="#characteristic">characteristic</a>
+</li>
+<li>
+<a href="#characteristicDamage">characteristicDamage</a>
+</li>
+<li>
+<a href="#characteristicGenerator">characteristicGenerator</a>
+</li>
+<li>
+<a href="#characteristicPermanentDamage">characteristicPermanentDamage</a>
+</li>
+<li>
+<a href="#characteristicRecovery">characteristicRecovery</a>
+</li>
+<li>
+<a href="#Charisma">Charisma</a>
+</li>
+<li>
+<a href="#CP">CP</a>
+</li>
+<li>
+<a href="#CS">CS</a>
+</li>
+<li>
+<a href="#Damage">Damage</a>
+</li>
+<li>
+<a href="#damageToCharacteristic">damageToCharacteristic</a>
+</li>
+<li>
+<a href="#Dexterity">Dexterity</a>
+</li>
+<li>
+<a href="#DistanceBand">DistanceBand</a>
+</li>
+<li>
+<a href="#Education">Education</a>
+</li>
+<li>
+<a href="#Endurance">Endurance</a>
+</li>
+<li>
+<a href="#Fame">Fame</a>
+</li>
+<li>
+<a href="#geneticProfile">geneticProfile</a>
+</li>
+<li>
+<a href="#geneticProfileLabel">geneticProfileLabel</a>
+</li>
+<li>
+<a href="#Grace">Grace</a>
+</li>
+<li>
+<a href="#hasAgility">hasAgility</a>
+</li>
+<li>
+<a href="#hasBurden">hasBurden</a>
+</li>
+<li>
+<a href="#hasC1">hasC1</a>
+</li>
+<li>
+<a href="#hasC2">hasC2</a>
+</li>
+<li>
+<a href="#hasC3">hasC3</a>
+</li>
+<li>
+<a href="#hasC4">hasC4</a>
+</li>
+<li>
+<a href="#hasC5">hasC5</a>
+</li>
+<li>
+<a href="#hasC6">hasC6</a>
+</li>
+<li>
+<a href="#hasCaste">hasCaste</a>
+</li>
+<li>
+<a href="#hasCharisma">hasCharisma</a>
+</li>
+<li>
+<a href="#hasCP">hasCP</a>
+</li>
+<li>
+<a href="#hasCS">hasCS</a>
+</li>
+<li>
+<a href="#hasDamage">hasDamage</a>
+</li>
+<li>
+<a href="#hasDexterity">hasDexterity</a>
+</li>
+<li>
+<a href="#hasEducation">hasEducation</a>
+</li>
+<li>
+<a href="#hasEndurance">hasEndurance</a>
+</li>
+<li>
+<a href="#hasFame">hasFame</a>
+</li>
+<li>
+<a href="#hasGrace">hasGrace</a>
+</li>
+<li>
+<a href="#hasInstinct">hasInstinct</a>
+</li>
+<li>
+<a href="#hasIntelligence">hasIntelligence</a>
+</li>
+<li>
+<a href="#hasLoad">hasLoad</a>
+</li>
+<li>
+<a href="#hasPsionics">hasPsionics</a>
+</li>
+<li>
+<a href="#hasRace">hasRace</a>
+</li>
+<li>
+<a href="#hasSanity">hasSanity</a>
+</li>
+<li>
+<a href="#hasSocialStanding">hasSocialStanding</a>
+</li>
+<li>
+<a href="#hasStamina">hasStamina</a>
+</li>
+<li>
+<a href="#hasStrength">hasStrength</a>
+</li>
+<li>
+<a href="#hasTraining">hasTraining</a>
+</li>
+<li>
+<a href="#hasVigor">hasVigor</a>
+</li>
+<li>
+<a href="#Instinct">Instinct</a>
+</li>
+<li>
+<a href="#Intelligence">Intelligence</a>
+</li>
+<li>
+<a href="#IntuitionType">IntuitionType</a>
+</li>
+<li>
+<a href="#knowledgeOf">knowledgeOf</a>
+</li>
+<li>
+<a href="#KnowledgeType">KnowledgeType</a>
+</li>
+<li>
+<a href="#Load">Load</a>
+</li>
+<li>
+<a href="#magnitude">magnitude</a>
+</li>
+<li>
+<a href="#MajorRace">MajorRace</a>
+</li>
+<li>
+<a href="#MinorRace">MinorRace</a>
+</li>
+<li>
+<a href="#PersonalType">PersonalType</a>
+</li>
+<li>
+<a href="#primarySkill">primarySkill</a>
+</li>
+<li>
+<a href="#Psionics">Psionics</a>
+</li>
+<li>
+<a href="#Race">Race</a>
+</li>
+<li>
+<a href="#Sanity">Sanity</a>
+</li>
+<li>
+<a href="#Scale">Scale</a>
+</li>
+<li>
+<a href="#secondarySkill">secondarySkill</a>
+</li>
+<li>
+<a href="#Sector">Sector</a>
+</li>
+<li>
+<a href="#SkillType">SkillType</a>
+</li>
+<li>
+<a href="#SocialStanding">SocialStanding</a>
+</li>
+<li>
+<a href="#Stamina">Stamina</a>
+</li>
+<li>
+<a href="#StarportType">StarportType</a>
+</li>
+<li>
+<a href="#Strength">Strength</a>
+</li>
+<li>
+<a href="#Subsector">Subsector</a>
+</li>
+<li>
+<a href="#TalentType">TalentType</a>
+</li>
+<li>
+<a href="#Training">Training</a>
+</li>
+<li>
+<a href="#usesCharacteristic">usesCharacteristic</a>
+</li>
+<li>
+<a href="#usesSkill">usesSkill</a>
+</li>
+<li>
+<a href="#Vigor">Vigor</a>
+</li>
+<li>
+<a href="#World">World</a>
+</li>
+<li>
+<a href="#WorldClassification">WorldClassification</a>
+</li>
+<li>
+<a href="#WorldHydrographics">WorldHydrographics</a>
+</li>
+<li>
+<a href="#WorldKnowledgeType">WorldKnowledgeType</a>
+</li>
+<li>
+<a href="#WorldSize">WorldSize</a>
+</li>
+</ul>
+</div>
+<article>
+<section class="ontology" id="t5">
+<h1>t5</h1>
+<div class="metadata">
+<span class="label-metadata">Metadata</span>
+<table>
+<tr>
+<td class="metadata-term">terms:license</td>
+<td class="metadata-value">
+<a href="http://wiki.travellerrpg.com/Copyright">http://wiki.travellerrpg.com/Copyright</a>
+</td>
+</tr>
+</table>
+</div>
+<section class="identifier">t5: <a href="http://data.travellerrpg.com/ontology/t5">http://data.travellerrpg.com/ontology/t5</a>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The core Traveller 5 ontology.
+
+This ontology provides upper-level concepts for Traveller 5. Detailed information on specific areas, such as characters or worlds can be found in subsiduary ontologies.</div>
+<div class="imports">Imports&nbsp;<a href="rpg.html#rpg">http://data.travellerrpg.com/ontology/rpg</a>
+</div>
+</section>
+<section class="diagrams">
+<div class="diagram">
+<object type="image/svg+xml" data="t5.svg">ontology</object>
+</div>
+</section>
+</section>
+<section class="classes">
+<h2>Classes</h2>
+<section class="class" id="Agility">
+<h3>Agility</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Agility">http://data.travellerrpg.com/ontology/t5#Agility</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Agi</span>
+<span class="label">
+<span class="language lang-en">en</span> Agility</span>
+<span class="label">
+<span class="language lang-en">en</span> A</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Body coordination</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C2">C2</a>
+</span> </section>
+</section>
+<section class="class" id="AtmosphereType">
+<h3>AtmosphereType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#AtmosphereType">http://data.travellerrpg.com/ontology/t5#AtmosphereType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Atmosphere Type</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A classification type for the atmosphere of a world</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="Burden">
+<h3>Burden</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Burden">http://data.travellerrpg.com/ontology/t5#Burden</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Burden</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The modified load carried by something.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Mass">rpg:Mass</a>
+</span>, <span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#EntityState">rpg:EntityState</a>
+</span> </section>
+</section>
+<section class="class" id="C1">
+<h3>C1</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#C1">http://data.travellerrpg.com/ontology/t5#C1</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> C1</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An abstract attribute denoting physical power</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a>
+</span> </section>
+</section>
+<section class="class" id="C2">
+<h3>C2</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#C2">http://data.travellerrpg.com/ontology/t5#C2</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> C2</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An abstract attribute denoting physical motor control</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a>
+</span> </section>
+</section>
+<section class="class" id="C3">
+<h3>C3</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#C3">http://data.travellerrpg.com/ontology/t5#C3</a>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An abstract characteristic reprenting physical robustness.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a>
+</span> </section>
+</section>
+<section class="class" id="C4">
+<h3>C4</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#C4">http://data.travellerrpg.com/ontology/t5#C4</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> C4</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An abstract characteristic indicating ability to reason.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a>
+</span> </section>
+</section>
+<section class="class" id="C5">
+<h3>C5</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#C5">http://data.travellerrpg.com/ontology/t5#C5</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> C4</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An abstract abilitty indicating aquired knowledge.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a>
+</span> </section>
+</section>
+<section class="class" id="C6">
+<h3>C6</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#C6">http://data.travellerrpg.com/ontology/t5#C6</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> C6</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An abstract ability indicating social position or standing.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a>
+</span> </section>
+</section>
+<section class="class" id="CP">
+<h3>CP</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#CP">http://data.travellerrpg.com/ontology/t5#CP</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> CP</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An abstract characteristic describing mental power.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a>
+</span> </section>
+</section>
+<section class="class" id="CS">
+<h3>CS</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#CS">http://data.travellerrpg.com/ontology/t5#CS</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> CS</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An abstract characteristic describing mental stability.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a>
+</span> </section>
+</section>
+<section class="class" id="Caste">
+<h3>Caste</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Caste">http://data.travellerrpg.com/ontology/t5#Caste</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Cas</span>
+<span class="label">
+<span class="language lang-en">en</span> Caste</span>
+<span class="label">
+<span class="language lang-en">en</span> K</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Position in a genetic group heirarchy.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C6">C6</a>
+</span> </section>
+</section>
+<section class="class" id="CharacterDamage">
+<h3>CharacterDamage</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#CharacterDamage">http://data.travellerrpg.com/ontology/t5#CharacterDamage</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Character Damage</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Damage sustained by a character</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Damage">Damage</a>
+</span> </section>
+</section>
+<section class="class" id="Charisma">
+<h3>Charisma</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Charisma">http://data.travellerrpg.com/ontology/t5#Charisma</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Cha</span>
+<span class="label">
+<span class="language lang-en">en</span> Charisma</span>
+<span class="label">
+<span class="language lang-en">en</span> C</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Position within a small group hierarchy.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C6">C6</a>
+</span> </section>
+</section>
+<section class="class" id="Damage">
+<h3>Damage</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Damage">http://data.travellerrpg.com/ontology/t5#Damage</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Damage</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Damage sustained by an entity. Different types of entity suffer damage in different ways</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#EntityState">rpg:EntityState</a>
+</span> </section>
+</section>
+<section class="class" id="Dexterity">
+<h3>Dexterity</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Dexterity">http://data.travellerrpg.com/ontology/t5#Dexterity</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Dex</span>
+<span class="label">
+<span class="language lang-en">en</span> Dexterity</span>
+<span class="label">
+<span class="language lang-en">en</span> D</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Fine motor control</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C2">C2</a>
+</span> </section>
+</section>
+<section class="class" id="DistanceBand">
+<h3>DistanceBand</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#DistanceBand">http://data.travellerrpg.com/ontology/t5#DistanceBand</a>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Scale">Scale</a>
+</span> </section>
+</section>
+<section class="class" id="Education">
+<h3>Education</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Education">http://data.travellerrpg.com/ontology/t5#Education</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Edu</span>
+<span class="label">
+<span class="language lang-en">en</span> Education</span>
+<span class="label">
+<span class="language lang-en">en</span> E</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Skills and knowledge acquired from formall education</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C5">C5</a>
+</span> </section>
+</section>
+<section class="class" id="Endurance">
+<h3>Endurance</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Endurance">http://data.travellerrpg.com/ontology/t5#Endurance</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> End</span>
+<span class="label">
+<span class="language lang-en">en</span> Endurance</span>
+<span class="label">
+<span class="language lang-en">en</span> E</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Resistance to fatigue</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C3">C3</a>
+</span> </section>
+</section>
+<section class="class" id="Fame">
+<h3>Fame</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Fame">http://data.travellerrpg.com/ontology/t5#Fame</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Fame Level</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The scale of an entity's fame.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Scale">Scale</a>
+</span>, <span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Feature">rpg:Feature</a>
+</span> </section>
+</section>
+<section class="class" id="Grace">
+<h3>Grace</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Grace">http://data.travellerrpg.com/ontology/t5#Grace</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Gra</span>
+<span class="label">
+<span class="language lang-en">en</span> Grace</span>
+<span class="label">
+<span class="language lang-en">en</span> G</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Whole of body fluidity</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C2">C2</a>
+</span> </section>
+</section>
+<section class="class" id="Instinct">
+<h3>Instinct</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Instinct">http://data.travellerrpg.com/ontology/t5#Instinct</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Ins</span>
+<span class="label">
+<span class="language lang-en">en</span> Instinct</span>
+<span class="label">
+<span class="language lang-en">en</span> I</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Skills and knowledge acquired from genetic heritage.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C5">C5</a>
+</span> </section>
+</section>
+<section class="class" id="Intelligence">
+<h3>Intelligence</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Intelligence">http://data.travellerrpg.com/ontology/t5#Intelligence</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Int</span>
+<span class="label">
+<span class="language lang-en">en</span> Intelligence</span>
+<span class="label">
+<span class="language lang-en">en</span> I</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Ability to think and reason</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C4">C4</a>
+</span> </section>
+</section>
+<section class="class" id="IntuitionType">
+<h3>IntuitionType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#IntuitionType">http://data.travellerrpg.com/ontology/t5#IntuitionType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Intuitive Skill Type</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An intuitive skill in choosing a course of action without formal evaluation</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#SkillType">SkillType</a>
+</span> </section>
+</section>
+<section class="class" id="KnowledgeType">
+<h3>KnowledgeType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#KnowledgeType">http://data.travellerrpg.com/ontology/t5#KnowledgeType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Knowledge Type </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A knowledge represents a restricted form of skill in a specific area.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#SkillType">rpg:SkillType</a>
+</span> </section>
+</section>
+<section class="class" id="Load">
+<h3>Load</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Load">http://data.travellerrpg.com/ontology/t5#Load</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Load</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The unmodified load carried by something</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Mass">rpg:Mass</a>
+</span>, <span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#EntityState">rpg:EntityState</a>
+</span> </section>
+</section>
+<section class="class" id="MajorRace">
+<h3>MajorRace</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#MajorRace">http://data.travellerrpg.com/ontology/t5#MajorRace</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Major Race</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Generally defined as a race that developed jump drive technology independently.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Race">Race</a>
+</span> </section>
+</section>
+<section class="class" id="MinorRace">
+<h3>MinorRace</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#MinorRace">http://data.travellerrpg.com/ontology/t5#MinorRace</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Minor Race</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A race that is not a major race.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Race">Race</a>
+</span> </section>
+</section>
+<section class="class" id="Psionics">
+<h3>Psionics</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Psionics">http://data.travellerrpg.com/ontology/t5#Psionics</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Psi</span>
+<span class="label">
+<span class="language lang-en">en</span> Psionics</span>
+<span class="label">
+<span class="language lang-en">en</span> P</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Extra-sensory mental ability</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#CP">CP</a>
+</span> </section>
+</section>
+<section class="class" id="Race">
+<h3>Race</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Race">http://data.travellerrpg.com/ontology/t5#Race</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Race</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The spieces of creature to which a sophont belongs.
+
+Races act as templates, giving typical features and capabilities for a member of that race.
+</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Template">rpg:Template</a>
+</span>, <span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span>, <span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Actor">rpg:Actor</a>
+</span> </section>
+</section>
+<section class="class" id="Sanity">
+<h3>Sanity</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Sanity">http://data.travellerrpg.com/ontology/t5#Sanity</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> San</span>
+<span class="label">
+<span class="language lang-en">en</span> Sanity</span>
+<span class="label">
+<span class="language lang-en">en</span> S</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Mental health and stability</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#CS">CS</a>
+</span> </section>
+</section>
+<section class="class" id="Scale">
+<h3>Scale</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Scale">http://data.travellerrpg.com/ontology/t5#Scale</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Scale</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A level of size, distance, distribution, etc.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="Sector">
+<h3>Sector</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Sector">http://data.travellerrpg.com/ontology/t5#Sector</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Sector </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A sector of space covering approximately 40pc</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Place">rpg:Place</a>
+</span> </section>
+</section>
+<section class="class" id="SkillType">
+<h3>SkillType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#SkillType">http://data.travellerrpg.com/ontology/t5#SkillType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Skill Type </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A Traveller 5 skill</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#SkillType">rpg:SkillType</a>
+</span> </section>
+</section>
+<section class="class" id="PersonalType">
+<h3>PersonalType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#PersonalType">http://data.travellerrpg.com/ontology/t5#PersonalType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Personal Skill Type </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A personal skill in interacting with others</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#SkillType">SkillType</a>
+</span> </section>
+</section>
+<section class="class" id="SocialStanding">
+<h3>SocialStanding</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#SocialStanding">http://data.travellerrpg.com/ontology/t5#SocialStanding</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Soc</span>
+<span class="label">
+<span class="language lang-en">en</span> Social Standing</span>
+<span class="label">
+<span class="language lang-en">en</span> S</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Position with a large group hierarchy.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C6">C6</a>
+</span> </section>
+</section>
+<section class="class" id="Stamina">
+<h3>Stamina</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Stamina">http://data.travellerrpg.com/ontology/t5#Stamina</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Sta</span>
+<span class="label">
+<span class="language lang-en">en</span> Stamina</span>
+<span class="label">
+<span class="language lang-en">en</span> S</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Long-term persistence</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C3">C3</a>
+</span> </section>
+</section>
+<section class="class" id="StarportType">
+<h3>StarportType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#StarportType">http://data.travellerrpg.com/ontology/t5#StarportType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Starport Type</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A classification type for a starport or spaceport</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="Strength">
+<h3>Strength</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Strength">http://data.travellerrpg.com/ontology/t5#Strength</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Str</span>
+<span class="label">
+<span class="language lang-en">en</span> Strength</span>
+<span class="label">
+<span class="language lang-en">en</span> S</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Physical power</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C1">C1</a>
+</span> </section>
+</section>
+<section class="class" id="Subsector">
+<h3>Subsector</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Subsector">http://data.travellerrpg.com/ontology/t5#Subsector</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Subsector</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A sub-sector of space covering approximately 10pc</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Place">rpg:Place</a>
+</span> </section>
+</section>
+<section class="class" id="TalentType">
+<h3>TalentType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#TalentType">http://data.travellerrpg.com/ontology/t5#TalentType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Talent Type</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An type of inherent personal ability</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#FacultyType">rpg:FacultyType</a>
+</span> </section>
+</section>
+<section class="class" id="Training">
+<h3>Training</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Training">http://data.travellerrpg.com/ontology/t5#Training</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Tra</span>
+<span class="label">
+<span class="language lang-en">en</span> Training</span>
+<span class="label">
+<span class="language lang-en">en</span> T</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Skills acquired from cultural background</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C5">C5</a>
+</span> </section>
+</section>
+<section class="class" id="Vigor">
+<h3>Vigor</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#Vigor">http://data.travellerrpg.com/ontology/t5#Vigor</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Vig</span>
+<span class="label">
+<span class="language lang-en">en</span> Vigor</span>
+<span class="label">
+<span class="language lang-en">en</span> V</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Short term resistence to fatigue</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#C3">C3</a>
+</span> </section>
+</section>
+<section class="class" id="World">
+<h3>World</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#World">http://data.travellerrpg.com/ontology/t5#World</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> World</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A planet</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="rpg.html#Place">rpg:Place</a>
+</span> </section>
+</section>
+<section class="class" id="WorldClassification">
+<h3>WorldClassification</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#WorldClassification">http://data.travellerrpg.com/ontology/t5#WorldClassification</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> World Type</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A classification type for a world</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="WorldHydrographics">
+<h3>WorldHydrographics</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#WorldHydrographics">http://data.travellerrpg.com/ontology/t5#WorldHydrographics</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> World Hydrographics</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A classification for the level of free water on a world</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="WorldKnowledgeType">
+<h3>WorldKnowledgeType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#WorldKnowledgeType">http://data.travellerrpg.com/ontology/t5#WorldKnowledgeType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> World Knowledge </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Knowledge associated with a specific world</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#KnowledgeType">KnowledgeType</a>
+</span> </section>
+</section>
+<section class="class" id="WorldSize">
+<h3>WorldSize</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#WorldSize">http://data.travellerrpg.com/ontology/t5#WorldSize</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> World Size</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A classification for the general size of a world</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+</section>
+<section class="properties">
+<h2>Properties</h2>
+<section class="property" id="characteristic">
+<h3>characteristic</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#characteristic">http://data.travellerrpg.com/ontology/t5#characteristic</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> characteristic</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The value of a characteristic</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a> → characteristic → <a href="http://www.w3.org/2001/XMLSchema#int">xsd:int</a>
+</span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#level">rpg:level</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#quantity">rpg:quantity</a>
+</span>
+</section>
+</section>
+<section class="property" id="characteristicDamage">
+<h3>characteristicDamage</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#characteristicDamage">http://data.travellerrpg.com/ontology/t5#characteristicDamage</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> characteristic damage</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The value of a characteristic</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#CharacterDamage">CharacterDamage</a> → characteristicDamage → <a href="http://www.w3.org/2001/XMLSchema#int">xsd:int</a>
+</span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#level">rpg:level</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#quantity">rpg:quantity</a>
+</span>
+</section>
+</section>
+<section class="property" id="characteristicGenerator">
+<h3>characteristicGenerator</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#characteristicGenerator">http://data.travellerrpg.com/ontology/t5#characteristicGenerator</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> characteristic generator</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The means by which a characteristic is generated.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Attribute">rpg:Attribute</a> → characteristicGenerator → <span class="any-label">any</span>
+</span>
+</section>
+</section>
+<section class="property" id="characteristicPermanentDamage">
+<h3>characteristicPermanentDamage</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#characteristicPermanentDamage">http://data.travellerrpg.com/ontology/t5#characteristicPermanentDamage</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> characteristic permanent damage</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Permanent, unrecoverage damge</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → characteristicPermanentDamage → </span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#level">rpg:level</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#quantity">rpg:quantity</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#characteristicDamage">characteristicDamage</a>
+</span>
+</section>
+</section>
+<section class="property" id="characteristicRecovery">
+<h3>characteristicRecovery</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#characteristicRecovery">http://data.travellerrpg.com/ontology/t5#characteristicRecovery</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> characteristic damage</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The amount recovery from a level of damage</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#CharacterDamage">CharacterDamage</a> → characteristicRecovery → <a href="http://www.w3.org/2001/XMLSchema#int">xsd:int</a>
+</span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#level">rpg:level</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#quantity">rpg:quantity</a>
+</span>
+</section>
+</section>
+<section class="property" id="damageToCharacteristic">
+<h3>damageToCharacteristic</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#damageToCharacteristic">http://data.travellerrpg.com/ontology/t5#damageToCharacteristic</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> damage to characteristic</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The characteristic that has been damaged</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#CharacterDamage">CharacterDamage</a> → damageToCharacteristic → <a href="http://www.w3.org/2002/07/owl#Class">owl:Class</a>
+</span>
+</section>
+</section>
+<section class="property" id="geneticProfile">
+<h3>geneticProfile</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#geneticProfile">http://data.travellerrpg.com/ontology/t5#geneticProfile</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> genetic profile</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Associates a charatcteristic class with an entity.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Race">Race</a> → geneticProfile → <a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a>
+</span> <span class="annotation-classifier">annotation</span>
+</section>
+</section>
+<section class="property" id="geneticProfileLabel">
+<h3>geneticProfileLabel</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#geneticProfileLabel">http://data.travellerrpg.com/ontology/t5#geneticProfileLabel</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> GP</span>
+<span class="label">
+<span class="language lang-en">en</span> genetic profile label</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A label used to describe the sequence of characteristics used to desceibe a race.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → geneticProfileLabel → </span> <span class="annotation-classifier">annotation</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="http://www.w3.org/2004/02/skos/core#altLabel">skos:altLabel</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasAgility">
+<h3>hasAgility</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasAgility">http://data.travellerrpg.com/ontology/t5#hasAgility</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has agility</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasAgility → <a href="#Agility">Agility</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC2">hasC2</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasBurden">
+<h3>hasBurden</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasBurden">http://data.travellerrpg.com/ontology/t5#hasBurden</a>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that an entity is carrying a load modified by quality characteristics.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasBurden → <a href="#Burden">Burden</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasState">rpg:hasState</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasC1">
+<h3>hasC1</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasC1">http://data.travellerrpg.com/ontology/t5#hasC1</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has C1</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Character">rpg:Character</a> → hasC1 → <a href="#C1">C1</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasC2">
+<h3>hasC2</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasC2">http://data.travellerrpg.com/ontology/t5#hasC2</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has C2</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Character">rpg:Character</a> → hasC2 → <a href="#C2">C2</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasC3">
+<h3>hasC3</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasC3">http://data.travellerrpg.com/ontology/t5#hasC3</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has C3</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Character">rpg:Character</a> → hasC3 → <a href="#C3">C3</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasC4">
+<h3>hasC4</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasC4">http://data.travellerrpg.com/ontology/t5#hasC4</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has C4</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Character">rpg:Character</a> → hasC4 → <a href="#C4">C4</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasC5">
+<h3>hasC5</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasC5">http://data.travellerrpg.com/ontology/t5#hasC5</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> hasC5</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Character">rpg:Character</a> → hasC5 → <a href="#C5">C5</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasC6">
+<h3>hasC6</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasC6">http://data.travellerrpg.com/ontology/t5#hasC6</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has C6</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Character">rpg:Character</a> → hasC6 → <a href="#C6">C6</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasCP">
+<h3>hasCP</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasCP">http://data.travellerrpg.com/ontology/t5#hasCP</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has CP</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Character">rpg:Character</a> → hasCP → <a href="#CP">CP</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasCS">
+<h3>hasCS</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasCS">http://data.travellerrpg.com/ontology/t5#hasCS</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has CS</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Character">rpg:Character</a> → hasCS → <a href="#CS">CS</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasCaste">
+<h3>hasCaste</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasCaste">http://data.travellerrpg.com/ontology/t5#hasCaste</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has caste</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasCaste → <a href="#Caste">Caste</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC6">hasC6</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasCharisma">
+<h3>hasCharisma</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasCharisma">http://data.travellerrpg.com/ontology/t5#hasCharisma</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has charisma</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasCharisma → <a href="#Charisma">Charisma</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC6">hasC6</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasDamage">
+<h3>hasDamage</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasDamage">http://data.travellerrpg.com/ontology/t5#hasDamage</a>
+</section>
+<section class="labels">
+<span class="label">has damage</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that an entity has suffered damage</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasDamage → <a href="#Damage">Damage</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasState">rpg:hasState</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasDexterity">
+<h3>hasDexterity</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasDexterity">http://data.travellerrpg.com/ontology/t5#hasDexterity</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has dexterity</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasDexterity → <a href="#Dexterity">Dexterity</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC2">hasC2</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasEducation">
+<h3>hasEducation</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasEducation">http://data.travellerrpg.com/ontology/t5#hasEducation</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has education</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasEducation → <a href="#Education">Education</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC5">hasC5</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasEndurance">
+<h3>hasEndurance</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasEndurance">http://data.travellerrpg.com/ontology/t5#hasEndurance</a>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasEndurance → <a href="#Endurance">Endurance</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC3">hasC3</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasFame">
+<h3>hasFame</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasFame">http://data.travellerrpg.com/ontology/t5#hasFame</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has fame</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Gives the level of fame an entity has</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasFame → <a href="#Fame">Fame</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasFeature">rpg:hasFeature</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasGrace">
+<h3>hasGrace</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasGrace">http://data.travellerrpg.com/ontology/t5#hasGrace</a>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasGrace → <a href="#Grace">Grace</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC2">hasC2</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasInstinct">
+<h3>hasInstinct</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasInstinct">http://data.travellerrpg.com/ontology/t5#hasInstinct</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has instinct</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasInstinct → <a href="#Instinct">Instinct</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC5">hasC5</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasIntelligence">
+<h3>hasIntelligence</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasIntelligence">http://data.travellerrpg.com/ontology/t5#hasIntelligence</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has intelligence</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasIntelligence → <a href="#Intelligence">Intelligence</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC4">hasC4</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasLoad">
+<h3>hasLoad</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasLoad">http://data.travellerrpg.com/ontology/t5#hasLoad</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has load</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that the entity is carrying an un-modified load.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasLoad → <a href="#Load">Load</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasState">rpg:hasState</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasPsionics">
+<h3>hasPsionics</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasPsionics">http://data.travellerrpg.com/ontology/t5#hasPsionics</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has psionics</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasPsionics → <a href="#Psionics">Psionics</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasCP">hasCP</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasRace">
+<h3>hasRace</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasRace">http://data.travellerrpg.com/ontology/t5#hasRace</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has race </span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="rpg.html#Character">rpg:Character</a> → hasRace → <a href="#Race">Race</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#template">rpg:template</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasSanity">
+<h3>hasSanity</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasSanity">http://data.travellerrpg.com/ontology/t5#hasSanity</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has sanity</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasSanity → <a href="#Sanity">Sanity</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasCS">hasCS</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasSocialStanding">
+<h3>hasSocialStanding</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasSocialStanding">http://data.travellerrpg.com/ontology/t5#hasSocialStanding</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has social standing</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasSocialStanding → <a href="#SocialStanding">SocialStanding</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC6">hasC6</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasStamina">
+<h3>hasStamina</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasStamina">http://data.travellerrpg.com/ontology/t5#hasStamina</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has stamina</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasStamina → <a href="#Stamina">Stamina</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC3">hasC3</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasStrength">
+<h3>hasStrength</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasStrength">http://data.travellerrpg.com/ontology/t5#hasStrength</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has strength</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasStrength → <a href="#Strength">Strength</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC1">hasC1</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasTraining">
+<h3>hasTraining</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasTraining">http://data.travellerrpg.com/ontology/t5#hasTraining</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has training</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasTraining → <a href="#Training">Training</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC5">hasC5</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasVigor">
+<h3>hasVigor</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#hasVigor">http://data.travellerrpg.com/ontology/t5#hasVigor</a>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasVigor → <a href="#Vigor">Vigor</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#hasAttribute">rpg:hasAttribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasC3">hasC3</a>
+</span>
+</section>
+</section>
+<section class="property" id="knowledgeOf">
+<h3>knowledgeOf</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#knowledgeOf">http://data.travellerrpg.com/ontology/t5#knowledgeOf</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> knowledge of </span>
+<span class="label">
+<span class="language lang-en">en</span> knowledge subject</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Knowledge of something specific</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#KnowledgeType">KnowledgeType</a> → knowledgeOf → <span class="any-label">any</span>
+</span>
+</section>
+</section>
+<section class="property" id="magnitude">
+<h3>magnitude</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#magnitude">http://data.travellerrpg.com/ontology/t5#magnitude</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> magnitude</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An order of magnitude for something that represents an approximate scale.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → magnitude → <a href="rpg.html#Amount">rpg:Amount</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#amount">rpg:amount</a>
+</span>
+</section>
+</section>
+<section class="property" id="usesSkill">
+<h3>usesSkill</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#usesSkill">http://data.travellerrpg.com/ontology/t5#usesSkill</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> uses skill</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a game activity uses a specific skill type.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → usesSkill → <a href="rpg.html#SkillType">rpg:SkillType</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#usesFeature">rpg:usesFeature</a>
+</span>
+</section>
+</section>
+<section class="property" id="primarySkill">
+<h3>primarySkill</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#primarySkill">http://data.travellerrpg.com/ontology/t5#primarySkill</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> primary skill </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The primary skill or knowledge used in an activity </div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → primarySkill → </span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#usesFeature">rpg:usesFeature</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#usesSkill">usesSkill</a>
+</span>
+</section>
+</section>
+<section class="property" id="secondarySkill">
+<h3>secondarySkill</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#secondarySkill">http://data.travellerrpg.com/ontology/t5#secondarySkill</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> secondary skill</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A secondary skill or knowledge used in an activity</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → secondarySkill → </span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#usesFeature">rpg:usesFeature</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#usesSkill">usesSkill</a>
+</span>
+</section>
+</section>
+<section class="property" id="usesCharacteristic">
+<h3>usesCharacteristic</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/t5#usesCharacteristic">http://data.travellerrpg.com/ontology/t5#usesCharacteristic</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> uses characteristic </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a game activity uses a specific characteristic class.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → usesCharacteristic → 
+  {<a href="#C1">C1</a>, <a href="#C2">C2</a>, <a href="#C3">C3</a>, <a href="#C4">C4</a>, <a href="#C5">C5</a>, <a href="#C6">C6</a>}
+  </span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="rpg.html#usesFeature">rpg:usesFeature</a>
+</span>
+</section>
+</section>
+</section>
+</article>
+<div id="footer">
+<div id="left-footer">&nbsp;</div>
+<div id="centre-footer">&nbsp;
+<div id="copyright">
+<a href="http://wiki.travellerrpg.com/Copyright">http://wiki.travellerrpg.com/Copyright</a>
+</div>
+</div>
+<div id="right-footer">&nbsp;</div>
+</div>
+</body>
+</html>

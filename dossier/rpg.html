@@ -1,0 +1,2272 @@
+<!DOCTYPE html><html xmlns:dossier="http://www.charvolant.org/dossier#">
+<head>
+<title>Generic Role Playing Game Ontology</title>
+<link rel="Stylesheet" type="text/css" href="css/dossier.css"/>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div id="header">
+<div id="left-header">
+<a title="Main index" href="index.html">
+<span>Home</span>
+</a>
+</div>
+<div id="centre-header">
+<div id="title">Generic Role Playing Game Ontology</div>
+</div>
+<div id="right-header">&nbsp;</div>
+</div>
+<div class="toc">
+<ul>
+<li>
+<a href="#Actor">Actor</a>
+</li>
+<li>
+<a href="#Adventure">Adventure</a>
+</li>
+<li>
+<a href="#amount">amount</a>
+</li>
+<li>
+<a href="#Amount">Amount</a>
+</li>
+<li>
+<a href="#Asset">Asset</a>
+</li>
+<li>
+<a href="#attribute">attribute</a>
+</li>
+<li>
+<a href="#Attribute">Attribute</a>
+</li>
+<li>
+<a href="#Campaign">Campaign</a>
+</li>
+<li>
+<a href="#Character">Character</a>
+</li>
+<li>
+<a href="#Conversion">Conversion</a>
+</li>
+<li>
+<a href="#conversionDifference">conversionDifference</a>
+</li>
+<li>
+<a href="#conversionRatio">conversionRatio</a>
+</li>
+<li>
+<a href="#Currency">Currency</a>
+</li>
+<li>
+<a href="#date">date</a>
+</li>
+<li>
+<a href="#Date">Date</a>
+</li>
+<li>
+<a href="#dateSystem">dateSystem</a>
+</li>
+<li>
+<a href="#DateSystem">DateSystem</a>
+</li>
+<li>
+<a href="#dayOfMonth">dayOfMonth</a>
+</li>
+<li>
+<a href="#dayOfYear">dayOfYear</a>
+</li>
+<li>
+<a href="#DiceConventions">DiceConventions</a>
+</li>
+<li>
+<a href="#discriminator">discriminator</a>
+</li>
+<li>
+<a href="#Document">Document</a>
+</li>
+<li>
+<a href="#duration">duration</a>
+</li>
+<li>
+<a href="#Duration">Duration</a>
+</li>
+<li>
+<a href="#EntityState">EntityState</a>
+</li>
+<li>
+<a href="#Event">Event</a>
+</li>
+<li>
+<a href="#ExchangeRate">ExchangeRate</a>
+</li>
+<li>
+<a href="#Extra">Extra</a>
+</li>
+<li>
+<a href="#Faculty">Faculty</a>
+</li>
+<li>
+<a href="#FacultyType">FacultyType</a>
+</li>
+<li>
+<a href="#Feature">Feature</a>
+</li>
+<li>
+<a href="#fixedConversion">fixedConversion</a>
+</li>
+<li>
+<a href="#fromUnit">fromUnit</a>
+</li>
+<li>
+<a href="#GameEntity">GameEntity</a>
+</li>
+<li>
+<a href="#GameMaster">GameMaster</a>
+</li>
+<li>
+<a href="#hasAttribute">hasAttribute</a>
+</li>
+<li>
+<a href="#hasFaculty">hasFaculty</a>
+</li>
+<li>
+<a href="#hasFeature">hasFeature</a>
+</li>
+<li>
+<a href="#hasMass">hasMass</a>
+</li>
+<li>
+<a href="#hasPrice">hasPrice</a>
+</li>
+<li>
+<a href="#hasSense">hasSense</a>
+</li>
+<li>
+<a href="#hasSetting">hasSetting</a>
+</li>
+<li>
+<a href="#hasSkill">hasSkill</a>
+</li>
+<li>
+<a href="#hasState">hasState</a>
+</li>
+<li>
+<a href="#inFacultyType">inFacultyType</a>
+</li>
+<li>
+<a href="#inFeatureType">inFeatureType</a>
+</li>
+<li>
+<a href="#inherit">inherit</a>
+</li>
+<li>
+<a href="#inSenseType">inSenseType</a>
+</li>
+<li>
+<a href="#inSkillType">inSkillType</a>
+</li>
+<li>
+<a href="#isPortrayedBy">isPortrayedBy</a>
+</li>
+<li>
+<a href="#Item">Item</a>
+</li>
+<li>
+<a href="#Language">Language</a>
+</li>
+<li>
+<a href="#Length">Length</a>
+</li>
+<li>
+<a href="#LengthUnit">LengthUnit</a>
+</li>
+<li>
+<a href="#level">level</a>
+</li>
+<li>
+<a href="#Mass">Mass</a>
+</li>
+<li>
+<a href="#MassUnit">MassUnit</a>
+</li>
+<li>
+<a href="#Milieau">Milieau</a>
+</li>
+<li>
+<a href="#month">month</a>
+</li>
+<li>
+<a href="#NonPlayerCharacter">NonPlayerCharacter</a>
+</li>
+<li>
+<a href="#occurrenceAt">occurrenceAt</a>
+</li>
+<li>
+<a href="#organisation">organisation</a>
+</li>
+<li>
+<a href="#Organisation">Organisation</a>
+</li>
+<li>
+<a href="#parent">parent</a>
+</li>
+<li>
+<a href="#Participant">Participant</a>
+</li>
+<li>
+<a href="#Place">Place</a>
+</li>
+<li>
+<a href="#Player">Player</a>
+</li>
+<li>
+<a href="#PlayerCharacter">PlayerCharacter</a>
+</li>
+<li>
+<a href="#portrays">portrays</a>
+</li>
+<li>
+<a href="#Price">Price</a>
+</li>
+<li>
+<a href="#quantity">quantity</a>
+</li>
+<li>
+<a href="#referenceMaterial">referenceMaterial</a>
+</li>
+<li>
+<a href="#related">related</a>
+</li>
+<li>
+<a href="#Rules">Rules</a>
+</li>
+<li>
+<a href="#Sense">Sense</a>
+</li>
+<li>
+<a href="#SenseType">SenseType</a>
+</li>
+<li>
+<a href="#Setting">Setting</a>
+</li>
+<li>
+<a href="#settingConcept">settingConcept</a>
+</li>
+<li>
+<a href="#SettingState">SettingState</a>
+</li>
+<li>
+<a href="#Skill">Skill</a>
+</li>
+<li>
+<a href="#SkillType">SkillType</a>
+</li>
+<li>
+<a href="#SourceBook">SourceBook</a>
+</li>
+<li>
+<a href="#State">State</a>
+</li>
+<li>
+<a href="#template">template</a>
+</li>
+<li>
+<a href="#Template">Template</a>
+</li>
+<li>
+<a href="#TimeUnit">TimeUnit</a>
+</li>
+<li>
+<a href="#toUnit">toUnit</a>
+</li>
+<li>
+<a href="#unit">unit</a>
+</li>
+<li>
+<a href="#Unit">Unit</a>
+</li>
+<li>
+<a href="#usesFeature">usesFeature</a>
+</li>
+<li>
+<a href="#Vehicle">Vehicle</a>
+</li>
+<li>
+<a href="#Volume">Volume</a>
+</li>
+<li>
+<a href="#VolumeUnit">VolumeUnit</a>
+</li>
+<li>
+<a href="#Weapon">Weapon</a>
+</li>
+<li>
+<a href="#year">year</a>
+</li>
+</ul>
+</div>
+<article>
+<section class="ontology" id="rpg">
+<h1>Generic Role Playing Game Ontology</h1>
+<div class="metadata">
+<span class="label-metadata">Metadata</span>
+<table>
+<tr>
+<td class="metadata-term">terms:creator</td>
+<td class="metadata-value">
+<a href="https://github.com/charvolant">https://github.com/charvolant</a>
+</td>
+</tr>
+<tr>
+<td class="metadata-term">terms:license</td>
+<td class="metadata-value">
+<a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a>
+</td>
+</tr>
+</table>
+</div>
+<section class="identifier">rpg: <a href="http://data.travellerrpg.com/ontology/rpg">http://data.travellerrpg.com/ontology/rpg</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Generic Role Playing Game Ontology</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The RPG ontology contains abstract descriptions of common RPG concepts, such as Characters, Skills, NPCs etc. A specigic RPG will specialise these concepts to fit the RPG.
+</div>
+<div class="imports">Imports&nbsp;<a href="http://xmlns.com/foaf/0.1/">http://xmlns.com/foaf/0.1/</a>
+</div>
+<div class="imports">Imports&nbsp;<a href="http://www.w3.org/2004/02/skos/core">http://www.w3.org/2004/02/skos/core</a>
+</div>
+</section>
+<section class="diagrams">
+<div class="diagram">
+<object type="image/svg+xml" data="rpg.svg">ontology</object>
+</div>
+</section>
+</section>
+<section class="classes">
+<h2>Classes</h2>
+<section class="class" id="Actor">
+<h3>Actor</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Actor">http://data.travellerrpg.com/ontology/rpg#Actor</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Actor</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Something that can be interacted with within the game. 
+
+Actors can be modelled within the game to various degrees of fidelity. For example, a player character may be more detailed than an animal that the character encounters.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#GameEntity">GameEntity</a>
+</span> </section>
+</section>
+<section class="class" id="Adventure">
+<h3>Adventure</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Adventure">http://data.travellerrpg.com/ontology/rpg#Adventure</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Adventure</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A story-level setting for a game, usually with a clear beginning, middle and end.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Setting">Setting</a>
+</span> </section>
+</section>
+<section class="class" id="Amount">
+<h3>Amount</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Amount">http://data.travellerrpg.com/ontology/rpg#Amount</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Amount</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A quantity of something</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="Asset">
+<h3>Asset</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Asset">http://data.travellerrpg.com/ontology/rpg#Asset</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Asset</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An object within the game that can be used or owned by an actor.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#GameEntity">GameEntity</a>
+</span> </section>
+</section>
+<section class="class" id="Campaign">
+<h3>Campaign</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Campaign">http://data.travellerrpg.com/ontology/rpg#Campaign</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Campaign</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A series of events and adventures featuring a continuing set of chracters and settings.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Setting">Setting</a>
+</span> </section>
+</section>
+<section class="class" id="DateSystem">
+<h3>DateSystem</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#DateSystem">http://data.travellerrpg.com/ontology/rpg#DateSystem</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Date System</span>
+<span class="label">
+<span class="language lang-en">en</span> Calendar</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A real or fantasy date system.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Unit">Unit</a>
+</span> </section>
+</section>
+<section class="class" id="DiceConventions">
+<h3>DiceConventions</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#DiceConventions">http://data.travellerrpg.com/ontology/rpg#DiceConventions</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Dice Conventions</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Conventions for describing how die rolls are represented.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a>
+</span> </section>
+</section>
+<section class="class" id="Document">
+<h3>Document</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Document">http://data.travellerrpg.com/ontology/rpg#Document</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Document </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An in-game document</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Item">Item</a>
+</span> </section>
+</section>
+<section class="class" id="EntityState">
+<h3>EntityState</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#EntityState">http://data.travellerrpg.com/ontology/rpg#EntityState</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Entity State</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A state associated with a game entity.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#State">State</a>
+</span> </section>
+</section>
+<section class="class" id="Event">
+<h3>Event</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Event">http://data.travellerrpg.com/ontology/rpg#Event</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Event</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An in-game event</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#GameEntity">GameEntity</a>
+</span> </section>
+</section>
+<section class="class" id="Extra">
+<h3>Extra</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Extra">http://data.travellerrpg.com/ontology/rpg#Extra</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Extra</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A game actor modelled to a low level of detail.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Actor">Actor</a>
+</span> </section>
+</section>
+<section class="class" id="Feature">
+<h3>Feature</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Feature">http://data.travellerrpg.com/ontology/rpg#Feature</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Feature</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Something that describes a character or an item: a characteristic, a skill, an ability, etc.</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="Attribute">
+<h3>Attribute</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Attribute">http://data.travellerrpg.com/ontology/rpg#Attribute</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Attribute</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A descriptive attribute of a character or item.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Feature">Feature</a>
+</span> </section>
+</section>
+<section class="class" id="Faculty">
+<h3>Faculty</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Faculty">http://data.travellerrpg.com/ontology/rpg#Faculty</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Faculty</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The level of power for an inherent ability or power.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Feature">Feature</a>
+</span> </section>
+</section>
+<section class="class" id="GameEntity">
+<h3>GameEntity</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#GameEntity">http://data.travellerrpg.com/ontology/rpg#GameEntity</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Game Entity</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Something that exists with the role playing game.</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="Character">
+<h3>Character</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Character">http://data.travellerrpg.com/ontology/rpg#Character</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Character</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An RPG representation of a person or similar within-game creature capable of making its own decsions. </div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Actor">Actor</a>
+</span> </section>
+</section>
+<section class="class" id="Item">
+<h3>Item</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Item">http://data.travellerrpg.com/ontology/rpg#Item</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Item</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A semi-portable object that is typically carried and used by one person.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Asset">Asset</a>
+</span> </section>
+</section>
+<section class="class" id="Length">
+<h3>Length</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Length">http://data.travellerrpg.com/ontology/rpg#Length</a>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Amount">Amount</a>
+</span> </section>
+</section>
+<section class="class" id="Mass">
+<h3>Mass</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Mass">http://data.travellerrpg.com/ontology/rpg#Mass</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Mass</span>
+<span class="label">
+<span class="language lang-en">en</span> Weight</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The basic mass of an item or character.
+
+Generally, this means the most convienient defintiion for role-playing purposes. A character's mass is their mass in ordingary clothing, without additional items such as armour. A weapon's mass is generally its mass with a full load of ammunition.
+
+Depending on setting, mass and weight may be two different things. eg. in Zero-G an item has no weight but still has mass. For purely single-world games, the terms are interchanable.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Amount">Amount</a>
+</span> </section>
+</section>
+<section class="class" id="Milieau">
+<h3>Milieau</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Milieau">http://data.travellerrpg.com/ontology/rpg#Milieau</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Milieau</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The large-scale setting of a campaign or an adventure. An outline of the world or universe that the game takes place in.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Setting">Setting</a>
+</span> </section>
+</section>
+<section class="class" id="Participant">
+<h3>Participant</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Participant">http://data.travellerrpg.com/ontology/rpg#Participant</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Participant</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A participant in a role playing game.
+
+Participants are usually a singular Person. However, groups are also possible.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://xmlns.com/foaf/0.1/Agent">foaf:Agent</a>
+</span> </section>
+</section>
+<section class="class" id="GameMaster">
+<h3>GameMaster</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#GameMaster">http://data.travellerrpg.com/ontology/rpg#GameMaster</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Game Master</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The participant responsible for creating and managing the situation that forms the role playing game.
+
+The game master has, in theory if not in practice, complete knowledge of the game world. The game master is also generally responsible for refereeing decsicions within the game.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Participant">Participant</a>
+</span> </section>
+</section>
+<section class="class" id="NonPlayerCharacter">
+<h3>NonPlayerCharacter</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#NonPlayerCharacter">http://data.travellerrpg.com/ontology/rpg#NonPlayerCharacter</a>
+</section>
+<section class="labels">
+<span class="label">NPC</span>
+<span class="label">Non-Player Character</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A character controlled by a game master or some other agent, such as a software program.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Character">Character</a>
+</span> </section>
+</section>
+<section class="class" id="Place">
+<h3>Place</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Place">http://data.travellerrpg.com/ontology/rpg#Place</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Place </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A location within the game</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Setting">Setting</a>
+</span>, <span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#GameEntity">GameEntity</a>
+</span> </section>
+</section>
+<section class="class" id="PlayerCharacter">
+<h3>PlayerCharacter</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#PlayerCharacter">http://data.travellerrpg.com/ontology/rpg#PlayerCharacter</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Player Character</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A character directly controlled by a player.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Character">Character</a>
+</span> </section>
+</section>
+<section class="class" id="Rules">
+<h3>Rules</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Rules">http://data.travellerrpg.com/ontology/rpg#Rules</a>
+</section>
+<section class="labels">
+<span class="label">Rules</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A specific set of RPG rules.
+
+Rules can be used to define which sets of rules are compatible with characters, settings, etc.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://xmlns.com/foaf/0.1/Document">foaf:Document</a>
+</span>, <span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a>
+</span> </section>
+</section>
+<section class="class" id="Sense">
+<h3>Sense</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Sense">http://data.travellerrpg.com/ontology/rpg#Sense</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Sense</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The ability to sense something at a particular level.
+
+The mehanics of how sense work form part of a specific RPGs mechanics.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Feature">Feature</a>
+</span> </section>
+</section>
+<section class="class" id="Skill">
+<h3>Skill</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Skill">http://data.travellerrpg.com/ontology/rpg#Skill</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Skill</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A level of ability in a specific skill.
+
+The way that skill levels are represented are specific to a game system.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Feature">Feature</a>
+</span> </section>
+</section>
+<section class="class" id="SourceBook">
+<h3>SourceBook</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#SourceBook">http://data.travellerrpg.com/ontology/rpg#SourceBook</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Source Book</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Additional information about a setting.
+
+Conceptually, rules define the mechanics of a game and a source book defines the environment to which the rules apply. In practice, an RPG usually consists of a combined set of rules and setting.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://xmlns.com/foaf/0.1/Document">foaf:Document</a>
+</span>, <span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#ConceptScheme">skos:ConceptScheme</a>
+</span> </section>
+</section>
+<section class="class" id="Unit">
+<h3>Unit</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Unit">http://data.travellerrpg.com/ontology/rpg#Unit</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Unit</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A unit of measure</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="Currency">
+<h3>Currency</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Currency">http://data.travellerrpg.com/ontology/rpg#Currency</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Currency</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A medium of exchange</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Unit">Unit</a>
+</span> </section>
+</section>
+<section class="class" id="Date">
+<h3>Date</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Date">http://data.travellerrpg.com/ontology/rpg#Date</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Date</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A date according to some calendar</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="ExchangeRate">
+<h3>ExchangeRate</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#ExchangeRate">http://data.travellerrpg.com/ontology/rpg#ExchangeRate</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Exchange Rate</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An exchange rate between two currencies.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Conversion">Conversion</a>
+</span> </section>
+</section>
+<section class="class" id="FacultyType">
+<h3>FacultyType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#FacultyType">http://data.travellerrpg.com/ontology/rpg#FacultyType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Faculty Type</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A type of inherent ability or power.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="Language">
+<h3>Language</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Language">http://data.travellerrpg.com/ontology/rpg#Language</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Language </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Language used within a game</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="Organisation">
+<h3>Organisation</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Organisation">http://data.travellerrpg.com/ontology/rpg#Organisation</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Organisation</span>
+<span class="label">Organization</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An organisation that exists within the game</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Actor">Actor</a>
+</span> </section>
+</section>
+<section class="class" id="Price">
+<h3>Price</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Price">http://data.travellerrpg.com/ontology/rpg#Price</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Price</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The price of a game object, in game currency.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Amount">Amount</a>
+</span> </section>
+</section>
+<section class="class" id="SenseType">
+<h3>SenseType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#SenseType">http://data.travellerrpg.com/ontology/rpg#SenseType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Sense Type</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The ability to sense a specific form of phenomenon.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="SettingState">
+<h3>SettingState</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#SettingState">http://data.travellerrpg.com/ontology/rpg#SettingState</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Setting State</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A piece of state that applies to a game setting.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#State">State</a>
+</span> </section>
+</section>
+<section class="class" id="Conversion">
+<h3>Conversion</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Conversion">http://data.travellerrpg.com/ontology/rpg#Conversion</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Conversion</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A conversion between two units.</div>
+<div class="description">
+<span class="language lang-en">en</span> A date according to a system of dates.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#SettingState">SettingState</a>
+</span> </section>
+</section>
+<section class="class" id="Duration">
+<h3>Duration</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Duration">http://data.travellerrpg.com/ontology/rpg#Duration</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Duration</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A period of time.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Amount">Amount</a>
+</span> </section>
+</section>
+<section class="class" id="LengthUnit">
+<h3>LengthUnit</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#LengthUnit">http://data.travellerrpg.com/ontology/rpg#LengthUnit</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Length Unit</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A unit of length or distance</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Unit">Unit</a>
+</span> </section>
+</section>
+<section class="class" id="MassUnit">
+<h3>MassUnit</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#MassUnit">http://data.travellerrpg.com/ontology/rpg#MassUnit</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Mass Unit</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A unit of mass.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Unit">Unit</a>
+</span> </section>
+</section>
+<section class="class" id="Player">
+<h3>Player</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Player">http://data.travellerrpg.com/ontology/rpg#Player</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Player</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A player in a role playing game "plays" a one or more characters within the game.
+
+The player has partial knowledge of the game situation.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Participant">Participant</a>
+</span> </section>
+</section>
+<section class="class" id="Setting">
+<h3>Setting</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Setting">http://data.travellerrpg.com/ontology/rpg#Setting</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Setting</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A setting is the stage that an RPG is played on. Settings range in scale from entire universes to the bar in which an adventure takes place. A setting may refer to a location, a time period, a social mileau or any combination.</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="SkillType">
+<h3>SkillType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#SkillType">http://data.travellerrpg.com/ontology/rpg#SkillType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Skill Type</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A type of skill. Skills are learned abilities that can be improved by a character exercising the skill or undergoing training.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span> </section>
+</section>
+<section class="class" id="State">
+<h3>State</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#State">http://data.travellerrpg.com/ontology/rpg#State</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> State</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A changable status for something in a game.</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="Template">
+<h3>Template</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Template">http://data.travellerrpg.com/ontology/rpg#Template</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Tempate</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Something that is a template represents an abstract class-like description of a game item. A template can be used to describe a generic instance of an item. Individual items can inherit from the template and override speicifc elements.
+</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="TimeUnit">
+<h3>TimeUnit</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#TimeUnit">http://data.travellerrpg.com/ontology/rpg#TimeUnit</a>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A unit of time (duration)</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Unit">Unit</a>
+</span> </section>
+</section>
+<section class="class" id="Vehicle">
+<h3>Vehicle</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Vehicle">http://data.travellerrpg.com/ontology/rpg#Vehicle</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Vehicle</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A means of transporting one or more actors.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Asset">Asset</a>
+</span> </section>
+</section>
+<section class="class" id="Volume">
+<h3>Volume</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Volume">http://data.travellerrpg.com/ontology/rpg#Volume</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Volume</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A volume of 3-dimensional space</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Amount">Amount</a>
+</span> </section>
+</section>
+<section class="class" id="VolumeUnit">
+<h3>VolumeUnit</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#VolumeUnit">http://data.travellerrpg.com/ontology/rpg#VolumeUnit</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> A unit of 3-dimensional size</span>
+<span class="label">
+<span class="language lang-en">en</span> Volume</span>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Unit">Unit</a>
+</span> </section>
+</section>
+<section class="class" id="Weapon">
+<h3>Weapon</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#Weapon">http://data.travellerrpg.com/ontology/rpg#Weapon</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Weapon</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A single-person weapon.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Item">Item</a>
+</span> </section>
+</section>
+</section>
+<section class="properties">
+<h2>Properties</h2>
+<section class="property" id="amount">
+<h3>amount</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#amount">http://data.travellerrpg.com/ontology/rpg#amount</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> amount</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An amount of some value</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → amount → <a href="#Amount">Amount</a>
+</span>
+</section>
+</section>
+<section class="property" id="attribute">
+<h3>attribute</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#attribute">http://data.travellerrpg.com/ontology/rpg#attribute</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> attribute</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> An attribute of some state of affairs</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Amount">Amount</a>
+<span class="or-label">or </span>
+<a href="#Date">Date</a>
+<span class="or-label">or </span>
+<a href="#Feature">Feature</a>
+<span class="or-label">or </span>
+<a href="#State">State</a> → attribute → <span class="any-label">any</span>
+</span> <span class="datatype-classifier">data type</span>
+</section>
+</section>
+<section class="property" id="conversionDifference">
+<h3>conversionDifference</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#conversionDifference">http://data.travellerrpg.com/ontology/rpg#conversionDifference</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> conversion difference</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The amount to add (or subtract for negative values) from an amount of the from unit to conver to the to unit.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Conversion">Conversion</a> → conversionDifference → <a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a>
+</span> <span class="datatype-classifier">data type</span>
+</section>
+</section>
+<section class="property" id="conversionRatio">
+<h3>conversionRatio</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#conversionRatio">http://data.travellerrpg.com/ontology/rpg#conversionRatio</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> conversion ratio</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The number to to units produced by one from unit.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Conversion">Conversion</a> → conversionRatio → <a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a>
+</span> <span class="datatype-classifier">data type</span>
+</section>
+</section>
+<section class="property" id="dateSystem">
+<h3>dateSystem</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#dateSystem">http://data.travellerrpg.com/ontology/rpg#dateSystem</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> calendar</span>
+<span class="label">
+<span class="language lang-en">en</span> date system</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The dating system used to record a date</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → dateSystem → <a href="#DateSystem">DateSystem</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#unit">unit</a>
+</span>
+</section>
+</section>
+<section class="property" id="dayOfMonth">
+<h3>dayOfMonth</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#dayOfMonth">http://data.travellerrpg.com/ontology/rpg#dayOfMonth</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> day of month</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The day of an event within a month</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → dayOfMonth → </span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#attribute">attribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="dayOfYear">
+<h3>dayOfYear</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#dayOfYear">http://data.travellerrpg.com/ontology/rpg#dayOfYear</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> day of year</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The day within a year of a date</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Date">Date</a> → dayOfYear → </span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#attribute">attribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="discriminator">
+<h3>discriminator</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#discriminator">http://data.travellerrpg.com/ontology/rpg#discriminator</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> discriminator</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> What sub-property to use when determining template inhertiance. Template inheritance is, by default, decided on simple property identity. If there are properties that refer to a number of different sorts of things, then this property can be used to further discriminate based on the value of the property.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a>
+<span class="or-label">or </span>
+<a href="http://www.w3.org/2000/01/rdf-schema#Class">rdfs:Class</a>
+<span class="or-label">or </span>
+<a href="http://www.w3.org/2002/07/owl#Class">owl:Class</a> → discriminator → <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a>
+</span> <span class="annotation-classifier">annotation</span>
+</section>
+</section>
+<section class="property" id="duration">
+<h3>duration</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#duration">http://data.travellerrpg.com/ontology/rpg#duration</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> duration </span>
+</section>
+<section class="descriptions">
+<div class="description">The duration of an event or process</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → duration → <a href="#Duration">Duration</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#amount">amount</a>
+</span>
+</section>
+</section>
+<section class="property" id="fixedConversion">
+<h3>fixedConversion</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#fixedConversion">http://data.travellerrpg.com/ontology/rpg#fixedConversion</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> fixed conversion</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> This is a fixed conversion, defined by the nature of the units and, therefore, will not vary from setting to setting.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Conversion">Conversion</a> → fixedConversion → <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a>
+</span> <span class="datatype-classifier">data type</span> <span class="functional-classifier">functional</span>
+</section>
+</section>
+<section class="property" id="fromUnit">
+<h3>fromUnit</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#fromUnit">http://data.travellerrpg.com/ontology/rpg#fromUnit</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> from unit</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Conversion">Conversion</a> → fromUnit → <a href="#Unit">Unit</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasFeature">
+<h3>hasFeature</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#hasFeature">http://data.travellerrpg.com/ontology/rpg#hasFeature</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has feature</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a character possesses a certain feature.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#GameEntity">GameEntity</a> → hasFeature → <a href="#Feature">Feature</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasAttribute">
+<h3>hasAttribute</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#hasAttribute">http://data.travellerrpg.com/ontology/rpg#hasAttribute</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has attribute</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Gives the attributes that describe an actor</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#GameEntity">GameEntity</a> → hasAttribute → <a href="#Attribute">Attribute</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasFeature">hasFeature</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasFaculty">
+<h3>hasFaculty</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#hasFaculty">http://data.travellerrpg.com/ontology/rpg#hasFaculty</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has faculty</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that an actor has a specific faculty available</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#GameEntity">GameEntity</a> → hasFaculty → <a href="#Faculty">Faculty</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasFeature">hasFeature</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasMass">
+<h3>hasMass</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#hasMass">http://data.travellerrpg.com/ontology/rpg#hasMass</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> mass</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Gives the basic mass of a game item.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasMass → <a href="#Mass">Mass</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasFeature">hasFeature</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasAttribute">hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasPrice">
+<h3>hasPrice</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#hasPrice">http://data.travellerrpg.com/ontology/rpg#hasPrice</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> price</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Gives the price of an item.
+
+If left further unspecified, this generallty means the common, in-game price.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → hasPrice → <a href="#Price">Price</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasFeature">hasFeature</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasAttribute">hasAttribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasSense">
+<h3>hasSense</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#hasSense">http://data.travellerrpg.com/ontology/rpg#hasSense</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has sense</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that an actor has a specific sense available</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#GameEntity">GameEntity</a> → hasSense → <a href="#Sense">Sense</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasFeature">hasFeature</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasSetting">
+<h3>hasSetting</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#hasSetting">http://data.travellerrpg.com/ontology/rpg#hasSetting</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has setting</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indiicates that a gane entity, state or template applies to or comes from a particular setting.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → hasSetting → <a href="#Setting">Setting</a>
+</span> <span class="transitive-classifier">asymmetric</span>
+</section>
+</section>
+<section class="property" id="hasSkill">
+<h3>hasSkill</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#hasSkill">http://data.travellerrpg.com/ontology/rpg#hasSkill</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> has skill</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that an actor has a level of a specific skill</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#GameEntity">GameEntity</a> → hasSkill → <a href="#Skill">Skill</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#hasFeature">hasFeature</a>
+</span>
+</section>
+</section>
+<section class="property" id="hasState">
+<h3>hasState</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#hasState">http://data.travellerrpg.com/ontology/rpg#hasState</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> is in state</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a game item is currently in a particular state</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#GameEntity">GameEntity</a> → hasState → <a href="#State">State</a>
+</span>
+</section>
+</section>
+<section class="property" id="inFeatureType">
+<h3>inFeatureType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#inFeatureType">http://data.travellerrpg.com/ontology/rpg#inFeatureType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> in feature type</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a feature is associated with a particular type of feature concept.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Feature">Feature</a> → inFeatureType → <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span>
+</section>
+</section>
+<section class="property" id="inFacultyType">
+<h3>inFacultyType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#inFacultyType">http://data.travellerrpg.com/ontology/rpg#inFacultyType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> in faculty</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Gives the type of faculty that a faculty level refers to.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → inFacultyType → <a href="#Faculty">Faculty</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#inFeatureType">inFeatureType</a>
+</span>
+</section>
+</section>
+<section class="property" id="inSenseType">
+<h3>inSenseType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#inSenseType">http://data.travellerrpg.com/ontology/rpg#inSenseType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> in sense</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Gives the speciifc sense that a sense level gives the capability level of.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Sense">Sense</a> → inSenseType → <a href="#SenseType">SenseType</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#inFeatureType">inFeatureType</a>
+</span>
+</section>
+</section>
+<section class="property" id="inSkillType">
+<h3>inSkillType</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#inSkillType">http://data.travellerrpg.com/ontology/rpg#inSkillType</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> in skill</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a skill level is in a specific skill.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Skill">Skill</a> → inSkillType → <a href="#SkillType">SkillType</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#inFeatureType">inFeatureType</a>
+</span>
+</section>
+</section>
+<section class="property" id="inherit">
+<h3>inherit</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#inherit">http://data.travellerrpg.com/ontology/rpg#inherit</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> inherit </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> This property is inherited by an object using a template. Inherit is normally assumed to be true for template statements. If a property is marked as inherit:false then resources using the template do not use these values. This can be useful for properties that more appropriately describe the class of things expressed by the template.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a> → inherit → <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a>
+</span> <span class="annotation-classifier">annotation</span>
+</section>
+</section>
+<section class="property" id="isPortrayedBy">
+<h3>isPortrayedBy</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#isPortrayedBy">http://data.travellerrpg.com/ontology/rpg#isPortrayedBy</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> is portrayed by</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a character is portrayed by a specific participant.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Character">Character</a> → isPortrayedBy → <a href="#Participant">Participant</a>
+</span>
+</section>
+</section>
+<section class="property" id="level">
+<h3>level</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#level">http://data.travellerrpg.com/ontology/rpg#level</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> level</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Gives the level of a feature or temporary state.
+
+The concept of a 'level' is specific to a specific set of RPG rules and is specified further by sub-ontologies. Some features do not have a level associated with them.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Feature">Feature</a>
+<span class="or-label">or </span>
+<a href="#State">State</a> → level → <span class="any-label">any</span>
+</span>
+</section>
+</section>
+<section class="property" id="month">
+<h3>month</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#month">http://data.travellerrpg.com/ontology/rpg#month</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> month</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The month of a date</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → month → </span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#attribute">attribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="occurrenceAt">
+<h3>occurrenceAt</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#occurrenceAt">http://data.travellerrpg.com/ontology/rpg#occurrenceAt</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> ocurrence  at</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> When something has happened </div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → occurrenceAt → <span class="any-label">any</span>
+</span>
+</section>
+</section>
+<section class="property" id="date">
+<h3>date</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#date">http://data.travellerrpg.com/ontology/rpg#date</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> date</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The date of an event or other occurance</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → date → <a href="#Date">Date</a>
+</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#occurrenceAt">occurrenceAt</a>
+</span>
+</section>
+</section>
+<section class="property" id="organisation">
+<h3>organisation</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#organisation">http://data.travellerrpg.com/ontology/rpg#organisation</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> organisation</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Associated with a game organisation</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → organisation → <a href="#Organisation">Organisation</a>
+</span>
+</section>
+</section>
+<section class="property" id="parent">
+<h3>parent</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#parent">http://data.travellerrpg.com/ontology/rpg#parent</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> parent</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates a parent relationship between two game entities</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → parent → </span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#related">related</a>
+</span>
+</section>
+</section>
+<section class="property" id="portrays">
+<h3>portrays</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#portrays">http://data.travellerrpg.com/ontology/rpg#portrays</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> portrays</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A participant portrays a character, speaking for the characters actions and controling the character's decsiions.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Participant">Participant</a> → portrays → <a href="#Character">Character</a>
+</span>
+</section>
+</section>
+<section class="property" id="quantity">
+<h3>quantity</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#quantity">http://data.travellerrpg.com/ontology/rpg#quantity</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> value</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The value of a feature or state.
+
+Some features or states do not have a value associated with them, in which case the value is not needed.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → quantity → <a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a>
+</span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#attribute">attribute</a>
+</span>
+</section>
+</section>
+<section class="property" id="referenceMaterial">
+<h3>referenceMaterial</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#referenceMaterial">http://data.travellerrpg.com/ontology/rpg#referenceMaterial</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> reference material</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A reference to a document or concept that contains additional information.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → referenceMaterial → <a href="http://xmlns.com/foaf/0.1/Document">foaf:Document</a>
+</span> <span class="annotation-classifier">annotation</span>
+</section>
+</section>
+<section class="property" id="related">
+<h3>related</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#related">http://data.travellerrpg.com/ontology/rpg#related</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> related </span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that two game entities are related in some way</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#GameEntity">GameEntity</a> → related → <a href="#GameEntity">GameEntity</a>
+</span>
+</section>
+</section>
+<section class="property" id="settingConcept">
+<h3>settingConcept</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#settingConcept">http://data.travellerrpg.com/ontology/rpg#settingConcept</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> setting concept</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A concept that helps define the nature of a setting.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Setting">Setting</a> → settingConcept → <a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+</span>
+</section>
+</section>
+<section class="property" id="template">
+<h3>template</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#template">http://data.travellerrpg.com/ontology/rpg#template</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> template</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that the subject uses the object as a template.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → template → <a href="#Template">Template</a>
+</span> <span class="transitive-classifier">asymmetric</span>
+</section>
+</section>
+<section class="property" id="toUnit">
+<h3>toUnit</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#toUnit">http://data.travellerrpg.com/ontology/rpg#toUnit</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> to unit</span>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Conversion">Conversion</a> → toUnit → <a href="#Unit">Unit</a>
+</span>
+</section>
+</section>
+<section class="property" id="unit">
+<h3>unit</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#unit">http://data.travellerrpg.com/ontology/rpg#unit</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> unit</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The unit a quanity is expressed in.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Amount">Amount</a>
+<span class="or-label">or </span>
+<a href="#Attribute">Attribute</a>
+<span class="or-label">or </span>
+<a href="#Date">Date</a>
+<span class="or-label">or </span>
+<a href="#State">State</a> → unit → <a href="#Unit">Unit</a>
+</span>
+</section>
+</section>
+<section class="property" id="usesFeature">
+<h3>usesFeature</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#usesFeature">http://data.travellerrpg.com/ontology/rpg#usesFeature</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> uses feature</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a game activity uses a specific feature type. </div>
+<div class="description">
+<span class="language lang-en">en</span> Sub-properties describe what sort of feature is used by the activity. These may be a class or a reference to an instance, depdending on how the feature structure is organised.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → usesFeature → <span class="any-label">any</span>
+</span>
+</section>
+</section>
+<section class="property" id="year">
+<h3>year</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/rpg#year">http://data.travellerrpg.com/ontology/rpg#year</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> year</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The year of a date</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Date">Date</a> → year → <a href="#Date">Date</a>
+</span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#attribute">attribute</a>
+</span>
+</section>
+</section>
+</section>
+</article>
+<div id="footer">
+<div id="left-footer">&nbsp;</div>
+<div id="centre-footer">&nbsp;
+<div id="copyright">
+<a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a>
+</div>
+</div>
+<div id="right-footer">&nbsp;</div>
+</div>
+</body>
+</html>

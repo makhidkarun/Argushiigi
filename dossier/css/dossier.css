@@ -1,0 +1,344 @@
+/* $Id */
+/* Default CSS definitions for dossier */
+body {
+  font-family: "Helvetica", "Open Sans", "Callibri", "Verdana", "Arial", "sans-serif";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: #808080;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Optima", "Marcellus", "Palatino", "serif";
+}
+
+#header {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 70px;
+  background: #000050;
+  margin-bottom: 1ex;
+}
+#header #left-header {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 70px;
+  height: 70px;
+}
+#header #centre-header {
+  position: absolute;
+  left: 70px;
+  top: 0px;
+  right: 70px;
+  height: 70px;
+}
+#header #centre-header #title {
+  margin-left: 2em;
+  margin-right: 2em;
+  font-family: "Optima", "Marcellus", "Palatino", "serif";
+  font-size: xx-large;
+  color: #FFFFFF;
+}
+#header #right-header {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 70px;
+  height: 70px;
+}
+
+#footer {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 70px;
+  margin-top: 1ex;
+  background: #000050;
+}
+#footer #left-footer {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 70px;
+  height: 70px;
+}
+#footer #centre-footer {
+  position: absolute;
+  left: 70px;
+  top: 0px;
+  right: 70px;
+  height: 70px;
+}
+#footer #centre-footer #copyright {
+  display: inline-block;
+  margin-top: 1ex;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Optima", "Marcellus", "Palatino", "serif";
+  font-size: small;
+  color: #FFFFFF;
+}
+#footer #right-footer {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 70px;
+  height: 70px;
+}
+
+.toc {
+  position: absolute;
+  right: 1ex;
+  width: 12em;
+  background: #DCDCDC;
+  border: thin solid #C3C3C3;
+  padding: 1ex;
+  font-size: small;
+  word-wrap: break-word;
+}
+.toc ul {
+  padding: 0;
+  list-style: none inside;
+}
+
+article {
+  margin-right: 13em;
+}
+
+section {
+  position: relative;
+}
+
+.ontology {
+  background: #C0FFFF;
+}
+
+.diagrams {
+  padding: 1em 1ex 1em 1ex;
+}
+
+.diagram object {
+  width: 100%;
+}
+
+.classes {
+  padding-left: 1em;
+}
+
+.class {
+  margin-top: 1ex;
+  padding-top: 0.5ex;
+  padding-bottom: 0.5ex;
+  background: #c0d2ff;
+}
+
+.properties {
+  padding-left: 1em;
+}
+
+.property {
+  margin-top: 1ex;
+  padding-top: 0.5ex;
+  padding-bottom: 0.5ex;
+  background: #dac9fa;
+}
+
+.identifier {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.labels {
+  margin-top: 1ex;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.label {
+  display: inline-block;
+}
+
+.descriptions {
+  margin-top: 1ex;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.description {
+  display: inline-block;
+}
+
+.language {
+  display: inline-block;
+  width: 16px;
+  height: 11px;
+  vertical-align: super;
+  font-size: small;
+}
+
+.lang-en {
+  text-indent: 100%;
+  overflow: hidden;
+  background: #a0a0a0 url("flags.png") -160px -44px no-repeat;
+}
+
+.lang-en-au {
+  text-indent: 100%;
+  overflow: hidden;
+  background: #a0a0a0 url("flags.png") -192px 0px no-repeat;
+}
+
+.lang-en-ca {
+  text-indent: 100%;
+  overflow: hidden;
+  background: #a0a0a0 url("flags.png") -16px -22px no-repeat;
+}
+
+.lang-en-us {
+  text-indent: 100%;
+  overflow: hidden;
+  background: #a0a0a0 url("flags.png") -128px -143px no-repeat;
+}
+
+.signature-label {
+  display: none;
+}
+
+.super-label {
+  text-weight: bolder;
+  color: #000080;
+}
+
+.and-label {
+  text-weight: bolder;
+  color: #000080;
+}
+
+.or-label {
+  text-weight: bolder;
+  color: #000080;
+}
+
+.any-label {
+  text-weight: bolder;
+  color: #000080;
+}
+
+.datatype-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+  background: #9bff9b;
+}
+
+.annotation-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+  background: #969600;
+}
+
+.deprecated-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+}
+
+.functional-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+}
+
+.inverse-functional-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+}
+
+.symmetric-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+}
+
+.asymmetric-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+}
+
+.transitive-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+}
+
+.reflexive-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+}
+
+.irreflexive-classifier {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+}
+
+.characteristics {
+  margin-top: 1ex;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.signature {
+  padding: 0 0.2ex 0 0.2ex;
+  margin-right: 1ex;
+  background: #C0FFFF;
+  box-shadow: 1px 1px 1px #808080;
+  background: #C0C0FF;
+}
+
+.metadata {
+  position: absolute;
+  right: 1ex;
+  top: 1ex;
+  padding: 0.5ex;
+  font-size: small;
+  overflow: hidden;
+  background: #DCDCE6;
+  box-shadow: 1px 1px 1px #808086;
+  z-index: 10;
+}
+.metadata .label-metadata {
+  display: block;
+  font-weight: bolder;
+  text-align: right;
+}
+.metadata table {
+  display: none;
+}
+.metadata table:hover {
+  display: table;
+}
+.metadata .label-metadata:hover + table {
+  display: table;
+}

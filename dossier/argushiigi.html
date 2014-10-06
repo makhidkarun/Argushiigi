@@ -1,0 +1,561 @@
+<!DOCTYPE html><html xmlns:dossier="http://www.charvolant.org/dossier#">
+<head>
+<title>Argushiigi</title>
+<link rel="Stylesheet" type="text/css" href="css/dossier.css"/>
+<meta charset="UTF-8"/>
+</head>
+<body>
+<div id="header">
+<div id="left-header">
+<a title="Main index" href="index.html">
+<span>Home</span>
+</a>
+</div>
+<div id="centre-header">
+<div id="title">Argushiigi</div>
+</div>
+<div id="right-header">&nbsp;</div>
+</div>
+<div class="toc">
+<ul>
+<li>
+<a href="#category">category</a>
+</li>
+<li>
+<a href="#Category">Category</a>
+</li>
+<li>
+<a href="#eHex">eHex</a>
+</li>
+<li>
+<a href="#format">format</a>
+</li>
+<li>
+<a href="#Format">Format</a>
+</li>
+<li>
+<a href="#implementationFormat">implementationFormat</a>
+</li>
+<li>
+<a href="#javaFormat">javaFormat</a>
+</li>
+<li>
+<a href="#labelFormat">labelFormat</a>
+</li>
+<li>
+<a href="#language">language</a>
+</li>
+<li>
+<a href="#literal">literal</a>
+</li>
+<li>
+<a href="#multiple">multiple</a>
+</li>
+<li>
+<a href="#parentCategory">parentCategory</a>
+</li>
+<li>
+<a href="#pattern">pattern</a>
+</li>
+<li>
+<a href="#Pattern">Pattern</a>
+</li>
+<li>
+<a href="#priority">priority</a>
+</li>
+<li>
+<a href="#property">property</a>
+</li>
+<li>
+<a href="#required">required</a>
+</li>
+<li>
+<a href="#sortProperty">sortProperty</a>
+</li>
+<li>
+<a href="#SubPattern">SubPattern</a>
+</li>
+<li>
+<a href="#valueFormat">valueFormat</a>
+</li>
+</ul>
+</div>
+<article>
+<section class="ontology" id="argushiigi">
+<h1>Argushiigi</h1>
+<div class="metadata">
+<span class="label-metadata">Metadata</span>
+<table>
+<tr>
+<td class="metadata-term">terms:creator</td>
+<td class="metadata-value">
+<a href="https://github.com/charvolant">https://github.com/charvolant</a>
+</td>
+</tr>
+<tr>
+<td class="metadata-term">terms:license</td>
+<td class="metadata-value">
+<a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a>
+</td>
+</tr>
+</table>
+</div>
+<section class="identifier">argushiigi: <a href="http://data.travellerrpg.com/ontology/argushiigi">http://data.travellerrpg.com/ontology/argushiigi</a>
+</section>
+<section class="labels">
+<span class="label">Argushiigi</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The Argushiigi ontology allows annotations on other classes and properties that allow them to be organised and displayed in a human-readable form.</div>
+<div class="imports">Imports&nbsp;<a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>
+</div>
+<div class="imports">Imports&nbsp;<a href="http://www.w3.org/2004/02/skos/core">http://www.w3.org/2004/02/skos/core</a>
+</div>
+</section>
+<section class="diagrams">
+<div class="diagram">
+<object type="image/svg+xml" data="argushiigi.svg">ontology</object>
+</div>
+</section>
+</section>
+<section class="classes">
+<h2>Classes</h2>
+<section class="class" id="Category">
+<h3>Category</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#Category">http://data.travellerrpg.com/ontology/argushiigi#Category</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Display Category</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A named category things to display.
+
+Display categories can be organised into a hierarchy.</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="Format">
+<h3>Format</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#Format">http://data.travellerrpg.com/ontology/argushiigi#Format</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Format</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A way of formatting a resource textually. 
+
+Formats provide a mechanism for displaying "value-like" resources. A class with a format is expected to be displayed in-line, rather than as a link.
+
+A format contains a sequence of literals and patterns, references to specific properties and ways of formatting them that can be used to extract information and format it.  All patterns in a sequence must match for the format to be used, otherwise the next pattern is tried.</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="Pattern">
+<h3>Pattern</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#Pattern">http://data.travellerrpg.com/ontology/argushiigi#Pattern</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> Pattern</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A formatting pattern.
+
+Patterns are specific sequences of elements that can be combined to produce a textual representation of a resource. Individual properties are followed and rendered as required.</div>
+</section>
+<section class="characteristics"> </section>
+</section>
+<section class="class" id="SubPattern">
+<h3>SubPattern</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#SubPattern">http://data.travellerrpg.com/ontology/argushiigi#SubPattern</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> pattern</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Down the rabbit hole. A pattern derived from a reference to a property. The value of the property is used to format the sub-pattern. 
+
+The format held by this pattern is the format applied to the value of the property.</div>
+</section>
+<section class="characteristics">
+<span class="sub-class">
+<span class="super-label">super-class </span>
+<a href="#Pattern">Pattern</a>
+</span> </section>
+</section>
+</section>
+<section class="properties">
+<h2>Properties</h2>
+<section class="property" id="category">
+<h3>category</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#category">http://data.travellerrpg.com/ontology/argushiigi#category</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> category</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Places an entity into a category. Display categories can be used to annotate classes, properties and individuals. Classes and properties inherit categories from super-entities, using the closest super-entity with the lowest priority.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → category → <a href="#Category">Category</a>
+</span> <span class="annotation-classifier">annotation</span>
+</section>
+</section>
+<section class="property" id="eHex">
+<h3>eHex</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#eHex">http://data.travellerrpg.com/ontology/argushiigi#eHex</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> eHex</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a value should be expressed as Traveller-style eHex.
+
+eHex values are extended hexadecimal, with the following values
+
+decimal ehex
+
+0-9 0-9
+10-17 A-H
+x I (omitted)
+18-22 J-N
+x O (omitted)
+23-33 P-Z
+
+Additional codes are
+
+unknown X
+special Y
+ulitmate Z
+
+</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → eHex → <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a>
+</span> <span class="datatype-classifier">data type</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#implementationFormat">implementationFormat</a>
+</span>
+</section>
+</section>
+<section class="property" id="format">
+<h3>format</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#format">http://data.travellerrpg.com/ontology/argushiigi#format</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> format</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Gives the format a resource or resource of this class uses.
+
+Formats are generally associated with classes or properties. However, a resource may have its own format.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → format → <a href="#Format">Format</a>
+</span> <span class="functional-classifier">functional</span> <span class="annotation-classifier">annotation</span>
+</section>
+</section>
+<section class="property" id="implementationFormat">
+<h3>implementationFormat</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#implementationFormat">http://data.travellerrpg.com/ontology/argushiigi#implementationFormat</a>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A format description specific to a particular (computer) language or system's conventions.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Pattern">Pattern</a> → implementationFormat → <span class="any-label">any</span>
+</span> <span class="datatype-classifier">data type</span>
+</section>
+</section>
+<section class="property" id="javaFormat">
+<h3>javaFormat</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#javaFormat">http://data.travellerrpg.com/ontology/argushiigi#javaFormat</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> java format</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The format to use when displaying this property in Java.
+
+This uses java.text.MessageFormat syntax to define the property, with the value of the property as argument 0, the name of the property as argument 1 and the name of the subject of the statement as argument 2.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → javaFormat → </span> <span class="datatype-classifier">data type</span> <span class="functional-classifier">functional</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#implementationFormat">implementationFormat</a>
+</span>
+</section>
+</section>
+<section class="property" id="labelFormat">
+<h3>labelFormat</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#labelFormat">http://data.travellerrpg.com/ontology/argushiigi#labelFormat</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> label format</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The format to use for a label</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → labelFormat → </span> <span class="annotation-classifier">annotation</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#format">format</a>
+</span>
+</section>
+</section>
+<section class="property" id="language">
+<h3>language</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#language">http://data.travellerrpg.com/ontology/argushiigi#language</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> language</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Associates a format or pattern with a specific language.
+
+If not specified, the format or pattern applies to any language.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Format">Format</a>
+<span class="or-label">or </span>
+<a href="#Pattern">Pattern</a> → language → <a href="http://www.w3.org/2001/XMLSchema#language">xsd:language</a>
+</span> <span class="datatype-classifier">data type</span> <span class="functional-classifier">functional</span>
+</section>
+</section>
+<section class="property" id="literal">
+<h3>literal</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#literal">http://data.travellerrpg.com/ontology/argushiigi#literal</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> literal</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> A literal value to format.
+
+The literal can be any literal value, not just text. If a format is specified then the format will be used to format the literal.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Pattern">Pattern</a> → literal → <span class="any-label">any</span>
+</span> <span class="datatype-classifier">data type</span> <span class="functional-classifier">functional</span>
+</section>
+</section>
+<section class="property" id="multiple">
+<h3>multiple</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#multiple">http://data.travellerrpg.com/ontology/argushiigi#multiple</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> multiple</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that there are multiple statements of this form. If set to true, then a list of statements, separated by commas is generated</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Pattern">Pattern</a> → multiple → <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a>
+</span> <span class="datatype-classifier">data type</span>
+</section>
+</section>
+<section class="property" id="parentCategory">
+<h3>parentCategory</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#parentCategory">http://data.travellerrpg.com/ontology/argushiigi#parentCategory</a>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The parent category of a sub-category.
+
+This property can be used to build embedded hierarchies of categories.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Category">Category</a> → parentCategory → <a href="#Category">Category</a>
+</span> <span class="functional-classifier">functional</span> <span class="transitive-classifier">asymmetric</span>
+</section>
+</section>
+<section class="property" id="pattern">
+<h3>pattern</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#pattern">http://data.travellerrpg.com/ontology/argushiigi#pattern</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> pattern</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The sequence of pattern elements to use when attempting a format. Each element is tried in turn and the format accepted or rejected, based on whether the element is optional or not.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Format">Format</a> → pattern → <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq">rdf:Seq</a>
+</span>
+</section>
+</section>
+<section class="property" id="priority">
+<h3>priority</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#priority">http://data.travellerrpg.com/ontology/argushiigi#priority</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> display priority</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The priority of this item in any list of items to be displayed.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<span class="any-label">any</span> → priority → <a href="http://www.w3.org/2001/XMLSchema#integer">xsd:integer</a>
+</span> <span class="annotation-classifier">annotation</span>
+</section>
+</section>
+<section class="property" id="property">
+<h3>property</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#property">http://data.travellerrpg.com/ontology/argushiigi#property</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> from property</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Gives the property that this pattern draws data from.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Pattern">Pattern</a> → property → <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a>
+</span> <span class="functional-classifier">functional</span>
+</section>
+</section>
+<section class="property" id="required">
+<h3>required</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#required">http://data.travellerrpg.com/ontology/argushiigi#required</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> required</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> Indicates that a pattern element is required.</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Pattern">Pattern</a> → required → <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a>
+</span> <span class="datatype-classifier">data type</span>
+</section>
+</section>
+<section class="property" id="sortProperty">
+<h3>sortProperty</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#sortProperty">http://data.travellerrpg.com/ontology/argushiigi#sortProperty</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> sort property</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The property to use to order  information in a category</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span>
+<a href="#Category">Category</a> → sortProperty → <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">rdf:Property</a>
+</span>
+</section>
+</section>
+<section class="property" id="valueFormat">
+<h3>valueFormat</h3>
+<section class="identifier">
+<a href="http://data.travellerrpg.com/ontology/argushiigi#valueFormat">http://data.travellerrpg.com/ontology/argushiigi#valueFormat</a>
+</section>
+<section class="labels">
+<span class="label">
+<span class="language lang-en">en</span> value format</span>
+</section>
+<section class="descriptions">
+<div class="description">
+<span class="language lang-en">en</span> The format to use for a value</div>
+</section>
+<section class="characteristics">
+<span class="signature">
+<span class="signature-label">signature </span> → valueFormat → </span> <span class="annotation-classifier">annotation</span> <span class="sub-property">
+<span class="super-label">super-property </span>
+<a href="#format">format</a>
+</span>
+</section>
+</section>
+</section>
+</article>
+<div id="footer">
+<div id="left-footer">&nbsp;</div>
+<div id="centre-footer">&nbsp;
+<div id="copyright">
+<a href="http://creativecommons.org/licenses/by/3.0/">http://creativecommons.org/licenses/by/3.0/</a>
+</div>
+</div>
+<div id="right-footer">&nbsp;</div>
+</div>
+</body>
+</html>
