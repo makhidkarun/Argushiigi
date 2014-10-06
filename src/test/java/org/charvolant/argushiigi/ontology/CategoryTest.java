@@ -35,7 +35,7 @@ public class CategoryTest {
 
     this.ontology = ModelFactory.createDefaultModel();
     this.ontology.read(this.getClass().getResource("skos.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("argushiigi.owl").toExternalForm());
+    this.ontology.read(this.getClass().getResource("argushiigi.rdf").toExternalForm());
     reasoner = ReasonerRegistry.getOWLMiniReasoner();
     this.data = ModelFactory.createDefaultModel();
     this.data.read(this.getClass().getResource("argushiigi-test.rdf").toExternalForm());

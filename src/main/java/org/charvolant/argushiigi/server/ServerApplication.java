@@ -204,10 +204,10 @@ public class ServerApplication extends Application {
     this.ontology = ModelFactory.createDefaultModel();
     this.ontology.read(this.getClass().getResource("../ontology/foaf.owl").toExternalForm());
     this.ontology.read(this.getClass().getResource("../ontology/skos.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("../ontology/argushiigi.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("../ontology/rpg.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("../ontology/t5.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("../ontology/t5-characters.owl").toExternalForm());
+    this.ontology.read(this.getClass().getResource("../ontology/argushiigi.rdf").toExternalForm());
+    this.ontology.read(this.getClass().getResource("../ontology/rpg.rdf").toExternalForm());
+    this.ontology.read(this.getClass().getResource("../ontology/t5.rdf").toExternalForm());
+    this.ontology.read(this.getClass().getResource("../ontology/t5-characters.rdf").toExternalForm());
     this.display = ModelFactory.createDefaultModel();
     this.display.read(this.getClass().getResource("../ontology/argushiigi-rpg.rdf").toExternalForm());
     this.display.read(this.getClass().getResource("../ontology/argushiigi-t5.rdf").toExternalForm());
@@ -234,7 +234,7 @@ public class ServerApplication extends Application {
     router.attach("/css", new Directory(this.getContext(), this.getClass().getResource("/META-INF/css/").toExternalForm()));
     router.attach("/query/type", TypeQueryResource.class);
     router.attach("/query/references", ReferenceQueryResource.class);
-    router.attach("/ontology/{ontology}.owl", OntologyResource.class);
+    router.attach("/ontology/{ontology}.rdf", OntologyResource.class);
     router.attachDefault(RendererResource.class);
     return router;
   }

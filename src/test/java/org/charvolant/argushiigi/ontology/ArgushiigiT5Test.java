@@ -45,10 +45,10 @@ public class ArgushiigiT5Test extends JenaTest {
     this.ontology = ModelFactory.createDefaultModel();
     this.ontology.read(this.getClass().getResource("foaf.owl").toExternalForm());
     this.ontology.read(this.getClass().getResource("skos.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("rpg.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("t5.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("t5-characters.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("argushiigi.owl").toExternalForm());
+    this.ontology.read(this.getClass().getResource("rpg.rdf").toExternalForm());
+    this.ontology.read(this.getClass().getResource("t5.rdf").toExternalForm());
+    this.ontology.read(this.getClass().getResource("t5-characters.rdf").toExternalForm());
+    this.ontology.read(this.getClass().getResource("argushiigi.rdf").toExternalForm());
     this.ontology.read(this.getClass().getResource("argushiigi-rpg.rdf").toExternalForm());
     this.ontology.read(this.getClass().getResource("argushiigi-t5.rdf").toExternalForm());
     model = ModelFactory.createDefaultModel();

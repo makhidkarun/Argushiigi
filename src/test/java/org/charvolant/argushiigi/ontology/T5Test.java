@@ -44,8 +44,8 @@ public class T5Test extends JenaTest {
     this.ontology = ModelFactory.createDefaultModel();
     this.ontology.read(this.getClass().getResource("foaf.owl").toExternalForm());
     this.ontology.read(this.getClass().getResource("skos.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("rpg.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("t5.owl").toExternalForm());
+    this.ontology.read(this.getClass().getResource("rpg.rdf").toExternalForm());
+    this.ontology.read(this.getClass().getResource("t5.rdf").toExternalForm());
     reasoner = ReasonerRegistry.getOWLMiniReasoner();
     this.data = ModelFactory.createDefaultModel();
     this.data.read(this.getClass().getResource("examples.ttl").toExternalForm());
@@ -58,7 +58,7 @@ public class T5Test extends JenaTest {
 
   @Test
   public void testOntology1() {
-    OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_RULES_INF, this.ontology);
+    OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM_MICRO_RULE_INF, this.ontology);
 
     this.validityTest(model.validate());
   }

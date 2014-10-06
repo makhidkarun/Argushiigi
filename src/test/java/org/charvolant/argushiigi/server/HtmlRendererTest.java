@@ -50,7 +50,7 @@ public class HtmlRendererTest {
 
     this.ontology = ModelFactory.createDefaultModel();
     this.ontology.read(this.getClass().getResource("../ontology/skos.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("../ontology/argushiigi.owl").toExternalForm());
+    this.ontology.read(this.getClass().getResource("../ontology/argushiigi.rdf").toExternalForm());
     reasoner = ReasonerRegistry.getOWLMiniReasoner();
     this.data = ModelFactory.createDefaultModel();
     this.data.read(this.getClass().getResource("../ontology/argushiigi-test.rdf").toExternalForm());

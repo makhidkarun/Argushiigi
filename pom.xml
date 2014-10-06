@@ -203,24 +203,25 @@
         <artifactId>jena-maven-tools</artifactId>
         <configuration>
           <includes>
-            <include>${basedir}/src/main/ontology/argushiigi.owl</include>
-            <include>${basedir}/src/main/ontology/rpg.owl</include>
+            <include>src/main/ontology/argushiigi.rdf</include>
+            <include>src/main/ontology/rpg.rdf</include>
           </includes>
           <fileOptions>
             <source>
-              <input>default</input>
+              <input>src/main/ontology/argushiigi.rdf</input>
               <output>${project.build.directory}/generated-sources/java</output>
               <package-name>org.charvolant.argushiigi.ontology</package-name>
+              <className>Argushiigi</className>
               <ontology>true</ontology>
               <lang-owl>true</lang-owl>
             </source>
             <source>
-              <input>${basedir}/src/main/ontology/argushiigi.owl</input>
-              <className>Argushiigi</className>
-            </source>
-            <source>
-              <input>${basedir}/src/main/ontology/rpg.owl</input>
+              <input>src/main/ontology/rpg.rdf</input>
+              <output>${project.build.directory}/generated-sources/java</output>
+              <package-name>org.charvolant.argushiigi.ontology</package-name>
               <className>RPG</className>
+              <ontology>true</ontology>
+              <lang-owl>true</lang-owl>
             </source>
           </fileOptions>
         </configuration>
@@ -274,10 +275,10 @@
           <ontologies>
             <directory>src/main/ontology</directory>
             <includes>
-              <include>argushiigi.owl</include>
-              <include>rpg.owl</include>
-              <include>t5.owl</include>
-              <include>t5-characters.owl</include>
+              <include>argushiigi.rdf</include>
+              <include>rpg.rdf</include>
+              <include>t5.rdf</include>
+              <include>t5-characters.rdf</include>
             </includes>
           </ontologies>
         </configuration>

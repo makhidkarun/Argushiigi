@@ -45,8 +45,8 @@ public class TravellerUniverseTest extends JenaTest {
     this.ontology = ModelFactory.createDefaultModel();
     this.ontology.read(this.getClass().getResource("foaf.owl").toExternalForm());
     this.ontology.read(this.getClass().getResource("skos.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("rpg.owl").toExternalForm());
-    this.ontology.read(this.getClass().getResource("t5.owl").toExternalForm());
+    this.ontology.read(this.getClass().getResource("rpg.rdf").toExternalForm());
+    this.ontology.read(this.getClass().getResource("t5.rdf").toExternalForm());
     reasoner = ReasonerRegistry.getOWLMiniReasoner();
     this.data = ModelFactory.createDefaultModel();
     this.data.read(this.getClass().getResource("traveller-universe.rdf").toExternalForm());
@@ -57,7 +57,7 @@ public class TravellerUniverseTest extends JenaTest {
     this.inference = ModelFactory.createInfModel(reasoner, this.ontology, this.data);
   }
 
-  @Test
+  //@Test
   public void testOntology1() {
     OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_LITE_MEM_RULES_INF, this.ontology);
 
